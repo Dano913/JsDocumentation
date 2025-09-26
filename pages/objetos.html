@@ -1,0 +1,35 @@
+<section class="section" id="objetos">
+    <h1>Objetos</h1>
+    <div class="intro-text2">
+        <p>Los objetos son una herramienta fundamental en JavaScript para trabajar con información compleja de forma organizada.</p>
+        <p>Acceder a sus propiedades es una habilidad esencial que te permitirá aprovechar al máximo su potencial.</p>
+    </div>
+    <div class="intro-text">
+        <h2>Estructura compleja de un objeto</h2>
+        <p>Este tipo de estructura será bastante común en nuestro código, anidando objetos y arrays en su interior.</p>
+        <pre><code class="language-javascript">
+            const coche = {
+                color: "Rojo",
+                marca: "Seat",
+                ruedas: 4,
+                puertas: 5, 
+                garantia: {
+                    fechaLimite: "20/12/2024",
+                    precioLimite: 2342,
+                    compania: {
+                        nombre: "segurosThePower",
+                        sucursales: ["Madrid", "Barcelona", "Murcia", "Valencia"]
+                    }
+                }
+            }
+        </code></pre>
+        <p>Imaginemos que con el objeto anterior queremos contar cuantas sucursales tiene la compañía que nos ofreció la garantía o el seguro de nuestro coche, lo haríamos de la siguiente manera:</p>
+        <pre><code class="language-javascript">
+            console.log(coche.garantia.compania.sucursales.length  +  " sucursales tiene la compañía");
+
+            // 4 sucursales tiene la compañía
+        </code></pre>
+        <p>Os recomendamos hacer vuestras propias estructuras con objetos, arrays y cualquier tipo de dato para entrar como acceder a las diferentes propiedades de los mismos, puesto que esto si será algo bastante común (acceder a datos mediante objetos y arrays).</p>
+        <p>Recordad que lo podéis hacer con el punto y los corchetes indicando la clave.</p>
+    </div>
+</section>

@@ -1,0 +1,544 @@
+<section class="section" id="datos">
+    <h1>Tipos de datos</h1>
+    <div class="intro-text2">
+        <p>En JavaScript, los tipos de datos son esenciales para definir y manipular la información. Conocerlos te permite escribir código más preciso y eficiente.</p>
+        <p>Veamos uno a uno qué tipos de datos nos ofrece este lenguaje.</p>
+    </div>
+    <div class="intro-text">
+        <h2>String</h2>
+        <p>Uno de los tipos que más vamos a utilizar, serán las cadenas de texto o strings. Son un grupo de caracteres o palabras, entre comillas (dobles o simples).</p>
+        <p>Se pueden combinar de la forma que queramos siempre y cuando encerremos los strings con el mismo tipo de comillas.</p>     
+        <pre><code class="language-javascript">
+            let texto = "Hola equipo"; 
+
+            let str = 'Esto es otro ejemplo';
+
+            let otro = `Alguien dijo una vez: "Que la Fuerza te acompañe"`;
+        </code></pre> 
+    </div>
+    <div class="intro-text">
+        <h2>Number</h2>
+        <p>Otro tipo bastante intuitivo serán los números.</p>
+        <p>Los valores decimales y los valores enteros serán interpretados de la misma manera como números y se declaran mediante el carácter <code class="language-javascript2 token punctuation">.</code>.</p>     
+        <pre><code class="language-javascript">
+            let numeroPi = 3.14;
+            let edad = 17;
+        </code></pre> 
+    </div>
+    <div class="intro-text">
+        <h2>Boolean</h2>
+        <p>En programación, existe un tipo de dato que identifica los valores binarios <code class="language-javascript2 token number">0</code> y <code class="language-javascript2 token number">1</code>.</p>
+        <p>Una forma más intuitiva y más cercana a los humanos de trabajar con ellos es mediante booleanos. Un valor booleano, solo puede tomar verdadero o falso.</p>
+        <pre><code class="language-javascript">
+            let isActive = true;
+            let isDisabled = false;
+        </code></pre> 
+    </div>
+    <div class="intro-text">
+        <h2>Null</h2>
+        <p>Su valor es un objeto de tipo Null, es decir, su valor es nulo.</p>
+        <pre><code class="language-javascript">
+            let error = null;
+        </code></pre> 
+    </div>
+    <div class="intro-text">
+        <h2>Undefined</h2>
+        <p>Su valor no está definido.</p>
+        <p>Os recomendamos ver el vídeo a continuación para diferenciarlos correctamente con algunos ejemplos.</p>
+        <pre><code class="language-javascript">
+            let notDefined;
+            let defineUndefined = undefined;
+        </code></pre> 
+    </div>
+    <div class="intro-text">
+        <h2>Object</h2>
+        <p>Es una estructura de datos organizada, es decir, podemos agrupar datos en base a un único elemento o entidad.</p>
+        <p>Más adelante veremos como podemos introducir datos dentro de otros prácticamente de manera infinita, un objeto dentro de otro, dentro de otro...</p>
+        <pre><code class="language-javascript">
+            const megarobot = {
+                nombre: "Unidad EVA 01",
+                piloto: "Shinji Ikari",
+                tipo: "Evangelion de producción",
+                núcleo: "S², el alma de Lilith",
+                altura: 40,
+                peso: 60,
+            }
+        </code></pre> 
+    </div>
+    <div class="intro-text">
+        <h2>¿Cómo usar un objeto?</h2>
+        <p>Cuando se declara un objeto la sintaxis es la vista anteriormente, con las <code class="language-javascript2 token punctuation">{ }</code> y con clave: valor en cada propiedad del objeto, sin embargo, ¿cómo puedo acceder a estos valores?</p>
+        <p>Para acceder a los valores de un objeto necesitamos acceder mediante su clave, podemos acceder mediante el <code class="language-javascript2 token punctuation">.</code> o mediante los <code class="language-javascript2 token punctuation">[ ]</code> de la siguiente manera:</p>
+        <pre><code class="language-javascript">
+            let coche = {
+                marca: "SEAT",
+                color: "rojo",
+                puertas: 5,
+                ruedas: 4,
+                ITV: true
+            }
+
+            console.log(coche.color); // rojo
+
+            console.log(coche["color"]); // rojo
+        </code></pre> 
+    </div>
+    <div class="intro-text">
+        <h2>Array</h2>
+        <p>Pese a que son de tipo Object tienen la particularidad de ser una manera de agrupar información sin necesidad de relación.</p>
+        <p>Es decir, podemos agrupar diferentes entidades en una "colección".</p>
+        <pre><code class="language-javascript">
+            let elementos = [1, "Manzana", true, { color: "azul" }, 9.34];
+        </code></pre> 
+    </div>
+    <div class="intro-text">
+        <h2>¿Cómo usar un array?</h2>
+        <p>Como hemos visto un array se declara con los <code class="language-javascript2 token punctuation">[ ]</code> y separando cada elemento que tengamos en el array por comas, pero, ¿cómo usamos esos datos?</p>
+        <p>Los elementos de los arrays son accesibles mediante las posiciones, todo array empieza por la posición <code class="language-javascript2 token number">0</code> y las siguientes posiciones suman de 1 en 1, donde está el primer elemento, si queremos acceder a la primera posición de un array será, por ejemplo:</p>
+        <pre><code class="language-javascript">
+            let frutas = ["pomelo", "pera", "manzana", "naranja", "mandarina"];
+            // posiciones:    0        1        2          3           4
+
+            console.log(frutas[0]);  // pomelo
+
+            console.log(frutas[4]);  // mandarina
+        </code></pre> 
+    </div>
+    <div class="intro-text">
+        <h2>Mezclando tipos de datos</h2>
+        <p>Aunque cada aplicación contendrá varios tipos de datos, es importante tener en cuenta que generalmente realizará operaciones dentro del mismo tipo de datos.</p>
+        <p>Es decir, estaremos realizando operaciones tanto en números como en cadenas, por ejemplo.</p>
+        <p>Por ejemplo, al usar el operador <code class="language-javascript2 token operator">+</code> con números y cadenas juntas, los números se tratarán como una cadena (por lo tanto se concatenarán), pero el orden de los tipos de datos influirá en la concatenación.</p>
+        <p>Por lo tanto, si creamos una variable que realiza la siguiente concatenación, JavaScript interpretará cada elemento a continuación como una cadena:</p>
+        <pre><code class="language-javascript">
+            let concatena = "ThePower" + 5 + 5;
+
+            console.log(concatena); // ThePower55
+        </code></pre> 
+        <p>Sin embargo, si utilizamos números, los dos números se sumarán correctamente antes de que se interpreten como una cadena cuando la ejecución del programa llegue a "Prometeo", por lo que el valor devuelto será la suma de los dos números concatenados con la cadena:</p>
+        <pre><code class="language-javascript">
+            let sumaConcatena = 5 + 3 + "Prometeo";
+
+            //8Prometeo
+        </code></pre> 
+    </div>
+    <div class="intro-text">
+        <h2>Comprobación de tipo</h2>
+        <p>El operador <code class="language-javascript2 token keyword">typeof</code> devuelve los siguientes resultados para estas variables.</p>
+        <pre><code class="language-javascript">
+            let myFun = new Function('5 + 2');
+            let shape = 'round';
+            let size = 1;
+            let food = ["Apple", "Mango", "Orange"];
+            let today = new Date();
+
+            typeof myFun; // "function"
+            typeof shape; // "string"
+            typeof size; // "number"
+            typeof food; // "object"
+            typeof today; // "object"
+            typeof doesntExist; // "undefined"
+
+            typeof true; // "boolean"
+            typeof null; // "object"
+        </code></pre> 
+        <p>Vamos a profundizar en los tipos de datos de una forma más avanzada con todas las posibilidades que nos ofrecen.</p>
+    </div>
+    <div class="intro-text">
+        <h2>Tipos de datos simples (string, number, boolean)</h2>
+        <p>Un tipo de dato simple no lo es porque sea más fácil de aprender o de utilizar, si no por el guardado que supone en nuestra memoria en cuanto a la variable.</p>
+        <p>Como podemos ver en el siguiente ejemplo, cuando una variable con un tipo de dato simple, la añadimos como valor a otra variable, esta nueva variable obtiene el VALOR de la primera y lo convierte en suyo.</p>
+        <p>(Algo que aparentemente parece bastante lógico, pero que veremos cómo cambia con los tipos de datos complejos)</p>
+        <pre><code class="language-javascript">
+            let variable1 = "esto es un valor";
+
+            let variable2 = variable1; // adquiere el VALOR de la variable1
+
+            console.log(variable1 === variable2); // true
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>String</h2>
+        <p>Como ya hemos visto, un String o cadena de texto, es un tipo de dato que siempre irá con comillas, vamos a ver cómo podemos usarlos.</p>
+    </div>
+    <div class="intro-text">
+        <h2>Operador + con Strings</h2>
+        <p>El operador +, como nos podemos imaginar en JavaScript sirve para sumar números, pero si estamos hablando de Strings, este también nos servirá para CONCATENAR textos, herramienta muy útil.</p>
+        <p>Vamos a ver cómo podría concatenar un texto a otro sencillamente en un console.log()</p>
+        <pre><code class="language-javascript">
+            console.log("esto es un texto" + " esto es otro texto");
+        </code></pre>
+        <p>Lo que acabamos de hacer se llama concatenación de textos con el operador +, este tipo de concatenación podemos hacerla con cualquier tipo de comillas, ya que todos serán strings</p>
+        <pre><code class="language-javascript">
+            console.log("esto es un texto" + " esto es otro texto");
+            console.log('esto es un texto' + ` esto es otro texto`);
+            console.log(`esto es un texto` + " esto es otro texto");
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Concatenación con variables</h2>
+        <p>En muchas ocasiones necesitaremos conectar variables útiles en nuestra aplicación con texto que acompañe a esa información, por lo tanto podremos mezclar lo visto anteriormente con variables, por ejemplo:</p>
+        <pre><code class="language-javascript">
+            let age = 19;
+
+            console.log("La edad del usuario es: " + age);
+        </code></pre>
+        <p>En el ejemplo anterior veremos como podemos concatenar la edad del usuario que haya entrado a la aplicación con el texto que hemos decidido escribir nosotros, en este ejemplo es un console.log, pero podrá ser un párrafo de nuestro HTML en el futuro.</p>
+        <p>Además podremos ver un poco el uso real de variables, por supuesto que no quiero poner el 19 en el texto directamente, puesto que según el usuario que entre, la edad va a ser una u otra, pero la caja que guarda ese dato siempre se llamará igual, age, así que con el mismo código siempre podremos hacer lo mismo pero con diferentes valores que vayan variando, de ahí el propio nombre de variable.</p>
+    </div>
+    <div class="intro-text">
+        <h2>Complicación</h2>
+        <p>Esto está guay y es muy útil, pero... ¿que ocurre cuando el texto que queremos concatenar es muy largo? por ejemplo:</p>
+        <pre><code class="language-javascript">
+            let age = 19;
+            let name = "Rock";
+            let cats = 3;
+            let cat1 = "Misi";
+            let cat2 = "Musi";
+            let cat3 = "Lisi";
+
+            console.log("El usuario " + name + " que tiene " + age + " años, tiene " + cats + " gatos, el primero se llama " + cat1 + ", el segundo " + cat2 + " y el tercero " + cat3);
+        </code></pre>
+        <p>El código anterior es bastante confuso y complicado, tanto con comillas dobles como simples nos ocurrirá lo mismo.</p>
+    </div>
+    <div class="intro-text">
+        <h2>Comillas francesas o backticks</h2>
+        <p>Este tipo de comillas nos salvará un poco los platos en este tipo de situaciones, puesto que al utilizarlas podemos interpolar las variables directamente dentro del propio String.</p>
+        <p>Para ello utilizaremos las comillas francesas, y los dolares con llaves para encadenar lo que es el texto con nuestras variables.</p>
+        <p>Es decir, lo que va entre ${ } es JavaScript ejecutado:</p>
+        <pre><code class="language-javascript">
+            console.log(`El usuario ${name} que tiene ${age} años, tiene ${cats} gatos, el primero se llama ${cat1}, el segundo ${cat2} y el tercero ${cat3}`);
+        </code></pre>
+        <p>Igual no veis mucha diferencia pero os invitamos a escribir a mano uno y otro para que veáis cómo ayuda, de esta manera no tenemos que cerrar y abrir todo el rato las comillas y será más sencillo y rápido.</p>
+    </div>
+    <div class="intro-text">
+        <h2>Iterable</h2>
+        <p>Vamos a ver unos cuantos métodos sobre los Strings, pero para ello primero tenemos que saber qué significa iterable.</p>
+        <p>Un elemento iterable en JavaScript significa que ese elemento se puede "recorrer" o "iterar", es decir, que podemos acceder a cada posición que tiene dentro ese elemento</p>
+        <p>Aquí tenemos una frase, es un string, y tiene una longitud que podemos obviar de momento, pero también clasifica cada CARACTER con un número, su posición.</p>
+        <pre><code class="language-javascript">
+            let frase = "esto es una frase cualquiera"
+        </code></pre>
+        <p>Las posiciones en los elementos iterables SIEMPRE empezarán desde la posición 0 e irán sumando de una en una por cada elemento interno que nos vayamos encontrando, por lo tanto la frase anterior irá desde la posición 0 hasta la posición 27 (el último caracter que tiene la frase).</p>
+        <p>Para acceder a las posiciones del elemento podemos hacerlo mediante los corchetes a continuación de la variable e indicando la posición de manera numérica a la que queremos acceder, por ejemplo:</p>
+        <pre><code class="language-javascript">
+            let frase = "esto es una frase cualquiera"
+            // posiciones ->  01234567.....................
+
+            console.log(frase[0]); // e
+            console.log(frase[1]); // s
+            console.log(frase[2]); // t
+            console.log(frase[3]); // o
+        </code></pre>
+        <p>Todos los caracteres contarán como una posición. Ahora que sabemos qué es un elemento iterable vamos a aprovecharnos de que el tipo de dato string es iterable para lo siguiente...</p>
+    </div>
+    <div class="intro-text">
+        <h2>Métodos de string</h2>
+        <p>.length:</p>
+        <p>El método length nos medirá la longitud de un string o array, por dentro lo está iterando.</p>
+        <p>Tenemos que tener en cuenta que como podemos ver a continuación la longitud me dará 9, sin embargo, si contamos las posiciones, como siempre empezamos desde la posición 0 a contar, y por lo tanto llegaremos hasta la posición 8, que será el último caracter, la "n".</p>
+        <p>Es muy importante tener en cuenta que la longitud de un tipo de dato iterable siempre será 1 número mayor que la última posición del mismo.let palabra = "melocotón";</p>
+        <pre><code class="language-javascript">
+            console.log(palabra.length); // 9
+        </code></pre>
+        <p>.toLowerCase()</p>
+        <p>Este método actuará igual que el anterior pero en minúsculaslet palabra = "MELOCOTÓN";</p>
+        <pre><code class="language-javascript">
+            console.log(palabra.toLowerCase()); // melocotón
+        </code></pre>
+        <p>.includes()</p>
+        <p>Este método nos permite comprobar si lo que buscamos se incluye en la lista (array) o en la cadena de texto (string), nos será muy útil por ejemplo para saber si un correo está bien escrito, es decir, saber si un email contiene el símbolo "@".let palabra = "email@email.com";</p>
+        <pre><code class="language-javascript">
+            console.log(palabra.includes("@")); // true
+        </code></pre>
+        <p>.slice()</p>
+        <p>Este método nos permitirá recuperar una parte o trozo de nuestra cadena de texto a nuestro gusto utilizando sus posiciones, por ejemplo:let palabra = "email@email.com";
+        // posiciones  0123456789......</p>
+        <pre><code class="language-javascript">
+            console.log(palabra.slice(2, 6)); // ail@
+            // desde la posición 2 INCLUIDA hasta la posición 6 NO INCLUIDA
+        </code></pre>
+        <p>Algunos métodos tendrán más complejidad que otros, como podemos ver el slice es un poco más complicado, además, si le pasamos un único parámetro obtendremos otro resultado:let palabra = "email@email.com";</p>
+        <pre><code class="language-javascript">
+            // posiciones  0123456789......
+            console.log(palabra.slice(2)); // ail@email.com
+            // desde la posición 2 INCLUIDA hasta el FINAL
+        </code></pre>
+        <p>No hace falta memorizar todos los métodos de Strings, además de que todo lo que hacen los métodos lo podemos hacer nosotros a mano, sin embargo, nos resultarán útiles porque nos ahorrarán tiempo y desarrollo de lógica.</p>
+        <p>Os dejamos una lista con algunos de los métodos de String más comunes con una breve descripción, os recomendamos probar algunos de los que consideréis más útiles o importantes y que con alguno hagáis el ejercicio de intentar desarrollar la misma funcionalidad sin utilizar el método, esto agilizará nuestra capacidad de lógica.</p>
+    </div>
+    <div class="intro-text">
+        <h2>Lista de algunos métodos de String</h2>
+        <pre><code class="language-javascript">
+            // Longitud de la cadena
+            str.length;
+
+            // Encontrar la posición de la primera coincidencia de una cadena
+            str.indexOf("texto");
+
+            // Encontrar la posición de la última coincidencia de una cadena
+            str.lastIndexOf("texto");
+
+            // Extraer una parte de una cadena
+            str.slice(inicio, fin);
+
+            // Reemplazar una parte de una cadena con otra cadena
+            str.replace("cadenaAntigua", "cadenaNueva");
+
+            // Convertir a mayúsculas
+            str.toUpperCase();
+
+            // Convertir a minúsculas
+            str.toLowerCase();
+
+            // Concatenar dos o más cadenas
+            str.concat("cadena1", "cadena2");
+
+            // Eliminar espacios en blanco al principio y al final
+            str.trim();
+
+            // Dividir una cadena en un array de subcadenas
+            str.split("separador");
+
+            // Convertir una cadena en un array de caracteres
+            str.split("");
+
+            // Extraer una parte de una cadena y devolver la parte extraída
+            str.substring(inicio, fin);
+
+            // Convertir una cadena en un array de caracteres Unicode
+            str.split("");
+
+            // Comprueba si una cadena comienza con ciertos caracteres
+            str.startsWith("texto");
+
+            // Comprueba si una cadena termina con ciertos caracteres
+            str.endsWith("texto");
+
+            // Comprueba si una cadena incluye ciertos caracteres
+            str.includes("texto");
+
+            // Devuelve la cadena entre las posiciones especificadas
+            str.substr(inicio, longitud);
+
+            // Devuelve el código Unicode del carácter en una posición específica
+            str.charCodeAt(posición);
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Ejemplo de método "casero"</h2>
+        <pre><code class="language-javascript">
+            let email = "email@email.com";
+
+            console.log(email.includes("@")); // true
+
+            let seIncluye = false;
+
+            for (let i = 0; i < email.length; i++) {
+                let char = email[i];
+
+                if (char === "@") {
+                    seIncluye = true;
+                }
+            }
+
+            console.log(seIncluye); // true
+        </code></pre>
+        <p>En el ejemplo anterior podremos ver cómo para comprobar si el email incluye un caracter de "@" podemos usar el método includes, sin embargo, podemos simular su funcionamiento desarrollando el código nativo sin uso de ningún método, únicamente utilizando el bucle for para acceder a cada posición del array y comprobando en cada caracter si es "@", si ninguno fuese "@", nuestra variable "seIncluye" seguiría siendo false, pero si por el contrario la condición se cumple, la variable se convertirá en true y tendremos el mismo resultado que con el método includes.</p>
+        <p>Esto no significa que sea mejor hacerlo sin métodos, simplemente es un ejemplo para que veáis que los métodos no son mágicos y que el método includes haría algo muy parecido por dentro a lo que hemos desarrollado debajo.</p>
+    </div>
+    <div class="intro-text">
+        <h2>Number</h2>
+        <p>En cuanto a los números no podremos encontrarnos muchos métodos como teníamos en cadenas de texto puesto que NO ES UN TIPO DE DATO ITERABLE (métodos como el includes o el length no funcionarán).</p>
+    </div>
+    <div class="intro-text">
+        <h2>Math</h2>
+        <p>El objeto Math en JavaScript, nos permitirá utilizar un montón de métodos matemáticos, utilizaremos muy pocos, así que os los mostramos pero no hace falta que os aprendáis ninguno de memoria, con que sepáis que existen por el momento y probéis los que más llamativos os parezcan sirve.</p>
+        <p>Os dejamos una lista con algunos:</p>
+        <pre><code class="language-javascript">
+            // Valor absoluto
+            Math.abs(-10);
+
+            // Redondea hacia arriba al entero más cercano
+            Math.ceil(4.3);
+
+            // Trunca hacia abajo al entero más cercano
+            Math.floor(4.7);
+
+            // Retorna el número más grande de una lista de argumentos
+            Math.max(5, 2, 8, 1, 4);
+
+            // Retorna el número más pequeño de una lista de argumentos
+            Math.min(5, 2, 8, 1, 4);
+
+            // Eleva un número a una potencia especificada
+            Math.pow(2, 3);
+
+            // Retorna un número aleatorio entre 0 y 1
+            Math.random();
+
+            // Redondea al entero más cercano
+            Math.round(4.7);
+
+            // Retorna el signo de un número
+            Math.sign(-3);
+
+            // Retorna la raíz cuadrada de un número
+            Math.sqrt(16);
+
+            // Retorna el seno de un ángulo en radianes
+            Math.sin(Math.PI / 2);
+
+            // Retorna el coseno de un ángulo en radianes
+            Math.cos(Math.PI);
+
+            // Retorna la tangente de un ángulo en radianes
+            Math.tan(Math.PI / 4);
+
+            // Retorna el arco seno de un número en radianes
+            Math.asin(0.5);
+
+            // Retorna el arco coseno de un número en radianes
+            Math.acos(0.5);
+
+            // Retorna el arco tangente de un número en radianes
+            Math.atan(1);
+
+            // Retorna el logaritmo natural (base e) de un número
+            Math.log(1);
+
+            // Retorna e elevado a la potencia de un número
+            Math.exp(1);
+
+            // Valor de Pi (π)
+            Math.PI;
+
+            // Valor de la base del logaritmo natural (e)
+            Math.E;
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Problemas comunes con números</h2>
+        <p>El problema más general con números es cuando pensamos que estamos trabajando con números pero no es así, es decir, nos estamos equivocando de tipo de dato y estamos utilizando un String sin quererlo.</p>
+    </div>
+    <div class="intro-text">
+        <h2>NaN</h2>
+        <p>En casos como este no nos darán errores las cuentas aritméticas, sin embargo nos arrojará un resultado llamado NaN (Not a Number).</p>
+        <pre><code class="language-javascript">
+            const numero1 = 9;
+            const numero2 = "Prometeo";
+
+            console.log(numero1 / numero2); // NaN
+            // NO puedo dividir un número con una palabra!!!
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Convertir un String a Number</h2>
+        <p>Cuando tenemos un String con un número dentro y necesitamos que el tipo de dato sea Number, podremos convertirlo.</p>
+        <p>Para ello, hay varias maneras, os ponemos un par de ejemplos:</p>
+        <pre><code class="language-javascript">
+            let noNumero = "92";
+
+            let numero = parseInt(noNumero);
+            let numero2 = Number(noNumero);
+
+            console.log(noNumero); // "92" String
+            console.log(numero);   // 92 Number
+            console.log(numero2);  // 92 Number
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Boolean</h2>
+        <p>Como ya hemos visto los valores booleanos son los más simples, sólo pueden tener el valor true o el valor false, y aunque sean muy sencillos nos servirán para muchas cosas.</p>
+        <p>Os ponemos un ejemplo de uso un poco más realista con variables de tipo Boolean.</p>
+        <p>Tenemos un array de alumn@s, cada alumn@ es un objeto que tendrá dos propiedades: "name" y "approved".</p>
+        <pre><code class="language-javascript">
+            const alumns = [
+                {
+                    name: "Paula",
+                    approved: true
+                },
+                {
+                    name: "Alejandro",
+                    approved: false
+                },
+                {
+                    name: "David",
+                    approved: true
+                },
+                {
+                    name: "Rocío",
+                    approved: true
+                }
+            ];
+        </code></pre>
+        <p>Queremos saber si todos nuestros alumnos están aprobados, así que nos apoyaremos en una variable booleana, puesto que sólo hay dos posibilidades, que todos estén aprobados o que no lo estén.</p>
+        <p>La variable la podemos iniciar en true o en false, como queramos, pero el código tendrá que ir en consecuencia a esto, en nuestro caso, hemos optado por iniciar la variable con el valor true, es decir por defecto estamos interpretando que TODOS están aprobados.</p>
+        <pre><code class="language-javascript">
+            let allApproved = true;
+
+            for (let i = 0; i < alumns.length; i++) {
+                if (alumns[i].approved !== true) {
+                    allApproved = false;
+                }
+            }
+
+            console.log(allApproved);
+        </code></pre>
+        <p>En el ejemplo anterior hemos recorrido con un bucle el array de alumns para acceder a cada uno de los objetos para poder ver su nombre y si están aprobados o no, una vez accedido a cada uno de los elementos del array comprobamos si alguno tiene su propiedad approved en false (contrario de true), lo que significará que NO todos están aprobados, y por lo tanto cambiaremos el valor de la variable.</p>
+        <p>Podéis consultar esto una vez hayáis visto los bucles, no os preocupéis.</p>
+    </div>
+    <div class="intro-text">
+        <h2>Tipos de datos complejos (object y "array")</h2>
+        <p>La gran particularidad que podemos distinguir de los tipos de datos complejos es cómo estos se guardan en la memoria de nuestra ejecución del programa.</p>
+        <p>Su manera de guardarse no es como la de los tipos de datos simples, con los complejos se guarda un ESPACIO de memoria que tiene una referencia, imaginémonos que esa referencia es algo así... "43o243oit4390t34yt93" y será el espacio que ocupará, por lo tanto vamos a ver lo que esto implica.</p>
+        <p>Esto va a seguir teniendo un comportamiento aparentemente normal, pero realmente no está pasando lo que creemos que está pasando, vamos a ver la otra cara de la moneda.</p>
+        <pre><code class="language-javascript">
+            let variable1 = [1, 2];
+
+            let variable2 = variable1; // adquiere la REFERENCIA EN MEMORIA de la variable1
+
+            console.log(variable1 === variable2); // true
+        </code></pre>
+        <p>Aquí la otra cara de la moneda: de repente algo tan intuitivo y aparentemente simple no encaja, podemos ver cómo son exactamente iguales las variables pero la respuesta de nuestro console.log comparándolas será false, y no, no es por utilizar triple igual en vez de doble igual, si no por lo que hemos comentado de las referencias de memoria.</p>
+        <pre><code class="language-javascript">
+            let variable1 = [1, 2];
+
+            let variable2 = [1, 2];
+
+            console.log(variable1 === variable2); // false
+        </code></pre>
+        <p>Si nos imaginamos las referencias de memoria como vimos antes, entenderemos de una mejor manera por qué esa comprobación da false, aunque nosotros estemos viendo esto: [1, 2], realmente el valor de la variable por dentro es una dirección de memoria, y al crear otro array nuevo, se crea un nuevo espacio en memoria con una nueva dirección de memoria, y por lo tanto aunque visualmente son iguales, por dentro su valor dirección será distinta y por lo tanto no serán iguales.</p>
+        <pre><code class="language-javascript">
+            let variable1 = "9fh2390fh32f92fw";
+
+            let variable2 = "923fj02398h40f93";
+
+            console.log(variable1 === variable2); // false
+        </code></pre>
+        <p>Volviendo al ejemplo de antes... entonces, ¿aquí que está pasando?</p>
+        <p>Pues bien, lo que sucede en este ejemplo es que variable2, tiene la MISMA dirección de memoria que variable1.</p>
+        <p>Aparentemente esto no provoca nada extraño, pero... vamos a ver una cosa muy simple para que veáis bien lo que esto implica.</p>
+        <pre><code class="language-javascript">
+            let variable1 = [1, 2];
+
+            let variable2 = variable1; // adquiere la REFERENCIA EN MEMORIA de la variable1
+
+            console.log(variable1 === variable2); // true
+        </code></pre>
+        <p>Como podemos comprobar en el siguiente ejemplo, con el método de arrays .pop(), que ya veremos más adelante, podemos eliminar el último elemento de un array, y lo estamos utilizando en nuestra variable2, sin embargo, cuando luego comprobamos los valores de las dos variables, nos damos cuenta de que este .pop() ha afectado a AMBAS variables.</p>
+        <pre><code class="language-javascript">
+            let variable1 = [1, 2];
+
+            let variable2 = variable1; // adquiere la REFERENCIA EN MEMORIA de la variable1
+
+            variable2.pop(); // elimino el último elemento de un array
+
+            console.log(variable1); // [1]
+
+            console.log(variable2); // [1]
+        </code></pre>
+        <p>Esto no es por una funcionalidad extraña del método .pop(), si no porque la variable2 y la variable1 son EXACTAMENTE la misma, puesto que hemos copiado la dirección de memoria de la variable1 en la variable2.</p>
+        <p>Esto será importante que lo entendamos, aunque es un poco avanzado, así que hasta que no nos ocurran errores y estemos 5 días intentando resolver un problema generado por esto, no lo aprenderemos realmente.</p>
+    </div>
+</section>

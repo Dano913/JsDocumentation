@@ -1,0 +1,351 @@
+
+<section class="section" id="ejercicios">
+    <h1>Ejercicios básicos y avanzados</h1>
+    <div class="intro-text2">
+        <p>Estos ejercicios son obligatorios y forman parte del Proyecto 2: JavaScript Katas. Tenéis que organizar tanto este bloque como el siguiente de ejercicios para entregarlos en la siguiente unidad formativa.</p>
+    </div>
+    <div class="intro-text ej1">
+        <h2>Ejercicio 1</h2>
+        <strong><p>1. Define tu superhéroe favorito:</p></strong>
+        <p>Crea una variable llamada miSuperheroeFavorito y asigna el valor "Hulk".</p>
+        <strong><p>2. Define un número:</p></strong>
+        <p>Crea una variable llamada numeroFavorito y asigna el valor 50.</p>
+        <strong><p>3. Define las dimensiones:</p></strong>
+        <p>Crea una variable llamada altura y asigna el valor 5.</p>
+        <p>Crea una variable llamada longitud y asigna el valor 10.</p>
+        <strong><p>4. Calcula la suma:</p></strong>
+        <p>Crea una variable llamada suma y asigna el valor de altura + longitud.</p>
+        <strong><p>5. Imprime los resultados:</p></strong>
+        <p>Muestra todas las variables por consola.</p>
+        <h3>Solución</h3>
+        <div id="resultado" class="solucion"></div>
+        <script>
+            let miSuperheroeFavorito = "Hulk";
+            let numeroFavorito = 50;
+            let altura = 5;
+            let longitud = 10;
+            let suma = altura + longitud;
+
+            document.getElementById("resultado").innerText = 
+            `Mi superhéroe favorito es: ${miSuperheroeFavorito}
+            Mi número favorito es: ${numeroFavorito}
+            Mi altura es: ${altura}
+            Mi longitud es: ${longitud}
+            La suma de altura y longitud es: ${suma}`;
+
+            console.log({ miSuperheroeFavorito, numeroFavorito, altura, longitud, suma });
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 2</h2>
+        <strong><p>1. Luke Skywalker cumple años:</p></strong>
+        <p>Modifica el siguiente código Javascript para actualizar la edad de Luker SkyWalker a 25 años</p>
+        <h3>Solución</h3>
+        <div id="jedi" class="solucion"></div>
+        <script>
+            const jedi = {nombre: "Luke Skywalker", edad: 19};
+            console.log("El jedi se llama " + jedi.nombre + " y tiene " + jedi.edad + " años.")
+            document.getElementById("jedi").innerText = "Nombre: " + jedi.nombre + "\nEdad: " + jedi.edad;
+
+            jedi.edad = 25;
+            console.log("El jedi se llama " + jedi.nombre + " y tiene " + jedi.edad + " años.")
+            document.getElementById("jedi").innerText = "Nombre: " + jedi.nombre + "\nEdad: " + jedi.edad;
+        </script>
+        <strong><p>2. Presentacion al estilo Leia Organa</p></strong>
+        <ul class="lista-estilizada">
+            <li>Crea tres variables con la siguiente información: nombre:"Leia", apellido:"Organa", edad:20.</li>
+            <li>Muestra un mensaje por consola que siga la siguiente estructura: "Soy Leia Organa, tengo 20 años y soy una princesa de Alderaan."</li>
+            <li>Utiliza la concatenación para ello</li>
+        </ul>
+        <h3>Solución</h3>
+        <div id="personaje" class="solucion"></div>
+        <script>
+            let nombre = "Leia";
+            let apellido = "Organa";
+            let edad = 20;
+            
+            console.log("Soy " + nombre + " " + apellido + ", tengo " + edad + " años y soy una princesa de Alderaan.")
+            document.getElementById("personaje").innerText = "Soy " + nombre + " " + apellido + ", tengo " + edad + " años y soy una princesa de Alderaan.";
+        </script>
+        <strong><p>3. Calculando el coste total de sables de luz</p></strong>
+        <ul class="lista-estilizada">
+            <li>Obtén el precio total de dos sables de luz: "Shoto de Yoda" y "sable de Darth Vader".</li>
+            <li>Imprime el resultado por consola utilizando console.log</li>
+        </ul>
+        <h3>Solución</h3>
+        <div id="precio" class="solucion"></div>
+        <script>
+            const sable1 = {nombre:"Shoto de Yoda", precio: 1500};
+            const sable2 = {nombre:"Sable de Darth Vader", precio: 2000};
+            const total = sable1.precio + sable2.precio
+            console.log("El precio total de ambos sables es " + total);
+            document.getElementById("precio").innerText = "El precio total de ambos sables es " + total;
+        </script>
+        <strong><p>4. Actualizando el precio final de las naves</p></strong>
+        <ul class="lista-estilizada">
+            <li>Modifica el valor de la variable global precioBaseGlobal a 25000 créditos.</li>
+            <li>Actualiza el precio final (precioFinal) de dos naves ("Ala-X" y "Halcón Milenario") sumando el valor de precioBaseGlobal a su precio base (precioBase).</li>
+        </ul>
+        <h3>Solución</h3>
+        <div id="naves1" class="solucion"></div>
+        <script>
+            let precioBaseGlobal = 10000;
+            const nave1 = {nombre: "Ala-X", precioBase: 50000, precioFinal:60000};
+            const nave2 = {nombre: "Halcón Milenario", precioBase: 70000, precioFinal:80000};
+            
+            precioBaseGlobal = 25000;
+            nave1.precioFinal = nave1.precioFinal + precioBaseGlobal
+            nave2.precioFinal = nave2.precioFinal + precioBaseGlobal
+            console.log("Con la subida del precio Base Global a " + precioBaseGlobal + ", el precio final del " + nave1.nombre + " se quedaría en " + nave1.precioFinal + " créditos" + " y el del " + nave2.nombre + " en " + nave2.precioFinal + " créditos.");
+
+            document.getElementById("naves1").innerText = "Con la subida del precio Base Global a " + precioBaseGlobal + ", el precio final del " + nave1.nombre + " se quedaría en " + nave1.precioFinal + " créditos" + " y el del " + nave2.nombre + " en " + nave2.precioFinal + " créditos.";
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 3</h2>
+        <p>3.1 Multiplica 10 por 5 y muestra el resultado mediante console.</p>
+        <h3>Solución</h3>
+        <div id="multi1" class="solucion"></div>
+        <script>
+            console.log("10 x 5 = " + 10 * 5)
+            document.getElementById("multi1").innerText = "10 x 5 = " + 10 * 5;
+        </script>
+        <p>3.2 Divide 10 por 2 y muestra el resultado mediante console.</p>
+        <h3>Solución</h3>
+        <div id="div1" class="solucion"></div>
+        <script>
+            console.log("10 / 5 = " + 10 / 5)
+            document.getElementById("div1").innerText = "10 / 5 = " + 10 / 5;
+        </script>
+        <p>3.3 Divide 15 por 9 y muestra el resto mediante console.</p>
+        <h3>Solución</h3>
+        <div id="res1" class="solucion"></div>
+        <script>
+            console.log("El resto de 15 / 9 es = " + 15 % 9)
+            document.getElementById("res1").innerText = "El resto de 15 / 9 es = " + 15 % 9;
+        </script>
+        <p>3.4 Usa el operador correcto de asignación que resultará en o = 15, teniendo dos variables p = 10 y j= 5.</p>
+        <h3>Solución</h3>
+        <div id="suma1" class="solucion"></div>
+        <script>
+            let p = 10;
+            let j = 5;
+            let suma1 = p + j;
+            console.log("p + j = " + suma1)
+            document.getElementById("suma1").innerText = "p  + j = " + suma1;
+        </script>
+        <p>3.5 Usa el correcto operador de asignación que resultará en i = 50, teniendo dos variables c = 10 y m = 5.</p>
+        <h3>Solución</h3>
+        <div id="multi2" class="solucion"></div>
+        <script>
+            let c = 10;
+            let m = 5;
+            let multi2 = c * m;
+            console.log("c x m = " + multi2);
+            document.getElementById("multi2").innerText = "c x m = " + multi2;
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 4</h2>
+        <p>Dado el siguiente array</p>
+        <pre><code class="language-javascript">
+            const aldeanos = ["Fibrilio", "Narciso", "Vacarena", "Tendo", "Nendo"];
+        </code></pre>
+        <p>4.1 Saca a "Tendo" por consola atacando su posición.</p>
+        <div id="ald1" class="solucion"></div>
+        <script>
+            const aldeanos = ["Fibrilio", "Narciso", "Vacarena", "Tendo", "Nendo"];
+            console.log(aldeanos[3]);
+            document.getElementById("ald1").innerText = aldeanos[3];
+        </script>
+        <p>4.2 Coloca en el último lugar de este array a "Cervasio".</p>
+        <div id="ald2" class="solucion"></div>
+        <script>
+            aldeanos.push("Cervasio")
+            console.log(aldeanos);
+            document.getElementById("ald2").innerText = aldeanos.join(", ");
+        </script>
+        <p>4.3 Cambia el primer elemento de este array por "Bambina".</p>
+        <div id="ald3" class="solucion"></div>
+        <script>
+            aldeanos[0] = "Bambina";
+            console.log(aldeanos);
+            document.getElementById("ald3").innerText = aldeanos.join(", ");
+        </script>
+        <p>4.4 Dale la vuelta a este array.</p>
+        <div id="ald4" class="solucion"></div>
+        <script>
+            aldeanos.reverse();
+            console.log(aldeanos);
+            document.getElementById("ald4").innerText = aldeanos.join(", ");
+        </script>
+        <p>4.5 Cambia a "Narciso" por "Canela" haciendo uso de un método de array.</p>
+        <div id="ald5" class="solucion"></div>
+        <script>
+            aldeanos.splice(4, 1, "Canela");
+            console.log(aldeanos);
+            document.getElementById("ald5").innerText = aldeanos.join(", ");
+        </script>
+        <p>4.6 Imprime por consola el último elemento de este array sin atacar a la posición explicitamente</p>
+        <div id="ald6" class="solucion"></div>
+        <script>
+            console.log(aldeanos[aldeanos.length - 1]);
+            const last = aldeanos[aldeanos.length - 1];
+            document.getElementById("ald6").innerText = last;
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 5</h2>
+        <p>En base a este código, cambia todos los */COMPLETAR /* por la condición correspondiente para que se lancen todos los console.log correctamente.</p>
+        <p>Tienes como referencia el ejemplo del primer if.</p>
+        <pre><code class="language-javascript">
+            const number1 = 10;
+            const number2 = 20;
+            const number3 = 2;
+
+            // ejemplo
+            if(number1 === 10){
+                console.log('number1 es estrictamente igual a 10')
+            }
+
+            if (/* COMPLETAR */) {
+            console.log("number2 dividido entre number1 es igual a 2");
+            }
+
+            if (/* COMPLETAR */) {
+            console.log("number1 es estrictamente distinto a number2");
+            }
+
+            if (/* COMPLETAR */) {
+            console.log("number3 es distinto number1");
+            }
+
+            if (/* COMPLETAR */) {
+            console.log("number3 por 5 es igual a number1");
+            }
+
+            if (/* COMPLETAR */) {
+            console.log("number3 por 5 es igual a number1 Y number1 por 2 es igual a number2");
+            }
+
+            if (/* COMPLETAR */) {
+            console.log("number2 entre 2 es igual a number1 O number1 entre 5 es igual a number3");
+            }
+        </code></pre>
+        <ul class="lista-estilizada solucion">
+            <li id="cond1"></li>
+            <li id="cond2"></li>
+            <li id="cond3"></li>
+            <li id="cond4"></li>
+            <li id="cond5"></li>
+            <li id="cond6"></li>
+            <li id="cond7"></li>
+        </ul>
+        <script>
+            const number1 = 10;
+            const number2 = 20;
+            const number3 = 2;
+
+            if(number1 === 10){
+                console.log('number1 es estrictamente igual a 10')
+                document.getElementById("cond1").innerText = "number1 es estrictamente igual a 10";
+            };
+            if (number2 / number1 === 2) {
+            console.log("number2 dividido entre number1 es igual a 2");
+            document.getElementById("cond2").innerText = "number2 dividido entre number1 es igual a 2";
+            }
+            if (number1 !== number2) {
+            console.log("number1 es estrictamente distinto a number2");
+            document.getElementById("cond3").innerText = "number1 es estrictamente distinto a number2";
+            }
+            if (number3 != number1) {
+            console.log("number3 es distinto a number1");
+            document.getElementById("cond4").innerText = "number3 es distinto a number1";
+            }
+            if (number3 * 5 === number1) {
+            console.log("number3 por 5 es igual a number1");
+            document.getElementById("cond5").innerText = "number3 por 5 es igual a number1";
+            }
+            if (number3 * 5 === number1 && number1 * 2 === number2) {
+            console.log("number3 por 5 es igual a number1 Y number1 por 2 es igual a number2");
+            document.getElementById("cond6").innerText = "number3 por 5 es igual a number1 Y number1 por 2 es igual a number2";
+            }
+            if (number2 / 2 === number1 || number1 / 5 === number3) {
+            console.log("number2 entre 2 es igual a number1 o number1 entre 5 es igual a number3");
+            document.getElementById("cond7").innerText = "number2 entre 2 es igual a number1 o number1 entre 5 es igual a number3";
+            }
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 6</h2>
+        <p>1.1 Crea un bucle for que vaya desde 0 a 9 y muestra el valor de i por consola.</p>
+        <div id="ej1" class="solucion"></div>
+
+        <script>
+        const ej1 = document.getElementById("ej1");
+        for (let i = 0; i < 10; i++) {
+            console.log(i);
+            ej1.innerHTML += i + "<br>";
+        }
+        </script>
+
+        <p>1.2 Crea un bucle for que vaya desde 0 a 9 y muestra el valor de i por consola solo cuando el resto del número dividido entre 2 sea 0.</p>
+        <div id="ej2" class="solucion"></div>
+
+        <script>
+        const ej2 = document.getElementById("ej2");
+        for (let i = 0; i < 10; i++) {
+            if (i % 2 === 0) {
+            console.log(i);
+            ej2.innerHTML += i + "<br>";
+            }
+        }
+        </script>
+
+        <p>1.3 Crea un bucle para conseguir dormir contando ovejas.  
+        Este bucle tiene que dar 10 vueltas, es decir, 10 console.log.  
+        Muestra por consola un mensaje diciendo 'Intentando dormir 🐑' en cada vuelta del bucle y cambia el mensaje en la décima vuelta a '¡Dormido!'.</p>
+        <div id="ej3" class="solucion"></div>
+
+        <script>
+        const ej3 = document.getElementById("ej3");
+        for (let i = 1; i <= 10; i++) {
+            if (i < 10) {
+            console.log("Intentando dormir 🐑");
+            ej3.innerHTML += "Intentando dormir 🐑<br>";
+            } else {
+            console.log("¡Dormido!");
+            ej3.innerHTML += "¡Dormido!";
+            }
+        }
+        </script>
+
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 7</h2>
+        <p>Completa esta función para que, al recibir dos números por argumento, te devuelva por consola el más alto de los dos.</p>
+        <pre><code class="language-javascript">
+            function greaterNumber(numberOne, numberTwo) {
+                // Completar código
+            }
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="number" class="solucion"></div>
+        <script>
+            const numberOne = 4;
+            const numberTwo = 17;
+            function greaterNumber(numberOne, numberTwo) {
+                if (numberOne > numberTwo) {
+                    console.log(numberOne);
+                    document.getElementById("number").innerText = "numberOne es mayor que numberTwo";
+                } else {
+                    console.log(numberTwo);
+                    document.getElementById("number").innerText = "numberTwo es mayor que numberOne";
+                }
+            }
+            
+            greaterNumber(numberOne, numberTwo);
+        </script>
+    </div>
+</section>
+<script src="./js/main.js"></script>

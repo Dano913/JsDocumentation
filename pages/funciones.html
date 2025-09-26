@@ -1,0 +1,230 @@
+<section class="section" id="funciones">
+    <h1>Funciones</h1>
+    <div class="intro-text2">
+        <p>Las funciones son una parte fundamental de JavaScript y de cualquier otro lenguaje de programación.</p>
+        <p>Son un conjunto de instrucciones que se pueden ejecutar repetidamente en diferentes partes de un programa.</p>
+        <p>Las funciones tienen varias ventajas:</p>
+        <ul class="lista-estilizada">
+            <li>Permiten dividir un programa en partes más manejables y organizadas.</li>
+            <li>Ayudan a reutilizar código evitando tener que escribir el mismo código varias veces.</li>
+            <li>Facilitan el depurado y el mantenimiento de un programa, ya que permite localizar y corregir errores en una sola parte del código en lugar de tener que buscarlos en todo el programa.</li>
+        </ul>
+    </div>
+    <div class="intro-text">
+        <h2>Sintaxis</h2>
+        <p>La sintaxis de una función en JavaScript es la siguiente:</p>
+        <p>Los parámetros son variables que se pasan a la función y que se pueden utilizar dentro de ella.</p>
+        <p>Una función puede tener cero o más parámetros.</p>
+        <pre><code class="language-javascript">
+            function nombreDeLaFuncion(parametros) {
+                // código a ejecutar
+            } 
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Declaración y llamada</h2>
+        <p>Para llamar a una función, se utiliza su nombre seguido de paréntesis y, en algunos casos, de argumentos entre ellos.</p>
+        <p>Los argumentos son valores que se pasan a la función y que se asignan a los parámetros de la función.</p>
+        <p>Aquí tienes un ejemplo de una función que en la declaración espera recibir dos parámetros de entrada y en la llamada envía dos números, el 3 y el 4, los recibimos, los usamos y sumamos ambos números para devolver la respuesta de la suma:</p>
+        <pre><code class="language-javascript">
+            function suma(a, b) {
+                return a + b;
+            }
+
+            let resultado = suma(3, 4); // 7
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Declaración de funciones</h2>
+        <p>Para declarar una función tenemos que usar la palabra reservada function + el nombre de la misma + unos paréntesis, que es donde nos llegarán nuestros parámetros ( ) y finalmente las llaves { } en las cuales realizaremos nuestras operaciones.</p>
+        <pre><code class="language-javascript">
+            function pokemonAttack() {
+                console.log("¡Pikachu impact Trueno!");
+            }
+        </code></pre>
+        <p>La palabra clave function va primero, luego va el nombre de función, luego una lista de parámetros entre paréntesis ( ) y finalmente el código de la función, también llamado “el cuerpo de la función” , entre llaves.</p>
+        <p>Si os fijáis en esta función por parámetro entran dos elementos o parámetros que son name y attack, de este modo nuestra función sacará por consola los parámetros introducidos.</p>
+        <pre><code class="language-javascript">
+            function pokemonAttackParams(name, attack) {
+                console.log(`¡${name} ${attack}!`);
+            }
+        </code></pre>
+        <p>Una vez tenemos nuestras funciones declaradas tenemos que invocarlas o ejecutarlas para que realicen la funcionalidad programada.</p>
+        <pre><code class="language-javascript">
+            pokemonAttack(); // ¡Pikachu impact Trueno!
+
+            pokemonAttackParams("Charmander", "Ascuas"); // ¡Charmander Ascuas!
+
+            pokemonAttackParams("Squirtel", "Pistola de agua"); // ¡Squirtel Pistola de agua!
+        </code></pre>
+        <p>Imaginar querer un ataque por defecto cuando no le pasemos el argumento attack a nuestra función.</p>
+        <p>Podemos especificar un valor llamado “default” (predeterminado) en la declaración de función usando =</p>
+        <p>Ahora, si no existe el parámetro attack, obtendrá el valor 'Ataque arena'.</p>
+        <pre><code class="language-javascript">
+            function pokemonAttackParams(name, attack = "Ataque arena") {
+                console.log(`¡${name} ${attack}!`);
+            }
+
+            console.log(pokemonAttackParams("Onix")); // ¡Onix Ataque arena!
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Retorno en las funciones</h2>
+        <p>Hasta ahora nuestras funciones simplemente manipulaban datos y los mostraban por consola.</p>
+        <p>¿Qué sucede si queremos manipular o transformar un dato y devolver un valor nuevo? Tenemos que retornar el elemento manipulado o transformado y lo hacemos a través del return.</p>
+        <p>Hay que tener muy en cuenta que nunca debemos añadir código después de nuestro return puesto que nunca se ejecutará.</p>
+        <pre><code class="language-javascript">
+            function suma (numA, numB) {
+                return numA + numB;
+            }
+
+            let result = suma(5, 20);
+
+            console.log(result); // 25
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>¿Y si no quiero retornar nada pero quiero retornar para salir de la función?</h2>
+        <p>Es posible utilizar return sin ningún valor.</p>
+        <p>Eso hace que la función salga o termine inmediatamente.</p>
+        <p>Si la condición da false, entonces showMovie no mostrará la película.</p>
+        <pre><code class="language-javascript">
+            function showMovie(age) {
+                if (age <= 18) {
+                    return;
+                }
+
+                console.log("Mostrándote la película");
+            }
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Alternativa a parámetros indeterminados</h2>
+        <p>A veces tiene sentido asignar valores predeterminados, no en la declaración de función ,sino en un estadio posterior.</p>
+        <p>Podemos verificar si un parámetro es pasado durante la ejecución de la función comparándolo con undefined.</p>
+        <pre><code class="language-javascript">
+            function showPokemon(name) {
+                if (name === undefined) {
+                    name = "Magikarp";
+                }
+
+                console.log(name); // Magikarp
+            }
+
+            showPokemon();
+        </code></pre>
+        <p>O podemos usar el operador ||</p>
+        <pre><code class="language-javascript">
+            function showPokemon(name) {
+                // si name es undefined o false, la estable a "Magikarp"
+                name = name || "Magikarp"
+            }
+
+            showPokemon();
+        </code></pre>
+        <p>Navegadores e interpretes de JavaScript modernos soportan el operador nullish coalescing , que es representado con ??</p>
+        <pre><code class="language-javascript">
+            function showCount (count) {
+                // si count es undefined o null, muestra "unknown"
+                console.log(count ?? "unknownd");
+            }
+
+            showCount(0) // 0
+            showCount(null) // unknown
+            showCount() // unknown
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Nombrado de Funciones</h2>
+        <p>Las funciones son acciones.</p>
+        <p>Entonces su nombre suele ser un verbo.</p>
+        <p>Debe ser breve, lo más preciso posible y describir lo que hace la función, para que alguien que lea el código obtenga una indicación de lo que hace la función.</p>
+        <pre><code class="language-javascript">
+            showMessage()         // muestra un mensaje
+            getAge()             // devuelve la edad (la obtiene de alguna manera)
+            calcSum()           // calcula una suma y devuelve el resultado
+            createForm()       // crea un formulario (y usualmente lo devuelve)
+            checkPermission() // revisa permisos, y devuelve true/false
+        </code></pre>
+    </div> 
+    <div class="intro-text">
+        <h2>Arrow functions</h2>
+        <p>Es una manera de generar funciones más compacta y además nos ayudará a entender mejor los problemas del scope.</p>
+        <p>Al ver la sintaxis, ya no hace falta escribir la palabra function, lo sustituimos por la flecha => .</p>
+        <pre><code  class="language-javascript">
+            const getName = () => {
+                console.log("Devolviendo nombre");
+                return "Carlos"
+            }
+
+            const name = getName();
+
+            console.log(name);
+
+            // Ejemplo inline (omitiendo el return)
+            const getSurname = () => "Martín";
+
+            const surname = getSurname();
+
+            console.log(surname);
+        </code></pre>
+        <p>En el siguiente ejemplo, la función nos devuelve un mensaje 'hola mundo' sin la necesidad de tener un return.</p>
+        <p>Si no tenemos un bloque de ejecución, el retorno estará implicito.</p>
+        <pre><code class="language-javascript">
+            const helloWorld = () => "hola mundo";
+            const hello = helloWorld();
+
+            console.log(hello);
+        </code></pre>
+        <p>En caso de querer o tener que usar un return.</p>
+        <pre><code class="language-javascript">
+            const helloWorld = () => {
+                return "hola mundo"
+            }
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Argumentos en las arrow functions</h2>
+        <p>Como ya sabéis, en las funciones pueden entrar parámetros que indiquen los valores con los que vamos a trabajar en el caso de las arrow functions.</p>
+        <p>Si solo tenemos un parámetro no hace falta indicar los paréntesis.</p>
+        <pre><code class="language-javascript">
+            const multiTwo = x => x * 2;
+
+            const result = multiTwo(3);
+        </code></pre>
+        <p>En el resto de casos sí que necesitaremos especificar los paréntesis.</p>
+        <pre><code class="language-javascript">
+            const multi = (a, b) => a * b;
+
+            const multiplicacion = multi(2, 2);
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Recursividad</h2>
+        <p>La recursividad es un concepto en programación en el que una función se llama a sí misma para resolver un problema.</p>
+        <p>Veamos un ejemplo para comprenderlo mejor:</p>
+        <pre><code class="language-javascript">
+            const calcularFactorial = (n) => {
+                // Caso base: Si n es igual a 0, el factorial es 1.
+                if (n === 0) {
+                    return 1;
+                }
+                // Caso recursivo: Llamamos a la función con un valor más pequeño 
+                // y multiplicamos por n.
+                else {
+                    return n * calcularFactorial(n - 1);
+                }
+            };
+
+            // Ejemplo de uso:
+            const numero = 5;
+            const factorial = calcularFactorial(numero);
+            console.log(`El factorial de ${numero} es ${factorial}`);
+        </code></pre>
+        <p>En este ejemplo, la función calcularFactorial toma un número n como argumento.</p>
+        <p>Tiene un caso base que verifica si n es igual a 0, en cuyo caso devuelve 1, ya que el factorial de 0 es 1. Si n no es igual a 0, se llama a la función nuevamente con un valor más pequeño (n - 1) y se multiplica el resultado por n.</p>
+        <p>Esto se repite hasta que n llega a 0, momento en el que la recursión se detiene.</p>
+        <p>La recursividad es una técnica muy potente en programación, utilizada para resolver problemas que pueden dividirse en subproblemas más pequeños y similares.</p>
+        <p>En este caso, la función se llama a sí misma con un valor más pequeño en cada iteración, lo que finalmente conduce a la solución del problema.</p>
+    </div>  
+</section>

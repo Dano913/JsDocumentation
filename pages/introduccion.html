@@ -1,0 +1,409 @@
+<section class="section" id="introduccion">
+    <h1>Introducción</h1>
+    
+    <div class="intro-text">
+        <h2>Como se lee el código JavaScript</h2>
+        <p>JavaScript interpreta el código línea por línea, de arriba hacia abajo y de izquierda a derecha. El motor de JavaScript analiza cada línea y ejecuta las instrucciones que encuentra.</p>
+        <p>Veamos un paso a paso a "cámara lenta" de cómo es este proceso en cuestión de milisegundos.</p>
+        <h3>Análisis léxico</h3>
+        <p>El motor de JavaScript comienza con un análisis léxico, donde divide el código en unidades más pequeñas llamadas "tokens".</p>
+        <p>Estos tokens pueden ser palabras clave, identificadores, literales, operadores y símbolos.</p>
+        <h3>Análisis sintáctico</h3>
+        <p>Luego, el motor de JavaScript realiza un análisis sintáctico para determinar la estructura del código.</p>
+        <p>Se verifica que la sintaxis sea correcta y que las estructuras como las funciones, los bucles y las condiciones estén correctamente formadas.</p>
+        <h3>Análisis semántico</h3>
+        <p>En el análisis semántico, el motor de JavaScript busca el significado de los tokens y las estructuras.</p>
+        <p>Se verifican los tipos de datos, las referencias a variables y funciones, y se asigna memoria para las variables y objetos.</p>
+        <h3>Ejecución</h3>
+        <p>Finalmente, el motor de JavaScript ejecuta las instrucciones del código.</p>
+        <p>Las operaciones matemáticas se realizan, las funciones se llaman, las condiciones se evalúan y los bucles se ejecutan.</p>
+    </div>
+    <div class="intro-text">
+        <h2>¿Qué es una variable?</h2>
+        <p>La variable es el nombre de la caja en la que podemos guardar nuestra información, pueden contener productos, usuarios, y cualquier otro dato. Para crear una variable en Javascript usamos la palabra <code class="language-javascript2 token keyword">let</code>. Después indicaremos el nombre de nuestra variable: <span class="codespan"><span class="token keyword">let</span><span style="color:#31c7ae;">product</span><span class="token punctuation">;</span></span>.
+        <p>Ahora podremos usar esta variable y asignarle un valor con el operador de asignación <code class="language-javascript2 token operator">=</code>. Es como si estuviéramos metiendo la palabra "Zumito" dentro de la caja llamada product</p>
+        <pre><code class="language-javascript">
+            let product;
+            product = 'Zumito';
+            console.log(product);
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Declarar y asignar</h2>
+        <p>Podemos ser más directos a la hora de declarar una variable y hacerlo en una única línea.</p>
+        <pre><code class="language-javascript">
+            let product = 'Zumito';
+            console.log(product);
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Cambiar y reasignar el valor en variables</h2>
+        <p>Podemos seguir cambiando el valor de nuestras variables conforme pasamos de linea, vamos a ver como nuestros "products" cambian:</p>
+        <pre><code class="language-javascript">
+            let product;
+            console.log(product);
+            // Undefined
+
+            product = "Zumito";
+            console.log(product);
+            // Zumito
+
+            product = "Patata";
+            console.log(product);
+            // Patata      
+        </code></pre>
+        <p>Además de cambiar el valor podemos copiar el valor de una variable a otra:</p>
+        <pre><code class="language-javascript">
+            let product = 'Tomate';
+            let myProduct;
+            myProduct = product;
+            
+            console.log(myProduct);
+            // Tomate
+            
+            console.log(product);
+            // Tomate
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Declaración única</h2>
+        <p>Las variables solo deben declararse una vez, repetir la declaración de una variable disparará un error de sintaxis:</p>
+        <pre><code class="language-javascript">
+            let product = 'Tomate';
+            let product = 'Patata';
+            // SyntaxError: 'product' has already been declared
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>¿Qué nombre le asignamos a nuestras variables?</h2>
+        <p>A la hora de asignar un nombre a nuestras variables seguiremos dos normas:</p>
+        <ul class="lista-estilizada">
+            <li>El nombre de la variable solo debe contener letras, dígitos y los símbolos $ y _ (guión bajo).</li>
+            <li>El primer carácter no debe ser un dígito.</li>
+        </ul>
+        <p>Consejo: el nombre de las variables debería ser un nombre descriptivo del valor que puede contener, si vamos a guardar usuarios el nombre apropiado sería users.</p>
+    </div>
+    <div class="intro-text">
+        <h2>Nombres no válidos o reservados</h2>
+        <p>Nuestras variables tampoco pueden llamarse como las palabras que utiliza el propio lenguaje para definir las diferentes funcionalidades.</p>
+        <p>Estas palabras se llaman "palabras reservadas" y las iréis conociendo a lo largo de JavaScript.</p>
+        <pre><code class="language-javascript">
+            let 1product;
+            //  No podemos comenzar con números
+
+            let my-product;
+            // No se pueden utilizar guiones en los nombres
+            
+            let let = 'Hola';
+            // No puedes llamar let a una variable
+            
+            let return = 'Hola';
+            // No puedes llamar return a una variable
+        </code></pre>
+    </div>
+    <div class="intro-text">
+    <h2>Lista de palabras reservadas</h2>
+    <ul class="lista-estilizada lista-column">
+        <li>abstract</li>
+        <li>arguments</li>
+        <li>await</li>
+        <li>boolean</li>
+        <li>break</li>
+        <li>byte</li>
+        <li>case</li>
+        <li>catch</li>
+        <li>char</li>
+        <li>class</li>
+        <li>const</li>
+        <li>continue</li>
+        <li>debugger</li>
+        <li>default</li>
+        <li>delete</li>
+        <li>do</li>
+        <li>double</li>
+        <li>else</li>
+        <li>enum</li>
+        <li>eval</li>
+        <li>export</li>
+        <li>extends</li>
+        <li>final</li>
+        <li>finally</li>
+        <li>float</li>
+        <li>for</li>
+        <li>function</li>
+        <li>goto</li>
+        <li>if</li>
+        <li>implements</li>
+        <li>import</li>
+        <li>in</li>
+        <li>instanceof</li>
+        <li>int</li>
+        <li>interface</li>
+        <li>let</li>
+        <li>long</li>
+        <li>native</li>
+        <li>new</li>
+        <li>null</li>
+        <li>package</li>
+        <li>private</li>
+        <li>protected</li>
+        <li>public</li>
+        <li>return</li>
+        <li>short</li>
+        <li>static</li>
+        <li>super</li>
+        <li>switch</li>
+        <li>synchronized</li>
+        <li>this</li>
+        <li>throw</li>
+        <li>throws</li>
+        <li>transient</li>
+        <li>true</li>
+        <li>try</li>
+        <li>typeof</li>
+        <li>var</li>
+        <li>void</li>
+        <li>volatile</li>
+        <li>while</li>
+        <li>with</li>
+        <li>yield</li>
+    </ul>
+    </div>
+    <div class="intro-text">
+        <h2>Expresiones y declaraciones</h2>
+        <p>En cuanto a las expresiones y declaraciones matemáticas que podemos utilizar os indicamos las siguientes:</p>
+        <ul class="lista-estilizada">
+            <li>El operador <code class="language-javascript2 token operator">+</code> como os podéis imaginar nos servirá para sumar dos expresiones siempre y cuando estemos hablando de números, en cuanto a strings el operador + servirá para concatenar dos cadenas de texto</li>
+            <li>El operador <code class="language-javascript2 token operator">-</code> nos servirá para restar dos expresiones numéricas</li>
+            <li>El operador <code class="language-javascript2 token operator">*</code> nos servirá para multiplicar dos expresiones numéricas</li>
+            <li>El operador <code class="language-javascript2 token operator">/</code> nos servirá para dividir dos expresiones numéricas y obtener el resultado de la división</li>
+            <li>El operador <code class="language-javascript2 token operator">%</code> nos servirá para dividir dos expresiones numéricas y obtener el resto de la división</li>
+        </ul>
+    </div>
+    <div class="intro-text">
+        <h2>Scope</h2>
+        <p>El término scope se refiere al contexto o entorno en el que se declaran las variables y determina su accesibilidad. En otras palabras, define dónde puedes usar una variable específica dentro de tu código.</p>
+        <ul class="lista-estilizada">
+            <li>Scope global: Las variables declaradas fuera de cualquier función tienen alcance global. Son accesibles desde cualquier lugar del código. Sin embargo, se recomienda usar el scope global con moderación para evitar conflictos de nombres y problemas de organización del código.</li>
+            <li>Scope local: Las variables declaradas dentro de un bloque tienen alcance local. Solo son accesibles desde dentro de ese bloque y no son visibles desde fuera. Esto ayuda a mantener el código organizado y evita que las variables se sobrescriban accidentalmente.</li>
+        </ul>
+        <pre><code class="language-javascript">
+            // Ejemplo 1
+            if (5 > 4) {
+                let color = 'rosa';
+            }
+            console.log(color); 
+            // undefined -> NO ES ACCESIBLE DESDE FUERA
+
+            // Ejemplo 2
+            if (5 > 4) {
+                let color = 'rosa';
+                console.log(color); 
+                // rosa -> ES ACCESIBLE PORQUE ESTÁ DENTRO DE SU SCOPE
+            }
+
+            // Ejemplo 3
+            let color = 'rosa';
+            if (5 > 4) {
+                let color = 'rosa';
+                console.log(color);
+                // rosa -> ES ACCESIBLE PORQUE COLOR ESTÁ A NIVEL GLOBAL
+            }
+        </code></pre>
+        <p>Como ejemplo podemos imaginar que en nuestro domicilio si aplaudimos nadie en la calle nos escucha, pero si alguien aplaude en la acera de nuestro edificio si que lo escuchamos desde casa.</p>
+        <p>De fuera hacia dentro es accesible pero de dentro (privado) hacia afuera no es tan sencillo.</p>
+    </div>
+    <div class="intro-text">
+        <h2>¿Qué es un bloque de código?</h2>
+        <p>Un bloque es una declaración que contiene líneas de código que se ejecutan de manera diferente al flujo normal del código, hay bloques condicionales, bucles, funciones, etc.</p>
+        <p>Estos bloques estan siempre envueltos entre llaves (no son objetos, no los confundáis).</p>
+        <pre><code class="language-javascript">
+            if (5 < 4) {
+                // principio del código del bloque {
+                // final del código del bloque }
+            }
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Variables locales</h2>
+        <p>Una variable declarada dentro de un bloque solo es visible dentro de ese bloque.</p>
+        <p>Dicho de otro modo el bloque genera un scope propio.</p>
+        <pre><code class="language-javascript">
+            function showPokemon() {
+                let pokemon = "Pikachu"; // variable local
+                console.log(pokemon);
+            }
+            showPokemon(); // Pikachu
+            console.log(pokemon); // <-- Error! La variable es local para esta función
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Variables externas o globales</h2>
+        <p>Un bloque si puede acceder a una variable externa.</p>
+        <p>Puedes acceder a variables globales dentro del scope de un bloque.</p>
+        <pre><code class="language-javascript">
+            let pokemonExt = 'Charmander';
+
+            function showPokemon() {
+            console.log(pokemonExt);
+            }
+
+            showPokemon(); // Charmander
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Shadowing</h2>
+        <p>Si una variable con el mismo nombre se declara dentro de la función, le hace sombra [shadowing] a la externa.</p>
+        <p>Por ejemplo, en el siguiente código, la función usa el pokemonExt local.</p>
+        <p>El exterior se ignora, es decir, prevalece la local.</p>
+        <pre><code class="language-javascript">
+            let pokemonExt = 'Charmander';
+            function showPokemon() {
+            let pokemonExt = "Squirtle"; // declara variable local
+
+            console.log( pokemonExt ); // Squirtle
+            }
+
+            // la función crea y utiliza su propia variable local pokemonExt
+            showPokemon();
+
+            console.log( pokemonExt );
+            // Charmander   ->   se mantiene, la función no accedió a la variable externa porque estádentro
+            // tiene una declaración de una variable que se llama igual y por lo tanto no afecta a la variable global
+            // si no a su variable local.
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Tipos de datos</h2>
+        <p>Aunque JavaScript no es un lenguaje fuertemente tipado, esto no quiere decir que no existan tipos de datos. Vamos a ver los tipos que existen en JavaScript:</p>
+        <ul class="lista-estilizada">
+            <li>String: Nos permite almacenar cadenas de texto</li>
+            <li>Number: Nos permite almacenar valores numéricos(tanto enteros como con decimales).</li>
+            <li>Boolean: Nos permite almacenar valores de verdadero o falso(true ó false).</li>
+            <li>Null: Nos permite almacenar un valor nulo o vacío.</li>
+            <li>Undefined: Nos permite almacenar una variable que ha sido declarada pero no inicializada.</li>
+            <li>Object: Nos permite almacenar colecciones de datos y entidades más complejas</li>
+            <li>Array: Nos permite almacenar listas de valores</li>
+        </ul>
+    </div>
+    <div class="intro-text">
+        <h2>Tipado débil</h2>
+        <p>JavaScript es un lenguaje dinámico o de tipado débil, ya que no es obligatorio indicar el tipo de una variable al definirlo.</p>
+        <p>De hecho, una misma variable puede cambiar de tipo sin problema alguno durante el proceso de ejecución de nuestro código.</p>
+        <p>Podemos realizar pruebas haciendo uso de la función typeof, la cual nos indicará el tipo de una variable en cada momento, os recomendamos probarlo vosotros mismos.</p>
+        <pre><code class="language-javascript">
+            let txt = typeof "texto"; // string
+            let num = typeof 10;     // number
+            let bool = typeof true; // boolean
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Datos dinámicos</h2>
+        <p>JavaScript tiene tipos de datos dinámicos, lo que significa que la comprobación de tipo se realiza en tiempo de ejecución en lugar de tiempo de compilación. Con los lenguajes de tipo dinámico, se puede utilizar una variable del mismo nombre para contener diferentes tipos de datos.</p>
+        <p>Por ejemplo, la variable <code class="language-javascript2 codespan">t</code>, definida como una variable por la palabra clave <code class="language-javascript2 token keyword">let</code>, se puede asignar para contener diferentes tipos de datos o puede inicializarse pero no se define.</p>
+        <pre><code class="language-javascript">
+            let tipo;
+            // tipo es undefined;
+
+            tipo = 6;
+            // tipo es number;
+
+            tipo = true;
+            // tipo es boolean;
+
+            tipo = "cadena";
+            // tipo es string;
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Operadores lógicos</h2>
+        <p>Los operadores lógicos son un tipo de operadores en JavaScript que se utilizan para evaluar expresiones lógicas y devolver un valor booleano (true o false).</p>
+        <p>Los operadores lógicos más comunes son <code class="language-javascript2 token operator">&&</code> (and), <code class="language-javascript2 token operator">||</code> (or) y <code class="language-javascript2 token operator">!</code> (not).</p>
+    </div>
+    <div class="intro-text">
+        <h2>Operadores && (AND)</h2>
+        <pre><code class="language-javascript">
+            // expresión1 && expresión2
+
+            // ejemplos:
+            console.log(true && true); // true
+            console.log(true && false); // false
+            console.log(false && true); // false
+            console.log(false && false); // false
+
+            // ejemplo con varias expresiones AND concatenadas, siempre y cuando haya una false ya será false.
+            console.log(true && true && true && false && true); // false
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Operadores || (OR)</h2>
+        <p>El operador <code class="language-javascript2 token operator">||</code> evalúa dos expresiones lógicas y devuelve true si al menos una de ellas es true, y false sólo si ambas son false.</p>
+        <p>La sintaxis del operador <code class="language-javascript2 token operator">||</code> es la siguiente:</p>
+        <pre><code class="language-javascript">
+            // expresión1 || expresión2
+
+            // ejemplos:
+            console.log(true || true); // true
+            console.log(true || false); // true
+            console.log(false || true); // true
+            console.log(false || false); // false
+
+            // ejemplo con varias expresiones OR concatenadas, siempre y cuando haya una true ya será true.
+            console.log(false || false || true || false || false); // true
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Operador ! (NOT)</h2>
+        <p>El operador <code class="language-javascript2 token operator">!</code> invierte el valor booleano de su operando. Es decir, si el operando es true, el operador <code class="language-javascript2 token operator">!</code> lo convierte en false, y viceversa.</p>
+        <p>La sintaxis del operador <code class="language-javascript2 token operator">!</code> es la siguiente:</p>
+        <pre><code class="language-javascript">
+            // !operando
+
+            // ejemplos:
+            console.log(!true); // false
+            console.log(!false); // true
+
+            // cuando concatenamos varios operadores NOT seguidos no obtenemos ningún error,
+            // tenemos que leer de derecha a izquierda como van negando lo anterior,
+            // en este caso al ser pares será false, si fuesen impares sería true,
+            // esto no es tan común verlo pero es para que veáis que no hay ningún fallo como tal y
+            // simplemente cada ! niega lo anterior de derecha a izquierda
+            console.log(!!!!false); // false
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Operadores en conjunto</h2>
+        <p>Obviamente podremos utilizar estos operadores para que trabajen en conjunto, al trabajar en conjunto podremos ver cómo los diferentes operadores lógicos tienen orden de jerarquía, el <code class="language-javascript2 token operator">&&</code> tiene prioridad ante el <code class="language-javascript2 token operator">||</code>, sería lo mismo que una multiplicación frente a una suma en una ecuación de segundo grado.</p>
+        <pre><code class="language-javascript">
+            // paso 1:
+            // true && true = true
+            console.log(true && true || false || true && true && false); // true
+
+            // simplificamos:
+            // paso 2:
+            // true && true && false = false
+            console.log(true || false || true && true && false);
+
+            
+            // simplificamos:
+            // paso 3:
+            // true || false || false = true
+            console.log(true || false || false);
+        </code></pre>
+    </div>
+    <div class="intro-text">
+        <h2>Operadores de comparación</h2>
+        <p>Es importante que podamos ser capaces de comparar valores, por ejemplo, si el destino que estás buscando es igual al nombre de un destino almacenado en mi aplicación te lo muestro, si la edad de usuario es menor de 18 no te dejo registrarte, etc.</p>
+        <p>Para ello tenemos los siguientes comparadores que os resultarán muy familiares:</p>
+        <ul class="lista-estilizada">
+            <li><code class="signo token operator"><</code> Menor que</li>
+            <li><code class="signo token operator"><=</code> Menor o igual que</li>
+            <li><code class="signo token operator">></code> Mayor que</li>
+            <li><code class="signo token operator">>=</code> Mayor o igual que</li>
+            <li><code class="signo token operator">==</code> Igual que</li>
+            <li><code class="signo token operator">===</code> Estrictamente igual que</li>
+            <li><code class="signo token operator">!=</code> Diferente que</li>
+            <li><code class="signo token operator">!==</code> Estrictamente diferente que</li>
+        </ul>
+    </div>
+</section>
