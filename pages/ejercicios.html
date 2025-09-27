@@ -104,28 +104,24 @@
     <div class="intro-text">
         <h2>Ejercicio 3</h2>
         <p>3.1 Multiplica 10 por 5 y muestra el resultado mediante console.</p>
-        <h3>Solución</h3>
         <div id="multi1" class="solucion"></div>
         <script>
             console.log("10 x 5 = " + 10 * 5)
             document.getElementById("multi1").innerText = "10 x 5 = " + 10 * 5;
         </script>
         <p>3.2 Divide 10 por 2 y muestra el resultado mediante console.</p>
-        <h3>Solución</h3>
         <div id="div1" class="solucion"></div>
         <script>
             console.log("10 / 5 = " + 10 / 5)
             document.getElementById("div1").innerText = "10 / 5 = " + 10 / 5;
         </script>
         <p>3.3 Divide 15 por 9 y muestra el resto mediante console.</p>
-        <h3>Solución</h3>
         <div id="res1" class="solucion"></div>
         <script>
             console.log("El resto de 15 / 9 es = " + 15 % 9)
             document.getElementById("res1").innerText = "El resto de 15 / 9 es = " + 15 % 9;
         </script>
         <p>3.4 Usa el operador correcto de asignación que resultará en o = 15, teniendo dos variables p = 10 y j= 5.</p>
-        <h3>Solución</h3>
         <div id="suma1" class="solucion"></div>
         <script>
             let p = 10;
@@ -135,7 +131,6 @@
             document.getElementById("suma1").innerText = "p  + j = " + suma1;
         </script>
         <p>3.5 Usa el correcto operador de asignación que resultará en i = 50, teniendo dos variables c = 10 y m = 5.</p>
-        <h3>Solución</h3>
         <div id="multi2" class="solucion"></div>
         <script>
             let c = 10;
@@ -232,6 +227,7 @@
             console.log("number2 entre 2 es igual a number1 O number1 entre 5 es igual a number3");
             }
         </code></pre>
+        <h3>Solución</h3>
         <ul class="lista-estilizada solucion">
             <li id="cond1"></li>
             <li id="cond2"></li>
@@ -345,6 +341,970 @@
             }
             
             greaterNumber(numberOne, numberTwo);
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 8</h2>
+        <p>Buscar la palabra más larga: Completa la función que tomando un array de strings como argumento devuelva el más largo, en caso de que dos strings tenga la misma longitud deberá devolver el primero.</p>
+        <p>Puedes usar este array para probar tu función:</p>
+        <pre><code class="language-javascript">
+            const avengers = [
+                "Hulk",
+                "Thor",
+                "Iron Man",
+                "Captain A.",
+                "Spiderman",
+                "Captain M.",
+            ];
+            function findLongestWord(stringList) {
+                // Completar código
+            }
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="word" class="solucion"></div>
+        <script>
+            const avengers = [
+                "Hulk",
+                "Thor",
+                "Iron Man",
+                "Captain A.",
+                "Spiderman",
+                "Captain M.",
+            ];
+
+            function findLongestWord(stringList) {
+                let longest = stringList[0]; 
+                for (let i = 1; i < stringList.length; i++) {
+                    if (stringList[i].length > longest.length) {
+                        longest = stringList[i];
+                    }
+                }
+                return longest;
+            }
+
+            const longestWord = findLongestWord(avengers);
+
+            console.log(findLongestWord(avengers));
+            document.getElementById("word").textContent = longestWord;
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 9</h2>
+        <p>Calcular una suma puede ser tan simple como iterar sobre un array y sumar cada uno de los elementos.</p>
+        <p>Completa la función denominada sumNumbers que toma un array de números como argumento y devuelve la suma de todos los números del array.</p>
+        <p>Puedes usar este array para probar tu función:</p>
+        <pre><code class="language-javascript">
+            const numbers = [1, 2, 3, 5, 45, 37, 58];
+
+            function sumNumbers(numberList) {
+                // Completar código
+            }
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="sumAll" class="solucion"></div>
+
+        <script>
+            const numberList = [1, 2, 3, 5, 45, 37, 58];
+            const sumDiv = document.getElementById("sumAll");
+
+            // Primera versión: bucle for
+            function sumNumbers(numberList) {
+                let sum = 0;
+                for (let i = 0; i < numberList.length; i++) {
+                    sum += numberList[i];
+                }
+                return sum;
+            }
+
+            const sumNumber = sumNumbers(numberList);
+            console.log("La suma total es: " + sumNumber);
+
+            // Segunda versión: reduce
+            function sumNumber2(numberList) {
+                return numberList.reduce((acc, num) => acc + num, 0);
+            }
+
+            const result = sumNumber2(numberList);
+            console.log("La suma total (ejecutada con reduce) es: " + result);
+
+            // Añadimos ambos resultados al mismo div, separados por <p>
+            sumDiv.innerHTML = `
+                <p>La suma total es: ${sumNumber}</p>
+                <p>La suma total (ejecutada con reduce) es: ${result}</p>
+            `;
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 10</h2>
+        <p>Calcular un promedio es una tarea extremadamente común, así que prueba a implementar esa funcionalidad en la siguiente función.</p>
+        <p>Puedes usar este array para probarla:</p>
+        <pre><code class="language-javascript">
+            const numbers = [12, 21, 38, 5, 45, 37, 6];
+            
+            function average(numberList) {
+                // Completar
+            }
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="promedio" class="solucion"></div>
+        <script>
+            const numbers = [12, 21, 38, 5, 45, 37, 6];
+
+            function average(numberList) {
+                let sum = 0;
+                for (let i = 0; i < numberList.length; i++) {
+                    sum += numberList[i];
+                }
+                return sum / numberList.length;
+            }
+
+            const promedio = average(numberList);
+
+            console.log("El promedio de la lista es " + promedio);
+            document.getElementById("promedio").textContent = "El promedio de la lista es " + promedio;
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 11</h2>
+        <p>Calcular promedio mezclado: Crea una función que reciba por parámetro un array y cuando es un valor number lo sume y de lo contrario cuente la longitud del string y lo sume.</p>
+        <p>Es un poco locura, pero podremos ejercitar nuestra lógica con este ejercicio.</p>
+        <p>Puedes usar este array para probar tu función:</p>
+        <pre><code class="language-javascript">
+            const mixedElements = [
+                6,
+                1,
+                "Marvel",
+                1,
+                "hamburguesa",
+                "10",
+                "Prometeo",
+                8,
+                "Hola mundo",
+            ];
+            function averageWord(list) {
+                // Completar
+            }
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="mixed" class="solucion"></div>
+        <script>
+            const mixedElements = [
+                6,
+                1,
+                "Marvel",
+                1,
+                "hamburguesa",
+                "10",
+                "Prometeo",
+                8,
+                "Hola mundo",
+            ];
+
+            function averageWord(list) {
+                let total = 0;
+
+                for (let item of list) {
+                    if (typeof item === "number") {
+                        total += item;
+                    } else if (typeof item === "string") {
+                        total += item.length;
+                    }
+                }
+
+                return total / list.length;
+            }
+
+            const mixed = averageWord(mixedElements);
+
+            console.log("El promedio mezclado de la lista es " + mixed);
+            document.getElementById("mixed").textContent = "El promedio mezclado de la lista es " + mixed;
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 12</h2>
+        <p>Valores únicos: Crea una función que reciba por parámetro un array y compruebe si existen elementos duplicados, en caso que existan los elimina para retornar un array sin los elementos duplicados.</p>
+        <p>Pista: puedes generar un nuevo array y devolverlo.</p>
+        <p>Puedes usar este array para probar tu función:</p>
+        <pre><code class="language-javascript">
+            const duplicates = [
+                'sushi',
+                'pizza',
+                'burger',
+                'potatoe',
+                'pasta',
+                'ice-cream',
+                'pizza',
+                'chicken',
+                'onion rings',
+                'pasta',
+                'soda'
+            ];
+            function removeDuplicates(list) {
+                // Completar
+            }
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="dup" class="solucion"></div>
+        <script>
+            const duplicates = [
+                'sushi',
+                'pizza',
+                'burger',
+                'potatoe',
+                'pasta',
+                'ice-cream',
+                'pizza',
+                'chicken',
+                'onion rings',
+                'pasta',
+                'soda'
+            ];
+
+            function removeDuplicates(list) {
+            let unique = [];
+            let repeated = [];
+
+            for (let item of duplicates) {
+                if (!unique.includes(item)) {
+                    unique.push(item);
+                } else if (!repeated.includes(item)) {
+                    repeated.push(item);
+                }
+            }
+
+            console.log("Únicos:", unique);
+            console.log("Repetidos:", repeated);
+
+            const div = document.getElementById("dup");
+            div.innerHTML = `
+                <h4>Array sin duplicados:</h4>
+                <p>${unique.join(", ")}</p>
+                <br>
+                <h4>Elementos repetidos:</h4>
+                <p>${repeated.map(el => `${el} se repite`).join("<br>")}</p>
+            `;
+            }
+
+            removeDuplicates(duplicates);
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 13</h2>
+        <p>Buscador de nombres: Crea una función que reciba por parámetro un array y el valor que desea comprobar que existe dentro de dicho array. Esta función comprueba si existe el elemento, y en caso de que exista nos devuelve un true y la posición de dicho elemento y por la contra un false.</p>
+        <p>Puedes usar este array para probar tu función:</p>
+        <pre><code class="language-javascript">
+            const names = [
+                'Peter',
+                'Steve',
+                'Tony',
+                'Natasha',
+                'Clint',
+                'Logan',
+                'Xabier',
+                'Bruce',
+                'Peggy',
+                'Jessica',
+                'Marc'
+            ];
+            function nameFinder(nameList) {
+                // Completar
+            }
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="name" class="solucion"></div>
+        <script>
+            const names = [
+                'Peter',
+                'Steve',
+                'Tony',
+                'Natasha',
+                'Clint',
+                'Logan',
+                'Xabier',
+                'Bruce',
+                'Peggy',
+                'Jessica',
+                'Marc'
+            ];
+
+            function nameFinder(nameList, value) {
+            const index = nameList.indexOf(value);
+            const container = document.getElementById("name");
+
+            if (index !== -1) {
+                    console.log(`Buscando: "${value}" → encontrado en la posición ${index}`);
+                    container.innerHTML += `<p>Buscando: "${value}" → encontrado en la posición ${index}</p>`;
+                    return { exists: true, position: index };
+                } else {
+                    console.log(`Buscando: "${value}" → no se encontró en la lista`);
+                    container.innerHTML += `<p>Buscando: "${value}" → no se encontró en la lista</p>`;
+                    return { exists: false };
+                }
+            }
+
+            nameFinder(names, 'Tony');
+            nameFinder(names, 'Scott');
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 14</h2>
+        <p>Contador de repeticiones: Crea una función que nos devuelva el número de veces que se repite cada una de las palabras que lo conforma.</p>
+        <p>Por ejemplo, que devuelva: code:4, repeat: 1, eat: 1,...</p>
+        <p>Podéis conformar el formato que queráis para la devolución del resultado siempre y cuando sea claro.</p>
+        <p>Puedes usar este array para probar tu función:</p>
+        <pre><code class="language-javascript">
+            const words = [
+                'code',
+                'repeat',
+                'eat',
+                'sleep',
+                'code',
+                'enjoy',
+                'sleep',
+                'code',
+                'enjoy',
+                'sleep',
+                'code'
+            ];
+            function repeatCounter(list) {
+                // Completar
+            }
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="counter" class="solucion"></div>
+        <script>
+            const words = [
+                'code',
+                'repeat',
+                'eat',
+                'sleep',
+                'code',
+                'enjoy',
+                'sleep',
+                'code',
+                'enjoy',
+                'sleep',
+                'code'
+            ];
+
+            function repeatCounter(list) {
+            const counter = {};
+
+            for (let word of list) {
+                if (counter[word]) {
+                    counter[word]++;
+                } else {
+                    counter[word] = 1;
+                }
+            }
+
+            return counter;
+            
+            }
+
+            console.log(repeatCounter(words));
+
+            const repeatResult = repeatCounter(words);
+
+            const outputDiv = document.getElementById("counter");
+
+            outputDiv.innerHTML = `
+            <p>Las palabras repetidas son:</p>
+            <ul class="lista-estilizada">
+                ${Object.entries(repeatResult)
+                .map(([word, count]) => `<li><strong>${word}</strong>: ${count}</li>`)
+                .join("")}
+            </ul>
+            `;
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 15</h2>
+        <p>Includes: Haz un bucle y muestra por consola todos aquellos valores del array que incluyan la palabra "Camiseta".</p>
+        <p>Usa la función .includes de javascript.</p>
+        <pre><code class="language-javascript">
+            const words = [
+                'code',
+                'repeat',
+                'eat',
+                'sleep',
+                'code',
+                'enjoy',
+                'sleep',
+                'code',
+                'enjoy',
+                'sleep',
+                'code'
+            ];
+            function repeatCounter(list) {
+                // Completar
+            }
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="camis" class="solucion"></div>
+        <script src="./js/ejercicios/ej1.js"></script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 16</h2>
+        <p>For...of: Usa un bucle forof para recorrer todos los destinos del array.</p>
+        <p>Imprime en un console.log cada uno de sus valores.</p>
+        <pre><code class="language-javascript">
+            const placesToTravel = [
+                "Japon",
+                "Venecia",
+                "Murcia",
+                "Santander",
+                "Filipinas",
+                "Madagascar",
+            ];
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="places" class="solucion"></div>
+
+        <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const placesToTravelList = [
+                "Japon",
+                "Venecia",
+                "Murcia",
+                "Santander",
+                "Filipinas",
+                "Madagascar",
+            ];
+
+            const outputDiv = document.getElementById("places");
+            if (!outputDiv) return;
+
+            // Párrafo introductorio
+            const intro = document.createElement("p");
+            intro.textContent = "Estos son los destinos a los que quiero viajar:";
+            outputDiv.appendChild(intro);
+
+            // Lista <ul>
+            const ul = document.createElement("ul");
+            ul.classList.add("lista-estilizada");
+
+            for (const place of placesToTravelList) {
+                console.log(place);
+                const li = document.createElement("li");
+                li.textContent = place;
+                ul.appendChild(li);
+            }
+
+            outputDiv.appendChild(ul);
+        });
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 17</h2>
+        <p>Usa un for...in para imprimir por consola los datos del alienígena.</p>
+        <p>Debería tener este formato cada uno de los console.log: "La propiedad ____ tiene cómo valor: ____"</p>
+        <p>Puedes usar este objeto:</p>
+        <pre><code class="language-javascript">
+            const alien = {
+                name: 'Xenomorph',
+                species: 'Xenomorph XX121',
+                origin: 'Unknown',
+                weight: 180
+            };
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="alienInfo" class="solucion"></div>
+        <script>
+            const alien = {
+                name: 'Xenomorph',
+                species: 'Xenomorph XX121',
+                origin: 'Unknown',
+                weight: 180
+            };
+
+            let output = "";
+
+            for (let propiedad in alien) {
+                console.log(`La propiedad ${propiedad} tiene cómo valor: ${alien[propiedad]}`);
+                output += `La propiedad ${propiedad} tiene cómo valor: ${alien[propiedad]}<br>`;
+            }
+
+            document.getElementById("alienInfo").innerHTML = output;
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 18</h2>
+        <p>Usa un bucle for para recorrer todos los destinos del array y elimina los elementos que tengan el id 11 y el id 40.</p>
+        <p>Imprime en un console log el array resultante.</p>
+        <p>Puedes usar este array:</p>
+        <pre><code class="language-javascript">
+            const placesToTravel = [
+                { id: 5, name: "Japan" },
+                { id: 11, name: "Venecia" },
+                { id: 23, name: "Murcia" },
+                { id: 40, name: "Santander" },
+                { id: 44, name: "Filipinas" },
+                { id: 59, name: "Madagascar" },
+            ];
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="places" class="solucion"></div>
+        <script>
+            const placesToTravel = [
+                { id: 5, name: "Japan" },
+                { id: 11, name: "Venecia" },
+                { id: 23, name: "Murcia" },
+                { id: 40, name: "Santander" },
+                { id: 44, name: "Filipinas" },
+                { id: 59, name: "Madagascar" },
+            ];
+
+            for (let i = 0; i < placesToTravel.length; i++) {
+                if (placesToTravel[i].id === 11 || placesToTravel[i].id === 40) {
+                    placesToTravel.splice(i, 1);
+                    i--;
+                }
+            }
+
+            console.log(placesToTravel);
+
+            let output2 = "";
+            for (let i = 0; i < placesToTravel.length; i++) {
+                output2 += `ID: ${placesToTravel[i].id} - Nombre: ${placesToTravel[i].name}<br>`;
+            }
+            
+            document.getElementById("places").innerHTML = output2;
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 19</h2>
+        <p>Mixed For...of e includes: Usa un bucle for...of para recorrer todos los juguetes y elimina los que incluyan la palabra gato (también podéis crear uno nuevo con solo los que NO incluyan esa palabra).</p>
+        <p>Recuerda usar la función .includes() para comprobar la palabra.</p>
+        <p>Puedes usar este array:</p>
+        <pre><code class="language-javascript">
+            const toys = [
+                {id: 5, name: 'Transformers'},
+                {id: 11, name: 'LEGO'},
+                {id: 23, name: 'Hot Wheels'},
+                {id: 40, name: 'Rascador de gato'},
+                {id: 40, name: 'FurReal Friends gato interactivo'},
+                {id: 60, name: 'Nerf Blaster'},
+                {id: 71, name: 'Sylvanian Families - Familia gato'}
+            ];
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="toys" class="solucion"></div>
+        <script>
+            const toys = [
+                {id: 5, name: 'Transformers'},
+                {id: 11, name: 'LEGO'},
+                {id: 23, name: 'Hot Wheels'},
+                {id: 40, name: 'Rascador de gato'},
+                {id: 40, name: 'FurReal Friends gato interactivo'},
+                {id: 60, name: 'Nerf Blaster'},
+                {id: 71, name: 'Sylvanian Families - Familia gato'}
+            ];
+
+            const filteredToys = toys.filter(toy => !toy.name.toLowerCase().includes("gato"));
+            console.log(filteredToys);
+
+            const lista = document.getElementById("toys");
+
+            // Frase inicial
+            const frase = document.createElement("p");
+            frase.textContent = "Los juguetes que no contienen la palabra gato son:";
+            lista.appendChild(frase);
+
+            // Lista UL con clase lista-estilizada
+            const ul = document.createElement("ul");
+            ul.classList.add("lista-estilizada");
+
+            for (const toy of filteredToys) {
+                const li = document.createElement("li");
+                li.textContent = toy.name;
+                ul.appendChild(li);
+            }
+
+            // Insertamos la lista en el div
+            lista.appendChild(ul);
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 20</h2>
+        <p>For...of avanzado: Usa un bucle for...of para recorrer todos los juguetes y añade los que tengan más de 15 ventas (sellCount) al array popularToys.</p>
+        <p>Imprímelo por consola.</p>
+        <p>Puedes usar este array:</p>
+        <pre><code class="language-javascript">
+            const toys = [
+                {id: 5, name: 'Transformers'},
+                {id: 11, name: 'LEGO'},
+                {id: 23, name: 'Hot Wheels'},
+                {id: 40, name: 'Rascador de gato'},
+                {id: 40, name: 'FurReal Friends gato interactivo'},
+                {id: 60, name: 'Nerf Blaster'},
+                {id: 71, name: 'Sylvanian Families - Familia gato'}
+            ];
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="toyscount" class="solucion"></div>
+        <script>
+            const popularToys = [];
+
+            const toyscount = [
+                {id: 101, name: 'Super Soaker', sellCount: 15},
+                {id: 102, name: 'Tamagotchi', sellCount: 22},
+                {id: 103, name: 'Polly Pocket', sellCount: 8},
+                {id: 104, name: 'Yo-yo', sellCount: 33},
+                {id: 105, name: 'Pikachu plush toy', sellCount: 19},
+                {id: 106, name: "Rubik's Cube", sellCount: 27},
+                {id: 107, name: 'Fidget Spinner', sellCount: 12},
+                {id: 108, name: 'Slinky', sellCount: 5},
+                {id: 109, name: 'Magic 8-Ball', sellCount: 38},
+                {id: 110, name: 'Troll Doll', sellCount: 20}
+            ];
+
+            // Filtrar juguetes con más de 15 ventas
+            for (const toy of toyscount) {
+                if (toy.sellCount > 15) {
+                    popularToys.push(toy);
+                }
+            }
+
+            console.log(popularToys);
+
+            const contenedor = document.getElementById("toyscount");
+
+            // Frase inicial
+            const frase2 = document.createElement("p");
+            frase2.textContent = "Estos son los juguetes populares con más de 15 ventas:";
+            contenedor.appendChild(frase2);
+
+            // Crear la lista UL
+            const ul2 = document.createElement("ul");
+            ul2.classList.add("lista-estilizada");
+
+            for (const toy of popularToys) {
+                const li = document.createElement("li");
+                li.textContent = `${toy.name} - Ventas: ${toy.sellCount}`;
+                ul2.appendChild(li);
+            }
+
+            // Insertar la lista en el contenedor
+            contenedor.appendChild(ul2);
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 21</h2>
+        <p>Usa un bucle y dos condiciones para imprimir por consola el nombre de los usuarios que sean menor de edad precedidos del texto "Usuarios menores de edad:" y otro que imprima a los usuarios mayores de edad, precedido del texto "Usuarios mayores de edad:".</p>
+        <pre><code class="language-javascript">
+            const users = [
+                { name: "Tony", years: 43 },
+                { name: "Peter", years: 18 },
+                { name: "Natasha", years: 14 },
+                { name: "Bruce", years: 32 },
+                { name: "Khamala", years: 16 },
+            ];
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="edades" class="solucion"></div>
+        <script>
+            const users = [
+                { name: "Tony", years: 43 },
+                { name: "Peter", years: 18 },
+                { name: "Natasha", years: 14 },
+                { name: "Bruce", years: 32 },
+                { name: "Khamala", years: 16 },
+            ];
+
+            console.log("Usuarios menores de edad:");
+            for (const user of users) {
+                if (user.years < 18) {
+                    console.log(user.name);
+                }
+            }
+
+            console.log("Usuarios mayores de edad:");
+            for (const user of users) {
+                if (user.years >= 18) {
+                    console.log(user.name);
+                }
+            }
+
+            let menores = "<p>Usuarios menores de edad:</p><ul class='lista-estilizada'>";
+            for (const user of users) {
+                if (user.years < 18) {
+                    menores += `<li>${user.name}</li>`;
+                }
+            }
+            menores += "</ul>";
+
+            let mayores = "<p>Usuarios mayores de edad:</p><ul class='lista-estilizada'>";
+            for (const user of users) {
+                if (user.years >= 18) {
+                    mayores += `<li>${user.name}</li>`;
+                }
+            }
+            mayores += "</ul>";
+
+            document.getElementById("edades").innerHTML = mayores + "<br>" + menores;
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 22</h2>
+        <p>Usa un for para remplazar todas las comidas que no sean veganas con las frutas del array de frutas.</p>
+        <p>Recuerda no usar frutas duplicadas.</p>
+        <p>Finalmente, imprime el array resultante.</p>
+        <pre><code class="language-javascript">
+            const fruits = ["Strawberry", "Banana", "Orange", "Apple"];
+
+            const foodSchedule = [
+                { name: "Heura", isVegan: true },
+                { name: "Salmon", isVegan: false },
+                { name: "Tofu", isVegan: true },
+                { name: "Burger", isVegan: false },
+                { name: "Rice", isVegan: true },
+                { name: "Pasta", isVegan: true },
+            ];
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="fruit" class="solucion"></div>
+        <script>
+            const fruits = ["Strawberry", "Banana", "Orange", "Apple"];
+
+            const foodSchedule = [
+                { name: "Heura", isVegan: true },
+                { name: "Salmon", isVegan: false },
+                { name: "Tofu", isVegan: true },
+                { name: "Burger", isVegan: false },
+                { name: "Rice", isVegan: true },
+                { name: "Pasta", isVegan: true },
+            ];
+
+            let fruitIndex = 0;
+
+            for (let i = 0; i < foodSchedule.length; i++) {
+                if (!foodSchedule[i].isVegan) {
+                    foodSchedule[i].name = fruits[fruitIndex];
+                    foodSchedule[i].isVegan = true;
+                    fruitIndex++;
+                }
+            }
+
+            console.log(foodSchedule);
+
+            const container = document.getElementById("fruit");
+
+            const phrase = document.createElement("p");
+            phrase.textContent = "La lista actualizada con alimentos veganos es:";
+            container.appendChild(phrase);
+
+            const ul3 = document.createElement("ul");
+            ul3.classList.add("lista-estilizada");
+            container.appendChild(ul3);
+
+            for (let i = 0; i < foodSchedule.length; i++) {
+                const item = document.createElement("li");
+                item.textContent = foodSchedule[i].name;
+                ul3.appendChild(item);
+            }
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 23</h2>
+        <p>Usa un bucle para crear 3 arrays de películas filtrados por categorías.</p>
+        <p>Pelicula pequeña -> menos de 100 minutos, película mediana -> más de 100 minutos y menos de 200 y pelicula grande -> más de 200 minutos.</p>
+        <p>Imprime cada array por consola.</p>
+        <pre><code class="language-javascript">
+            const movies = [
+                { name: "Titan A.E.", durationInMinutes: 130 },
+                { name: "Nightmare before Christmas", durationInMinutes: 225 },
+                { name: "Inception", durationInMinutes: 165 },
+                { name: "The Lord of the Rings", durationInMinutes: 967 },
+                { name: "Star Wars: A New Hope", durationInMinutes: 214 },
+                { name: "Terminator", durationInMinutes: 140 },
+                { name: "Spirited Away", durationInMinutes: 80 },
+                { name: "The Matrix", durationInMinutes: 136 },
+                { name: "Amélie", durationInMinutes: 110 },
+                { name: "Eternal Sunshine of the Spotless Mind", durationInMinutes: 108 },
+            ];
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="container2" class="solucion"></div>
+        <script>
+            const movies = [
+                { name: "Titan A.E.", durationInMinutes: 130 },
+                { name: "Nightmare before Christmas", durationInMinutes: 225 },
+                { name: "Inception", durationInMinutes: 165 },
+                { name: "The Lord of the Rings", durationInMinutes: 967 },
+                { name: "Star Wars: A New Hope", durationInMinutes: 214 },
+                { name: "Terminator", durationInMinutes: 140 },
+                { name: "Spirited Away", durationInMinutes: 80 },
+                { name: "The Matrix", durationInMinutes: 136 },
+                { name: "Amélie", durationInMinutes: 110 },
+                { name: "Eternal Sunshine of the Spotless Mind", durationInMinutes: 108 },
+            ];
+
+            const smallMovies = [];
+            const mediumMovies = [];
+            const largeMovies = [];
+
+            for (let movie of movies) {
+                if (movie.durationInMinutes < 100) {
+                    smallMovies.push(movie);
+                } else if (movie.durationInMinutes <= 200) {
+                    mediumMovies.push(movie);
+                } else {
+                    largeMovies.push(movie);
+                }
+            }
+
+            const categories = [
+                { title: "Películas pequeñas", list: smallMovies },
+                { title: "Películas medianas", list: mediumMovies },
+                { title: "Películas grandes", list: largeMovies },
+            ];
+
+            const container2 = document.getElementById("container2");
+
+            categories.forEach(category => {
+                // Crear el título <h4>
+                const h4 = document.createElement("h4");
+                h4.textContent = category.title;
+                container2.appendChild(h4);
+
+                // Crear la lista <ul> con clase
+                const ul = document.createElement("ul");
+                ul.classList.add("lista-estilizada");
+                container2.appendChild(ul);
+
+                // Agregar los elementos <li>
+                category.list.forEach(movie => {
+                    const li = document.createElement("li");
+                    li.textContent = movie.name;
+                    ul.appendChild(li);
+                });
+
+                // Espacio entre categorías
+                container2.appendChild;
+            });
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 24</h2>
+        <p>Utiliza un bucle para filtrar personajes de Star Wars por la especie "Human" y guárdalos en un nuevo array llamado humanCharacters.</p>
+        <p>Imprime este nuevo array por consola.</p>
+        <pre><code class="language-javascript">
+            const characters = [
+                { name: 'Luke Skywalker', species: 'Human' },
+                { name: 'Darth Vader', species: 'Human' },
+                { name: 'Chewbacca', species: 'Wookiee' },
+                { name: 'Leia Organa', species: 'Human' },
+                { name: 'R2-D2', species: 'Droid' },
+                { name: 'C-3PO', species: 'Droid' },
+                { name: 'Obi-Wan Kenobi', species: 'Human' },
+                { name: 'Yoda', species: 'Unknown' },
+                { name: 'Han Solo', species: 'Human' }
+            ];
+            const humanCharacters = [];
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="pj-container" class="solucion"></div>
+        <script>
+            const characters = [
+                { name: 'Luke Skywalker', species: 'Human' },
+                { name: 'Darth Vader', species: 'Human' },
+                { name: 'Chewbacca', species: 'Wookiee' },
+                { name: 'Leia Organa', species: 'Human' },
+                { name: 'R2-D2', species: 'Droid' },
+                { name: 'C-3PO', species: 'Droid' },
+                { name: 'Obi-Wan Kenobi', species: 'Human' },
+                { name: 'Yoda', species: 'Unknown' },
+                { name: 'Han Solo', species: 'Human' }
+            ];
+
+            const humanCharacters = characters.filter(c => c.species === "Human");
+
+            console.log("Personajes humanos:");
+            console.log(humanCharacters);
+
+            // contenedor principal
+            const container3 = document.getElementById("pj-container");
+
+            // crear el título <h3>
+            const h4 = document.createElement("h4");
+            h4.textContent = "Personajes humanos de Star Wars";
+            container3.appendChild(h4);
+
+            // crear la lista <ul> con clase
+            const ul4 = document.createElement("ul");
+            ul4.classList.add("lista-estilizada");
+            container3.appendChild(ul4);
+
+            // agregar los personajes humanos a la lista
+            humanCharacters.forEach(character => {
+                const li = document.createElement("li");
+                li.textContent = character.name;
+                ul4.appendChild(li);
+            });
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 25</h2>
+        <p>Dada una lista de películas, cuenta cuántas son de antes del año 2000 y cuántas son posteriores, utilizando un bucle.</p>
+        <p>Imprime ambos conteos por consola.</p>
+        <pre><code class="language-javascript">
+            const movies = [
+                { title: 'The Matrix', releaseYear: 1999 },
+                { title: 'Star Wars: Episode IV – A New Hope', releaseYear: 1977 },
+                { title: 'Inception', releaseYear: 2010 },
+                { title: 'Jurassic Park', releaseYear: 1993 },
+                { title: 'The Shawshank Redemption', releaseYear: 1994 },
+                { title: 'Pulp Fiction', releaseYear: 1994 },
+                { title: 'Avatar', releaseYear: 2009 },
+                { title: 'The Dark Knight', releaseYear: 2008 },
+                { title: 'Fight Club', releaseYear: 1999 },
+                { title: 'Forrest Gump', releaseYear: 1994 }
+            ];
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="movies-container2" class="solucion"></div>
+        <script>
+            const movies2 = [
+                { title: 'The Matrix', releaseYear: 1999 },
+                { title: 'Star Wars: Episode IV – A New Hope', releaseYear: 1977 },
+                { title: 'Inception', releaseYear: 2010 },
+                { title: 'Jurassic Park', releaseYear: 1993 },
+                { title: 'The Shawshank Redemption', releaseYear: 1994 },
+                { title: 'Pulp Fiction', releaseYear: 1994 },
+                { title: 'Avatar', releaseYear: 2009 },
+                { title: 'The Dark Knight', releaseYear: 2008 },
+                { title: 'Fight Club', releaseYear: 1999 },
+                { title: 'Forrest Gump', releaseYear: 1994 }
+            ];
+
+            const categories2 = [
+                { title: 'Películas antes de los 2000', items: movies2.filter(m => m.releaseYear < 2000) },
+                { title: 'Películas después de los 2000', items: movies2.filter(m => m.releaseYear >= 2000) }
+            ];
+
+            const container4 = document.getElementById('movies-container2');
+
+            categories2.forEach(category => {
+                // Crear el título <h3>
+                const h4 = document.createElement('h4');
+                h4.textContent = category.title;
+                container4.appendChild(h4);
+
+                // Crear la lista <ul> con clase
+                const ul = document.createElement('ul');
+                ul.classList.add('lista-estilizada');
+                container4.appendChild(ul);
+
+                // Agregar las películas a la lista
+                category.items.forEach(movie => {
+                    const li = document.createElement('li');
+                    li.textContent = `${movie.title} (${movie.releaseYear})`;
+                    ul.appendChild(li);
+                });
+            });
+
+            console.log('Contenido generado:', container4.innerHTML);
         </script>
     </div>
 </section>

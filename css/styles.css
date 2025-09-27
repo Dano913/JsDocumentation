@@ -202,22 +202,23 @@ body {
 }
 
 h1 {
-    color: var(--text2-color);
-    font-size: 3rem;
-    margin-bottom: 1rem;
+  color: var(--text2-color);
+  font-size: clamp(1.6rem, 2vw + 0.8rem, 2.5rem);
+  margin-bottom: 1rem;
 }
+
 
 h2 {
     color: var(--text2-color);
-    font-size: 1.8rem;
-    margin: 0rem 0 1rem;
+    font-size: clamp(1.2rem, 1.5vw + 0.5rem, 1.5rem);
+    margin: 0 0 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid var(--text2-color);
 }
 
 h3 {
     color: var(--text2-color);
-    font-size: 1.6rem;
+    font-size: clamp(1.2rem, 1.2vw + 0.5rem, 1.3rem);
     margin: 0.5rem 0rem 0rem;
     font-weight: 600;
 }
@@ -317,7 +318,7 @@ pre {
 /* Bloques de código JS */
 .language-javascript {
   display: block;                /* se comporta como bloque */
-  background-color: #1b1b1b8e !important;  /* fondo oscuro */
+  background-color: #00000015 !important;  /* fondo oscuro */
   color: #31c7ae !important;               /* color base del texto */
   padding: 0rem 2rem 2rem 2rem;                 /* espacio interno */
   border-radius: 10px;            /* esquinas redondeadas */
@@ -326,10 +327,11 @@ pre {
   font-family: 'Fira Code', monospace;
   font-size: 1.2rem !important;
   line-height: 1.5;
-  border: 2px solid #333;
+  border: 2px ridge #333;
   white-space: pre-wrap !important;  /* permite saltos de línea */
   word-wrap: break-word !important;  /* rompe palabras largas */
   overflow-x: hidden !important; 
+  width:fit-content;
 }
 
 .language-javascript2 {
@@ -346,7 +348,7 @@ pre {
   overflow-y: auto;
   font-family: 'Fira Code', monospace;
   font-size: 1.1rem !important;
-  border: 2px solid #333;
+  border: 1px solid #333;
   white-space: pre-wrap !important; 
   word-wrap: break-word !important;  
   overflow-x: hidden !important; 
@@ -397,12 +399,11 @@ pre {
 }
 
 .solucion{
-  border: 1px solid var(--text2-color);
-  margin-bottom: 40px;
-  padding: 1rem;
+  border: 2px outset var(--text2-color);
   border-radius: 10px;
+  margin: 2px 20px 20px 20px;
+  padding: 1rem;
   width:fit-content;
-  margin: 0 auto;
 }
 
 /* Scrollbar personalizada solo para estos bloques 

@@ -1,32 +1,30 @@
-function ejecutarEj1() {
-  const resultado = document.getElementById("resultado");
-  if (!resultado) return;
+document.addEventListener("DOMContentLoaded", () => {
+    const outputDiv = document.getElementById("camis");
+    if (!outputDiv) return;
 
-  let miSuperheroeFavorito = "Hulk";
-  let numeroFavorito = 50;
-  let altura = 5;
-  let longitud = 10;
-  let suma = altura + longitud;
+    const products = [
+        "Camiseta de Metallica",
+        "Pantalón vaquero",
+        "Gorra de beisbol",
+        "Camiseta de Basket",
+        "Cinturón de Orión",
+        "AC/DC Camiseta",
+    ];
 
-  resultado.innerHTML = "";
+    const camisetas = products.filter(product => product.includes("Camiseta"));
 
-  const datos = document.createElement("div");
-  datos.style.padding = "0.5rem 2rem";
-  datos.style.whiteSpace = "pre-line";
-  datos.style.color = "var(--text-color)";
-  datos.textContent = `Mi superhéroe favorito es: ${miSuperheroeFavorito}
-    Mi número favorito es: ${numeroFavorito}
-    Mi altura es: ${altura}
-    Mi longitud es: ${longitud}
-    La suma de altura y longitud es: ${suma}`;
+    const intro = document.createElement("p");
+    intro.textContent = "Las camisetas que hay son:";
+    outputDiv.appendChild(intro);
 
-  resultado.appendChild(datos);
+    const ul = document.createElement("ul");
+    ul.classList.add("lista-estilizada");
 
-  resultado.style.borderRadius = "4px";
-  resultado.style.padding = "0";
+    camisetas.forEach(product => {
+        const li = document.createElement("li");
+        li.textContent = product;
+        ul.appendChild(li);
+    });
 
-  console.log({ miSuperheroeFavorito, numeroFavorito, altura, longitud, suma });
-}
-
-window.addEventListener("DOMContentLoaded", ejecutarEj1);
-setTimeout(ejecutarEj1, 50);
+    outputDiv.appendChild(ul);
+});

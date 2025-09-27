@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const ancho = window.innerWidth;
   let maxWidth = 80; // valor base en 1800px
 
-  if (ancho > 1200 && ancho < 1800) {
+  if (ancho > 1000 && ancho < 1800) {
     // cada 100px → 0.5%
     const pasos = Math.floor((1800 - ancho) / 100);
     maxWidth = 80 - pasos * 0.5;
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
       toc.style.display = 'block';
       toc.style.opacity = '1';
     }
-  } else if (ancho <= 1200) {
+  } else if (ancho <= 1000) {
     // ≤1200: TOC desaparece y container ocupa todo
     maxWidth = 100;
     if (toc) {
