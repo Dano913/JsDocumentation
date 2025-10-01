@@ -1307,5 +1307,240 @@
             console.log('Contenido generado:', container4.innerHTML);
         </script>
     </div>
+    <div class="intro-text">
+        <h2>Ejercicio 26</h2>
+        <p>Filtra una lista de canciones para crear una playlist que solo contenga canciones de rock que duren más de 5 minutos.</p>
+        <p>Utiliza un bucle para lograrlo e imprime la nueva playlist por consola.</p>
+        <pre><code class="language-javascript">
+            const songs = [
+                { title: 'Bohemian Rhapsody', genre: 'Rock', duration: 5.55 },
+                { title: 'Stairway to Heaven', genre: 'Rock', duration: 7.58 },
+                { title: 'Billie Jean', genre: 'Pop', duration: 4.54 },
+                { title: 'Hotel California', genre: 'Rock', duration: 6.31 },
+                { title: 'Sweet Child o Mine', genre: 'Rock', duration: 5.56 },
+                { title: 'Smells Like Teen Spirit', genre: 'Rock', duration: 5.01 },
+                { title: 'Comfortably Numb', genre: 'Rock', duration: 6.23 },
+                { title: 'Wish You Were Here', genre: 'Rock', duration: 5.34 },
+                { title: 'Black Dog', genre: 'Rock', duration: 4.54 },
+                { title: 'Thunderstruck', genre: 'Rock', duration: 4.52 },
+                { title: 'Crazy Love', genre: 'Pop', duration: 3.52 },
+            ];
+            const rockPlaylist = [];
+
+            // Añade tu código de bucle aquí
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="rock" class="solucion"></div>
+        <script>
+            const songs = [
+                { title: 'Bohemian Rhapsody', genre: 'Rock', duration: 5.55 },
+                { title: 'Stairway to Heaven', genre: 'Rock', duration: 7.58 },
+                { title: 'Billie Jean', genre: 'Pop', duration: 4.54 },
+                { title: 'Hotel California', genre: 'Rock', duration: 6.31 },
+                { title: 'Sweet Child o Mine', genre: 'Rock', duration: 5.56 },
+                { title: 'Smells Like Teen Spirit', genre: 'Rock', duration: 5.01 },
+                { title: 'Comfortably Numb', genre: 'Rock', duration: 6.23 },
+                { title: 'Wish You Were Here', genre: 'Rock', duration: 5.34 },
+                { title: 'Black Dog', genre: 'Rock', duration: 4.54 },
+                { title: 'Thunderstruck', genre: 'Rock', duration: 4.52 },
+                { title: 'Crazy Love', genre: 'Pop', duration: 3.52 },
+            ];
+
+            const rockPlaylist = songs.filter(song => song.genre === "Rock" && song.duration > 5.00);
+
+            const contenedor6 = document.getElementById("rock");
+
+            // Crear el <h4>
+            const h41 = document.createElement("h4");
+            h41.textContent = "Canciones de rock de más de 5 minutos";
+            contenedor6.appendChild(h41);
+
+            // Crear la lista UL con clase
+            const ul6 = document.createElement("ul");
+            ul6.classList.add("lista-estilizada");
+
+            // Rellenar la lista
+            rockPlaylist.forEach(song => {
+                const li = document.createElement("li");
+                li.textContent = `${song.title} - Duration: ${song.duration}`;
+                ul6.appendChild(li);
+            });
+
+            // Insertar la lista en el contenedor
+            contenedor6.appendChild(ul6);
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 27</h2>
+        <p>Utiliza un bucle para encontrar la serie de dibujos animados más antigua en el array y guarda su nombre en una variable.</p>
+        <p>Imprime el nombre por consola.</p>
+        <pre><code class="language-javascript">
+            const cartoons = [
+                { name: 'Bugs Bunny', debut: 1938 },
+                { name: 'SpongeBob SquarePants', debut: 1999 },
+                { name: 'Tom and Jerry', debut: 1940 },
+                { name: 'Mickey Mouse', debut: 1928 },
+                { name: 'Scooby-Doo', debut: 1969 },
+                { name: 'The Flintstones', debut: 1960 },
+                { name: 'Batman: The Animated Series', debut: 1992 },
+                { name: 'The Simpsons', debut: 1989 },
+                { name: 'Pokémon', debut: 1997 },
+                { name: "Dexter's Laboratory", debut: 1996 }
+            ];
+
+            // Añade tu código de bucle aquí
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="cartoon" class="solucion"></div>
+        <script>
+            const cartoons = [
+                { name: 'Bugs Bunny', debut: 1938 },
+                { name: 'SpongeBob SquarePants', debut: 1999 },
+                { name: 'Tom and Jerry', debut: 1940 },
+                { name: 'Mickey Mouse', debut: 1928 },
+                { name: 'Scooby-Doo', debut: 1969 },
+                { name: 'The Flintstones', debut: 1960 },
+                { name: 'Batman: The Animated Series', debut: 1992 },
+                { name: 'The Simpsons', debut: 1989 },
+                { name: 'Pokémon', debut: 1997 },
+                { name: "Dexter's Laboratory", debut: 1996 }
+            ];
+
+            let oldestCartoon = cartoons[0];
+
+            for (const cartoon of cartoons) {
+                if (cartoon.debut < oldestCartoon.debut) {
+                    oldestCartoon = cartoon;
+                }
+            }
+
+            console.log("La serie de dibujos animados más antigua es:", oldestCartoon.name);
+
+            const contenedor3 = document.getElementById("cartoon");
+            contenedor3.innerHTML = `<p>La serie de dibujos animados más antigua es: <strong>${oldestCartoon.name}</strong> (${oldestCartoon.debut})</p>`;
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 28</h2>
+        <p>Dada una lista de álbumes de música, utiliza un bucle para sumar todas las duraciones solo de los álbumes de rock y luego imprime el total de estas duraciones por consola.</p>
+        <pre><code class="language-javascript">
+            const albums = [
+                { title: 'Led Zeppelin IV', genre: 'Rock', duration: 42.19 },
+                { title: 'The Dark Side of the Moon', genre: 'Rock', duration: 42.49 },
+                { title: 'Back in Black', genre: 'Rock', duration: 42.11 },
+                { title: 'Hotel California', genre: 'Rock', duration: 43.08 },
+                { title: 'Abbey Road', genre: 'Rock', duration: 47.23 },
+                { title: 'Thriller', genre: 'Pop', duration: 42.19 },
+                { title: 'A Night at the Opera', genre: 'Rock', duration: 43.08 },
+                { title: 'The Wall', genre: 'Rock', duration: 81.00 },
+                { title: 'Born to Run', genre: 'Rock', duration: 39.26 },
+                { title: 'The Joshua Tree', genre: 'Rock', duration: 50.11 }
+            ];
+
+            // Añade tu código de bucle aquí
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="album" class="solucion"></div>
+        <script>
+            const albums = [
+                { title: 'Led Zeppelin IV', genre: 'Rock', duration: 42.19 },
+                { title: 'The Dark Side of the Moon', genre: 'Rock', duration: 42.49 },
+                { title: 'Back in Black', genre: 'Rock', duration: 42.11 },
+                { title: 'Hotel California', genre: 'Rock', duration: 43.08 },
+                { title: 'Abbey Road', genre: 'Rock', duration: 47.23 },
+                { title: 'Thriller', genre: 'Pop', duration: 42.19 },
+                { title: 'A Night at the Opera', genre: 'Rock', duration: 43.08 },
+                { title: 'The Wall', genre: 'Rock', duration: 81.00 },
+                { title: 'Born to Run', genre: 'Rock', duration: 39.26 },
+                { title: 'The Joshua Tree', genre: 'Rock', duration: 50.11 }
+            ];
+
+            // Calcular la duración total solo de álbumes de Rock
+            let totalDuration = 0;
+
+            for (let i = 0; i < albums.length; i++) {
+                if (albums[i].genre === 'Rock') {
+                    totalDuration += albums[i].duration;
+                }
+            }
+
+            console.log("Duración total de álbumes de Rock:", totalDuration.toFixed(2), "minutos");
+
+            // Mostrar en el div
+            const albumDiv = document.getElementById("album");
+            albumDiv.innerHTML = `<p>Duración total de álbumes de Rock: <strong>${totalDuration.toFixed(2)} minutos</strong></p>`;
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 29</h2>
+        <p>Agrupa las películas de Star Wars por década de lanzamiento en un objeto donde las claves son las décadas y los valores son arrays de películas.</p>
+        <p>Utiliza bucles para lograrlo e imprime el objeto final por consola.</p>
+        <pre><code class="language-javascript">
+            const starWarsMovies = [
+                { title: 'A New Hope', releaseYear: 1977 },
+                { title: 'The Empire Strikes Back', releaseYear: 1980 },
+                { title: 'Return of the Jedi', releaseYear: 1983 },
+                { title: 'The Phantom Menace', releaseYear: 1999 },
+                { title: 'Attack of the Clones', releaseYear: 2002 },
+                { title: 'Revenge of the Sith', releaseYear: 2005 },
+                { title: 'The Force Awakens', releaseYear: 2015 },
+                { title: 'The Last Jedi', releaseYear: 2017 },
+                { title: 'The Rise of Skywalker', releaseYear: 2019 },
+                { title: 'Rogue One', releaseYear: 2016 },
+                { title: 'Solo', releaseYear: 2018 }
+            ];
+
+            // Añade tu código de bucle aquí
+        </code></pre>
+        <h3>Películas de Star Wars agrupadas por décadas</h3>
+        <div id="starwars" class="solucion"></div>
+        <script>
+            const starWarsMovies = [
+                { title: 'A New Hope', releaseYear: 1977 },
+                { title: 'The Empire Strikes Back', releaseYear: 1980 },
+                { title: 'Return of the Jedi', releaseYear: 1983 },
+                { title: 'The Phantom Menace', releaseYear: 1999 },
+                { title: 'Attack of the Clones', releaseYear: 2002 },
+                { title: 'Revenge of the Sith', releaseYear: 2005 },
+                { title: 'The Force Awakens', releaseYear: 2015 },
+                { title: 'The Last Jedi', releaseYear: 2017 },
+                { title: 'The Rise of Skywalker', releaseYear: 2019 },
+                { title: 'Rogue One', releaseYear: 2016 },
+                { title: 'Solo', releaseYear: 2018 }
+            ];
+
+            const moviesByDecade = {};
+
+            for (let i = 0; i < starWarsMovies.length; i++) {
+                const movie = starWarsMovies[i];
+                const decade = Math.floor(movie.releaseYear / 10) * 10;
+
+                if (!moviesByDecade[decade]) {
+                    moviesByDecade[decade] = [];
+                }
+
+                moviesByDecade[decade].push(movie.title);
+            }
+
+            console.log(moviesByDecade);
+
+            const starwarsDiv = document.getElementById('starwars');
+            for (const decade in moviesByDecade) {
+                const decadeTitle = document.createElement('h3');
+                decadeTitle.textContent = `${decade}s`;
+                starwarsDiv.appendChild(decadeTitle);
+
+                const movieList = document.createElement('ul');
+                movieList.className = 'lista-estilizada';
+                moviesByDecade[decade].forEach(title => {
+                    const li = document.createElement('li');
+                    li.textContent = title;
+                    movieList.appendChild(li);
+                });
+
+                starwarsDiv.appendChild(movieList);
+            }
+        </script>
+    </div>
 </section>
 <script src="./js/main.js"></script>
