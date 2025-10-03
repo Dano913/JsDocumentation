@@ -17,177 +17,84 @@
         <p>Crea una variable llamada suma y asigna el valor de altura + longitud.</p>
         <strong><p>5. Imprime los resultados:</p></strong>
         <p>Muestra todas las variables por consola.</p>
-        <h3>Solución</h3>
+        <h3>Definición y operación de variables</h3>
         <div id="resultado" class="solucion"></div>
-        <script>
-            let miSuperheroeFavorito = "Hulk";
-            let numeroFavorito = 50;
-            let altura = 5;
-            let longitud = 10;
-            let suma = altura + longitud;
-
-            document.getElementById("resultado").innerText = 
-            `Mi superhéroe favorito es: ${miSuperheroeFavorito}
-            Mi número favorito es: ${numeroFavorito}
-            Mi altura es: ${altura}
-            Mi longitud es: ${longitud}
-            La suma de altura y longitud es: ${suma}`;
-
-            console.log({ miSuperheroeFavorito, numeroFavorito, altura, longitud, suma });
-        </script>
+        <script src="./js/ejercicios/ej1.js"></script>
     </div>
     <div class="intro-text">
-        <h2>Ejercicio 2</h2>
+       <h2>Ejercicio 2</h2>
         <strong><p>1. Luke Skywalker cumple años:</p></strong>
-        <p>Modifica el siguiente código Javascript para actualizar la edad de Luker SkyWalker a 25 años</p>
-        <h3>Solución</h3>
+        <p>Modifica el siguiente código Javascript para actualizar la edad de Luke SkyWalker a 25 años</p>
+        <h3>Actualización de la edad de Luke Skywalker</h3>
         <div id="jedi" class="solucion"></div>
-        <script>
-            const jedi = {nombre: "Luke Skywalker", edad: 19};
-            console.log("El jedi se llama " + jedi.nombre + " y tiene " + jedi.edad + " años.")
-            document.getElementById("jedi").innerText = "Nombre: " + jedi.nombre + "\nEdad: " + jedi.edad;
 
-            jedi.edad = 25;
-            console.log("El jedi se llama " + jedi.nombre + " y tiene " + jedi.edad + " años.")
-            document.getElementById("jedi").innerText = "Nombre: " + jedi.nombre + "\nEdad: " + jedi.edad;
-        </script>
         <strong><p>2. Presentacion al estilo Leia Organa</p></strong>
         <ul class="lista-estilizada">
             <li>Crea tres variables con la siguiente información: nombre:"Leia", apellido:"Organa", edad:20.</li>
             <li>Muestra un mensaje por consola que siga la siguiente estructura: "Soy Leia Organa, tengo 20 años y soy una princesa de Alderaan."</li>
             <li>Utiliza la concatenación para ello</li>
         </ul>
-        <h3>Solución</h3>
+        <h3>Presentación de Leia Organa</h3>
         <div id="personaje" class="solucion"></div>
-        <script>
-            let nombre = "Leia";
-            let apellido = "Organa";
-            let edad = 20;
-            
-            console.log("Soy " + nombre + " " + apellido + ", tengo " + edad + " años y soy una princesa de Alderaan.")
-            document.getElementById("personaje").innerText = "Soy " + nombre + " " + apellido + ", tengo " + edad + " años y soy una princesa de Alderaan.";
-        </script>
         <strong><p>3. Calculando el coste total de sables de luz</p></strong>
         <ul class="lista-estilizada">
             <li>Obtén el precio total de dos sables de luz: "Shoto de Yoda" y "sable de Darth Vader".</li>
             <li>Imprime el resultado por consola utilizando console.log</li>
         </ul>
-        <h3>Solución</h3>
+        <h3>Precio por 2 sables</h3>
         <div id="precio" class="solucion"></div>
-        <script>
-            const sable1 = {nombre:"Shoto de Yoda", precio: 1500};
-            const sable2 = {nombre:"Sable de Darth Vader", precio: 2000};
-            const total = sable1.precio + sable2.precio
-            console.log("El precio total de ambos sables es " + total);
-            document.getElementById("precio").innerText = "El precio total de ambos sables es " + total;
-        </script>
         <strong><p>4. Actualizando el precio final de las naves</p></strong>
         <ul class="lista-estilizada">
             <li>Modifica el valor de la variable global precioBaseGlobal a 25000 créditos.</li>
             <li>Actualiza el precio final (precioFinal) de dos naves ("Ala-X" y "Halcón Milenario") sumando el valor de precioBaseGlobal a su precio base (precioBase).</li>
         </ul>
-        <h3>Solución</h3>
+        <h3>Las naves sufren los efectos de la inflación</h3>
         <div id="naves1" class="solucion"></div>
-        <script>
-            let precioBaseGlobal = 10000;
-            const nave1 = {nombre: "Ala-X", precioBase: 50000, precioFinal:60000};
-            const nave2 = {nombre: "Halcón Milenario", precioBase: 70000, precioFinal:80000};
-            
-            precioBaseGlobal = 25000;
-            nave1.precioFinal = nave1.precioFinal + precioBaseGlobal
-            nave2.precioFinal = nave2.precioFinal + precioBaseGlobal
-            console.log("Con la subida del precio Base Global a " + precioBaseGlobal + ", el precio final del " + nave1.nombre + " se quedaría en " + nave1.precioFinal + " créditos" + " y el del " + nave2.nombre + " en " + nave2.precioFinal + " créditos.");
-
-            document.getElementById("naves1").innerText = "Con la subida del precio Base Global a " + precioBaseGlobal + ", el precio final del " + nave1.nombre + " se quedaría en " + nave1.precioFinal + " créditos" + " y el del " + nave2.nombre + " en " + nave2.precioFinal + " créditos.";
-        </script>
+        <script src="./js/ejercicios/ej2.js"></script>
     </div>
     <div class="intro-text">
         <h2>Ejercicio 3</h2>
         <p>3.1 Multiplica 10 por 5 y muestra el resultado mediante console.</p>
         <div id="multi1" class="solucion"></div>
-        <script>
-            console.log("10 x 5 = " + 10 * 5)
-            document.getElementById("multi1").innerText = "10 x 5 = " + 10 * 5;
-        </script>
+
         <p>3.2 Divide 10 por 2 y muestra el resultado mediante console.</p>
         <div id="div1" class="solucion"></div>
-        <script>
-            console.log("10 / 5 = " + 10 / 5)
-            document.getElementById("div1").innerText = "10 / 5 = " + 10 / 5;
-        </script>
+
         <p>3.3 Divide 15 por 9 y muestra el resto mediante console.</p>
         <div id="res1" class="solucion"></div>
-        <script>
-            console.log("El resto de 15 / 9 es = " + 15 % 9)
-            document.getElementById("res1").innerText = "El resto de 15 / 9 es = " + 15 % 9;
-        </script>
+
         <p>3.4 Usa el operador correcto de asignación que resultará en o = 15, teniendo dos variables p = 10 y j= 5.</p>
         <div id="suma1" class="solucion"></div>
-        <script>
-            let p = 10;
-            let j = 5;
-            let suma1 = p + j;
-            console.log("p + j = " + suma1)
-            document.getElementById("suma1").innerText = "p  + j = " + suma1;
-        </script>
+
         <p>3.5 Usa el correcto operador de asignación que resultará en i = 50, teniendo dos variables c = 10 y m = 5.</p>
         <div id="multi2" class="solucion"></div>
-        <script>
-            let c = 10;
-            let m = 5;
-            let multi2 = c * m;
-            console.log("c x m = " + multi2);
-            document.getElementById("multi2").innerText = "c x m = " + multi2;
-        </script>
+        <script src="./js/ejercicios/ej3.js"></script>
     </div>
     <div class="intro-text">
         <h2>Ejercicio 4</h2>
-        <p>Dado el siguiente array</p>
+        <p>Dado el siguiente array:</p>
         <pre><code class="language-javascript">
             const aldeanos = ["Fibrilio", "Narciso", "Vacarena", "Tendo", "Nendo"];
         </code></pre>
+
         <p>4.1 Saca a "Tendo" por consola atacando su posición.</p>
         <div id="ald1" class="solucion"></div>
-        <script>
-            const aldeanos = ["Fibrilio", "Narciso", "Vacarena", "Tendo", "Nendo"];
-            console.log(aldeanos[3]);
-            document.getElementById("ald1").innerText = aldeanos[3];
-        </script>
+
         <p>4.2 Coloca en el último lugar de este array a "Cervasio".</p>
         <div id="ald2" class="solucion"></div>
-        <script>
-            aldeanos.push("Cervasio")
-            console.log(aldeanos);
-            document.getElementById("ald2").innerText = aldeanos.join(", ");
-        </script>
+
         <p>4.3 Cambia el primer elemento de este array por "Bambina".</p>
         <div id="ald3" class="solucion"></div>
-        <script>
-            aldeanos[0] = "Bambina";
-            console.log(aldeanos);
-            document.getElementById("ald3").innerText = aldeanos.join(", ");
-        </script>
+
         <p>4.4 Dale la vuelta a este array.</p>
         <div id="ald4" class="solucion"></div>
-        <script>
-            aldeanos.reverse();
-            console.log(aldeanos);
-            document.getElementById("ald4").innerText = aldeanos.join(", ");
-        </script>
+
         <p>4.5 Cambia a "Narciso" por "Canela" haciendo uso de un método de array.</p>
         <div id="ald5" class="solucion"></div>
-        <script>
-            aldeanos.splice(4, 1, "Canela");
-            console.log(aldeanos);
-            document.getElementById("ald5").innerText = aldeanos.join(", ");
-        </script>
-        <p>4.6 Imprime por consola el último elemento de este array sin atacar a la posición explicitamente</p>
+
+        <p>4.6 Imprime por consola el último elemento de este array sin atacar a la posición explícitamente.</p>
         <div id="ald6" class="solucion"></div>
-        <script>
-            console.log(aldeanos[aldeanos.length - 1]);
-            const last = aldeanos[aldeanos.length - 1];
-            document.getElementById("ald6").innerText = last;
-        </script>
+        <script src="./js/ejercicios/ej4.js"></script>
     </div>
     <div class="intro-text">
         <h2>Ejercicio 5</h2>
@@ -227,7 +134,7 @@
             console.log("number2 entre 2 es igual a number1 O number1 entre 5 es igual a number3");
             }
         </code></pre>
-        <h3>Solución</h3>
+        <h3>Operaciones con constantes</h3>
         <ul class="lista-estilizada solucion">
             <li id="cond1"></li>
             <li id="cond2"></li>
@@ -237,85 +144,22 @@
             <li id="cond6"></li>
             <li id="cond7"></li>
         </ul>
-        <script>
-            const number1 = 10;
-            const number2 = 20;
-            const number3 = 2;
-
-            if(number1 === 10){
-                console.log('number1 es estrictamente igual a 10')
-                document.getElementById("cond1").innerText = "number1 es estrictamente igual a 10";
-            };
-            if (number2 / number1 === 2) {
-            console.log("number2 dividido entre number1 es igual a 2");
-            document.getElementById("cond2").innerText = "number2 dividido entre number1 es igual a 2";
-            }
-            if (number1 !== number2) {
-            console.log("number1 es estrictamente distinto a number2");
-            document.getElementById("cond3").innerText = "number1 es estrictamente distinto a number2";
-            }
-            if (number3 != number1) {
-            console.log("number3 es distinto a number1");
-            document.getElementById("cond4").innerText = "number3 es distinto a number1";
-            }
-            if (number3 * 5 === number1) {
-            console.log("number3 por 5 es igual a number1");
-            document.getElementById("cond5").innerText = "number3 por 5 es igual a number1";
-            }
-            if (number3 * 5 === number1 && number1 * 2 === number2) {
-            console.log("number3 por 5 es igual a number1 Y number1 por 2 es igual a number2");
-            document.getElementById("cond6").innerText = "number3 por 5 es igual a number1 Y number1 por 2 es igual a number2";
-            }
-            if (number2 / 2 === number1 || number1 / 5 === number3) {
-            console.log("number2 entre 2 es igual a number1 o number1 entre 5 es igual a number3");
-            document.getElementById("cond7").innerText = "number2 entre 2 es igual a number1 o number1 entre 5 es igual a number3";
-            }
-        </script>
+        <script src="./js/ejercicios/ej5.js"></script>
     </div>
     <div class="intro-text">
         <h2>Ejercicio 6</h2>
+
         <p>1.1 Crea un bucle for que vaya desde 0 a 9 y muestra el valor de i por consola.</p>
         <div id="ej1" class="solucion"></div>
 
-        <script>
-        const ej1 = document.getElementById("ej1");
-        for (let i = 0; i < 10; i++) {
-            console.log(i);
-            ej1.innerHTML += i + "<br>";
-        }
-        </script>
-
         <p>1.2 Crea un bucle for que vaya desde 0 a 9 y muestra el valor de i por consola solo cuando el resto del número dividido entre 2 sea 0.</p>
         <div id="ej2" class="solucion"></div>
-
-        <script>
-        const ej2 = document.getElementById("ej2");
-        for (let i = 0; i < 10; i++) {
-            if (i % 2 === 0) {
-            console.log(i);
-            ej2.innerHTML += i + "<br>";
-            }
-        }
-        </script>
 
         <p>1.3 Crea un bucle para conseguir dormir contando ovejas.  
         Este bucle tiene que dar 10 vueltas, es decir, 10 console.log.  
         Muestra por consola un mensaje diciendo 'Intentando dormir 🐑' en cada vuelta del bucle y cambia el mensaje en la décima vuelta a '¡Dormido!'.</p>
         <div id="ej3" class="solucion"></div>
-
-        <script>
-        const ej3 = document.getElementById("ej3");
-        for (let i = 1; i <= 10; i++) {
-            if (i < 10) {
-            console.log("Intentando dormir 🐑");
-            ej3.innerHTML += "Intentando dormir 🐑<br>";
-            } else {
-            console.log("¡Dormido!");
-            ej3.innerHTML += "¡Dormido!";
-            }
-        }
-        </script>
-
+        <script src="./js/ejercicios/ej6.js"></script>
     </div>
     <div class="intro-text">
         <h2>Ejercicio 7</h2>
@@ -325,23 +169,9 @@
                 // Completar código
             }
         </code></pre>
-        <h3>Solución</h3>
+        <h3>Devuelve el número más alto</h3>
         <div id="number" class="solucion"></div>
-        <script>
-            const numberOne = 4;
-            const numberTwo = 17;
-            function greaterNumber(numberOne, numberTwo) {
-                if (numberOne > numberTwo) {
-                    console.log(numberOne);
-                    document.getElementById("number").innerText = "numberOne es mayor que numberTwo";
-                } else {
-                    console.log(numberTwo);
-                    document.getElementById("number").innerText = "numberTwo es mayor que numberOne";
-                }
-            }
-            
-            greaterNumber(numberOne, numberTwo);
-        </script>
+        <script src="./js/ejercicios/ej7.js"></script>
     </div>
     <div class="intro-text">
         <h2>Ejercicio 8</h2>
@@ -1492,7 +1322,7 @@
 
             // Añade tu código de bucle aquí
         </code></pre>
-        <h3>Películas de Star Wars agrupadas por décadas</h3>
+        <h3>Solución</h3>
         <div id="starwars" class="solucion"></div>
         <script>
             const starWarsMovies = [
@@ -1525,8 +1355,17 @@
             console.log(moviesByDecade);
 
             const starwarsDiv = document.getElementById('starwars');
+
+            // 🔹 Insertar el título principal dinámicamente
+            const mainTitle = document.createElement('h4');
+            mainTitle.textContent = "Películas de Star Wars agrupadas por décadas";
+            starwarsDiv.appendChild(mainTitle);
+            
+
+            // 🔹 Insertar las listas por década
             for (const decade in moviesByDecade) {
-                const decadeTitle = document.createElement('h3');
+                const decadeTitle = document.createElement('h4');
+                decadeTitle.style.marginTop = "20px";
                 decadeTitle.textContent = `${decade}s`;
                 starwarsDiv.appendChild(decadeTitle);
 
@@ -1541,6 +1380,415 @@
                 starwarsDiv.appendChild(movieList);
             }
         </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 30</h2>
+        <p>Dada una lista de canciones, clasifícalas en un objeto donde las claves sean los géneros y los valores sean arrays de canciones de ese género.</p>
+        <p>Utiliza bucles para estructurar este objeto e imprime el resultado por consola.</p>
+        <pre><code class="language-javascript">
+            const tracks = [
+                { title: 'Enter Sandman', genre: 'Metal' },
+                { title: 'Back in Black', genre: 'Rock' },
+                { title: 'Bohemian Rhapsody', genre: 'Rock' },
+                { title: 'Blinding Lights', genre: 'Pop' },
+                { title: 'Old Town Road', genre: 'Country' },
+                { title: 'Smells Like Teen Spirit', genre: 'Grunge' },
+                { title: 'Bad Guy', genre: 'Pop' },
+                { title: 'Thunderstruck', genre: 'Rock' },
+                { title: 'Hotel California', genre: 'Rock' },
+                { title: 'Stairway to Heaven', genre: 'Rock' }
+            ];
+
+            // Añade tu código de bucle aquí
+        </code></pre>
+        <h3>Solución</h3>
+        <div id="tracks" class="solucion"></div>
+        <script>
+            const tracksDiv = document.getElementById('tracks');
+
+            // 🔹 Crear el <h3> principal dentro del div
+            const mainTitle2 = document.createElement('h4');
+            mainTitle2.textContent = "Canciones clasificadas por género";
+            tracksDiv.appendChild(mainTitle2);
+
+            const tracks = [
+                { title: 'Enter Sandman', genre: 'Metal' },
+                { title: 'Back in Black', genre: 'Rock' },
+                { title: 'Bohemian Rhapsody', genre: 'Rock' },
+                { title: 'Blinding Lights', genre: 'Pop' },
+                { title: 'Old Town Road', genre: 'Country' },
+                { title: 'Smells Like Teen Spirit', genre: 'Grunge' },
+                { title: 'Bad Guy', genre: 'Pop' },
+                { title: 'Thunderstruck', genre: 'Rock' },
+                { title: 'Hotel California', genre: 'Rock' },
+                { title: 'Stairway to Heaven', genre: 'Rock' }
+            ];
+
+            const tracksByGenre = {};
+
+            for (let i = 0; i < tracks.length; i++) {
+                const track = tracks[i];
+                const genre = track.genre;
+
+                if (!tracksByGenre[genre]) {
+                    tracksByGenre[genre] = [];
+                }
+
+                tracksByGenre[genre].push(track.title);
+            }
+
+            console.log(tracksByGenre);
+
+            // 🔹 Crear listas por género dentro del mismo div
+            for (const genre in tracksByGenre) {
+                const genreTitle = document.createElement('h4');
+                genreTitle.style.marginTop = "20px";
+                genreTitle.textContent = genre;
+                tracksDiv.appendChild(genreTitle);
+
+                const trackList = document.createElement('ul');
+                trackList.className = 'lista-estilizada';
+                tracksByGenre[genre].forEach(title => {
+                    const li = document.createElement('li');
+                    li.textContent = title;
+                    trackList.appendChild(li);
+                });
+
+                tracksDiv.appendChild(trackList);
+            }
+        </script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 31</h2>
+        <p>Dada una lista de artistas con sus influencias, utiliza bucles anidados para listar todos los artistas y sus influencias directas e imprime cada par por consola.</p>
+        <p>Ejemplo de salida:</p>
+            <ul class="lista-estilizada">
+                <li>Kurt Cobain → The Beatles</li>
+                <li>Kurt Cobain → Pixies</li>
+                <li>Kurt Cobain → Lead Belly</li>
+                <li>David Bowie → Little Richard</li>
+                <li>David Bowie → Chuck Berry</li>
+                <li>David Bowie → The Velvet Underground</li>
+            </ul>
+        <pre><code class="language-javascript">
+            const tracks = [
+                { title: 'Enter Sandman', genre: 'Metal' },
+                { title: 'Back in Black', genre: 'Rock' },
+                { title: 'Bohemian Rhapsody', genre: 'Rock' },
+                { title: 'Blinding Lights', genre: 'Pop' },
+                { title: 'Old Town Road', genre: 'Country' },
+                { title: 'Smells Like Teen Spirit', genre: 'Grunge' },
+                { title: 'Bad Guy', genre: 'Pop' },
+                { title: 'Thunderstruck', genre: 'Rock' },
+                { title: 'Hotel California', genre: 'Rock' },
+                { title: 'Stairway to Heaven', genre: 'Rock' }
+            ];
+
+            // Añade tu código de bucle aquí
+        </code></pre><h3>Las influencias de los artistas mas famosos del siglo XX</h3>
+        <div id="legends" class="solucion"></div>
+        <script src="./js/ejercicios/ej31.js"></script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 32</h2>
+        <p>Crea una función que reciba un array de objetos representando a varios miembros de los X-Men y su año de aparición. La función debe retornar el miembro más antiguo.</p>
+        <p>Utiliza este array para probar tu función.</p>
+        <pre><code class="language-javascript">
+            const xMen = [
+                { name: 'Wolverine', year: 1974 },
+                { name: 'Cyclops', year: 1963 },
+                { name: 'Storm', year: 1975 },
+                { name: 'Phoenix', year: 1961 },
+                { name: 'Beast', year: 1963 },
+                { name: 'Gambit', year: 1990 },
+                { name: 'Nightcrawler', year: 1975 },
+                { name: 'Magneto', year: 1963 },
+                { name: 'Professor X', year: 1963 },
+                { name: 'Mystique', year: 1978 }
+            ];
+
+            function findOldestXMen(xMen) {
+                // insert code
+            }
+        </code></pre>
+        <h3>El miembro mas antiguo de los X-Men</h3>
+        <div id="men" class="solucion"></div>
+        <script src="./js/ejercicios/ej32.js"></script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 33</h2>
+        <p>Desarrolla una función que reciba un país por parámetro y devuelva su capital.</p>
+        <p>Utiliza un objeto para almacenar los países y sus capitales.</p>
+        <p>La función debe manejar casos en los que el país no esté en la lista, devolviendo un mensaje adecuado.</p>
+        <pre><code class="language-javascript">
+            const capitals = {
+                Spain: 'Madrid',
+                France: 'Paris',
+                Italy: 'Rome',
+                Germany: 'Berlin',
+                Portugal: 'Lisbon',
+                Poland: 'Warsaw',
+                Greece: 'Athens',
+                Austria: 'Vienna',
+                Hungary: 'Budapest',
+                Ireland: 'Dublin'
+            };
+
+            function getCapital(country) {
+                // insert code
+            }
+        </code></pre>
+        <h3>Función que obtiene la capital de un país</h3>
+        <div id="capital" class="solucion"></div>
+        <script src="./js/ejercicios/ej33.js"></script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 34</h2>
+        <p>Escribe una función que calcule el promedio de duración de una lista de películas.</p>
+        <p>Recibe un array de películas, cada una con su duración en minutos.</p>
+        <p>La función debe devolver el promedio de duración de todas las películas.</p>
+        <pre><code class="language-javascript">
+            const movies = [
+                { title: 'Inception', duration: 148 },
+                { title: 'The Dark Knight', duration: 152 },
+                { title: 'Interstellar', duration: 169 },
+                { title: 'Dunkirk', duration: 106 },
+                { title: 'The Prestige', duration: 130 },
+                { title: 'Memento', duration: 113 },
+                { title: 'Batman Begins', duration: 140 },
+                { title: 'The Dark Knight Rises', duration: 164 },
+                { title: 'Tenet', duration: 150 },
+                { title: 'Insomnia', duration: 118 }
+            ];
+
+            function averageMovieDuration(movies) {
+                // insert code
+            }
+        </code></pre>
+        <h3>Promedio de duración de todas las películas</h3>
+        <div id="average2" class="solucion"></div>
+        <script src="./js/ejercicios/ej34.js"></script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 35</h2>
+        <p>Desarrolla una función que busque en un array de objetos representando mutantes si existe alguno con un poder específico y retorne un mensaje indicando si fue encontrado o no.</p>
+        <p>Considera el caso de múltiples mutantes con el mismo poder.</p>
+        <pre><code class="language-javascript">
+            const mutants = [
+                { name: 'Wolverine', power: 'regeneration' },
+                { name: 'Magneto', power: 'magnetism' },
+                { name: 'Professor X', power: 'telepathy' },
+                { name: 'Jean Grey', power: 'telekinesis' },
+                { name: 'Rogue', power: 'power absorption' },
+                { name: 'Storm', power: 'weather manipulation' },
+                { name: 'Mystique', power: 'shape-shifting' },
+                { name: 'Beast', power: 'superhuman strength' },
+                { name: 'Colossus', power: 'steel skin' },
+                { name: 'Nightcrawler', power: 'teleportation' }
+            ];
+
+            function findMutantByPower(mutants, power) {
+                // insert code
+            }
+        </code></pre>
+        <h3>Función que muestra que mutantes tienen un determinado poder</h3>
+        <div id="mutant" class="solucion"></div>
+        <script src="./js/ejercicios/ej35.js"></script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 36</h2>
+        <p>Crea una función que, dada una lista de actores con su año de nacimiento, calcule su edad actual y retorne un nuevo array con los nombres de los actores y sus edades.</p>
+        <p>Averigua como hallar el año actual en tus cálculos.</p>
+        <pre><code class="language-javascript">
+            const actors = [
+                { name: 'Leonardo DiCaprio', born: 1974 },
+                { name: 'Tom Hanks', born: 1956 },
+                { name: 'Meryl Streep', born: 1949 },
+                { name: 'Brad Pitt', born: 1963 },
+                { name: 'Johnny Depp', born: 1963 },
+                { name: 'Scarlett Johansson', born: 1984 },
+                { name: 'Jennifer Lawrence', born: 1990 },
+                { name: 'Denzel Washington', born: 1954 },
+                { name: 'Morgan Freeman', born: 1937 },
+                { name: 'Cate Blanchett', born: 1969 }
+            ];
+
+            function calculateActorsAges(actors) {
+                // insert code
+            }
+        </code></pre>
+        <h3>Edad de los actores según su año de nacimiento</h3>
+        <div id="actors" class="solucion"></div>
+        <script src="./js/ejercicios/ej36.js"></script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 37</h2>
+        <p>Dado el siguiente código usa forof para recorrer el array de películas, genera un nuevo array con las categorías de las películas e imprime por consola el array de categorías.</p>
+        <p>Ten en cuenta que las categorías no tienen que repetirse.</p>
+        <p>Es decir, const categorias = ["comedia", "aventura", "acción", "thriller", "animación"]</p>
+        <p>Para filtrar las categorías puedes ayudarte de la función .includes().</p>
+        <pre><code class="language-javascript">
+            const movies = [
+                {
+                    title: "Bracula: Condemor II",
+                    duration: 192,
+                    categories: ["comedia", "aventura"],
+                },
+                {
+                    title: "Spider-Man: No Way Home",
+                    duration: 122,
+                    categories: ["aventura", "acción"],
+                },
+                {
+                    title: "The Voices",
+                    duration: 223,
+                    categories: ["comedia", "thriller"],
+                },
+                {
+                    title: "Shrek",
+                    duration: 111,
+                    categories: ["comedia", "aventura", "animación"],
+                },
+            ];
+        </code></pre>
+        <h3>Categorías de las películas</h3>
+        <div id="cate"class="solucion"></div>
+        <script src="./js/ejercicios/ej37.js"></script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 38</h2>
+        <p>Dado el siguiente código usa forof y forin para hacer la media del volumen de todos los sonidos favoritos que tienen los usuarios.</p>
+        <p>Es decir, la media de volumen de todos los volumenes juntos.</p>
+        <pre><code class="language-javascript">
+            const users = [
+                {
+                    name: "Alberto",
+                    favoritesSounds: {
+                    waves: { format: "mp3", volume: 50 },
+                    rain: { format: "ogg", volume: 60 },
+                    firecamp: { format: "mp3", volume: 80 },
+                    },
+                },
+                {
+                    name: "Antonio",
+                    favoritesSounds: {
+                    waves: { format: "mp3", volume: 30 },
+                    shower: { format: "ogg", volume: 55 },
+                    train: { format: "mp3", volume: 60 },
+                    },
+                },
+                {
+                    name: "Santiago",
+                    favoritesSounds: {
+                    shower: { format: "mp3", volume: 50 },
+                    train: { format: "ogg", volume: 60 },
+                    firecamp: { format: "mp3", volume: 80 },
+                    },
+                },
+                {
+                    name: "Laura",
+                    favoritesSounds: {
+                    waves: { format: "mp3", volume: 67 },
+                    wind: { format: "ogg", volume: 35 },
+                    firecamp: { format: "mp3", volume: 60 },
+                    },
+                },
+            ];
+        </code></pre>
+        <h3>Media del volumen de todos los sonidos</h3>
+        <div id="sonidos" class="solucion"></div>
+        <script src="./js/ejercicios/ej38.js"></script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 39</h2>
+        <p>Dado el siguiente código usa forof y forin para saber cuantas veces ha sido cada sonido agregado por los usuarios a favorito.</p>
+        <p>Para ello recorre la lista de usuarios y usa forin para recoger el nombre de los sonidos que el usuario tenga como favoritos.</p>
+        <p>Una vez accedas a ellos piensa en la mejor forma de hacer un conteo de cada vez que ese sonido se repita como favorito en cada usuario.</p>
+        <p>Este ejercicio es un poco complicado con los conocimientos actuales pero...a la vez un buen reto y oportunidad para comprender que hay muchas formas de hacer las cosas en JavaScript.</p>
+        <pre><code class="language-javascript">
+            const users = [
+                {
+                    name: "Alberto",
+                    favoritesSounds: {
+                    waves: { format: "mp3", volume: 50 },
+                    rain: { format: "ogg", volume: 60 },
+                    firecamp: { format: "mp3", volume: 80 },
+                    },
+                },
+                {
+                    name: "Antonio",
+                    favoritesSounds: {
+                    waves: { format: "mp3", volume: 30 },
+                    shower: { format: "ogg", volume: 55 },
+                    train: { format: "mp3", volume: 60 },
+                    },
+                },
+                {
+                    name: "Santiago",
+                    favoritesSounds: {
+                    shower: { format: "mp3", volume: 50 },
+                    train: { format: "ogg", volume: 60 },
+                    firecamp: { format: "mp3", volume: 80 },
+                    },
+                },
+                {
+                    name: "Laura",
+                    favoritesSounds: {
+                    waves: { format: "mp3", volume: 67 },
+                    wind: { format: "ogg", volume: 35 },
+                    firecamp: { format: "mp3", volume: 60 },
+                    },
+                },
+            ];
+        </code></pre>
+        <h3>Numero de usuarios que añaden cada sonido a favoritos</h3>
+        <div id="sonido" class="solucion"></div>
+        <script src="./js/ejercicios/ej39.js"></script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 40</h2>
+        <p>Crea una función llamada findArrayIndex que reciba como parametros un array de textos y un texto y devuelve la posición del array cuando el valor del array sea igual al valor del texto que enviaste como parámetro.</p>
+        <p>Haz varios ejemplos y compruébalos.</p>
+        <pre><code class="language-javascript">
+            function findArrayIndex(array, text) {
+                //Tu codigo
+            }
+
+            const mainCharacters = [
+                "Luke",
+                "Leia",
+                "Han Solo",
+                "Chewbacca",
+                "Rey",
+                "Anakin",
+                "Obi-Wan",
+            ];
+        </code></pre>
+        <p>Usando la función anterior benefíciate de poder conocer el indice del array para crear una función llamada removeItem que, pasándole un array y un texto como parámetros (los mismos parámetros que en el anterior ejercicio), llame a la función anteriormente creada findArrayIndex y obtén el indice para posteriormente usar la función de javascript .splice() para eliminar el elemento del array.</p>
+        <p>Es decir, tienes que crear una función que elimine elementos del array y retorne el nuevo array sin el elemento, apoyándote en findArrayIndex.</p>
+        <p>Finalmente retorna el array.</p>
+        <p>De nuevo haz varios ejemplos para practicar y comprueba que funcionan correctamente.</p>
+        <h3>Diversas funciones sobre el array de Star Wars</h3>
+        <div id="wars" class="solucion"></div>
+        <script src="./js/ejercicios/ej40.js"></script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 41</h2>
+        <p>Crea una función llamada rollDice() que reciba como parámetro el numero de caras que queramos que tenga el dado que deberá simular el codigo dentro de la función.</p>
+        <p>Que la función use el parametro para simular una tirada de dado y retornar el resultado.</p>
+        <p>Si no se te ocurre como hacer un numero aleatorio no te preocupes. Busca información sobre la función de JavaScript Math.random()</p>
+        <h3>Resultados de tiradas de dados</h3>
+        <div id="dice" class="solucion"></div>
+        <script src="./js/ejercicios/ej41.js"></script>
+    </div>
+    <div class="intro-text">
+        <h2>Ejercicio 42</h2>
+        <p>Crea una función llamada swap que reciba un array y dos parametros que sean indices del array.</p>
+        <p>La función deberá intercambiar la posición de los valores de los indices que hayamos enviado como parametro. Es decir, intercambiar el lugar de un elemento por otro dentro del array.</p>
+        <p>Retorna el array resultante.</p>
+        <h3>Funcion Swap de índices de un array</h3>
+        <div id="fantastic" class="solucion"></div>
+        <script src="./js/ejercicios/ej42.js"></script>
     </div>
 </section>
 <script src="./js/main.js"></script>

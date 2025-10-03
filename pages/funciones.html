@@ -61,11 +61,14 @@
         <p>Podemos especificar un valor llamado “default” (predeterminado) en la declaración de función usando =</p>
         <p>Ahora, si no existe el parámetro attack, obtendrá el valor 'Ataque arena'.</p>
         <pre><code class="language-javascript">
-            function pokemonAttackParams(name, attack = "Ataque arena") {
-                console.log(`¡${name} ${attack}!`);
+            function pokemonAttackParams
+            (name, attack = "Ataque arena"){
+                console.log(`¡${name} 
+                ${attack}!`);
             }
 
-            console.log(pokemonAttackParams("Onix")); // ¡Onix Ataque arena!
+            console.log(pokemonAttackParams
+            ("Onix")); // ¡Onix Ataque arena!
         </code></pre>
     </div>
     <div class="intro-text">
