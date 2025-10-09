@@ -33,4 +33,4 @@ for (const movie of movies5) {
 
 console.log(categorias);
 
-document.getElementById("cate").textContent = "Las categorías de las películas son: " + categorias.join(", ");
+document.getElementById("cate").textContent = categorias.join(", ");

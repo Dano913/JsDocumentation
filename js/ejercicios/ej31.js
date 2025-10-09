@@ -13,7 +13,7 @@ for (let i = 0; i < artists.length; i++) {
     const artist = artists[i];
 
     // Mostrar nombre del artista en pantalla
-    const artistTitle = document.createElement('h3');
+    const artistTitle = document.createElement('h4');
     artistTitle.textContent = artist.name;
     legends.appendChild(artistTitle);
 

@@ -30,7 +30,7 @@ console.log(result5);
 document.getElementById("actors").innerHTML = `
   <ul class="lista-estilizada">
     ${result5
-      .map(actor => `<li><b>${actor.name}</b> tiene ${actor.age} años</li>`)
+      .map(actor => `<li>${actor.name} tiene ${actor.age} años</li>`)
       .join('')}
   </ul>
 `;

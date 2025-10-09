@@ -24,4 +24,4 @@ const average2 = averageMovieDuration(movies4);
 console.log("El promedio de duración de las películas es:", average2, "minutos");
 
 document.getElementById("average2").innerHTML =
-`El promedio de duración de las películas es <strong>${average2} minutos</strong>.`;
+`<strong>${average2}</strong> minutos.`;

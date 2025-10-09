@@ -47,5 +47,4 @@ const average3 = totalVolume / count;
 
 console.log("La media de volumen de todos los sonidos favoritos es:", average3);
 
-document.getElementById("sonidos").innerHTML =
-"La media de volumen de todos los sonidos favoritos es: <b>" + average3.toFixed(2) + "</b>";
+document.getElementById("sonidos").innerHTML = average3.toFixed(2);

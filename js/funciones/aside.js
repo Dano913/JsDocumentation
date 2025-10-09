@@ -1,0 +1,79 @@
+export function createAside() {
+  const content = document.querySelector('main.content');
+  const aside = document.getElementById('aside');
+  if (!aside) return;
+  aside.innerHTML = '';
+
+  const title = document.createElement('h3');
+  title.textContent = 'On this page';
+  title.style.color = 'var(--text2-color)'; 
+  aside.appendChild(title);
+
+  const ul = document.createElement('ul');
+  const headers = content.querySelectorAll('h2');
+  const links = [];
+
+  headers.forEach(header => {
+    if (!header.id) header.id = header.textContent.toLowerCase().replace(/\s+/g, '-');
+
+    const li = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = `#${header.id}`;
+    link.textContent = header.textContent;
+
+    li.appendChild(link);
+    ul.appendChild(li);
+    links.push(link);
+
+    li.addEventListener('click', () => link.click());
+  });
+
+  aside.appendChild(ul);
+
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      e.stopPropagation();
+      links.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const id = entry.target.id;
+      const link = aside.querySelector(`a[href="#${id}"]`);
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        if (link) link.classList.add('active');
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '0px 0px -70% 0px',
+    threshold: 0
+  });
+
+  headers.forEach(header => observer.observe(header));
+}
+
+
+
+export function responsiveAside(container, aside) {
+  const ancho = window.innerWidth;
+  let maxWidth = 80;
+
+  if (ancho > 800 && ancho < 1800) {
+    const pasos = Math.floor((1800 - ancho) / 100);
+    maxWidth = 80 - pasos * 0.5;
+    if (aside) { aside.style.display = 'block'; aside.style.opacity = '1'; }
+  } else if (ancho <= 800) {
+    maxWidth = 100;
+    if (aside) { aside.style.opacity = '0'; aside.style.display = 'none'; }
+  }
+  if (maxWidth < 54) maxWidth = 54;
+  container.style.maxWidth = maxWidth + '%';
+}
+
+export function setupResizeListener(container, aside) {
+  window.addEventListener('resize', () => responsiveAside(container, aside));
+}

@@ -22,4 +22,4 @@ const oldest = findOldestXMen(xMen);
 console.log(`El X-Men más antiguo es ${oldest.name}, que apareció en ${oldest.year}.`);
 
 document.getElementById("men").innerHTML = 
-`<p>El X-Men más antiguo es <strong>${oldest.name}</strong>, que apareció en <strong>${oldest.year}</strong>.</p>`;
+`<p><strong>${oldest.name}</strong> apareció en <strong>${oldest.year}</strong>.</p>`;
