@@ -1,0 +1,200 @@
+<section class="section" id="dom">
+    <h1>DOM</h1>
+    <div class="intro-text">
+        <p>DOM (Document Object Model) es la representación del documento como un grupo de nodos y objetos estructurados que tienen propiedades y métodos.</p>
+        <p>En resumen, es la representación de la aplicación web en la memoria del navegador, a la que podemos acceder a través de JavaScript.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Enlazar JavaScript y HTML</h2>
+        <p>Para poder leer, modificar, eliminar o crear elementos del DOM tendremos que enlazar nuestro fichero HTML con el fichero JavaScript.</p>
+        <p>Para ello lo utilizaremos la etiqueta script dentro de la etiqueta head.</p>
+        <p>Incluiremos el atributo defer para indicarle al navegador que el script debe ser cargado en segundo plano mientras el documento HTML se analiza y se muestra al usuario. Luego se ejecutará después de que el análisis del HTML haya finalizado evitando problemas de falta de información del fichero.</p>
+        <pre><code class="language-javascript">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;script src="name_file.js" defer&gt;&lt;/script&gt;
+                    &lt;title&gt;Enlazar JS&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+
+                &lt;/body&gt;
+            &lt;/html&gt;
+        </code></pre>
+        <p>Una manera alternativa para no tener que hacer uso del atributo defer es colocar la etiqueta script justo al final del body.</p>
+        <p>El documento HTML se leerá en orden y ejecutará el script una vez analizado y montado el documento en el navegador.</p>
+        <pre><code class="language-javascript">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;title&gt;Enlazar JS&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    [...] 
+                    &lt;script src="name_file.js"&gt;&lt;/script&gt;
+                &lt;/body&gt;
+            &lt;/html&gt;
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>Métodos de acceso a elementos del DOM</h2>
+        <p>Desde nuestro script podemos acceder al árbol del DOM generado en nuestro fichero HTML y recuperar los elementos existentes mediante selectores.</p>
+        <p>Os animamos a que inspeccionéis estas lineas en consola para ver como habéis recuperado un elemento de HTML en JS.</p>
+        <pre><code class="language-javascript">
+            // Obtiene un elemento por id
+            document.getElementById("someid");
+
+            // Obtiene una lista con los elementos con esa clase
+            document.getElements
+                ByClassName("someclass");
+
+            // Obtiene una HTMLCollection con todos los elementos "li"
+            document.getElementsByTagName("li");
+
+            // Devuelve el primer elemento del documento que cumpla la selección
+            // (la notación es como en css)
+            document.querySelector(".someclass");
+
+            // Devuelve una lista de elementos que cumplan con la selección
+            // (la notación es como en css)
+            document.querySelectorAll("div.note");
+            document.querySelectorAll("div.note, div.alert");
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>Métodos de acceso a elementos hijos y padre</h2>
+        <p>A través de los selectores de padre o hijos podemos acceder a un elemento si es que este no es obtenible de una forma más directa.</p>
+        <pre><code class="language-javascript">
+            // Obtener los nodos hijos de un elemento
+            let elem = document.getElementById("someid");
+            let hijos = elem.childNodes;
+
+            // Obtener el nodo padre
+            let padre = elem.parentNode;
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>Creando nuevos elementos</h2>
+        <p>A través de JavaScript también podemos crear nuevos elementos y posteriormente agregarlos de manera dinámica.</p>
+        <p>Además de ello podemos asignarlos a otros elementos o etiquetas ya existentes.</p>
+        <p>Estas variables se denominarán nodos (es decir, cuando referencien a un elemento de la aplicación en vez de un string, numero, array, etc...).</p>
+        <pre><code class="language-javascript">
+            // Para crear elementos utilizamos el método createElement pasándole el nombre del tag
+            let nuevoH1 = document.createElement("h1");
+            let nuevoParrafo = document.createElement("p");
+
+            // Podemos crear nodos de texto para un elemento
+            let textoH1 = document.createTextNode("Hola mundo!");
+            let textoParrafo = document.createTextNode("lorem ipsum...");
+
+            // Podemos añadir un nodo como hijo a otro nodo ya existente
+            nuevoH1.appendChild(textoH1);
+            nuevoParrafo.appendChild(textoParrafo);
+
+            // También podemos asignar directamente el valor con las propiedades innerHTMl
+            nuevoH1.innerHTML = textoH1;
+            nuevoParrafo.innerHTML = textoParrafo;
+
+            // Los elementos estarían listos para añadirlos al DOM
+            // Ahora mismo sólo existen en memoria, pero no serán visibles hasta
+            //que no los añadamos a un elemento del DOM
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>Añadir nuevos elementos al DOM</h2>
+        <p>Una vez hemos creado nuevos nodos en nuestro fichero podemos agregarlos al árbol del DOM tomando como referencia tanto nuevos elementos como elementos previamente recuperados del documento.</p>
+        <pre><code class="language-javascript">
+            // Seleccionamos un elemento
+            let cabecera = document.getElementById("cabecera");
+
+            // Le añadimos los nodos hijos
+            cabecera.appendChild(nuevoH1);
+            cabecera.appendChild(nuevoParrafo);
+
+            // Recuperamos el padre del elemento
+            let padre = cabecera.parentNode;
+
+            // Insertamos el h1 antes de la cabecera
+            padre.insertBefore(nuevoH1, cabecera);
+        </code></pre>
+        <p>También podemos añadir directamente un fragmento de HTML antes o después de un elemento del DOM, supongamos que tenemos estos elementos en la página:</p>
+        <pre><code class="language-javascript">
+            &lt;div id="box1"&gt;
+                &lt;p&gt;aquí algo de texto&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div id="box2"&gt;
+                &lt;p&gt;otro párrafo bla bla bla&lt;/p&gt;
+            &lt;/div&gt;
+        </code></pre>
+        <p>Con estos los siguientes métodos podemos insertar el nuevo contenido de la siguiente forma:</p>
+        <pre><code class="language-javascript">
+            let box2 = document.getElementById("box2");
+            box2.insertAdjacentHTML("beforebegin", "&lt;div&gt;&lt;p&gt;un párrafo nuevo.&lt;/div&gt;&lt;/p&gt;");
+
+            // beforebegin - El nuevo HTML es insertado justo antes del elemento, a la misma altura (hermano);
+            // afterbegin - El nuevo HTML se inserta dentro del elemento, antes del primer hijo.
+            // beforeend - El nuevo HTML se inserta dentro del elemento, después del último hijo
+            // afterend - El nuevo HTML es insertado justo después del elemento, a la misma altura (hermano)
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>Manipular clases</h2>
+        <p>Además de trabajar sobre elementos del DOM también podemos atacar a sus atributos de clase.</p>
+        <p>Podemos recuperar, añadir, modificar, eliminar y comprobar los atributos de clase de los elementos de nuestro documento de manera dinámica mediante una serie de métodos que nos ayudarán a tener estilos dinámicos en nuestra aplicación.</p>
+        <pre><code class="language-javascript">
+            // Recuperamos  un elemento
+            let cabecera = document.getElementById("cabecera");
+
+            // Elimina una clase del elemento
+            cabecera.classList.remove("foo");
+
+            // Añade una clase si no existe
+            cabecera.classList.add("otra");
+
+            // Añade o elimina varias clases a la vez
+            cabecera.classList.add("foo", "bar");
+            cabecera.classList.remove("foo", "bar");
+
+            // Si la clase existe la elimina, si no existe, la crea
+            cabecera.classList.toggle("visible");
+
+            // Devuelve true si el elemento contiene esa clase
+            cabecera.classList.contains("foo")
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>DOM Templates</h2>
+        <p>Con DOM Templates podemos implementar o modificar elementos a través de strings, permitiéndonos crear estructuras HTML de manera dinámica y manipular el contenido de la página web de manera más flexible y sencilla.</p>
+        <p>Para ello utilizaremos las backticks o comillas francesas.</p>
+        <pre><code class="language-javascript">
+            let title = `&lt;h1&gt;Hello&lt;/h1&gt;`
+        </code></pre>
+        <p>Algo más complejo o elaborado sería el siguiente caso, en el cual exprimimos el uso de la interpolación mediante el dólar y las llaves dentro de las backticks (`).</p>
+        <p>Es una forma más directa y sencilla que, según la situación, nos puede agilizar el desarrollo de ciertos elementos de nuestra aplicación.</p>
+        <p>Ahora ya sabéis una nueva forma de concatenar.</p>
+        <pre><code class="language-javascript">
+            let name = "Peter Parker";
+            let job = "Frontend Developer";
+
+            // old school
+            console.log("my name is " + name + " and my job is " + job);
+            // new way
+            console.log(`my name is ${name} and my job is ${job}`);
+
+            // Add to HTML
+            const contentApp = document.querySelector("#nameSelector");
+            let html = `
+                &lt;ul&gt;
+                    &lt;li&gt;name: ${name}&lt;/li&gt;
+                    &lt;li&gt;job: ${job}&lt;/li&gt;
+                &lt;/ul&gt;
+            `;
+
+            contentApp.innerHTML = html;
+        </code></pre>
+    </div>
+</section>

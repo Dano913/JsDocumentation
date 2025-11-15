@@ -324,6 +324,7 @@ section {
       padding-bottom: 0.5rem;
       display: flex;
       justify-content: space-between;
+      min-width: 100%;
 
       .btn-copiar-ejercicio {
         display: flex;
@@ -364,11 +365,11 @@ section {
       .codespan {
         display: inline-block;               
         background-color: #1b1b1b8e !important;
-        height: 31.5px;
+        height: auto;
+        padding:0;
         margin-bottom: -8px;
         margin-right: 2px;
-        color: #31c7ae !important;         
-        padding: 0rem 0.4rem !important;
+        color: #31c7ae !important;
         border-radius: 6px;       
         overflow-x: none !important;
         overflow-y: auto;
@@ -377,7 +378,7 @@ section {
         border: 2px solid #333;
         white-space: pre-wrap !important; 
         word-wrap: break-word !important;  
-        overflow-x: hidden !important; 
+        overflow-x: visible !important;
       }
 
       .codespan > span:first-child {
@@ -431,16 +432,16 @@ section {
       background-color: transparent !important;
       border: none;
       padding: 0 !important;
-      margin: 20px !important;
+      margin: 20px auto !important;
       all: unset;
       display: block;
       white-space: pre;
-      overflow-x: none !important;
       tab-size: 2 !important; 
       white-space: pre-wrap !important;
       word-wrap: break-word !important;
       overflow-x: hidden !important; 
       border-radius: 10px;
+      max-width: 80%;
     }
 
     .language-javascript {
@@ -458,7 +459,7 @@ section {
       white-space: pre-wrap !important;
       word-wrap: break-word !important;
       overflow-x: hidden !important; 
-      width:fit-content;
+      width:100%;
     }
 
     .language-javascript2 {
@@ -479,6 +480,24 @@ section {
       white-space: pre-wrap !important; 
       word-wrap: break-word !important;  
       overflow-x: hidden !important; 
+    }
+
+    .language-html {
+      display: block;
+      background-color: #00000015 !important;
+      color: #f08e0d !important;  
+      padding: 0rem 2rem 2rem 2rem;
+      border-radius: 10px;
+      overflow-x: none !important;
+      overflow-y: auto;
+      font-family: 'Fira Code', monospace;
+      font-size: 1rem !important;
+      line-height: 1.5;
+      border: 2px ridge #333;
+      white-space: pre-wrap !important;
+      word-wrap: break-word !important;
+      overflow-x: hidden !important; 
+      width:100%;
     }
 
     .token.keyword {
@@ -530,7 +549,7 @@ section {
     }
 
     .token.tag {
-      color: #ffffff !important;
+      color: #f70b0b !important;
     }
 
     .token.attr-name {
@@ -539,6 +558,10 @@ section {
     .token.punctuation {
       color: #7cbcf7 !important;
     }
+  }
+
+  .intro-text{
+    max-width: 95%;
   }
 
   .intro-text2 {
@@ -560,14 +583,32 @@ section {
     }
   }
 
-  .ej1 {
-    padding: 1rem 3rem;
+  .intro-text3 {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 3rem;
+    padding: 2rem 3rem;
+    border-radius: 10px;
+    background-color: var(--bg2-color);
+    width: 95%;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: justify;
+    transition: min-height 0.8s ease;
 
-    h2 {
-      width: 100%;
+    .ej1 {
+      padding: 1rem 3rem;
+
+      h2 {
+        width: 100%;
+      }
     }
   }
 }
+#resultado3 {
+    max-width:100%;
+  }
 
 
 

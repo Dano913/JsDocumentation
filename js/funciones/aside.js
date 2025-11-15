@@ -1,19 +1,36 @@
+// aside.js
+
 export function createAside() {
   const content = document.querySelector('main.content');
   const aside = document.getElementById('aside');
   if (!aside) return;
+
+  // Limpiar contenido previo
   aside.innerHTML = '';
 
+  // Crear título
   const title = document.createElement('h3');
   title.textContent = 'On this page';
-  title.style.color = 'var(--text2-color)'; 
+  title.style.color = 'var(--text2-color)';
   aside.appendChild(title);
 
+  // Crear lista
   const ul = document.createElement('ul');
-  const headers = content.querySelectorAll('h2');
+  aside.appendChild(ul);
+
   const links = [];
 
+  // Función para saber si un elemento es visible (no está oculto)
+  function isVisible(element) {
+    return !!(element.offsetWidth || element.offsetHeight || element.getClientRects().length);
+  }
+
+  // Seleccionar todos los h2 y agregar solo los visibles
+  const headers = content.querySelectorAll('h2');
   headers.forEach(header => {
+    if (!isVisible(header)) return; // ignorar elementos ocultos
+
+    // Asegurarse de que tenga id
     if (!header.id) header.id = header.textContent.toLowerCase().replace(/\s+/g, '-');
 
     const li = document.createElement('li');
@@ -25,11 +42,11 @@ export function createAside() {
     ul.appendChild(li);
     links.push(link);
 
+    // Click en li simula click en el link
     li.addEventListener('click', () => link.click());
   });
 
-  aside.appendChild(ul);
-
+  // Añadir clase active al link clicado
   links.forEach(link => {
     link.addEventListener('click', e => {
       e.stopPropagation();
@@ -38,6 +55,7 @@ export function createAside() {
     });
   });
 
+  // IntersectionObserver para resaltar sección activa
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       const id = entry.target.id;
@@ -53,10 +71,10 @@ export function createAside() {
     threshold: 0
   });
 
-  headers.forEach(header => observer.observe(header));
+  headers.forEach(header => {
+    if (isVisible(header)) observer.observe(header);
+  });
 }
-
-
 
 export function responsiveAside(container, aside) {
   const ancho = window.innerWidth;
