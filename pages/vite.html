@@ -1,0 +1,307 @@
+<section class="section" id="dom">
+    <h1>VITE</h1>
+    <div class="intro-text">
+        <p>Cualquier aplicación web “tradicional” esta compuesta por HTML, CSS y JavaScript. Estos 3 elementos combinados darán forma, estilo y funcionalidad a nuestra aplicación web.</p>
+        <p>Llegados a este punto deberíamos de encontrar la forma más adecuada de tener un entorno de desarrollo lo más parecido posible a lo que vamos a tener en el módulo de React, haciendo uso además de librerías o bibliotecas externas que nos compilen al formato anteriormente mencionado.</p>
+        <p>Para ello haremos uso de los llamados “bundlers”, que son los encargados de recopilar en un mismo lugar las librerías, nuestros archivos HTML, CSS y JavaScript propios, compilarlo y devolverlo en un formato unificado al navegador.</p>
+        <p>El bundler en cuestión que vamos a utilizar se llama Rollup, y lo haremos a través de Vite.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>¿Qué es Vite?</h2>
+        <p>Vite es un conjunto de herramientas para el front-end en el que utilizaremos por debajo un bundler llamado Rollup y toda la configuración que Vite nos aporta para tener un entorno de desarrollo rápido en el que disfrutaremos de varias características:</p>
+        <ul class="lista-estilizada">
+            <li>Hot reloading: al cambiar cualquiera de los archivos de nuestra aplicación, Vite volverá a recargarla con los cambios reflejados para que podamos trabajar en “tiempo real” en el navegador.</li>
+            <li>Servidor de desarrollo instantáneo.</li>
+            <li>Builds finales optimizadas para publicación a través de Rollup.</li>
+            <li>Optimización de CSS.</li>
+        </ul>
+        <p>En el siguiente bloque generaremos nuestro propio HTML, CSS y JavaScript tal y como hemos hecho en anteriores ocasiones, y a través de este bundler generaremos una versión de nuestra aplicación web más optimizada combinando nuestro código con librerías externas.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Probando Rollup & Vite</h2>
+        <p>Vamos a crear nuestro primer proyecto con Vite. Para ello vamos a acceder a la página web oficial de Vite dentro de la sección de Guía, la cual nos indicará paso a paso cómo podemos arrancar un proyecto desde nuestro entorno de desarrollo.</p>
+        <p>Dentro de esta guía comprobaremos los diferentes templates que nos ofrece Vite, los cuales nos permitirán trabajar con diferentes configuraciones de lenguaje y tecnologías con las que trabajar en nuestro proyecto.</p>
+        <p>En nuestro caso vamos a probarlo con JavaScript vanilla, ya que es el lenguaje con el que hemos estado trabajando hasta ahora. Para ello vamos a seguir los comandos que nos indica el paso a paso contemplado por la guía para crear nuestro proyecto con Vite y la configuración seleccionada.</p>
+        <p>Lo primero que tendremos que ejecutar es la instalación del paquete principal a través de NPM mediante el siguiente comando:</p>
+        <pre><code class="language-javascript">
+            npm create vite@latest
+        </code></pre>
+        <p>Este comando desencadenará una serie de preguntas y opciones en nuestra terminal que podremos seleccionar a través de las flechas del teclado e introduciendo la información requerida.</p>
+        <p>La primera de ellas, en el caso de que sea la primera vez que utilizamos Vite, será si queremos instalar de manera global la librería de Vite. En esta opción marcaremos una S o Y para proceder a la instalación.</p>
+        <p>Lo siguiente que nos preguntará la terminal es el nombre de nuestro proyecto, en nuestro caso lo llamaremos ejemplo-vite.</p>
+        <pre><code class="language-javascript">
+            ? Project name: › ejemplo-vite
+        </code></pre>
+        <p>El último paso será indicar a través de las flechas del teclado el framework o stack que utilizaremos en nuestro proyecto. En esta ocasión vamos a trabajar con vanilla y su variante vanilla (sin TypeScript).</p>
+        <pre><code class="language-javascript">
+            ✔ Project name: … ejemplo-vite
+            ✔ Select a framework: › vanilla
+            ✔ Select a variant: › JavaScript
+        </code></pre>
+        <p>Tras estos comandos, la terminal nos devolverá una serie de instrucciones a seguir para acceder a la carpeta del proyecto, instalar las dependencias y arrancar la versión de desarrollo en el servidor:</p>
+        <pre><code class="language-javascript">
+            cd ejemplo-vite //Accedemos al directorio creado
+            npm install     //Instalamos las dependencias del package.json
+            npm run dev     //Arrancamos el servidor 
+        </code></pre>
+        <p>Completados estos pasos, la terminal nos devolverá un mensaje con la dirección del puerto local donde está corriendo nuestro proyecto en su versión de desarrollo, por lo cual, si accedemos al puerto <span class="codespan">http://127.0.0.1:5173/</span> (en nuestro caso es este, pero dependiendo de la configuración de cada máquina puede variar), podremos ver el proyecto corriendo en nuestro navegador:</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Estructura de ficheros</h2>
+        <p>Una vez creado el proyecto y arrancado el servidor con la información por defecto que nos proporciona el template de Vite tendremos en el navegador una vista de nuestro proyecto en su versión de desarrollo:</p>
+        <p>En esta pantalla podremos ver un enlace a la documentación de Vite, a la documentación oficial de MDN acerca de JavaScript y un contador interactivo que nos cuenta los clicks que realizamos sobre él.</p>
+        <p>Vamos a inspeccionar en nuestro editor de código los ficheros y carpetas que están conformando nuestro proyecto.</p>
+        <ul class="lista-estilizada">
+            <li>La carpeta node_modules contiene todas las librerías instaladas a través de NPM que estamos utilizando en el proyecto. Esta carpeta tiene mucho peso y se creará cada vez que ejecutemos npm install o instalemos cualquier dependencia.</li>
+            <li>El fichero package.json definirá el “paquete” de nuestra aplicación, el cual contiene el nombre del proyecto, la privacidad, la versión del mismo, el tipo (en este caso es module porque es un modulo independiente), los scripts que podemos lanzar a través de la terminal y por último las dependencias instaladas. En este caso, Vite tenía en el package.json la dependencia de vite incluida por defecto, por lo que al haber realizado npm install en el último paso de la configuración del proyecto nos ha instalado dicha dependencia y generado la carpeta node_modules con la instalación de la misma.</li>
+            <li>El fichero .gitignore contiene todos los archivos o carpetas que tendrán que ser ignorados por git. Por ejemplo, la carpeta node_modules debido a su gran tamaño.</li>
+            <li>La carpeta public albergará todos los archivos o recursos que utilizaremos en nuestro proyecto.</li>
+            <li>El resto de ficheros nos serán más familiares, ya que son scripts de JavaScript, un fichero index.html que enlaza la funcionalidad y un style.css con nuestra hoja de estilos.</li>
+        </ul>
+        <p>En el fichero index.html se importa por defecto el archivo main.js y, además contiene un div con un id denominado app.</p>
+        <pre><code class="language-javascript">
+            &lt;div id=&quot;app&quot;&gt;
+            &lt;/div&gt;
+            &lt;script type=&quot;module&quot; src=&quot;/main.js&quot;&gt;
+            &lt;/script&gt;
+        </code></pre>
+        <p>Si inspeccionamos el archivo main.js podremos ver como está volcando a través de un script una serie de código con funcionalidad en dicho div, generando una serie de bloques en HTML y trayendo a su vez la funcionalidad de otro script denominado counter.js, que es la funcionalidad de el contador de clicks que hemos visto en el navegador.</p>
+        <pre><code class="language-javascript">
+            import &#39;./style.css&#39;
+            import javascriptLogo from &#39;./javascript.svg&#39;
+            import { setupCounter } from &#39;./counter.js&#39;
+
+            document.querySelector(&#39;#app&#39;).innerHTML = `
+                &lt;div&gt;
+                    &lt;a href=&quot;https://vitejs.dev&quot; target=&quot;_blank&quot;&gt;
+                        &lt;img src=&quot;/vite.svg&quot; class=&quot;logo&quot; alt=&quot;Vite logo&quot; /&gt;
+                    &lt;/a&gt;
+                    &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript&quot; target=&quot;_blank&quot;&gt;
+                        &lt;img src=&quot;${javascriptLogo}&quot; class=&quot;logo vanilla&quot; alt=&quot;JavaScript logo&quot; /&gt;
+                    &lt;/a&gt;
+                    &lt;h1&gt;Hello Vite!&lt;/h1&gt;
+                    &lt;div class=&quot;card&quot;&gt;
+                        &lt;button id=&quot;counter&quot; type=&quot;button&quot;&gt;&lt;/button&gt;
+                    &lt;/div&gt;
+                    &lt;p class=&quot;read-the-docs&quot;&gt;
+                        Click on the Vite logo to learn more
+                    &lt;/p&gt;
+                &lt;/div&gt;
+            `
+            setupCounter(document.querySelector(&#39;#counter&#39;))
+        </code></pre>
+        <ul class="lista-estilizada">
+            <li>El fichero main.js está importando los estilos de style.css con unos dados por Vite. Ademas de esto está importando un svg con el logo de JavaScript que ha incluido en la raíz de nuestro proyecto y que podemos ver cómo está pintando mediante una etiqueta img.</li>
+            <li>También esta importando la función setUpCounter, a la cual le esta pasando el botón counter para modificar su innerHTML, inyectando toda la funcionalidad del counter.js en main.js. Como veis todo está bastante bien compartimentando y dividido según su funcionalidad.</li>
+        </ul>
+        <p>Como podemos comprobar si hacemos cualquier cambio en nuestros archivos, al guardar alguno de estos cambios tardará milésimas de segundos en reflejárnoslos en el navegador. Esto es lo que hemos mencionado en la introducción como Hot Reloading. Con esta funcionalidad podremos desarrollar a “tiempo real” viendo cualquier cambio que hagamos en “caliente”.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Creando un Bundle</h2>
+        <p>Pero, ¿dónde está la parte en la que Rollup recopila todos mis archivos y genera una versión optimizada de todo?</p>
+        <p>Para ello tendremos que ejecutar el último script reflejado en package.json denominado build, y que ejecutaremos mediante el siguiente comando:</p>
+        <pre><code class="language-javascript">
+            npm run build
+        </code></pre>
+        <p>Al ejecutar este comando, Vite nos creará una carpeta llamada dist con una serie de archivos un tanto diferentes a los que teníamos originalmente.</p>
+        <pre><code class="language-javascript">
+            > ejemplo-vite@0.0.0 build
+            > vite build
+
+            vite v3.0.4 building for production...
+            ✓ 6 modules transformed.
+            dist/assets/javascript.8dac5379.svg   0.97 KiB
+            dist/index.html                       0.44 KiB
+            dist/assets/index.d0964974.css        1.19 KiB / gzip: 0.62 KiB
+            dist/assets/index.1917c8b0.js         1.41 KiB / gzip: 0.74 KiB
+        </code></pre>
+        <p>Estos archivos contendrán una versión “minificada” de todos nuestros scripts y archivos. La denominación de los mismos con números y caracteres viene dada por Vite según la información interna de cada uno.</p>
+        <p>Si inspeccionamos dichos archivos podremos comprobar que lo que más llama la atención es el nuevo fichero index.1917c8b0.js que nos ha generado, con una versión optimizada, con namings mínimos y con la combinación más optima de nuestro fichero main y el fichero counter en un solo fichero.</p>
+        <pre><code class="language-javascript">
+            const c = function () {
+  const o = document.createElement(&quot;link&quot;).relList;
+  if (o && o.supports && o.supports(&quot;modulepreload&quot;)) return;
+  for (const e of document.querySelectorAll(&#39;link[rel=&quot;modulepreload&quot;]&#39;)) n(e);
+  new MutationObserver((e) =&gt; {
+    for (const t of e)
+      if (t.type === &quot;childList&quot;)
+        for (const i of t.addedNodes)
+          i.tagName === &quot;LINK&quot; &amp;&amp; i.rel === &quot;modulepreload&quot; &amp;&amp; n(i);
+  }).observe(document, { childList: !0, subtree: !0 });
+  function r(e) {
+    const t = {};
+    return (
+      e.integrity &amp;&amp; (t.integrity = e.integrity),
+      e.referrerpolicy &amp;&amp; (t.referrerPolicy = e.referrerpolicy),
+      e.crossorigin === &quot;use-credentials&quot;
+        ? (t.credentials = &quot;include&quot;)
+        : e.crossorigin === &quot;anonymous&quot;
+        ? (t.credentials = &quot;omit&quot;)
+        : (t.credentials = &quot;same-origin&quot;),
+      t
+    );
+  }
+  function n(e) {
+    if (e.ep) return;
+    e.ep = !0;
+    const t = r(e);
+    fetch(e.href, t);
+  }
+};
+c();
+const l = &quot;/assets/javascript.8dac5379.svg&quot;;
+function a(s) {
+  let o = 0;
+  const r = (n) =&gt; {
+    (o = n), (s.innerHTML = `count is ${o}`);
+  };
+  s.addEventListener(&quot;click&quot;, () =&gt; r(++o)), r(0);
+}
+document.querySelector(&quot;#app&quot;).innerHTML = `
+  &lt;div&gt;
+    &lt;a href=&quot;https://vitejs.dev&quot; target=&quot;_blank&quot;&gt;
+      &lt;img src=&quot;/vite.svg&quot; class=&quot;logo&quot; alt=&quot;Vite logo&quot; /&gt;
+    &lt;/a&gt;
+    &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript&quot; target=&quot;_blank&quot;&gt;
+      &lt;img src=&quot;${l}&quot; class=&quot;logo vanilla&quot; alt=&quot;JavaScript logo&quot; /&gt;
+    &lt;/a&gt;
+    &lt;h1&gt;Hello!&lt;/h1&gt;
+    &lt;div class=&quot;card&quot;&gt;
+      &lt;button id=&quot;counter&quot; type=&quot;button&quot;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;read-the-docs&quot;&gt;
+      Click on the Vite logo to learn more
+    &lt;/p&gt;
+  &lt;/div&gt;
+`;
+a(document.querySelector(&quot;#counter&quot;));
+        </code></pre>
+        <p>Lo que ha hecho Vite es optimizar lo máximo posible todo lo que hemos implementado en diferentes ficheros para crear una versión más ligera, más optima y más simple para el navegador.</p>
+        <p>Nosotros siempre trabajaremos sobre la versión estándar de desarrollo, pero a la hora de publicar la página o desplegarla en algún servicio de despliegue lo que utilizaremos será esta versión que nos genera Vite. Bajo ningún concepto tendremos que tocar los archivos que nos ha generado el build en la carpeta dist.</p>
+        <p>Si queremos ver una previsualización de esta versión procesada generada a través del build podemos ejecutar el script preview que nos proporciona Vite, mediante el cual podremos ver las diferencias de rendimiento directamente en el navegador en un puerto diferente.</p>
+        <p>De esta forma estaremos viendo en el navegador la versión optimizada por Rollup y Vite de nuestra aplicación web.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Imports & Exports</h2>
+        <p>Ahora que ya sabemos utilizar Vite para crear nuestros proyectos con el lenguaje que queramos, vamos a ver un concepto muy importante en proyectos con varios archivos que es import y export.</p>
+        <p>Hasta ahora hemos trabajado solamente con un fichero de JavaScript y hemos volcado su funcionalidad en un fichero HTML, pero como hemos visto en el proyecto del template de Vite podemos tener varios que aniden scripts según su funcionalidad (por ejemplo).</p>
+        <p>Gracias a Vite tenemos módulos, con los cuales tendremos nuestro código más organizado con funcionalidades exportadas e importadas desglosándolo en pequeñas partes y ficheros JavaScript. Para ello vamos a crear un nuevo archivo en la raíz de nuestro proyecto de ejemplo llamado modules.js:</p>
+        <p>Vamos a ver cómo funcionan los módulos a modo demostrativo.</p>
+        <p>Para ello vamos a empezar creando una nueva constante en nuestro fichero:</p>
+        <pre><code class="language-javascript">
+            const person = {
+                name: "Stephen",
+                surname: "Strange"
+            };
+        </code></pre>
+        <p>Esta constante existe dentro de nuestro archivo modules.js, pero si queremos utilizarlo, por ejemplo, en main.js tendremos que exportarlo de su propio archivo.</p>
+        <p>Para realizar esta exportación le añadiremos la palabra reservada export a dicha constante:</p>
+        <pre><code class="language-javascript">
+            export const person = {
+                name: "Stephen",
+                surname: "Strange"
+            };
+        </code></pre>
+        <p>De esta manera, esta constante ya podrá “salir” de su archivo modules.js.</p>
+        <p>Ahora que tenemos lista nuestra constante, vamos a volver a el fichero main.js e importar dicha constante con destructuring (ya que gracias a estos métodos podemos manejar nuestros ficheros como si fueran objetos):</p>
+        <pre><code class="language-javascript">
+            import &#39;./style.css&#39;
+            import javascriptLogo from &#39;./javascript.svg&#39;
+            import { setupCounter } from &#39;./counter.js&#39;
+            import {person} from &quot;./modules&quot;;
+            [...]
+        </code></pre>
+        <p>Si tras este paso, y en el propio archivo main.js hacemos un console.log de la constante person importada del archivo modules.js podremos ver que efectivamente nos trae la información de nuestro objeto, por lo que en este punto tenemos de manera aislada una parte de un script que podemos utilizar al exportarlo en cualquier fichero JavaScript que tengamos en nuestra aplicación.</p>
+        <p>Vamos a probar con otro ejemplo con una función:</p>
+        <pre><code class="language-javascript">
+            export const person = {
+                name: "Stephen",
+                surname: "Strange",
+            };
+
+            export const sayHello = () => {
+                console.log("Hello!");
+            };
+        </code></pre>
+        <p>En este punto estamos exportando de nuestro fichero modules.js el objeto person y la función sayHello. Vamos a ver si lo podemos importar de la misma manera y ejecutar dicha función:</p>
+        <pre><code class="language-javascript">
+            import &#39;./style.css&#39;
+            import javascriptLogo from &#39;./javascript.svg&#39;
+            import { setupCounter } from &#39;./counter.js&#39;
+            import {person, sayHello} from &quot;./modules&quot;;
+
+            console.log(person);
+            sayHello();
+        </code></pre>
+        <p>Si inspeccionamos la consola del navegador podremos comprobar que efectivamente todo está funcionando a la perfección:</p>
+        <p>Hay otro método para exportar e importar información sin destructuring llamado export default, esto lo que hace es exportar por defecto una constante.</p>
+        <p>Esto lo que hará es, por un lado, permitirnos importar sin destructuring la información que exportemos de esta forma y, por otro lado, habilitar el renombrado de esta información en el fichero donde lo importemos.</p>
+        <pre><code class="language-javascript">
+            export const person = {
+                name: "Stephen",
+                surname: "Strange",
+            };
+
+            export const sayHello = () => {
+                console.log("Hello!");
+            };
+
+            const DEV_LAN = "JavaScript";
+
+            export default DEV_LAN;
+        </code></pre>
+        <p>En nuestro module.js vamos a exportar por defecto la constante DEV_LAN , por lo que vamos a importar esta misma constante en main.js:</p>
+        <pre><code class="language-javascript">
+            import './style.css'
+            import javascriptLogo from './javascript.svg'
+            import { setupCounter } from './counter.js'
+            import DEV_LAN, {person, sayHello} from "./modules";
+
+            console.log(person);
+            sayHello();
+            console.log(DEV_LAN)
+            [...]
+        </code></pre>
+        <p>Como véis, la constante exportada por defecto la podremos importar sin hacer destructuring, separando a la hora de importar las constantes exportadas y las exportadas por defecto.</p>
+        <p>Tal y como hemos mencionado anteriormente, podemos renombrar las constantes exportadas por defecto de la siguiente forma.</p>
+        <pre><code class="language-javascript">
+            import './style.css'
+            import javascriptLogo from './javascript.svg'
+            import { setupCounter } from './counter.js'
+            import mainLanguage, {person, sayHello} from "./modules";
+
+            console.log(person);
+            sayHello();
+            console.log(mainLanguage)
+            [...]
+        </code></pre>
+        <p>Si comprobamos el console.log de mainLanguage veremos que se trata de la misma constante que hemos exportado por defecto, pero que hemos renombrado a la hora de importarla en el fichero main.js.</p>
+        <p>Por convención, la información exportada por defecto es la información principal de nuestro fichero, siendo las exportadas sin más las “opcionales” o “utilidades” adicionales del mismo fichero.</p>
+        <p>Para empezar a trabajar con este sistema de archivos recomendamos utilizar el export normal, ya que si es el renombrado una de las características más llamativas del export default, el export normal también nos lo permite de la siguiente forma.</p>
+        <pre><code class="language-javascript">
+            import DEV_LAN, {person as personObject, sayHello} from "./modules";
+            console.log(personObject);
+        </code></pre>
+        <p>Como podeis comprobar, gracias a la palabra reservada as le estamos asignando un alias a nuestra constante importada, renombrando de una manera más “suave” dicha constante y pudiendo utilizar su alias en nuestro fichero.</p>
+        <p>Importante, estamos renombrando como personObject a person en el archivo main.js, pero no estamos sustituyendo su nombre original. Aunque no tenga mucho sentido, podemos ponerle un apodo diferente en cualquier fichero donde importemos esta constante.</p>
+        <p>Además de esto, tenemos que tener en cuenta que si renombramos una constante a través del import no podremos usar su nombre original en ese fichero, porque estamos importandonos, en el caso del ejemplo, person COMO personObject.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Deploy</h2>
+        <p>Como último paso vamos a desplegar nuestra aplicación web en un dominio y así poder visitarla desde cualquier dispositivo a través de cualquier navegador.</p>
+        <p>Lo primero que tenemos que tener es un repositorio de GitHub con nuestro proyecto subido.</p>
+        <p>El objetivo es subir a un nuevo repositorio todos los archivos a través de git para tener el proyecto tal y como está en la carpeta raíz creada por Vite. Para ello haremos un commit de con todos los ficheros y carpetas (gitignore se encargará de no subir la carpeta node_modules) y hacer un push a la rama principal.</p>
+        <p>Una vez hecho esto, la web que utilizaremos para desplegar nuestro proyecto en este caso será Netlify.</p>
+        <p>Vamos a loguearnos con GitHub y autorizar a Netlify para que pueda acceder a todos nuestros repositositorios, de esta forma podremos elegir qué queremos desplegar a través de la plataforma.</p>
+        <p>Haremos click en New Site o Import an existing project y pasaremos a una serie de pantallas que nos irán guiando durante el proceso de despliegue:</p>
+        <p>En este punto haremos click en GitHub y le damos la autorización mencionada.</p>
+        <p>Buscamos nuestro repositorio con el proyecto que hemos subido anteriormente.</p>
+        <p>Por último tendremos que indicarle las instrucciones del despliegue.</p>
+        <p>El primer parámetro será la rama a desplegar, que en nuestro caso es la rama master del repositorio.</p>
+        <p>El segundo parametro es el directorio base donde se aloja la raíz de nuestro proyecto, en el repositorio los archivos principales están en la propia raíz y no anidado en alguna carpeta extra, por lo que no tenemos que indicar nada en ese campo.</p>
+        <p>El tercer parámetro es el comando para realizar el build del proyecto. Como vimos anteriormente, Vite ya incluye en el package.json un script que realizará la build a través de npm run build, por lo que no hace falta que modifiquemos lo que nos indica por defecto.</p>
+        <p>Y por último el directorio donde se encontrará la build, que de igual forma vimos que genera una carpeta llamada dist, por lo que tampoco necesitamos modificar el valor de este campo.</p>
+        <p>Ya podemos clicar en Deploy Site y veremos el proceso del despliegue, el cual nos informará si hay algún error o inconveniente durante el proceso.</p>
+        <p>Si todo ha ido correctamente, Netflify nos habrá generado una URL con el proyecto desplegado que podremos compartir con quién queramos y visitar nuestro proyecto desde cualquier dispositivo.</p>
+    </div>
+</section>
