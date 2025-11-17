@@ -322,4 +322,22 @@ a(document.querySelector(&quot;#counter&quot;));
         <p>Ya podemos clicar en Deploy Site y veremos el proceso del despliegue, el cual nos informará si hay algún error o inconveniente durante el proceso.</p>
         <p>Si todo ha ido correctamente, Netflify nos habrá generado una URL con el proyecto desplegado que podremos compartir con quién queramos y visitar nuestro proyecto desde cualquier dispositivo.</p>
     </div>
+    <div class="intro-text2">
+        <h2>Deploy</h2>
+        <p>Como último paso vamos a desplegar nuestra aplicación web en un dominio y así poder visitarla desde cualquier dispositivo a través de cualquier navegador.</p>
+        <p>Lo primero que tenemos que tener es un repositorio de GitHub con nuestro proyecto subido.</p>
+        <p>El objetivo es subir a un nuevo repositorio todos los archivos a través de git para tener el proyecto tal y como está en la carpeta raíz creada por Vite. Para ello haremos un commit de con todos los ficheros y carpetas (gitignore se encargará de no subir la carpeta node_modules) y hacer un push a la rama principal.</p>
+        <p>Una vez hecho esto, la web que utilizaremos para desplegar nuestro proyecto en este caso será Netlify.</p>
+        <p>Vamos a loguearnos con GitHub y autorizar a Netlify para que pueda acceder a todos nuestros repositositorios, de esta forma podremos elegir qué queremos desplegar a través de la plataforma.</p>
+        <p>Haremos click en New Site o Import an existing project y pasaremos a una serie de pantallas que nos irán guiando durante el proceso de despliegue:</p>
+        <p>En este punto haremos click en GitHub y le damos la autorización mencionada.</p>
+        <p>Buscamos nuestro repositorio con el proyecto que hemos subido anteriormente.</p>
+        <p>Por último tendremos que indicarle las instrucciones del despliegue.</p>
+        <p>El primer parámetro será la rama a desplegar, que en nuestro caso es la rama master del repositorio.</p>
+        <p>El segundo parametro es el directorio base donde se aloja la raíz de nuestro proyecto, en el repositorio los archivos principales están en la propia raíz y no anidado en alguna carpeta extra, por lo que no tenemos que indicar nada en ese campo.</p>
+        <p>El tercer parámetro es el comando para realizar el build del proyecto. Como vimos anteriormente, Vite ya incluye en el package.json un script que realizará la build a través de npm run build, por lo que no hace falta que modifiquemos lo que nos indica por defecto.</p>
+        <p>Y por último el directorio donde se encontrará la build, que de igual forma vimos que genera una carpeta llamada dist, por lo que tampoco necesitamos modificar el valor de este campo.</p>
+        <p>Ya podemos clicar en Deploy Site y veremos el proceso del despliegue, el cual nos informará si hay algún error o inconveniente durante el proceso.</p>
+        <p>Si todo ha ido correctamente, Netflify nos habrá generado una URL con el proyecto desplegado que podremos compartir con quién queramos y visitar nuestro proyecto desde cualquier dispositivo.</p>
+    </div>
 </section>
