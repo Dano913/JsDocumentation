@@ -93,219 +93,425 @@
             console.log(country); // Output: 'Fantasy'
         </code></pre>
         <p>En este ejemplo, hemos extraído name, city y country de un objeto anidado.</p>
-        
-        <ul class="lista-estilizada">
-            <li>El fichero main.js está importando los estilos de style.css con unos dados por Vite. Ademas de esto está importando un svg con el logo de JavaScript que ha incluido en la raíz de nuestro proyecto y que podemos ver cómo está pintando mediante una etiqueta img.</li>
-            <li>También esta importando la función setUpCounter, a la cual le esta pasando el botón counter para modificar su innerHTML, inyectando toda la funcionalidad del counter.js en main.js. Como veis todo está bastante bien compartimentando y dividido según su funcionalidad.</li>
-        </ul>
-        <p>Como podemos comprobar si hacemos cualquier cambio en nuestros archivos, al guardar alguno de estos cambios tardará milésimas de segundos en reflejárnoslos en el navegador. Esto es lo que hemos mencionado en la introducción como Hot Reloading. Con esta funcionalidad podremos desarrollar a “tiempo real” viendo cualquier cambio que hagamos en “caliente”.</p>
     </div>
     <div class="intro-text2">
-        <h2>Creando un Bundle</h2>
-        <p>Pero, ¿dónde está la parte en la que Rollup recopila todos mis archivos y genera una versión optimizada de todo?</p>
-        <p>Para ello tendremos que ejecutar el último script reflejado en package.json denominado build, y que ejecutaremos mediante el siguiente comando:</p>
+        <h2>Intercambio de Variables</h2>
+        <p>La desestructuración también puede ser usada para intercambiar valores entre dos variables de manera concisa.</p>
         <pre><code class="language-javascript">
-            npm run build
-        </code></pre>
-        <p>Al ejecutar este comando, Vite nos creará una carpeta llamada dist con una serie de archivos un tanto diferentes a los que teníamos originalmente.</p>
-        <pre><code class="language-javascript">
-            > ejemplo-vite@0.0.0 build
-            > vite build
+            let a = 1;
+            let b = 2;
 
-            vite v3.0.4 building for production...
-            ✓ 6 modules transformed.
-            dist/assets/javascript.8dac5379.svg   0.97 KiB
-            dist/index.html                       0.44 KiB
-            dist/assets/index.d0964974.css        1.19 KiB / gzip: 0.62 KiB
-            dist/assets/index.1917c8b0.js         1.41 KiB / gzip: 0.74 KiB
+            // Usando desestructuración
+            [a, b] = [b, a];
+
+            console.log(a); // Output: 2
+            console.log(b); // Output: 1
         </code></pre>
-        <p>Estos archivos contendrán una versión “minificada” de todos nuestros scripts y archivos. La denominación de los mismos con números y caracteres viene dada por Vite según la información interna de cada uno.</p>
-        <p>Si inspeccionamos dichos archivos podremos comprobar que lo que más llama la atención es el nuevo fichero index.1917c8b0.js que nos ha generado, con una versión optimizada, con namings mínimos y con la combinación más optima de nuestro fichero main y el fichero counter en un solo fichero.</p>
-        <pre><code class="language-javascript">
-            const c = function () {
-  const o = document.createElement(&quot;link&quot;).relList;
-  if (o && o.supports && o.supports(&quot;modulepreload&quot;)) return;
-  for (const e of document.querySelectorAll(&#39;link[rel=&quot;modulepreload&quot;]&#39;)) n(e);
-  new MutationObserver((e) =&gt; {
-    for (const t of e)
-      if (t.type === &quot;childList&quot;)
-        for (const i of t.addedNodes)
-          i.tagName === &quot;LINK&quot; &amp;&amp; i.rel === &quot;modulepreload&quot; &amp;&amp; n(i);
-  }).observe(document, { childList: !0, subtree: !0 });
-  function r(e) {
-    const t = {};
-    return (
-      e.integrity &amp;&amp; (t.integrity = e.integrity),
-      e.referrerpolicy &amp;&amp; (t.referrerPolicy = e.referrerpolicy),
-      e.crossorigin === &quot;use-credentials&quot;
-        ? (t.credentials = &quot;include&quot;)
-        : e.crossorigin === &quot;anonymous&quot;
-        ? (t.credentials = &quot;omit&quot;)
-        : (t.credentials = &quot;same-origin&quot;),
-      t
-    );
-  }
-  function n(e) {
-    if (e.ep) return;
-    e.ep = !0;
-    const t = r(e);
-    fetch(e.href, t);
-  }
-};
-c();
-const l = &quot;/assets/javascript.8dac5379.svg&quot;;
-function a(s) {
-  let o = 0;
-  const r = (n) =&gt; {
-    (o = n), (s.innerHTML = `count is ${o}`);
-  };
-  s.addEventListener(&quot;click&quot;, () =&gt; r(++o)), r(0);
-}
-document.querySelector(&quot;#app&quot;).innerHTML = `
-  &lt;div&gt;
-    &lt;a href=&quot;https://vitejs.dev&quot; target=&quot;_blank&quot;&gt;
-      &lt;img src=&quot;/vite.svg&quot; class=&quot;logo&quot; alt=&quot;Vite logo&quot; /&gt;
-    &lt;/a&gt;
-    &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript&quot; target=&quot;_blank&quot;&gt;
-      &lt;img src=&quot;${l}&quot; class=&quot;logo vanilla&quot; alt=&quot;JavaScript logo&quot; /&gt;
-    &lt;/a&gt;
-    &lt;h1&gt;Hello!&lt;/h1&gt;
-    &lt;div class=&quot;card&quot;&gt;
-      &lt;button id=&quot;counter&quot; type=&quot;button&quot;&gt;&lt;/button&gt;
-    &lt;/div&gt;
-    &lt;p class=&quot;read-the-docs&quot;&gt;
-      Click on the Vite logo to learn more
-    &lt;/p&gt;
-  &lt;/div&gt;
-`;
-a(document.querySelector(&quot;#counter&quot;));
-        </code></pre>
-        <p>Lo que ha hecho Vite es optimizar lo máximo posible todo lo que hemos implementado en diferentes ficheros para crear una versión más ligera, más optima y más simple para el navegador.</p>
-        <p>Nosotros siempre trabajaremos sobre la versión estándar de desarrollo, pero a la hora de publicar la página o desplegarla en algún servicio de despliegue lo que utilizaremos será esta versión que nos genera Vite. Bajo ningún concepto tendremos que tocar los archivos que nos ha generado el build en la carpeta dist.</p>
-        <p>Si queremos ver una previsualización de esta versión procesada generada a través del build podemos ejecutar el script preview que nos proporciona Vite, mediante el cual podremos ver las diferencias de rendimiento directamente en el navegador en un puerto diferente.</p>
-        <p>De esta forma estaremos viendo en el navegador la versión optimizada por Rollup y Vite de nuestra aplicación web.</p>
     </div>
     <div class="intro-text2">
-        <h2>Imports & Exports</h2>
-        <p>Ahora que ya sabemos utilizar Vite para crear nuestros proyectos con el lenguaje que queramos, vamos a ver un concepto muy importante en proyectos con varios archivos que es import y export.</p>
-        <p>Hasta ahora hemos trabajado solamente con un fichero de JavaScript y hemos volcado su funcionalidad en un fichero HTML, pero como hemos visto en el proyecto del template de Vite podemos tener varios que aniden scripts según su funcionalidad (por ejemplo).</p>
-        <p>Gracias a Vite tenemos módulos, con los cuales tendremos nuestro código más organizado con funcionalidades exportadas e importadas desglosándolo en pequeñas partes y ficheros JavaScript. Para ello vamos a crear un nuevo archivo en la raíz de nuestro proyecto de ejemplo llamado modules.js:</p>
-        <p>Vamos a ver cómo funcionan los módulos a modo demostrativo.</p>
-        <p>Para ello vamos a empezar creando una nueva constante en nuestro fichero:</p>
-        <pre><code class="language-javascript">
-            const person = {
-                name: "Stephen",
-                surname: "Strange"
-            };
-        </code></pre>
-        <p>Esta constante existe dentro de nuestro archivo modules.js, pero si queremos utilizarlo, por ejemplo, en main.js tendremos que exportarlo de su propio archivo.</p>
-        <p>Para realizar esta exportación le añadiremos la palabra reservada export a dicha constante:</p>
-        <pre><code class="language-javascript">
-            export const person = {
-                name: "Stephen",
-                surname: "Strange"
-            };
-        </code></pre>
-        <p>De esta manera, esta constante ya podrá “salir” de su archivo modules.js.</p>
-        <p>Ahora que tenemos lista nuestra constante, vamos a volver a el fichero main.js e importar dicha constante con destructuring (ya que gracias a estos métodos podemos manejar nuestros ficheros como si fueran objetos):</p>
-        <pre><code class="language-javascript">
-            import &#39;./style.css&#39;
-            import javascriptLogo from &#39;./javascript.svg&#39;
-            import { setupCounter } from &#39;./counter.js&#39;
-            import {person} from &quot;./modules&quot;;
-            [...]
-        </code></pre>
-        <p>Si tras este paso, y en el propio archivo main.js hacemos un console.log de la constante person importada del archivo modules.js podremos ver que efectivamente nos trae la información de nuestro objeto, por lo que en este punto tenemos de manera aislada una parte de un script que podemos utilizar al exportarlo en cualquier fichero JavaScript que tengamos en nuestra aplicación.</p>
-        <p>Vamos a probar con otro ejemplo con una función:</p>
-        <pre><code class="language-javascript">
-            export const person = {
-                name: "Stephen",
-                surname: "Strange",
-            };
-
-            export const sayHello = () => {
-                console.log("Hello!");
-            };
-        </code></pre>
-        <p>En este punto estamos exportando de nuestro fichero modules.js el objeto person y la función sayHello. Vamos a ver si lo podemos importar de la misma manera y ejecutar dicha función:</p>
-        <pre><code class="language-javascript">
-            import &#39;./style.css&#39;
-            import javascriptLogo from &#39;./javascript.svg&#39;
-            import { setupCounter } from &#39;./counter.js&#39;
-            import {person, sayHello} from &quot;./modules&quot;;
-
-            console.log(person);
-            sayHello();
-        </code></pre>
-        <p>Si inspeccionamos la consola del navegador podremos comprobar que efectivamente todo está funcionando a la perfección:</p>
-        <p>Hay otro método para exportar e importar información sin destructuring llamado export default, esto lo que hace es exportar por defecto una constante.</p>
-        <p>Esto lo que hará es, por un lado, permitirnos importar sin destructuring la información que exportemos de esta forma y, por otro lado, habilitar el renombrado de esta información en el fichero donde lo importemos.</p>
-        <pre><code class="language-javascript">
-            export const person = {
-                name: "Stephen",
-                surname: "Strange",
-            };
-
-            export const sayHello = () => {
-                console.log("Hello!");
-            };
-
-            const DEV_LAN = "JavaScript";
-
-            export default DEV_LAN;
-        </code></pre>
-        <p>En nuestro module.js vamos a exportar por defecto la constante DEV_LAN , por lo que vamos a importar esta misma constante en main.js:</p>
-        <pre><code class="language-javascript">
-            import './style.css'
-            import javascriptLogo from './javascript.svg'
-            import { setupCounter } from './counter.js'
-            import DEV_LAN, {person, sayHello} from "./modules";
-
-            console.log(person);
-            sayHello();
-            console.log(DEV_LAN)
-            [...]
-        </code></pre>
-        <p>Como véis, la constante exportada por defecto la podremos importar sin hacer destructuring, separando a la hora de importar las constantes exportadas y las exportadas por defecto.</p>
-        <p>Tal y como hemos mencionado anteriormente, podemos renombrar las constantes exportadas por defecto de la siguiente forma.</p>
-        <pre><code class="language-javascript">
-            import './style.css'
-            import javascriptLogo from './javascript.svg'
-            import { setupCounter } from './counter.js'
-            import mainLanguage, {person, sayHello} from "./modules";
-
-            console.log(person);
-            sayHello();
-            console.log(mainLanguage)
-            [...]
-        </code></pre>
-        <p>Si comprobamos el console.log de mainLanguage veremos que se trata de la misma constante que hemos exportado por defecto, pero que hemos renombrado a la hora de importarla en el fichero main.js.</p>
-        <p>Por convención, la información exportada por defecto es la información principal de nuestro fichero, siendo las exportadas sin más las “opcionales” o “utilidades” adicionales del mismo fichero.</p>
-        <p>Para empezar a trabajar con este sistema de archivos recomendamos utilizar el export normal, ya que si es el renombrado una de las características más llamativas del export default, el export normal también nos lo permite de la siguiente forma.</p>
-        <pre><code class="language-javascript">
-            import DEV_LAN, {person as personObject, sayHello} from "./modules";
-            console.log(personObject);
-        </code></pre>
-        <p>Como podeis comprobar, gracias a la palabra reservada as le estamos asignando un alias a nuestra constante importada, renombrando de una manera más “suave” dicha constante y pudiendo utilizar su alias en nuestro fichero.</p>
-        <p>Importante, estamos renombrando como personObject a person en el archivo main.js, pero no estamos sustituyendo su nombre original. Aunque no tenga mucho sentido, podemos ponerle un apodo diferente en cualquier fichero donde importemos esta constante.</p>
-        <p>Además de esto, tenemos que tener en cuenta que si renombramos una constante a través del import no podremos usar su nombre original en ese fichero, porque estamos importandonos, en el caso del ejemplo, person COMO personObject.</p>
+        <h2>Spread Operator</h2>
+        <p>El spread operator permite expandir elementos de un array o propiedades de un objeto en lugares donde se esperan múltiples elementos.</p>
+        <p>Esto es útil para combinar arrays, copiar arrays, y pasar elementos de un array como argumentos a funciones.</p>
     </div>
     <div class="intro-text2">
-        <h2>Deploy</h2>
-        <p>Como último paso vamos a desplegar nuestra aplicación web en un dominio y así poder visitarla desde cualquier dispositivo a través de cualquier navegador.</p>
-        <p>Lo primero que tenemos que tener es un repositorio de GitHub con nuestro proyecto subido.</p>
-        <p>El objetivo es subir a un nuevo repositorio todos los archivos a través de git para tener el proyecto tal y como está en la carpeta raíz creada por Vite. Para ello haremos un commit de con todos los ficheros y carpetas (gitignore se encargará de no subir la carpeta node_modules) y hacer un push a la rama principal.</p>
-        <p>Una vez hecho esto, la web que utilizaremos para desplegar nuestro proyecto en este caso será Netlify.</p>
-        <p>Vamos a loguearnos con GitHub y autorizar a Netlify para que pueda acceder a todos nuestros repositositorios, de esta forma podremos elegir qué queremos desplegar a través de la plataforma.</p>
-        <p>Haremos click en New Site o Import an existing project y pasaremos a una serie de pantallas que nos irán guiando durante el proceso de despliegue:</p>
-        <p>En este punto haremos click en GitHub y le damos la autorización mencionada.</p>
-        <p>Buscamos nuestro repositorio con el proyecto que hemos subido anteriormente.</p>
-        <p>Por último tendremos que indicarle las instrucciones del despliegue.</p>
-        <p>El primer parámetro será la rama a desplegar, que en nuestro caso es la rama master del repositorio.</p>
-        <p>El segundo parametro es el directorio base donde se aloja la raíz de nuestro proyecto, en el repositorio los archivos principales están en la propia raíz y no anidado en alguna carpeta extra, por lo que no tenemos que indicar nada en ese campo.</p>
-        <p>El tercer parámetro es el comando para realizar el build del proyecto. Como vimos anteriormente, Vite ya incluye en el package.json un script que realizará la build a través de npm run build, por lo que no hace falta que modifiquemos lo que nos indica por defecto.</p>
-        <p>Y por último el directorio donde se encontrará la build, que de igual forma vimos que genera una carpeta llamada dist, por lo que tampoco necesitamos modificar el valor de este campo.</p>
-        <p>Ya podemos clicar en Deploy Site y veremos el proceso del despliegue, el cual nos informará si hay algún error o inconveniente durante el proceso.</p>
-        <p>Si todo ha ido correctamente, Netflify nos habrá generado una URL con el proyecto desplegado que podremos compartir con quién queramos y visitar nuestro proyecto desde cualquier dispositivo.</p>
+        <h2>Ejemplos con Arrays</h2>
+        <p>Combinar arrays:</p>
+        <pre><code class="language-javascript">
+            const avengers = ['Iron Man', 'Thor', 'Hulk'];
+            const guardians = ['Star-Lord', 'Gamora', 'Drax'];
+
+            const combinedTeam = [...avengers, ...guardians];
+            console.log(combinedTeam); // Output: ['Iron Man', 'Thor', 'Hulk', 'Star-Lord', 'Gamora', 'Drax']
+        </code></pre>
+        <p>Copiar arrays:</p>
+        <pre><code class="language-javascript">
+            const originalTeam = ['Batman', 'Superman', 'Wonder Woman'];
+            const copiedTeam = [...originalTeam];
+
+            console.log(copiedTeam); // Output: ['Batman', 'Superman', 'Wonder Woman']
+        </code></pre>
+        <p>Pasar elementos como argumentos:</p>
+        <pre><code class="language-javascript">
+            const jedi = ['Luke', 'Yoda', 'Obi-Wan'];
+
+            function greetJedi(master1, master2, master3) {
+                return `Greetings ${master1}, ${master2}, and ${master3}`;
+            }
+
+            console.log(greetJedi(...jedi)); // Output: Greetings Luke, Yoda, and Obi-Wan
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>Ejemplos con Objetos</h2>
+        <p>Combinar objetos:</p>
+        <pre><code class="language-javascript">
+            const batman = { name: 'Bruce Wayne', alias: 'Batman' };
+            const superman = { name: 'Clark Kent', alias: 'Superman' };
+
+            const combinedHeroes = { ...batman, ...superman };
+            console.log(combinedHeroes); // Output: { name: 'Clark Kent', alias: 'Superman' }
+        </code></pre>
+        <p>Copiar objetos:</p>
+        <pre><code class="language-javascript">
+            const originalHero = { name: 'Peter Parker', alias: 'Spider-Man' };
+            const copiedHero = { ...originalHero };
+
+            console.log(copiedHero); // Output: { name: 'Peter Parker', alias: 'Spider-Man' }
+        </code></pre>
+        <p>Actualizar propiedades:</p>
+        <pre><code class="language-javascript">
+            const ironMan = { name: 'Tony Stark', suit: 'Mark I' };
+            const updatedIronMan = { ...ironMan, suit: 'Mark L' };
+
+            console.log(updatedIronMan); // Output: { name: 'Tony Stark', suit: 'Mark L' }
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>Rest Parameter</h2>
+        <p>El rest parameter permite agrupar el número indefinido de argumentos en un array.</p>
+        <p>Se usa principalmente en la definición de funciones para capturar todos los argumentos restantes.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Ejemplo con Funciones</h2>
+        <p>Función con parámetros rest:</p>
+        <pre><code class="language-javascript">
+            const assembleAvengers = (...heroes) => {
+                return heroes.join(', ');
+            }
+
+            console.log(assembleAvengers('Iron Man', 'Thor', 'Hulk', 'Black Widow')); // Output: Iron Man, Thor, Hulk, Black Widow
+        </code></pre>
+        <p>Parámetros rest en funciones:</p>
+        <pre><code class="language-javascript">
+            const teamUp = (leader, ...members) => {
+                console.log(`Leader: ${leader}`);
+                console.log(`Members: ${members.join(', ')}`);
+            }
+
+            teamUp('Professor X', 'Cyclops', 'Wolverine', 'Storm');
+            // Output:
+            // Leader: Professor X
+            // Members: Cyclops, Wolverine, Storm
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>Uso en Objetos</h2>
+        <p>Extraer Propiedades Rest en Objetos:</p>
+        <pre><code class="language-javascript">
+            const mutant = { name: 'Logan', alias: 'Wolverine', team: 'X-Men' };
+            const { alias, ...rest } = mutant;
+
+            console.log(alias); // Output: 'Wolverine'
+            console.log(rest); // Output: { name: 'Logan', team: 'X-Men' }
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>Casos de Uso Combinados</h2>
+        <p>Uso Combinado en Funciones y Arrays:</p>
+        <pre><code class="language-javascript">
+            const droids = ['R2-D2', 'C-3PO', 'BB-8'];
+
+            function repairDroids(repairman, ...droids) {
+                return `Repairman ${repairman} will fix: ${droids.join(', ')}`;
+            }
+
+            console.log(repairDroids('Anakin', ...droids)); // Output: Repairman Anakin will fix: R2-D2, C-3PO, BB-8
+        </code></pre>
+        <p>Actualizar Arrays Inmutables:</p>
+        <pre><code class="language-javascript">
+            const originalAvengers = ['Iron Man', 'Thor', 'Hulk'];
+
+            const updatedAvengers = [...originalAvengers, 'Captain America', 'Black Widow'];
+            console.log(updatedAvengers); // Output: ['Iron Man', 'Thor', 'Hulk', 'Captain America', 'Black Widow']
+        </code></pre>
+        <p>Filtrar Propiedades de un Objeto:</p>
+        <pre><code class="language-javascript">
+            const wizard = { name: 'Harry', house: 'Gryffindor', position: 'Seeker' };
+
+            const { position, ...rest } = wizard;
+            console.log(rest); // Output: { name: 'Harry', house: 'Gryffindor' }
+        </code></pre>
+        <p>El spread operator facilita la combinación y copia de arrays y objetos, mientras que el rest parameter permite manejar argumentos variables en funciones y extraer propiedades restantes de objetos.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Modules</h2>
+        <p>Los módulos en ES6+ permiten dividir el código en archivos reutilizables y organizados. Esta característica mejora la mantenibilidad y la claridad del código, permitiendo exportar e importar funcionalidades entre diferentes archivos.</p>
+        <p>ES6 introduce dos palabras clave principales para trabajar con módulos: export e import.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Exportación</h2>
+        <p>Existen dos tipos principales de exportaciones en ES6: exportaciones nombradas (named exports) y exportaciones por defecto (default exports).</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Exportaciones Nombradas</h2>
+        <p>Las exportaciones nombradas permiten exportar múltiples valores desde un módulo. Cada valor exportado debe ser importado con el mismo nombre.</p>
+        <pre><code class="language-javascript">
+            // file: superheroes.js
+            export const hero = 'Spider-Man';
+            export const villain = 'Green Goblin';
+
+            export function saveTheDay() {
+                console.log(`${hero} saves the day!`);
+            }
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>Exportaciones por Defecto</h2>
+        <p>Las exportaciones por defecto permiten exportar un solo valor o una función desde un módulo. Este valor puede ser importado con cualquier nombre.</p>
+        <pre><code class="language-javascript">
+            // file: superpower.js
+            const superpower = 'Web-Slinging';
+            export default superpower;
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>Importación</h2>
+        <p>Las importaciones permiten traer funciones, variables, u objetos de otros módulos al contexto actual.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Importaciones Nombradas</h2>
+        <p>Las importaciones nombradas requieren el nombre exacto de lo que se está importando desde el módulo.</p>
+        <pre><code class="language-javascript">
+            // file: main.js
+            import { hero, villain, saveTheDay } from './superheroes.js';
+
+            console.log(hero); // Output: 'Spider-Man'
+            console.log(villain); // Output: 'Green Goblin'
+            saveTheDay(); // Output: 'Spider-Man saves the day!'
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>Importaciones por Defecto</h2>
+        <p>Las importaciones por defecto pueden ser nombradas como desees al importarlas.</p>
+        <pre><code class="language-javascript">
+            // file: main.js
+            import superpower from './superpower.js';
+
+            console.log(superpower); // Output: 'Web-Slinging'
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>Reexportaciones</h2>
+        <p>Un módulo puede reexportar cosas que ha importado de otros módulos, facilitando la creación de puntos de entrada unificados.</p>
+        <pre><code class="language-javascript">
+            // file: allHeroes.js
+            export { hero, villain, saveTheDay } from './superheroes.js';
+            export { default as superpower } from './superpower.js';
+
+            // file: main.js
+            import { hero, villain, saveTheDay, superpower } from './allHeroes.js';
+
+            console.log(hero); // Output: 'Spider-Man'
+            console.log(villain); // Output: 'Green Goblin'
+            saveTheDay(); // Output: 'Spider-Man saves the day!'
+            console.log(superpower); // Output: 'Web-Slinging'
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>Ejemplo Completo</h2>
+        <p>Vamos a construir un ejemplo completo que utiliza módulos para gestionar un equipo de superhéroes y sus habilidades.</p>
+        <pre><code class="language-javascript">
+            // file: characters.js
+            export const heroes = ['Batman', 'Wonder Woman', 'Flash'];
+            export const villains = ['Joker', 'Lex Luthor', 'Reverse-Flash'];
+        </code></pre>
+        <pre><code class="language-javascript">
+            // file: team.js
+            export function assembleTeam(teamName, members) {
+                return `Team ${teamName} consists of: ${members.join(', ')}`;
+            }
+
+            const mainTeam = ['Superman', 'Batman', 'Wonder Woman'];
+            export default mainTeam;
+        </code></pre>
+        <pre><code class="language-javascript">
+            // file: main.js
+            import mainTeam, { assembleTeam } from './team.js';
+            import { heroes, villains } from './characters.js';
+
+            console.log(assembleTeam('Justice League', mainTeam));
+            // Output: Team Justice League consists of: Superman, Batman, Wonder Woman
+
+            console.log(`Heroes: ${heroes.join(', ')}`);
+            // Output: Heroes: Batman, Wonder Woman, Flash
+
+            console.log(`Villains: ${villains.join(', ')}`);
+            // Output: Villains: Joker, Lex Luthor, Reverse-Flash
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>Métodos de arrays ES6+</h2>
+        <p>ES6+ introdujo varias mejoras en los métodos de arrays, haciendo que el manejo de colecciones de datos sea más fácil y más eficiente.</p>
+        <p>Estos métodos ayudan a realizar operaciones comunes de manera más concisa y legible.</p>
+        <p>Veamos qué utilidades podemos darles a cada uno de estos nuevos métodos:</p>
+    </div>
+    <div class="intro-text2">
+        <h2>map()</h2>
+        <p>El método map crea un nuevo array con los resultados de aplicar una función a cada uno de los elementos del array original.</p>
+        <p>Veamos varios ejemplos:</p>
+        <p>Convertir edades en años perros (1 año humano = 7 años perros)</p>
+        <pre><code class="language-javascript">
+            const ages = [2, 5, 8];
+            const dogAges = ages.map(age => age * 7);
+            console.log(dogAges); // Output: [14, 35, 56]
+        </code></pre>
+        <p>Generar un nuevo array de objetos con nombre y longitud</p>
+        <pre><code class="language-javascript">
+            const names = ['Alice', 'Bob', 'Charlie'];
+            const nameLengths = names.map(name => ({ name, length: name.length }));
+            console.log(nameLengths); // Output: [{name: 'Alice', length: 5}, {name: 'Bob', length: 3}, {name: 'Charlie', length: 7}]
+        </code></pre>
+        <p>Convertir un array de precios en euros a dólares (1 euro = 1.2 dólares)</p>
+        <pre><code class="language-javascript">
+            const pricesInEuros = [10, 20, 30];
+            const pricesInDollars = pricesInEuros.map(price => price * 1.2);
+            console.log(pricesInDollars); // Output: [12, 24, 36]
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>filter()</h2>
+        <p>El método filter crea un nuevo array con todos los elementos que cumplan una condición definida en una función.</p>
+        <p>Veamos varios ejemplos:</p>
+        <p>Filtrar números pares</p>
+        <pre><code class="language-javascript">
+            const numbers = [1, 2, 3, 4, 5, 6];
+            const evenNumbers = numbers.filter(number => number % 2 === 0);
+            console.log(evenNumbers); // Output: [2, 4, 6]
+        </code></pre>
+        <p>Filtrar nombres que empiezan con 'A’</p>
+        <pre><code class="language-javascript">
+            const names = ['Alice', 'Bob', 'Alex', 'Charlie'];
+            const namesStartingWithA = names.filter(name => name.startsWith('A'));
+            console.log(namesStartingWithA); // Output: ['Alice', 'Alex']
+        </code></pre>
+        <p>Filtrar edades mayores o iguales a 18</p>
+        <pre><code class="language-javascript">
+            const ages = [12, 18, 22, 15, 30];
+            const adults = ages.filter(age => age >= 18);
+            console.log(adults); // Output: [18, 22, 30]
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>reduce()</h2>
+        <p>El método reduce aplica una función a un acumulador y a cada elemento del array (de izquierda a derecha) para reducirlo a un único valor.</p>
+        <p>Veamos varios ejemplos:</p>
+        <p>Sumar todos los números del array</p>
+        <pre><code class="language-javascript">
+            const numbers = [1, 2, 3, 4, 5];
+            const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+            console.log(sum); // Output: 15
+        </code></pre>
+        <p>Agrupar objetos por una propiedad</p>
+        <pre><code class="language-javascript">
+            const people = [
+                { name: 'Alice', age: 21 },
+                { name: 'Bob', age: 25 },
+                { name: 'Charlie', age: 21 }
+            ];
+            const groupedByAge = people.reduce((acc, person) => {
+                if (!acc[person.age]) acc[person.age] = [];
+                acc[person.age].push(person);
+                return acc;
+            }, {});
+            console.log(groupedByAge);
+            // Output: {
+            //   '21': [{ name: 'Alice', age: 21 }, { name: 'Charlie', age: 21 }],
+            //   '25': [{ name: 'Bob', age: 25 }]
+            // }
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>find()</h2>
+        <p>El método find devuelve el primer elemento del array que cumpla con una condición especificada en una función.</p>
+        <p>Si ningún elemento cumple con la condición, devuelve undefined.</p>
+        <p>Veamos varios ejemplos:</p>
+        <p>Encontrar el primer número mayor que 3</p>
+        <pre><code class="language-javascript">
+            const numbers = [1, 2, 3, 4, 5];
+            const firstGreaterThanThree = numbers.find(number => number > 3);
+            console.log(firstGreaterThanThree); // Output: 4
+        </code></pre>
+        <p>Encontrar el primer nombre con más de 5 caracteres</p>
+        <pre><code class="language-javascript">
+            const names = ['Bob', 'Charlie', 'Alice'];
+            const longName = names.find(name => name.length > 5);
+            console.log(longName); // Output: 'Charlie'
+        </code></pre>
+        <p>Encontrar el primer objeto con una propiedad específica</p>
+        <pre><code class="language-javascript">
+            const people = [
+                { name: 'Alice', age: 21 },
+                { name: 'Bob', age: 25 },
+                { name: 'Charlie', age: 21 }
+            ];
+            const personNamedBob = people.find(person => person.name === 'Bob');
+            console.log(personNamedBob); // Output: { name: 'Bob', age: 25 }
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>every()</h2>
+        <p>El método every comprueba si todos los elementos del array cumplen con una condición especificada en una función.</p>
+        <p>Devuelve true si todos los elementos cumplen con la condición, de lo contrario, devuelve false.</p>
+        <p>Veamos varios ejemplos:</p>
+        <p>Comprobar si todos los números son positivos</p>
+        <pre><code class="language-javascript">
+            const numbers = [1, 2, 3, 4, 5];
+            const allPositive = numbers.every(number => number > 0);
+            console.log(allPositive); // Output: true
+        </code></pre>
+        <p>Comprobar si todos los nombres tienen más de 3 caracteres</p>
+        <pre><code class="language-javascript">
+            const names = ['Alice', 'Bob', 'Charlie'];
+            const allLongNames = names.every(name => name.length > 3);
+            console.log(allLongNames); // Output: false
+        </code></pre>
+        <p>Comprobar si todos los objetos tienen una propiedad específica</p>
+        <pre><code class="language-javascript">
+            const people = [
+                { name: 'Alice', age: 21 },
+                { name: 'Bob', age: 25 },
+                { name: 'Charlie', age: 21 }
+            ];
+            const allHaveAge = people.every(person => person.age !== undefined);
+            console.log(allHaveAge); // Output: true
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>some()</h2>
+        <p>El método some comprueba si al menos un elemento del array cumple con una condición especificada en una función.</p>
+        <p>Devuelve true si al menos un elemento cumple con la condición, de lo contrario, devuelve false.</p>
+        <p>Veamos varios ejemplos:</p>
+        <p>Comprobar si al menos un número es mayor que 4</p>
+        <pre><code class="language-javascript">
+            const numbers = [1, 2, 3, 4, 5];
+            const someGreaterThanFour = numbers.some(number => number > 4);
+            console.log(someGreaterThanFour); // Output: true
+        </code></pre>
+        <p>Comprobar si al menos un nombre tiene más de 5 caracteres</p>
+        <pre><code class="language-javascript">
+            const names = ['Bob', 'Charlie', 'Alice'];
+            const someLongNames = names.some(name => name.length > 5);
+            console.log(someLongNames); // Output: true
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>includes()</h2>
+        <p>El método includes determina si un array incluye un determinado elemento, devolviendo true o false según corresponda.</p>
+        <p>Este método ya lo hemos visto anteriormente, pero nos servirá combinado con los que estamos aprendiendo ahora mismo.</p>
+        <p>Veamos varios ejemplos:</p>
+        <p>Comprobar si el array incluye el número 3</p>
+        <pre><code class="language-javascript">
+            const numbers = [1, 2, 3, 4, 5];
+            const includesThree = numbers.includes(3);
+            console.log(includesThree); // Output: true
+        </code></pre>
+        <p>Comprobar si el array incluye un objeto específico (requiere referencia exacta)</p>
+        <pre><code class="language-javascript">
+            const alice = { name: 'Alice', age: 21 };
+            const bob = { name: 'Bob', age: 25 };
+            const people = [alice, bob];
+            const includesAlice = people.includes(alice);
+            console.log(includesAlice); // Output: true
+        </code></pre>
     </div>
 </section>
