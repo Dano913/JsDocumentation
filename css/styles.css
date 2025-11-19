@@ -315,7 +315,8 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: min-height 0.8s ease; 
+  transition: min-height 0.8s ease;
+  border: 1px solid red;
 
   h1 {
     color: var(--text2-color);
