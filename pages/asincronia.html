@@ -1,0 +1,454 @@
+<section class="section" id="es6">
+    <h1>Promesas, fetch y asincronía</h1>
+    <div class="intro-text2">
+        <p>La asincronía en JavaScript se refiere a la capacidad de ejecutar tareas que pueden tomar tiempo sin bloquear la ejecución del resto del código.</p>
+        <p>En un entorno síncrono, las tareas se ejecutan secuencialmente, una después de la otra.</p>
+        <p>Si una tarea toma mucho tiempo (como una llamada a una API o la lectura de un archivo), todo el programa se detendría hasta que esa tarea termine.</p>
+        <p>La asincronía permite que otras tareas se ejecuten mientras se espera que la tarea larga termine.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Promesas</h2>
+        <p>Las promesas son una forma de manejar la asincronía en JavaScript. Una promesa es un objeto que representa la eventual finalización o el fracaso de una operación asíncrona. Las promesas proporcionan una forma más sencilla y clara de trabajar con operaciones asíncronas en comparación con el uso de callbacks.</p>
+        <p>Una promesa tiene tres posibles estados:</p>
+        <ul class="lista-estilizada">
+            <li>Pendiente: significa que la operación asíncrona aún no ha finalizado ni ha fallado.</li>
+            <li>Cumplida: significa que la operación asíncrona se ha completado con éxito y la promesa tiene un valor.</li>
+            <li>Rechazada: significa que la operación asíncrona ha fallado y la promesa tiene un error.</li>
+        </ul>
+        <p>Cuando se crea una promesa, se pasa una función a la que se le llama inmediatamente con dos argumentos: resolve y reject. Resolve es una función que se utiliza para indicar que la promesa se ha cumplido y reject se utiliza para indicar que la promesa ha fallado.</p>
+        <p>A continuación se muestra un ejemplo de cómo se crea y se utiliza una promesa:</p>
+        <pre><code class="language-javascript">
+            const promesa = new Promise((resolve, reject) => {
+                // La operación asíncrona va aquí
+
+                if (/* operación exitosa */) {
+                    resolve(/* valor opcional */);
+                } else {
+                    reject(/* error opcional */);
+                }
+            });
+
+            promesa.then((valor) => {
+                // La promesa se ha cumplido
+            }, (error) => {
+                // La promesa ha fallado
+            });
+        </code></pre>
+        <p>También se puede utilizar el método catch para manejar el error en lugar de proporcionar un segundo manejador al método then:</p>
+        <pre><code class="language-javascript">
+            promesa.then((valor) => {
+                // La promesa se ha cumplido
+            }).catch((error) => {
+                // La promesa ha fallado
+            }); 
+        </code></pre>
+        <p>Además, las promesas tienen varios métodos estáticos útiles para trabajar con ellas.</p>
+        <p>Por ejemplo, el método Promise.all toma una matriz de promesas y espera a que todas se cumplan o una de ellas falle.</p>
+        <p>El método Promise.race espera a que la primera promesa de una matriz se cumpla o falle.</p>
+        <p>Y el método Promise.resolve crea una promesa cumplida con un valor específico y Promise.reject crea una promesa rechazada con un error específico.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Try & Catch</h2>
+        <p>El bloque try...catch es una estructura de control de flujo que se utiliza para manejar los errores en JavaScript. Se utiliza para envolver una porción de código que puede generar un error y proporcionar una forma de manejar ese error.</p>
+        <p>El bloque try contiene el código que se quiere ejecutar y el bloque catch contiene el código que se ejecuta cuando se produce un error. La sintaxis básica de un bloque try...catch es la siguiente:</p>
+        <pre><code class="language-javascript">
+            try {
+                // código que puede generar un error
+            } catch (error) {
+                // código que maneja el error
+            }
+        </code></pre>
+        <p>Cuando se ejecuta el código en el bloque try, si se produce un error, se detiene la ejecución del código y se salta al bloque catch. El objeto error que se pasa al bloque catch contiene información sobre el error que se ha producido, como el mensaje de error y la línea en la que se produjo el error.</p>
+        <p>Aquí hay un ejemplo de cómo se puede utilizar un bloque try...catch para manejar un error:</p>
+        <pre><code class="language-javascript">
+            try {
+                const x = y + 1; // esto generará un ReferenceError porque y no está definida
+            } catch (error) {
+                console.error(error.message); // 'y is not defined'
+            }
+        </code></pre>
+        <p>El bloque catch también se puede opcionalmente seguir de un bloque finally, que se ejecuta siempre al final, independientemente de si se ha producido un error o no.</p>
+        <p>El bloque finally es útil para ejecutar código que siempre debe ejecutarse, como cerrar una conexión a una base de datos o limpiar recursos.</p>
+        <pre><code class="language-javascript">
+            try {
+                // código que puede generar un error
+            } catch (error) {
+                // código que maneja el error
+            } finally {
+                // código que siempre se ejecuta
+            }
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>Fetch</h2>
+        <p>fetch es una función de JavaScript que se utiliza para realizar solicitudes HTTP.</p>
+        <p>Es una forma moderna y más sencilla de realizar solicitudes HTTP en comparación con la función XMLHttpRequest tradicional.</p>
+        <p>La sintaxis básica de fetch es la siguiente:</p>
+        <pre><code class="language-javascript">
+            fetch(url, options)
+                .then((response) => {
+                    // procesar la respuesta del servidor
+                })
+                .catch((error) => {
+                    // manejar cualquier error
+                });
+        </code></pre>
+        <p>fetch toma dos argumentos:</p>
+        <ul class="lista-estilizada">
+            <li>url: es la URL de la solicitud HTTP.</li>
+            <li>options: es un objeto opcional que puede contener información adicional sobre la solicitud, como el método HTTP (por ejemplo, GET, POST, PUT, etc.), los encabezados y el cuerpo de la solicitud.</li>
+        </ul>
+        <p>fetch devuelve una promesa que se cumple con un objeto Response que representa la respuesta del servidor. Luego, se puede utilizar el método then para procesar la respuesta y el método catch para manejar cualquier error.</p>
+        <p>Aquí hay un ejemplo de cómo se puede utilizar fetch para realizar una solicitud HTTP GET:</p>
+        <pre><code class="language-javascript">
+            fetch('<https://example.com/api/endpoint>')
+                .then((response) => {
+                    // procesar la respuesta del servidor
+                })
+                .catch((error) => {
+                    // manejar cualquier error
+                });
+        </code></pre>
+        <p>Aquí hay un ejemplo de cómo se puede utilizar fetch para realizar una solicitud HTTP POST con un cuerpo de solicitud:</p>
+        <pre><code class="language-javascript">
+            const data = { username: 'john', password: 'doe' };
+
+            fetch('<https://example.com/api/login>', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then((response) => {
+                // procesar la respuesta del servidor
+            })
+            .catch((error) => {
+                // manejar cualquier error
+            });
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>RESTful verbs Fetch</h2>
+        <p>Petición GET: Este tipo de petición (hay otros tipos de peticiones como PUT, POST, DELETE…) se utiliza fundamentalmente para obtener datos de la fuente especificada (habitualmente un servicio web).</p>
+        <p>No obstante, si tuviésemos que enviar información delicada, por ejemplo para hacer un login, usaríamos POST en lugar de GET.</p>
+        <pre><code class="language-javascript">
+            fetch('<https://swapi.co/api/people/1/>')
+                .then(res => res.json())
+                .then(res => console.log(res));
+                .catch( err => console.error(err));
+        </code></pre>
+        <p>Hemos llamado a fetch() con la URL a la que queremos acceder como parámetro. Esta llamada nos devuelve una promesa.</p>
+        <p>El método then() de esa promesa nos entrega un objeto response.A partir de este objeto llamamos al método json() para obtener el cuerpo de la respuesta. Este método json() nos devuelve otra promesa que se resolverá cuando se haya obtenido el contenido.</p>
+        <p>El método then() de esta segunda promesa recibe el cuerpo devuelto por la promesa anterior y hace un log de ella.</p>
+        <p>Hemos incluido un catch() por si se produce algún error.</p>
+        <p>Petición POST: La utilizaremos para insertar nuevos registros.</p>
+        <pre><code class="language-javascript">
+            fetch('<http://localhost:3009/users>', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ mail: 'pp@pp.com', password: '123' })
+            })
+            .then(res => res.json())
+            .then(res=> {
+                console.log(res);
+            });
+        </code></pre>
+        <p>Petición PUT: La utilizaremos para actualizar información existente. Enviaremos la información que queremos actualizar en el cuerpo de la petición y la id del elemento que queremos actualizar en la url de la petición.</p>
+        <pre><code class="language-javascript">
+            fetch('<http://localhost:3005/users/1>', {
+                method: 'PUT',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ mail: 'ññññ', password: 'ññññ' })
+            })
+            .then(res => res.json())
+            .then(res=> {
+                console.log(res);
+            });
+        </code></pre>
+        <p>Petición DELETE: La utilizaremos para eliminar información existente.</p>
+        <pre><code class="language-javascript">
+            fetch('<http://localhost:3005/users/2>', {
+                method: 'DELETE',
+            })
+            .then(res => res.json())
+            .then(res=> {
+                console.log(res);
+            });
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>Fetch - Pokeapi</h2>
+        <p>Aquí hay un ejemplo de cómo se puede utilizar fetch para realizar una solicitud HTTP GET a la PokeAPI para obtener información sobre un Pokémon específico:</p>
+        <pre><code class="language-javascript">
+            const pokemonName = 'pikachu';
+
+            fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+                .then((response) => {
+                    // la respuesta del servidor es una promesa, así que tenemos que devolver otra promesa
+                    // para poder procesar el cuerpo de la respuesta
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log(data); // imprime información sobre el Pokémon Pikachu
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        </code></pre>
+        <p>En este ejemplo, primero hacemos una solicitud HTTP GET a la URL de la PokeAPI para el Pokémon específico.</p>
+        <p>Luego, utilizamos el método json del objeto Response para procesar el cuerpo de la respuesta y obtener los datos en formato JSON.</p>
+        <p>Finalmente, utilizamos el método then para acceder a los datos y el método catch para manejar cualquier error que pueda ocurrir durante la solicitud.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Manejando una promesa</h2>
+        <p>Una Promise (promesa en castellano) es un objeto que representa la terminación o el fallo de una operación asíncrona. Surgen en ES6 para mejorar el proceso de callbacks.</p>
+        <p>Por lo general en nuestro proyectos NO vamos a crear promesas, vamos a consumirlas (then/catch), pero veamos la base de las promesas:</p>
+        <pre><code class="language-javascript">
+            const addItem = (item, list) => {
+                const promise = new Promise((resolve, reject) => {
+                    if (!list) {
+                    reject('No existe el array');
+                    }
+
+                    setTimeout(function () {
+                    list.push(item);
+                    resolve(list);
+                    }, 2000);
+                });
+
+                return promise;
+            };
+
+            const list = ['Rojo', 'Azul', 'Verde'];
+
+            addItem('Amarillo', list)
+            .then((list) => {
+                console.log(`El listado final es: ${list.join(', ')}`);
+            })
+            .catch((err) => {
+                throw new Error(err);
+            });
+        </code></pre>
+        <p>Ahora la función addItem crea un objeto Promise que recibe como parámetros una función con las funciones resolve y reject. Llamaremos a resolve cuando nuestra ejecución finalice correctamente, y a reject para indicar que ha habido un rechazo (error) en la ejecución.</p>
+        <p>De esta manera, podemos escribir código de manera más elegante, y el Callback Hell anterior puede ser resuelto así:</p>
+        <pre><code class="language-javascript">
+            const list = ['Raising Arizona','Fargo','Barton Fink'];
+
+            addItem('The big Lewoski', list)
+                .then(() => addItem('O Brother, Where Art Thou?', list))
+                .then(() => addItem('The Man Who Wasnt There', list))
+                .then(() => addItem('The Ladykillers', list))
+                .then(() => {
+                    console.log(list);
+                });
+
+                // (4 seg. de delay) -> ['Raising Arizona','Fargo','Barton Fink', ...];
+        </code></pre>
+        <p>Esto es conocido como anidación promesas.</p>
+        <p>La forma de tratar errores en una promesa, es por medio de la función catch que recoge lo que enviamos en la función reject dentro de la Promesa. Y esta función solo hay que invocarla una vez, no necesitamos comprobar en cada llamada si existe error o no. Lo cual reduce mucho la cantidad de código:</p>
+        <pre><code class="language-javascript">
+            const filmography = '';
+            addToCoenBrothers('The big Lewoski', filmography)
+                .then(...)
+                .then(...)
+                .then(...)
+                .catch(err => console.log(err.message));
+
+                // No existe el array -> es un string - salta error
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>Repasamos</h2>
+        <p>Lo más habitual es que consumamos promesas ya creadas, pero vamos a repasar cómo se crearía una promesa.</p>
+        <pre><code class="language-javascript">
+            // ES5
+            let promise = new Promise(function (resolve, reject) {
+                // Pasado 1 seg estamos resolviendo la promesa con el // valor "done"
+                setTimeout(function() {
+                    resolve("done")
+                }, 1000);
+            });
+
+            // ES6
+            let promise = new Promise((resolve, reject) => {
+                // Pasado 1 seg estamos resolviendo la promesa con el // valor "done"
+                setTimeout(() => resolve("done"), 1000);
+            });
+        </code></pre>
+        <p>Hemos visto cómo crear una promesa, pero ya decíamos lo más habitual es consumirlas:</p>
+        <pre><code class="language-javascript">
+            promise.then(
+                (result) => {
+                    // Manejamos el resultado
+                    console.log(result);
+                },
+                (err) => {
+                    // Manejamos el reject concreto
+                    console.error(err);
+                }
+            );
+
+            // Error general
+            promise.catch(
+                (err) => {
+                    // Manejamos el error
+                    console.error(err);
+                }
+            );
+        </code></pre>
+        <p>Si nos fijamos, then(function, function) puede recibir dos parámetros: 2 funciones o callbacks.</p>
+        <ul class="lista-estilizada">
+            <li>La primera función se ejecutará en caso de éxito y nos permitirá manejar la respuesta en caso de OK.</li>
+            <li>La segunda función se ejecutará en caso de error y nos permitirá manejarlo.</li>
+        </ul>
+        <p>Es decir, podemos controlar también el fallo de una promesa concreta, dependiendo de la necesidad usaremos el control específico o el catch.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Rechazo de promesas</h2>
+        <p>En el ejemplo anterior hemos visto qué ocurre cuando nuestro código cumple una promesa a raíz de una petición de forma asíncrona, pero no cuando esta promesa es rechazada.</p>
+        <p>Si se diera el caso de que la URL utilizada no exista o haya algún tipo de problema al realizar la petición o cualquier otra funcionalidad de nuestro código, la ejecución rompería dando un error no-controlado. Para poder tener el control cuando una promesa es rechazada haremos uso del método catch.</p>
+        <pre><code class="language-javascript">
+            fetch(URL)
+                .then(function(respuesta) {
+                console.log(respuesta)
+                //Se ejecuta cuando la promesa se resuelve
+            })
+                .catch(function(error){
+                    console.log("No se puede realizar la petición")
+                    //Se ejecuta cuando la promesa es rechazada
+                })
+        </code></pre>
+        <p>Mediante el método catch tenemos una “red de seguridad” a la hora de encontrarnos con un rechazo en una promesa, por lo que nuestro código no romperá, si no que ejecutará lo que le indiquemos dentro de nuestro catch atrapando esa incidencia. Es una especie de “else” para la ejecución promesas.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Finally</h2>
+        <p>Mediante el método finally haremos que la función termine tanto si se cumple la promesa como si se rechaza, creando una ruptura en el código una vez hayamos terminado un bloque de ejecución cerrado.</p>
+        <p>Vamos a ver como utilizar todo lo que hemos visto con arrow functions:</p>
+        <pre><code class="language-javascript">
+            fetch(URL)
+                .then(respuesta => console.log(respuesta))
+                .catch(error => console.error(respuesta))
+                .finally(() => console.log("Fetch terminado"))
+        </code></pre>
+        <p>De esta manera estaremos cerrando la ejecución de nuestro fetch con un finally en el caso de que se cumpla como si no, y recogiendo nuestro error en el caso de que la promesa no se cumpla.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Async & Await</h2>
+        <p>async y await son palabras clave de JavaScript que se utilizan para trabajar con promesas de forma más sencilla y clara.</p>
+        <p>La palabra clave async se utiliza para declarar una función asíncrona. Una función asíncrona es una función que puede contener código asíncrono y devuelve una promesa. La palabra clave async se coloca antes de la declaración de la función:</p>
+        <pre><code class="language-javascript">
+            async function miFuncionAsincrona() {
+                // código asíncrono va aquí
+            }
+        </code></pre>
+        <p>La palabra clave await se utiliza dentro de una función asíncrona para esperar a que una promesa se cumpla y obtener su valor. Cuando se encuentra await, la ejecución de la función se detiene hasta que se cumple la promesa. Luego, se continúa la ejecución de la función y se obtiene el valor de la promesa.</p>
+        <p>Aquí hay un ejemplo de cómo se puede utilizar await dentro de una función asíncrona:</p>
+        <pre><code class="language-javascript">
+            async function obtenerDatos() {
+                const respuesta = await fetch('<https://example.com/api/endpoint>');
+                const datos = await respuesta.json();
+                console.log(datos);
+            }
+        </code></pre>
+        <p>En este ejemplo, primero utilizamos fetch para realizar una solicitud HTTP y obtener una promesa.</p>
+        <p>Luego, utilizamos await para esperar a que se cumpla la promesa y obtener el objeto Response.</p>
+        <p>Finalmente, utilizamos await de nuevo para esperar a que se cumpla la promesa del método json y obtener los datos en formato JSON.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Uso de async / await</h2>
+        <p>Cuando se declara una función async convierte al elemento en una promesa, la cual se resolverá mediante el retorno. En estas funciones podemos hacer uso de la expresión await para pausar la ejecución a esperas de la resolución de una promesa, la cual se reanudará una vez cumplida pudiendo manejar la asincronía y resolución de promesas.</p>
+        <pre><code class="language-javascript">
+            //Con promesas
+            function getInfo() {
+                fetch(URL).then((raw) => {
+                    raw.json().then((formatted) => {
+                        return formatted;
+                    });
+                });
+            }
+            //Con async/await
+            async function getInfo() {
+                const raw = await fetch(URL);
+                const formatted = await raw.json();
+                return formatted;
+            }
+        </code></pre>
+        <p>En este ejemplo vemos como la ejecución de pausa hasta completar por completo una petición mediante el fetch y no reanudará hasta estar completada. De igual manera la ejecución se pausa al formatear los datos obtenidos en la petición hasta que estén convertidos a JSON. Una vez tratadas estas dos líneas de manera asíncrona, la función retorna el resultado.</p>
+        <p>En otras palabras, gracias al tener una función asíncrona mediante la expresión async podemos hacer que los bloques de ejecución se completen sin que toda la ejecución de la función caiga en cascada sin pausa, ejecutando una a una y esperando a su finalización las líneas indicadas con la expresión await.</p>
+        <p>En el caso que utilicemos arrow functions:</p>
+        <pre><code class="language-javascript">
+            const getInfo = async() => {
+                const raw = await fetch(URL);
+                [...]
+            }
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>Petición con async/await</h2>
+        <p>Se puede utilizar async y await para realizar una solicitud HTTP a la PokeAPI y obtener información sobre un Pokémon específico de forma más sencilla y clara.</p>
+        <p>Aquí hay un ejemplo de cómo se puede hacer esto:</p>
+        <pre><code class="language-javascript">
+            async function obtenerPokemon(pokemonName) {
+                try {
+                    const respuesta = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+                    const datos = await respuesta.json();
+                    console.log(datos);
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+            obtenerPokemon('pikachu'); // imprime información sobre el Pokémon Pikachu
+
+            const obtenerPokemon = async (pokemonName) => {
+                try {
+                    const respuesta = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+                    const datos = await respuesta.json();
+                    console.log(datos);
+                } catch (error) {
+                    console.error(error);
+                }
+            };
+            obtenerPokemon('pikachu'); // imprime información sobre el Pokémon Pikachu
+        </code></pre>
+        <p>En este ejemplo, hemos creado una función asíncrona obtenerPokemon que toma un nombre de Pokémon como argumento y realiza una solicitud HTTP GET a la URL de la PokeAPI para ese Pokémon. Luego, utilizamos await para esperar a que se cumpla la promesa de la solicitud y obtener el objeto Response, y utilizamos await de nuevo para esperar a que se cumpla la promesa del método json y obtener los datos en formato JSON.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Pintando en el DOM</h2>
+        <p>Para mostrar la información sobre un Pokémon en el DOM (Document Object Model), primero necesitarías obtener esa información utilizando fetch o async/await. Una vez que tienes los datos, puedes utilizar JavaScript para crear elementos del DOM y agregarlos a la página para mostrar la información.</p>
+        <p>Aquí hay un ejemplo de cómo se puede hacer esto utilizando async/await y arrow functions:</p>
+        <pre><code class="language-javascript">
+            const mostrarPokemon = async (pokemonName) => {
+                try {
+                    const respuesta = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+                    const datos = await respuesta.json();
+
+                    // crear elementos del DOM y establecer sus atributos y contenido
+                    const nombre = document.createElement('h1');
+                    nombre.textContent = datos.name;
+
+                    const imagen = document.createElement('img');
+                    imagen.src = datos.sprites.front_default;
+
+                    // agregar elementos al DOM
+                    document.body.appendChild(nombre);
+                    document.body.appendChild(imagen);
+                } catch (error) {
+                    console.error(error);
+                }
+            };
+            mostrarPokemon('pikachu'); // muestra información sobre el Pokémon Pikachu en la página
+        </code></pre>
+        <p>En este ejemplo, primero utilizamos fetch y async/await para obtener la información sobre el Pokémon específico de la PokeAPI. Luego, creamos elementos del DOM como h1 y img y establecemos sus atributos y contenido utilizando las propiedades de los datos obtenidos de la PokeAPI. Finalmente, agregamos estos elementos al DOM utilizando el método appendChild del objeto document.body.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Public API's</h2>
+        <p>Os dejamos una recopilación de API's públicas que podéis utilizar para probar vuestros proyectos.</p>
+        <p>Hay que tener en cuenta que algunas requieren de una API Key o conexiones adicionales, por lo que es conveniente leer la documentación de cada una. Os recomendamos probar con las más simples al principio para practicar.</p>
+        <p>https://publicapis.dev/</p>
+    </div>
+</section>
