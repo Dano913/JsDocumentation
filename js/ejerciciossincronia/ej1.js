@@ -31,7 +31,7 @@ const car = {
     name: 'Mazda 6', 
     itv: [2015, 2011, 2020] 
 }
-const { name: nameCar, itv: itvCar } = car();
+const { name: nameCar, itv: itvCar } = car;
 
 console.log(nameCar);
 const [primero, segundo, tercero] = itvCar;

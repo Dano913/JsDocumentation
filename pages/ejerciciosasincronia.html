@@ -28,133 +28,94 @@
     </div>
     <div class="intro-text3 ex">
         <h2>Ejercicio 2</h2>
-        <p>Dado el siguiente HTML:</p>
-        <pre><code class="language-html">
-            &lt;!DOCTYPE html&gt;
-            &lt;html lang=&quot;en&quot;&gt;
-                &lt;head&gt;
-                    &lt;meta charset=&quot;UTF-8&quot; /&gt;
-                    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
-                    &lt;title&gt;Document&lt;/title&gt;
-                &lt;/head&gt;
-                &lt;body&gt;
-                    &lt;h2 class=&quot;fn-insert-here&quot;&gt;&lt;/h2&gt;
-                    &lt;p class=&quot;fn-remove-me&quot;&gt;Eliminame!&lt;/p&gt;
-                    &lt;p&gt;No me elimines!&lt;/p&gt;
-                    &lt;p&gt;No me elimines!&lt;/p&gt;
-                    &lt;p class=&quot;fn-remove-me&quot;&gt;Eliminame!&lt;/p&gt;
-                    &lt;p&gt;No me elimines!&lt;/p&gt;
-                    &lt;p class=&quot;fn-remove-me&quot;&gt;Eliminame!&lt;/p&gt;
-                    &lt;p class=&quot;fn-remove-me&quot;&gt;Eliminame!&lt;/p&gt;
-                    &lt;p&gt;No me elimines!&lt;/p&gt;
-                    &lt;div&gt;&lt;/div&gt;
-                    &lt;div&gt;&lt;/div&gt;
-                    &lt;div class=&quot;fn-insert-here&quot;&gt;&lt;/div&gt;
-                    &lt;div class=&quot;fn-insert-here&quot;&gt;&lt;/div&gt;
-                &lt;/body&gt;
-            &lt;/html&gt;
+        <p>2.1 Dado el siguiente array, crea una copia usando spread operators.</p>
+        <pre><code class="language-javascript">
+            const pointsList = [32, 54, 21, 64, 75, 43]
         </code></pre>
-        <p>2.1 Inserta dinamicamente en un html un div vacio con javascript.</p>
-        <p>2.2 Inserta dinamicamente en un html un div que contenga una p con javascript.</p>
-        <p>2.3 Inserta dinamicamente en un html un div que contenga 6 p utilizando un loop con javascript.</p>
-        <p>2.4 Inserta dinamicamente con javascript en un html una p con el texto 'Soy dinámico!'.</p>
-        <p>2.5 Inserta en el h2 con la clase .fn-insert-here el texto 'Wubba Lubba dub dub'.</p>
-        <p>2.6 Basandote en el siguiente array crea una lista ul > li con los textos del array. const apps = ['Facebook', 'Netflix', 'Instagram', 'Snapchat', 'Twitter'];</p>
-        <p>2.7 Elimina todos los nodos que tengan la clase .fn-remove-me</p>
-        <p>2.8 Inserta una p con el texto 'Voy en medio!' entre los dos div. Recuerda que no solo puedes insertar elementos con .appendChild.</p>
-        <p>2.9 Inserta p con el texto 'Voy dentro!', dentro de todos los div con la clase .fn-insert-here</p>
-        <div id="ej2-hidden" style="display: none;">
-            <h2 class="fn-insert-here"></h2>
-            <p class="fn-remove-me">Eliminame!</p>
-            <p>No me elimines!</p>
-            <p>No me elimines!</p>
-            <p class="fn-remove-me">Eliminame!</p>
-            <p>No me elimines!</p>
-            <p class="fn-remove-me">Eliminame!</p>
-            <p class="fn-remove-me">Eliminame!</p>
-            <p>No me elimines!</p>
-            <div></div>
-            <div></div>
-            <div class="fn-insert-here"></div>
-            <div class="fn-insert-here"></div>
-        </div>
+        <p>2.2 Dado el siguiente objeto, crea una copia usando spread operators.</p>
+        <pre><code class="language-javascript">
+            const toy = {name: 'Bus laiyiar', date: '20-30-1995', color: 'multicolor'};
+        </code></pre>
+        <p>2.3 Dado los siguientes arrays, crea un nuevo array juntandolos usando spread operatos.</p>
+        <pre><code class="language-javascript">
+            const pointsList = [32, 54, 21, 64, 75, 43];
+            const pointsLis2 = [54,87,99,65,32];
+        </code></pre>
+        <p>2.4 Dado los siguientes objetos. Crea un nuevo objeto fusionando los dos con spread operators.</p>
+        <pre><code class="language-javascript">
+            const toy = {name: 'Bus laiyiar', date: '20-30-1995', color: 'multicolor'};
+            const toyUpdate = {lights: 'rgb', power: ['Volar like a dragon', 'MoonWalk']}
+        </code></pre>
+        <p>2.5 Dado el siguiente array. Crear una copia de él eliminando la posición 2 pero sin editar el array inicial. De nuevo, usando spread operatos.</p>
+        <pre><code class="language-javascript">
+            const colors = ['rojo', 'azul', 'amarillo', 'verde', 'naranja'];
+        </code></pre>
         <div id="resultado2" class="solucion"></div>
-        <script src="./js/ejerciciosDOM/ej2.js"></script>
+        <script src="./js/ejerciciossincronia/ej2.js"></script>
     </div>
     <div class="intro-text3 ex">
         <h2>Ejercicio 3</h2>
-        <p>Dado el siguiente HTML:</p>
-        <pre><code class="language-html">
-            &lt;!DOCTYPE html&gt;
-            &lt;html lang=&quot;en&quot;&gt;
-                &lt;head&gt;
-                    &lt;meta charset=&quot;UTF-8&quot;&gt;
-                    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-                    &lt;script src=&quot;exercise-3.js&quot; defer&gt;&lt;/script&gt;
-                    &lt;title&gt;Document&lt;/title&gt;
-                &lt;/head&gt;
-                &lt;body&gt;
-                    &lt;p class=&quot;fn-remove-me&quot;&gt;Bye bye&lt;/p&gt;
-                    &lt;div data-function=&quot;printHere&quot;&gt;&lt;/div&gt;
-                &lt;/body&gt;
-            &lt;/html&gt;
-        </code></pre>
-        <p>1.1 Basandote en el array siguiente, crea una lista ul > li dinámicamente en el html que imprima cada uno de los paises.</p>
+        <p>3.1 Dado el siguiente array, devuelve un array con sus nombres utilizando .map().</p>
         <pre><code class="language-javascript">
-            const countries = ['Japón', 'Nicaragua', 'Suiza', 'Australia', 'Venezuela'];
-        </code></pre>
-        <p>1.2 Elimina el elemento que tenga la clase .fn-remove-me.</p>
-        <p>1.3 Utiliza el array para crear dinamicamente una lista ul <span class="token punctuation">></span> li de elementos en el div de html con el atributo <span class="codespan"><span class="token attr-name">data-function</span>=<span class="token string">&quot;printHere&quot;</span></span>.</p>
-        <pre><code class="language-javascript">
-            const cars = ['Mazda 6', 'Ford fiesta', 'Audi A4', 'Toyota corola'];
-        </code></pre>
-        <p>1.4 Crea dinamicamente en el html una serie de divs que contenga un elemento h4 para el titulo y otro elemento img para la imagen.</p>
-        <pre><code class="language-javascript">
-            const countries = [
-                {title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=1'},
-                {title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=2'},
-                {title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=3'},
-                {title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=4'},
-                {title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=5'}
+            const users = [
+                {id: 1, name: 'Abel'},
+                {id:2, name: 'Julia'},
+                {id:3, name: 'Pedro'},
+                {id:4, name: 'Amanda'}
             ];
         </code></pre>
-        <p>1.5 Basandote en el ejercicio anterior. Crea un botón que elimine el último elemento de la serie de divs.</p>
-        <p>1.6 Basandote en el ejercicio anterior. Crea un botón para cada uno de los divs que elimine ese mismo elemento del html.</p>
-        <div id="ej3-hidden" style="display: none;">
-            <p class="fn-remove-me">Bye bye</p>
-		    <div data-function="printHere"></div>
-        </div>
+        <p>3.2 Dado el siguiente array, devuelve una lista que contenga los valores de la propiedad .name y cambia el nombre a 'Anacleto' en caso de que empiece por 'A'.</p>
+        <pre><code class="language-javascript">
+            const users = [
+                {id: 1, name: 'Abel'},
+                {id:2, name: 'Julia'},
+                {id:3, name: 'Pedro'},
+                {id:4, name: 'Amanda'}
+            ];
+        </code></pre>
+        <p>3.3 Dado el siguiente array, devuelve una lista que contenga los valores de la propiedad .name y añade al valor de .name el string ' (Visitado)' cuando el valor de la propiedad isVisited = true.</p>
+        <pre><code class="language-javascript">
+            const cities = [
+                {isVisited:true, name: 'Tokyo'},
+                {isVisited:false, name: 'Madagascar'},
+                {isVisited:true, name: 'Amsterdam'},
+                {isVisited:false, name: 'Seul'}
+            ];
+        </code></pre>
         <div id="resultado3" class="solucion"></div>
-        <script src="./js/ejerciciosDOM/ej3.js"></script>
+        <script src="./js/ejerciciossincronia/ej3.js"></script>
     </div>
     <div class="intro-text3 ex">
         <h2>Ejercicio 4</h2>
-        <p>Dado el siguiente HTML:</p>
-        <pre><code class="language-html">
-            &lt;!DOCTYPE html&gt;
-            &lt;html lang=&quot;en&quot;&gt;
-                &lt;head&gt;
-                    &lt;meta charset=&quot;UTF-8&quot;&gt;
-                    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-                    &lt;title&gt;Document&lt;/title&gt;
-                &lt;/head&gt;
-                &lt;body&gt;
-                    &lt;input class=&quot;click&quot; type=&quot;text&quot;/&gt;
-                    &lt;input class=&quot;focus&quot; type=&quot;text&quot;/&gt;
-                    &lt;input class=&quot;value&quot; type=&quot;text&quot;/&gt;
-                &lt;/body&gt;
-            &lt;/html&gt;
+        <p>4.1 Dado el siguiente array, utiliza .filter() para generar un nuevo array con los valores que sean mayor que 18</p>
+        <pre><code class="language-javascript">
+            const ages = [22, 14, 24, 55, 65, 21, 12, 13, 90];
         </code></pre>
-        <p>1.1 Añade un botón a tu html con el id btnToClick y en tu javascript añade el evento click que ejecute un console log con la información del evento del click</p>
-        <p>1.2 Añade un evento 'focus' que ejecute un console.log con el valor del input.</p>
-        <p>1.3 Añade un evento 'input' que ejecute un console.log con el valor del input.</p>
-        <div id="ej4-visible">
-            <button id="btnToClick">Click aquí</button>
-            <input class="click" type="text" placeholder="Input click"/>
-            <input class="focus" type="text" placeholder="Input focus"/>
-            <input class="value" type="text" placeholder="Input value"/>
-        </div>
-        <script src="./js/ejerciciosDOM/ej4.js"></script>
+        <p>4.2 Dado el siguiente array, utiliza .filter() para generar un nuevo array con los valores que sean par.</p>
+        <pre><code class="language-javascript">
+            const ages = [22, 14, 24, 55, 65, 21, 12, 13, 90];
+        </code></pre>
+        <p>4.3 Dado el siguiente array, utiliza .filter() para generar un nuevo array con los streamers que tengan el gameMorePlayed = 'League of Legends'.</p>
+        <pre><code class="language-javascript">
+            const streamers = [
+                {name: 'Rubius', age: 32, gameMorePlayed: 'Minecraft'},
+                {name: 'Ibai', age: 25, gameMorePlayed: 'League of Legends'},
+                {name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
+                {name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
+            ];
+        </code></pre>
+        <p>4.4 Dado el siguiente array, utiliza .filter() para generar un nuevo array con los streamers que incluyan el caracter 'u' en su propiedad .name. Recomendamos usar la funcion .includes() para la comprobación.</p>
+        <pre><code class="language-javascript">
+            const streamers = [
+                {name: 'Rubius', age: 32, gameMorePlayed: 'Minecraft'},
+                {name: 'Ibai', age: 25, gameMorePlayed: 'League of Legends'},
+                {name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
+                {name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
+            ];
+        </code></pre>
+        <p>4.5 utiliza .filter() para generar un nuevo array con los streamers que incluyan el caracter 'Legends' en su propiedad .gameMorePlayed. Recomendamos usar la funcion .includes() para la comprobación.Además, pon el valor de la propiedad .gameMorePlayed a MAYUSCULAS cuando .age sea mayor que 35.</p>
+        <div id="resultado2" class="solucion"></div>
+        <script src="./js/ejerciciossincronia/ej2.js"></script>
     </div>
     <div class="intro-text3 ex">
         <h2>Ejercicio 5</h2>
