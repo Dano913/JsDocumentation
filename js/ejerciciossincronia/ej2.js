@@ -19,3 +19,30 @@ console.log(toys);
 const colors = ['rojo', 'azul', 'amarillo', 'verde', 'naranja'];
 const newColors = colors.filter(f => f !== 'azul');
 console.log(newColors);
+
+function mostrarObjeto(obj) {
+  return Object.entries(obj).map(([key, value]) => `${key}: ${Array.isArray(value) ? value.join(', ') : value}`).join('\n');
+}
+
+const resultado2 = `
+pointsList: [${pointsList.join(', ')}]
+copiaPoints: [${copiaPoints.join(', ')}]
+
+toy:
+${mostrarObjeto(toy)}
+
+copiaToy:
+${mostrarObjeto(copiaToy)}
+
+pointLists: [${pointLists.join(', ')}]
+
+toys:
+${mostrarObjeto(toys)}
+
+newColors: [${newColors.join(', ')}]
+`;
+
+// Mostramos en el div
+const divResultado2 = document.getElementById('resultado2');
+divResultado2.style.whiteSpace = 'pre-line';
+divResultado2.textContent = resultado2;

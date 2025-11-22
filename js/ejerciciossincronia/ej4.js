@@ -28,3 +28,9 @@ const legends = streamers
   });
 
 console.log(legends);
+const resultado4 = legends.map(s => `Nombre: ${s.name}, Edad: ${s.age}, Juego: ${s.gameMorePlayed}`).join('\n');
+
+// Usamos white-space: pre-line para respetar saltos de línea
+const divResultado4 = document.getElementById('resultado4');
+divResultado4.style.whiteSpace = 'pre-line';
+divResultado4.textContent = resultado4;

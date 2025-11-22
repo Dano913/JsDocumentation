@@ -38,3 +38,28 @@ const [primero, segundo, tercero] = itvCar;
 console.log(primero);
 console.log(segundo);
 console.log(tercero);
+
+const resultado = `
+--- Game ---
+Title: ${game.title}
+Gender: ${game.gender.join(', ')}
+Year: ${game.year}
+
+--- Fruits ---
+1: ${fruits[0]}
+2: ${fruits[1]}
+3: ${fruits[2]}
+
+--- Animal ---
+Name: ${animalFunction().name}
+Race: ${animalFunction().race}
+
+--- Car ---
+Name: ${car.name}
+ITV years: ${car.itv.join(', ')}
+`;
+
+// Mostramos en el div con saltos de línea
+const divResultado = document.getElementById('resultado');
+divResultado.style.whiteSpace = 'pre-line';
+divResultado.textContent = resultado;

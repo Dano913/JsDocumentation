@@ -114,7 +114,7 @@
             ];
         </code></pre>
         <p>4.5 utiliza .filter() para generar un nuevo array con los streamers que incluyan el caracter 'Legends' en su propiedad .gameMorePlayed. Recomendamos usar la funcion .includes() para la comprobación.Además, pon el valor de la propiedad .gameMorePlayed a MAYUSCULAS cuando .age sea mayor que 35.</p>
-        <div id="resultado2" class="solucion"></div>
+        <div id="resultado4" class="solucion"></div>
         <script src="./js/ejerciciossincronia/ej4.js"></script>
     </div>
     <div class="intro-text3 ex">
@@ -142,7 +142,110 @@
                 {name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
             ];
         </code></pre>
+        <div id="ej1-hidden" style="display: block;">
+            <input type="text" data-function="toFilterStreamers"/>
+        </div>
         <div id="resultado5" class="solucion"></div>
         <script src="./js/ejerciciossincronia/ej5.js" defer></script>
+    </div>
+    <div class="intro-text3 ex">
+        <h2>Ejercicio 6</h2>
+        <p>6.1 Dado el siguiente array, haz una suma de todos las notas de los examenes de los alumnos usando la función .reduce().</p>
+        <pre><code class="language-javascript">
+            const exams = [
+                {name: 'Yuyu Cabeza Crack', score: 5},
+                {name: 'Maria Aranda Jimenez', score: 1},
+                {name: 'Cristóbal Martínez Lorenzo', score: 6},
+                {name: 'Mercedez Regrera Brito', score: 7},
+                {name: 'Pamela Anderson', score: 3},
+                {name: 'Enrique Perez Lijó', score: 6},
+                {name: 'Pedro Benitez Pacheco', score: 8},
+                {name: 'Ayumi Hamasaki', score: 4},
+                {name: 'Robert Kiyosaki', score: 2},
+                {name: 'Keanu Reeves', score: 10}
+            ];
+        </code></pre>
+        <p>6.2 Dado el mismo array, haz una suma de todos las notas de los examenes de los alumnos que esten aprobados usando la función .reduce().</p>
+        <p>6.3 Dado el mismo array, haz la media de las notas de todos los examenes .reduce().</p>
+        <div id="resultado6" class="solucion"></div>
+        <script src="./js/ejerciciossincronia/ej6.js"></script>
+    </div>
+    <div class="intro-text3 ex">
+        <h2>Ejercicio 7</h2>
+        <p>7.1 Dado el siguiente javascript filtra los videojuegos por gender = 'RPG' usando .filter() y usa .reduce() para conseguir la media de sus .score. La función .find() también podría ayudarte para el contrar el genero 'RPG' en el array .gender.</p>
+        <pre><code class="language-javascript">
+            const videogames = [
+                {name: 'Final Fantasy VII', genders: ['RPG'], score: 9.5},
+                {name: 'Assasins Creed Valhalla', genders: ['Aventura', 'RPG'], score: 4.5},
+                {name: 'The Last of Us 2', genders: ['Acción', 'Aventura'], score: 9.8},
+                {name: 'Super Mario Bros', genders: ['Plataforma'], score: 8.5},
+                {name: 'Genshin Impact', genders: ['RPG', 'Aventura'], score: 7.5},
+                {name: 'Legend of Zelda: Breath of the wild', genders: ['RPG'], score: 10},
+            ]
+        </code></pre>
+        <div id="resultado7" class="solucion"></div>
+        <script src="./js/ejerciciossincronia/ej7.js" defer></script>
+    </div>
+    <div class="intro-text3 ex">
+        <h2>Ejercicio 8</h2>
+        <p>Accederemos a los datos de una API pública de Game Of Thrones, queremos un select con todos los nombres de los personajes para que cuando un usuario seleccione un nombre salga su imagen en el medio de la página, algo así:</p>
+        <p>Os aportamos el HTML sobre el que haremos el ejercicio:</p>
+        <pre><code class="language-html">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang=&quot;en&quot;&gt;
+                &lt;head&gt;
+                    &lt;meta charset=&quot;UTF-8&quot;&gt;
+                    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+                    &lt;title&gt;Document&lt;/title&gt;
+                    &lt;script src=&quot;index.js&quot; defer&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;select id=&quot;character-list&quot;&gt;&lt;/select&gt;
+                    &lt;div&gt;
+                        &lt;img class=&quot;character-image&quot;&gt;
+                    &lt;/div&gt;
+                &lt;/body&gt;
+            &lt;/html&gt;
+        </code></pre>
+        <p>Para obtener los datos con los que jugar necesitaremos estudiar la documentación de la API y buscar la url necesaria para los datos que queramos, para este paso os pedimos que de verdad os esforcéis buscándola en la documentación, queremos la url que me traiga los datos de todos los personajes de GOT, sin embargo, en la slide siguiente tendréis la url directa de esos datos.</p>
+        <p>URL de la documentación (para que indaguéis): https://thronesapi.com/</p>
+        <p>Esta sería la URL final (la que deberéis utilizar para vuestra petición):</p>
+        <p>https://thronesapi.com/api/v2/Characters</p>
+        <div id="ej6-hidden" style="display: block;">
+            <select id="character-list"></select>
+            <div>
+                <img class="character-image">
+            </div>
+        </div>
+        <script src="./js/ejerciciossincronia/ej8.js"></script>
+    </div>
+    <div class="intro-text3 ex">
+        <h2>Ejercicio 9</h2>
+        <p>Ahora realizaremos una petición a la PokeAPI, queremos mostrar al entrar en la página la imagen de un Pokemon, la magia estará en que cada vez que recargues la página, será un nuevo Pokemon dentro de la primera generación de Pokemon, es decir, del 1 al 151.</p>
+        <p>Los Pokemon no solo tienen una imagen, si no que tendrán muchas, hay que hallar la manera de encontrar la que más os guste.</p>
+        <p>Para ello el HTML será muy sencillo, y la URL esta vez os la aportaremos directamente, aunque os aconsejamos echarle un ojo a la documentación ya que es muy completa.</p>
+        <p>Documentación: https://pokeapi.co/</p>
+        <p>URL: https://pokeapi.co/api/v2/pokemon/1</p>
+        <p>Tened en cuenta que esta URL se refiere al pokemon número 1, que es bulbasaur, debemos hallar la manera de con una url similar ir consiguiendo pokemons aleatorios dentro de unos límites.</p>
+        <pre><code class="language-html">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang=&quot;en&quot;&gt;
+                &lt;head&gt;
+                    &lt;meta charset=&quot;UTF-8&quot;&gt;
+                    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+                    &lt;title&gt;Document&lt;/title&gt;
+                    &lt;script src=&quot;index.js&quot; defer&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;img class=&quot;random-image&quot;&gt;
+                &lt;/body&gt;
+            &lt;/html&gt;
+        </code></pre>
+        <div id="ej9-hidden" style="display: block;">
+            <img class="random-image">
+            <p class="pokemon-name"></p>
+            <button id="new-pokemon">Nuevo Pokémon</button>
+        </div>
+        <script src="./js/ejerciciossincronia/ej9.js"></script>
     </div>
 </section>

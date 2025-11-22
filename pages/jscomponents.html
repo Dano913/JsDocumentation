@@ -1,0 +1,101 @@
+<section class="section" id="dom">
+    <h1>Componentes JavaScript</h1>
+    <div class="intro-text">
+        <p>Los componentes son un grupo de archivos, generalmente JavaScript y CSS, que conformarán un elemento o conjunto de elementos con la lógica separada del resto del proyecto. Esto nos permitirá encapsular en diferentes carpetas de nuestro proyecto diferentes funcionalidades e interfaces de usuario.</p>
+        <p>Esto nos resultará muy útil por las diferentes ventajas que esto conlleva, sobretodo para proyectos más grandes.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Ventajas</h2>
+        <ul class="lista-estilizada">
+            <li>Reutilización: Los componentes se diseñan para ser reutilizables en diferentes partes de una aplicación o incluso en proyectos diferentes.</li>
+            <li>Mantenimiento: Al separar la funcionalidad en componentes individuales, se facilita el mantenimiento y la escalabilidad de la aplicación.</li>
+        </ul>
+    </div>
+    <div class="intro-text2">
+        <h2>Desventajas</h2>
+        <ul class="lista-estilizada">
+            <li>Curva de Aprendizaje: Puede haber una curva de aprendizaje inicial compleja al familiarizarse con los conceptos de componentes.</li>
+            <li>Complejidad: En proyectos pequeños, la introducción de componentes puede parecer innecesaria y agregar complejidad.</li>
+        </ul>
+        <p>Este enfoque es uno entre muchos, por lo que se pueden diseñar los componentes o la lógica interna de diferentes maneras siempre y cuando el código sea legible y funcional.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Ejemplo</h2>
+        <p>Un ejemplo visual nos permitirá entender mucho mejor el concepto. Para ello, vamos a crear un proyecto directamente con VITE, puesto que para importar archivos de css directamente en nuestro js necesitaremos hacer ciertas configuraciones en el proyecto. Al ser modular, VITE ya viene preparado para ello.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Estructura</h2>
+        <p>Lo primero que haremos será limpiar los contenidos que nos trae por defecto VITE al crear un proyecto.</p>
+        <p>Una vez hecho, crearemos la siguiente estructura de carpetas, donde en src hemos creado la carpeta components y dentro nuestro nuevo componente OurButton.</p>
+        <p>De momento solo creamos carpetas y archivos, de momento vacíos, para conseguir una estructura como la aportada.</p>
+        <p>Recordad ejecutar el comando npm i en la terminal para instalar las dependencias de VITE y poder ejecutar el proyecto.</p>
+    </div>
+    <div class="intro-text2">
+        <h2>index.html</h2>
+        <p>En este archivo no tocaremos nada (en este ejemplo), pero recordad que hay un div con el atributo id = "app".</p>
+        <pre><code class="language-javascript">
+            &lt;!doctype html&gt;
+            &lt;html lang="en"&gt;
+                &lt;head&gt; 
+                    &lt;meta charset="UTF-8" /&gt;
+                    &lt;link rel="icon" type="image/svg+xml" href="/vite.svg" /&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+                    &lt;title&gt;Vite App&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;div id="app"&gt;&lt;/div&gt;
+                    &lt;script type="module" src="/main.js"&gt;&lt;/script&gt;
+                &lt;/body&gt;
+            &lt;/html&gt;
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>OurButton.js</h2>
+        <p>El contenido de nuestro componente será esta pequeña función, que recibirá un texto y un color de fondo, aunque puede ser lo que necesitéis. Además, importaremos nuestro css del componente para poder implementar ahí los estilos del componente y que se rendericen correctamente.</p>
+        <pre><code class="language-javascript">
+            &lt;script type=&quot;module&quot;&gt;
+            import &quot;./OurButton.css&quot;;
+
+            export const ourButton = (texto, bgColor) =&gt; {
+                return `&lt;button style=&quot;background-color: ${bgColor}&quot; class=&quot;ourButton&quot;&gt;${texto}&lt;/button&gt;`;
+            };
+            &lt;/script&gt;
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>OurButton.css</h2>
+        <p>El CSS de nuestro botón será algo muy sencillo, os proponemos lo siguiente como ejemplo:</p>
+        <pre><code class="language-javascript">
+            .ourButton {
+                border-radius: 8px;
+                border: none;
+                background-color: #ffd17b;
+                padding: 5px 10px;
+            }
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>main.js</h2>
+        <p>Ahora ya podremos utilizar nuestro componente ourButton tantas veces como queramos y donde queramos. Por ejemplo, importamos la función, seleccionamos el div con el id app del index.html, y le añadimos contenido de HTML directamente.</p>
+        <p>Cada vez que queramos meter un nuevo botón lo haremos con el uso de la función creada previamente, que nos retornará un string.</p>
+        <p>La interpolación con ${} será tu aliada en estos casos.</p>
+        <pre><code class="language-javascript">
+            &lt;script type=&quot;module&quot;&gt;
+            import { ourButton } from './src/components/OurButton/OurButton';
+            import './style.css';
+
+            const app = document.querySelector(&quot;#app&quot;);
+
+            app.innerHTML = `
+                ${ourButton(&quot;Este es el texto elegido para el botón&quot;, &quot;#9a9aff&quot;)}
+                ${ourButton(&quot;Login&quot;, &quot;#ffaaaa&quot;)}
+                &lt;ol&gt;
+                    &lt;li&gt;Otros&lt;/li&gt;
+                    &lt;li&gt;Contenidos&lt;/li&gt;
+                &lt;/ol&gt;
+                ${ourButton(&quot;Otro texto!&quot;)}
+            `;
+            &lt;/script&gt;
+        </code></pre>
+    </div>
+</section>
