@@ -119,17 +119,30 @@
     </div>
     <div class="intro-text3 ex">
         <h2>Ejercicio 5</h2>
-        <p>Basandote en el array siguiente, crea una lista ul > li dinámicamente en el html que imprima cada uno de los albums. Que tenga la apariencia de una web completa dentro de lo posible.</p>
+        <pre><code class="language-html">
+            &lt;!doctype html&gt;
+            &lt;html lang=&quot;en&quot;&gt;
+                &lt;head&gt;
+                    &lt;meta charset=&quot;UTF-8&quot;&gt;
+                    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;
+                    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+                    &lt;title&gt;Document&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;input type=&quot;text&quot; data-function=&quot;toFilterStreamers&quot;/&gt;
+                &lt;/body&gt;
+            &lt;/html&gt;
+        </code></pre>
+        <p>Dado el siguiente javascript, utiliza .filter() para mostrar por consola los streamers que incluyan la palabra introducida en el input. De esta forma, si introduzco 'Ru' me deberia de mostrar solo el streamer 'Rubius'. Si introduzco 'i', me deberia de mostrar el streamer 'Rubius' e 'Ibai'.</p>
         <pre><code class="language-javascript">
-            const albums = [
-                "De Mysteriis Dom Sathanas",
-                "Reign of Blood",
-                "Ride the Lightning",
-                "Painkiller",
-                "Iron Fist",
+            const streamers = [
+                {name: 'Rubius', age: 32, gameMorePlayed: 'Minecraft'},
+                {name: 'Ibai', age: 25, gameMorePlayed: 'League of Legends'},
+                {name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
+                {name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
             ];
         </code></pre>
         <div id="resultado5" class="solucion"></div>
-        <script src="./js/ejerciciosDOM/ej5.js" defer></script>
+        <script src="./js/ejerciciossincronia/ej5.js" defer></script>
     </div>
 </section>
