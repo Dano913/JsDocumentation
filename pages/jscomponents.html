@@ -98,4 +98,28 @@
             &lt;/script&gt;
         </code></pre>
     </div>
+    <div class="intro-text2">
+        <h2>Actualización OurButton.css</h2>
+        <p>Ahora ya podremos utilizar nuestro componente ourButton tantas veces como queramos y donde queramos. Por ejemplo, importamos la función, seleccionamos el div con el id app del index.html, y le añadimos contenido de HTML directamente.</p>
+        <p>Cada vez que queramos meter un nuevo botón lo haremos con el uso de la función creada previamente, que nos retornará un string.</p>
+        <p>La interpolación con ${} será tu aliada en estos casos.</p>
+        <pre><code class="language-javascript">
+            &lt;script type=&quot;module&quot;&gt;
+            import { ourButton } from './src/components/OurButton/OurButton';
+            import './style.css';
+
+            const app = document.querySelector(&quot;#app&quot;);
+
+            app.innerHTML = `
+                ${ourButton(&quot;Este es el texto elegido para el botón&quot;, &quot;#9a9aff&quot;)}
+                ${ourButton(&quot;Login&quot;, &quot;#ffaaaa&quot;)}
+                &lt;ol&gt;
+                    &lt;li&gt;Otros&lt;/li&gt;
+                    &lt;li&gt;Contenidos&lt;/li&gt;
+                &lt;/ol&gt;
+                ${ourButton(&quot;Otro texto!&quot;)}
+            `;
+            &lt;/script&gt;
+        </code></pre>
+    </div>
 </section>
