@@ -99,12 +99,28 @@
         </code></pre>
     </div>
     <div class="intro-text2">
-        <h2>Actualización OurButton.css</h2>
-        <p>Ahora ya podremos utilizar nuestro componente ourButton tantas veces como queramos y donde queramos. Por ejemplo, importamos la función, seleccionamos el div con el id app del index.html, y le añadimos contenido de HTML directamente.</p>
-        <p>Cada vez que queramos meter un nuevo botón lo haremos con el uso de la función creada previamente, que nos retornará un string.</p>
-        <p>La interpolación con ${} será tu aliada en estos casos.</p>
+        <h2>Resultado</h2>
+        <p>Como podemos comprobar, se han creado 3 botones en nuestra página con diferentes estilos y texto, según lo que le hemos pasado a la función cuando la ejecutamos.</p>
+        <p>El ejemplo lo estamos creando con innerHTML y basándonos en strings, sin embargo podemos crear nuestro componente con los métodos de DOM, createElement, appendChild, etc.</p>
+        <p>¿De qué sirve hacer esto? Imaginémonos que este componente nos lo hemos trabajado mucho y está perfecto (que ahora no lo está), en el resto del desarrollo del proyecto nadie debería de volver a crear un botón de 0, dandole una nueva clase o unos nuevos estilos, siempre reutilizaríamos el mismo componente y lo podemos cambiar visualmente tanto como queramos.</p>
+        <p>Todo lo que quisiéramos cambiar del botón lo haríamos enviándole parámetros y usándolos.</p>
+        <p>Por ejemplo:</p>
+    </div>
+    <div class="intro-text2">
+        <h2>Actualización ourButton.js</h2>
+        <p>Hemos añadido un parámetro clase a la función, por lo tanto podemos enviarle cuando lo usamos una clase, si no nos llegase ninguna clase sería un string vacío (parametro por defecto). Si fuera así, sólo tendría la clase ourButton como al inicio.</p>
         <pre><code class="language-javascript">
-            &lt;script type=&quot;module&quot;&gt;
+            import &quot;./OurButton.css&quot;;
+
+            export const ourButton = (texto, bgColor, clase = &quot;&quot;) =&gt; {
+                return `&lt;button style=&quot;background-color: ${bgColor}&quot; class=&quot;ourButton ${clase}&quot;&gt;${texto}&lt;/button&gt;`;
+            };
+        </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>Actualización main.js</h2>
+        <p>Ahora en el segundo botón le añadimos un tercer parámetro, en este caso un string "highlight", que será la nueva clase del elemento.</p>
+        <pre><code class="language-javascript">
             import { ourButton } from './src/components/OurButton/OurButton';
             import './style.css';
 
@@ -112,14 +128,35 @@
 
             app.innerHTML = `
                 ${ourButton(&quot;Este es el texto elegido para el botón&quot;, &quot;#9a9aff&quot;)}
-                ${ourButton(&quot;Login&quot;, &quot;#ffaaaa&quot;)}
+                ${ourButton(&quot;Login&quot;, &quot;#ffaaaa&quot;, &quot;highlight&quot;)}
                 &lt;ol&gt;
                     &lt;li&gt;Otros&lt;/li&gt;
                     &lt;li&gt;Contenidos&lt;/li&gt;
                 &lt;/ol&gt;
                 ${ourButton(&quot;Otro texto!&quot;)}
-            `;
-            &lt;/script&gt;
+            `
         </code></pre>
+    </div>
+    <div class="intro-text2">
+        <h2>Actualización OurButton.css</h2>
+        <p>Ahora añadimos la clase highlight a nuestro css y añado todos los estilos que quiera, así, a partir de ahora ya puedo tener dos tipos de botones diferentes. Unos tendrán la clase ourButton y otros tendrán la clase highlight que sobreescribe muchos de los estilos de ourButton.</p>
+        <pre><code class="language-javascript">
+            .ourButton {
+                border-radius: 8px;
+                border: none;
+                background-color: #ffd17b;
+                padding: 5px 10px;
+            }
+
+            .highlight {
+                border-radius: 2px;
+                border: 3px solid black;
+                padding: 10px 20px;
+                font-size: 20px;
+            }
+        </code></pre>
+        <p>De tal manera, ahora el resultado será el siguiente:</p>
+        <p>Un componente nos costará más trabajo que si únicamente creásemos un botón para una sola ocasión, sin embargo, según vaya escalando el proyecto, iremos agradeciendo haber invertido ese tiempo en crear componentes. Una vez creado ya sólo nos queda utilizarlo y será mucho más rápido.</p>
+        <p>Podemos crear tantos componentes como queramos, esta creación será un poco subjetiva pero dentro de unos límites lógicos. No crearemos 4 componentes botón diferentes si son prácticamente iguales: creamos uno y lo reutilizamos las veces que queramos.</p>
     </div>
 </section>
