@@ -1,3 +1,4 @@
+console.log("%c===== Ejercicio 3 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 // 3.1 Multiplica 10 por 5
 console.log("10 x 5 = " + 10 * 5);
 document.getElementById("multi1").innerText = "10 x 5 = " + 10 * 5;

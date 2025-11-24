@@ -14,14 +14,10 @@ export function normalizeCodeBlocks(container = document) {
 }
 
 export function executeScripts(container) {
-  container.querySelectorAll('script').forEach(oldScript => {
+  container.querySelectorAll('script:not([type="module"])').forEach(oldScript => {
     const newScript = document.createElement("script");
-    if (oldScript.src) newScript.src = oldScript.src;
-    else newScript.textContent = oldScript.textContent;
-
+    newScript.textContent = oldScript.textContent;
     document.body.appendChild(newScript);
-
-    setTimeout(() => document.body.removeChild(newScript), 50);
   });
 }
 
@@ -162,12 +158,22 @@ export function loadPage(url, main) {
     .then(html => {
       main.innerHTML = html;
       normalizeCodeBlocks(main);
-      executeScripts(main);
+      executeScripts(main); // solo scripts normales
       createAside();
       Prism.highlightAll();
       runJsEditor();
       copyCodeButton();
       copyExButton();
+
+      // Aquí cargamos los módulos de los ejercicios
+      const moduleScripts = main.querySelectorAll('script[type="module"]');
+      moduleScripts.forEach(script => {
+        import(script.src)
+          .then(mod => {
+            if (mod.init) mod.init(); // si exporta una función init
+          })
+          .catch(err => console.error("Error cargando módulo:", err));
+      });
     })
     .catch(err => console.error("Error cargando página:", err));
 }
