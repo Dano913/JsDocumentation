@@ -153,27 +153,43 @@ export function copyCodeButton() {
 }
 
 export function loadPage(url, main) {
-  fetch(url)
-    .then(res => res.text())
-    .then(html => {
-      main.innerHTML = html;
-      normalizeCodeBlocks(main);
-      executeScripts(main); // solo scripts normales
-      createAside();
-      Prism.highlightAll();
-      runJsEditor();
-      copyCodeButton();
-      copyExButton();
+  return new Promise((resolve, reject) => {
+    fetch(url)
+      .then(res => res.text())
+      .then(html => {
+        // Insertar el HTML en el contenedor
+        main.innerHTML = html;
 
-      // Aquí cargamos los módulos de los ejercicios
-      const moduleScripts = main.querySelectorAll('script[type="module"]');
-      moduleScripts.forEach(script => {
-        import(script.src)
-          .then(mod => {
-            if (mod.init) mod.init(); // si exporta una función init
-          })
-          .catch(err => console.error("Error cargando módulo:", err));
+        // Normalizar y preparar bloques de código
+        normalizeCodeBlocks(main);
+        executeScripts(main); // solo scripts normales
+        createAside();
+        Prism.highlightAll();
+        runJsEditor();
+        copyCodeButton();
+        copyExButton();
+
+        // Cargar módulos tipo <script type="module"> dentro del main
+        const moduleScripts = main.querySelectorAll('script[type="module"]');
+        const modulePromises = Array.from(moduleScripts).map(script => {
+          return import(script.src)
+            .then(mod => {
+              if (mod.init) mod.init(); // si exporta init
+            })
+            .catch(err => console.error("Error cargando módulo:", err));
+        });
+
+        // Esperar a que todos los módulos se carguen antes de resolver
+        Promise.all(modulePromises)
+          .then(() => resolve())
+          .catch(err => {
+            console.error("Error cargando módulos:", err);
+            resolve(); // resolvemos de todas formas para no bloquear
+          });
+      })
+      .catch(err => {
+        console.error("Error cargando página:", err);
+        reject(err);
       });
-    })
-    .catch(err => console.error("Error cargando página:", err));
+  });
 }

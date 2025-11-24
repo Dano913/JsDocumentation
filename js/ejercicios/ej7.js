@@ -1,25 +1,15 @@
-function greaterNumber(numberOne, numberTwo) {
-    const numberDiv = document.getElementById("number");
-    if (!numberDiv) return; // Salir si no existe el div
+console.log("%c===== Ejercicio 7 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-    if (numberOne > numberTwo) {
-        console.log(numberOne);
-        numberDiv.innerText = "numberOne es mayor que numberTwo";
-    } else {
-        console.log(numberTwo);
-        numberDiv.innerText = "numberTwo es mayor que numberOne";
-    }
-}
+const numberDiv = document.getElementById("number");
 
-// Ejecutar la función después de que el DOM esté listo
-function ejecutarEj7() {
+if (numberDiv) {
     const numberOne = 4;
     const numberTwo = 17;
-    greaterNumber(numberOne, numberTwo);
+
+    const mensaje = numberOne > numberTwo
+        ? "numberOne es mayor que numberTwo"
+        : "numberTwo es mayor que numberOne";
+
+    console.log(mensaje);
+    numberDiv.innerText = mensaje;
 }
-
-// Para cuando la página se abre directamente
-window.addEventListener("DOMContentLoaded", ejecutarEj7);
-
-// Para cuando se carga dinámicamente vía fetch
-setTimeout(ejecutarEj7, 50);

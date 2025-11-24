@@ -1,3 +1,4 @@
+console.log("%c===== Ejercicio 9 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 const numberList = [1, 2, 3, 5, 45, 37, 58];
 const sumDiv = document.getElementById("sumAll");
 

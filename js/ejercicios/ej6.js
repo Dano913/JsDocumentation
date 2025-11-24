@@ -1,3 +1,4 @@
+console.log("%c===== Ejercicio 6 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 console.log("EJERCICIO 1.1");
 // 1.1 Bucle for de 0 a 9
 const ej1 = document.getElementById("ej1");

@@ -1,3 +1,4 @@
+console.log("%c===== Ejercicio 5 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 const number1 = 10;
 const number2 = 20;
 const number3 = 2;
