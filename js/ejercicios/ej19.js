@@ -11,7 +11,7 @@ const toys = [
 const filteredToys = toys.filter(toy => !toy.name.toLowerCase().includes("gato"));
 console.log(filteredToys);
 
-const lista = document.getElementById("toys");
+const lista19 = document.getElementById("toys");
 
 
 // Lista UL con clase lista-estilizada
@@ -25,4 +25,4 @@ for (const toy of filteredToys) {
 }
 
 // Insertamos la lista en el div
-lista.appendChild(ul);
+lista19.appendChild(ul);
