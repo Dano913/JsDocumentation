@@ -1196,33 +1196,27 @@ const artists = [
 
 const legends = document.getElementById('legends');
 
-// Bucle principal para recorrer artistas
-for (let i = 0; i < artists.length; i++) {
-    const artist = artists[i];
+for (const { name, influences } of artists) {
 
-    // Mostrar nombre del artista en pantalla
-    const artistTitle = document.createElement('h4');
-    artistTitle.textContent = artist.name;
-    legends.appendChild(artistTitle);
+  // Título del artista
+  const artistTitle = document.createElement('h4');
+  artistTitle.textContent = name;
+  legends.appendChild(artistTitle);
 
-    // Lista para influencias
-    const ul = document.createElement('ul');
-    ul.className = 'lista-estilizada';
+  // Lista de influencias
+  const ul = document.createElement('ul');
+  ul.className = 'lista-estilizada';
 
-    // Bucle interno para recorrer influencias
-    for (let j = 0; j < artist.influences.length; j++) {
-        const influence = artist.influences[j];
-        
-        // Imprimir en consola
-        console.log(`${artist.name} -> ${influence}`);
+  for (const influence of influences) {
 
-        // Imprimir en pantalla
-        const li = document.createElement('li');
-        li.textContent = `${artist.name} -> ${influence}`;
-        ul.appendChild(li);
-    }
+    console.log(`${name} -> ${influence}`);
 
-    legends.appendChild(ul);
+    const li = document.createElement('li');
+    li.textContent = `${name} -> ${influence}`;
+    ul.appendChild(li);
+  }
+
+  legends.appendChild(ul);
 }
 
 
