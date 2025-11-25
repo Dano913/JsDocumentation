@@ -1,27 +1,23 @@
-let miSuperheroeFavorito = "Hulk";
+console.log("%c===== Ejercicio 1 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+let miSuperheroeFavorito = "Hulk";  //Declaro variables
 let numeroFavorito = 50;
 let altura = 5;
 let longitud = 10;
 let suma = altura + longitud;
 
-document.getElementById("resultado").innerHTML = `
-  <ul class="lista-estilizada">
+document.getElementById("resultado").innerHTML = // Muestro la información en pantalla 
+ `<ul class="lista-estilizada">
     <li>Mi superhéroe favorito es: ${miSuperheroeFavorito}</li>
     <li>Mi número favorito es: ${numeroFavorito}</li>
     <li>Mi altura es: ${altura}</li>
     <li>Mi longitud es: ${longitud}</li>
     <li>La suma de altura y longitud es: ${suma}</li>
-  </ul>
-`;
-console.log("%c===== Ejercicio 1 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
-console.log({ miSuperheroeFavorito, numeroFavorito, altura, longitud, suma });
+ </ul>`;
+console.log({ miSuperheroeFavorito, numeroFavorito, altura, longitud, suma }); // Imprimo por consola
 
 
 
-console.log(
-  "%c===== Ejercicio 2 =====",
-  "color: white; background-color: #085f0c; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 2 =====", "color: white; background-color: #085f0c; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const ejercicio2 = {
   jedi: {
@@ -601,15 +597,11 @@ for (let propiedad in alien) {
 }
 
 output += '</ul>';
-
 document.getElementById("alienInfo").innerHTML = output;
 
 
 
-console.log(
-  "%c===== Ejercicio 18 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 18 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const placesToTravel = [
     { id: 5, name: "Japan" },
@@ -626,22 +618,17 @@ for (let i = 0; i < placesToTravel.length; i++) {
         i--;
     }
 }
-
 console.log(placesToTravel);
 
 let output2 = "";
 for (let i = 0; i < placesToTravel.length; i++) {
     output2 += `ID: ${placesToTravel[i].id} - Nombre: ${placesToTravel[i].name}<br>`;
 }
-
 document.getElementById("places").innerHTML = output2;
 
 
 
-console.log(
-  "%c===== Ejercicio 19 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 19 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const toys = [
     {id: 5, name: 'Transformers'},
@@ -656,31 +643,22 @@ const toys = [
 const filteredToys = toys.filter(toy => !toy.name.toLowerCase().includes("gato"));
 console.log(filteredToys);
 
-const lista19 = document.getElementById("toys");
-
-
-// Lista UL con clase lista-estilizada
 const ul = document.createElement("ul");
 ul.classList.add("lista-estilizada");
-
 for (const toy of filteredToys) {
     const li = document.createElement("li");
     li.textContent = toy.name;
     ul.appendChild(li);
 }
 
-// Insertamos la lista en el div
+const lista19 = document.getElementById("toys");
 lista19.appendChild(ul);
 
 
 
-console.log(
-  "%c===== Ejercicio 20 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 20 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const popularToys = [];
-
 const toyscount = [
     {id: 101, name: 'Super Soaker', sellCount: 15},
     {id: 102, name: 'Tamagotchi', sellCount: 22},
@@ -694,36 +672,27 @@ const toyscount = [
     {id: 110, name: 'Troll Doll', sellCount: 20}
 ];
 
-// Filtrar juguetes con más de 15 ventas
 for (const toy of toyscount) {
     if (toy.sellCount > 15) {
         popularToys.push(toy);
     }
 }
-
 console.log(popularToys);
 
-const contenedor = document.getElementById("toyscount");
-
-// Crear la lista UL
 const ul2 = document.createElement("ul");
 ul2.classList.add("lista-estilizada");
-
 for (const toy of popularToys) {
     const li = document.createElement("li");
     li.textContent = `${toy.name} - Ventas: ${toy.sellCount}`;
     ul2.appendChild(li);
 }
 
-// Insertar la lista en el contenedor
+const contenedor = document.getElementById("toyscount");
 contenedor.appendChild(ul2);
 
 
 
-console.log(
-  "%c===== Ejercicio 21 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 21 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const users = [
     { name: "Tony", years: 43 },
@@ -767,13 +736,9 @@ document.getElementById("edades").innerHTML = mayores + "<br>" + menores;
 
 
 
-console.log(
-  "%c===== Ejercicio 22 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 22 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const fruits = ["Strawberry", "Banana", "Orange", "Apple"];
-
 const foodSchedule = [
     { name: "Heura", isVegan: true },
     { name: "Salmon", isVegan: false },
@@ -784,7 +749,6 @@ const foodSchedule = [
 ];
 
 let fruitIndex = 0;
-
 for (let i = 0; i < foodSchedule.length; i++) {
     if (!foodSchedule[i].isVegan) {
         foodSchedule[i].name = fruits[fruitIndex];
@@ -792,15 +756,12 @@ for (let i = 0; i < foodSchedule.length; i++) {
         fruitIndex++;
     }
 }
-
 console.log(foodSchedule);
 
 const container = document.getElementById("fruit");
-
 const ul3 = document.createElement("ul");
 ul3.classList.add("lista-estilizada");
 container.appendChild(ul3);
-
 for (let i = 0; i < foodSchedule.length; i++) {
     const item = document.createElement("li");
     item.textContent = foodSchedule[i].name;
@@ -809,10 +770,7 @@ for (let i = 0; i < foodSchedule.length; i++) {
 
 
 
-console.log(
-  "%c===== Ejercicio 23 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 23 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const movies = [
     { name: "Titan A.E.", durationInMinutes: 130 },
@@ -830,7 +788,6 @@ const movies = [
 const smallMovies = [];
 const mediumMovies = [];
 const largeMovies = [];
-
 for (let movie of movies) {
     if (movie.durationInMinutes < 100) {
         smallMovies.push(movie);
@@ -848,35 +805,27 @@ const categories = [
 ];
 
 const container2 = document.getElementById("container2");
-
 categories.forEach(category => {
-    // Crear el título <h4>
     const h4 = document.createElement("h4");
     h4.textContent = category.title;
     container2.appendChild(h4);
 
-    // Crear la lista <ul> con clase
     const ul = document.createElement("ul");
     ul.classList.add("lista-estilizada");
     container2.appendChild(ul);
 
-    // Agregar los elementos <li>
     category.list.forEach(movie => {
         const li = document.createElement("li");
         li.textContent = movie.name;
         ul.appendChild(li);
     });
 
-    // Espacio entre categorías
     container2.appendChild;
 });
 
 
 
-console.log(
-  "%c===== Ejercicio 24 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 24 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const characters = [
     { name: 'Luke Skywalker', species: 'Human' },
@@ -891,19 +840,14 @@ const characters = [
 ];
 
 const humanCharacters = characters.filter(c => c.species === "Human");
-
 console.log("Personajes humanos:");
 console.log(humanCharacters);
 
-// contenedor principal
 const container3 = document.getElementById("pj-container");
-
-// crear la lista <ul> con clase
-const ul4 = document.createElement("ul");
-ul4.classList.add("lista-estilizada");
 container3.appendChild(ul4);
 
-// agregar los personajes humanos a la lista
+const ul4 = document.createElement("ul");
+ul4.classList.add("lista-estilizada");
 humanCharacters.forEach(character => {
     const li = document.createElement("li");
     li.textContent = character.name;
@@ -912,10 +856,7 @@ humanCharacters.forEach(character => {
 
 
 
-console.log(
-  "%c===== Ejercicio 25 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 25 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const movies2 = [
     { title: 'The Matrix', releaseYear: 1999 },
@@ -929,7 +870,6 @@ const movies2 = [
     { title: 'Fight Club', releaseYear: 1999 },
     { title: 'Forrest Gump', releaseYear: 1994 }
 ];
-
 const categories2 = [
     { title: 'Películas antes de los 2000', items: movies2.filter(m => m.releaseYear < 2000) },
     { title: 'Películas después de los 2000', items: movies2.filter(m => m.releaseYear >= 2000) }
@@ -963,10 +903,7 @@ categories2.forEach(category => {
 
 
 
-console.log(
-  "%c===== Ejercicio 26 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 26 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const songs = [
     { title: 'Bohemian Rhapsody', genre: 'Rock', duration: 5.55 },
@@ -983,29 +920,19 @@ const songs = [
 ];
 
 const rockPlaylist = songs.filter(song => song.genre === "Rock" && song.duration > 5.00);
-
 const contenedor6 = document.getElementById("rock");
-
-// Crear la lista UL con clase
 const ul6 = document.createElement("ul");
 ul6.classList.add("lista-estilizada");
-
-// Rellenar la lista
 rockPlaylist.forEach(song => {
     const li = document.createElement("li");
     li.textContent = `${song.title} - Duration: ${song.duration}`;
     ul6.appendChild(li);
 });
-
-// Insertar la lista en el contenedor
 contenedor6.appendChild(ul6);
 
 
 
-console.log(
-  "%c===== Ejercicio 27 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 27 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const cartoons = [
     { name: 'Bugs Bunny', debut: 1938 },
@@ -1021,13 +948,11 @@ const cartoons = [
 ];
 
 let oldestCartoon = cartoons[0];
-
 for (const cartoon of cartoons) {
     if (cartoon.debut < oldestCartoon.debut) {
         oldestCartoon = cartoon;
     }
 }
-
 console.log("La serie de dibujos animados más antigua es:", oldestCartoon.name);
 
 const contenedor3 = document.getElementById("cartoon");
@@ -1035,10 +960,7 @@ contenedor3.innerHTML = `<p>${oldestCartoon.name} (${oldestCartoon.debut})</p>`;
 
 
 
-console.log(
-  "%c===== Ejercicio 28 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 28 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const albums = [
     { title: 'Led Zeppelin IV', genre: 'Rock', duration: 42.19 },
@@ -1053,27 +975,20 @@ const albums = [
     { title: 'The Joshua Tree', genre: 'Rock', duration: 50.11 }
 ];
 
-// Calcular la duración total solo de álbumes de Rock
 let totalDuration = 0;
-
 for (let i = 0; i < albums.length; i++) {
     if (albums[i].genre === 'Rock') {
         totalDuration += albums[i].duration;
     }
 }
-
 console.log("Duración total de álbumes de Rock:", totalDuration.toFixed(2), "minutos");
 
-// Mostrar en el div
 const albumDiv = document.getElementById("album");
 albumDiv.innerHTML = `<p><strong>${totalDuration.toFixed(2)}</strong> minutos</p>`;
 
 
 
-console.log(
-  "%c===== Ejercicio 29 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 29 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const starWarsMovies = [
     { title: 'A New Hope', releaseYear: 1977 },
@@ -1090,7 +1005,6 @@ const starWarsMovies = [
 ];
 
 const moviesByDecade = {};
-
 for (let i = 0; i < starWarsMovies.length; i++) {
     const movie = starWarsMovies[i];
     const decade = Math.floor(movie.releaseYear / 10) * 10;
@@ -1101,12 +1015,9 @@ for (let i = 0; i < starWarsMovies.length; i++) {
 
     moviesByDecade[decade].push(movie.title);
 }
-
 console.log(moviesByDecade);
 
 const starwarsDiv = document.getElementById('starwars');            
-
-// 🔹 Insertar las listas por década
 for (const decade in moviesByDecade) {
     const decadeTitle = document.createElement('h4');
     decadeTitle.style.marginTop = "20px";
@@ -1126,13 +1037,9 @@ for (const decade in moviesByDecade) {
 
 
 
-console.log(
-  "%c===== Ejercicio 30 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 30 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const tracksDiv = document.getElementById('tracks');
-
 const tracks = [
     { title: 'Enter Sandman', genre: 'Metal' },
     { title: 'Back in Black', genre: 'Rock' },
@@ -1147,7 +1054,6 @@ const tracks = [
 ];
 
 const tracksByGenre = {};
-
 for (let i = 0; i < tracks.length; i++) {
     const track = tracks[i];
     const genre = track.genre;
@@ -1158,10 +1064,8 @@ for (let i = 0; i < tracks.length; i++) {
 
     tracksByGenre[genre].push(track.title);
 }
-
 console.log(tracksByGenre);
 
-// 🔹 Crear listas por género dentro del mismo div
 for (const genre in tracksByGenre) {
     const genreTitle = document.createElement('h4');
     genreTitle.style.marginTop = "20px";
@@ -1181,10 +1085,7 @@ for (const genre in tracksByGenre) {
 
 
 
-console.log(
-  "%c===== Ejercicio 31 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 31 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const artists = [
     { name: 'Kurt Cobain', influences: ['The Beatles', 'Pixies', 'Lead Belly'] },
@@ -1195,36 +1096,27 @@ const artists = [
 ];
 
 const legends = document.getElementById('legends');
-
 for (const { name, influences } of artists) {
 
-  // Título del artista
   const artistTitle = document.createElement('h4');
   artistTitle.textContent = name;
   legends.appendChild(artistTitle);
 
-  // Lista de influencias
   const ul = document.createElement('ul');
   ul.className = 'lista-estilizada';
 
   for (const influence of influences) {
-
     console.log(`${name} -> ${influence}`);
-
     const li = document.createElement('li');
     li.textContent = `${name} -> ${influence}`;
     ul.appendChild(li);
   }
-
   legends.appendChild(ul);
 }
 
 
 
-console.log(
-  "%c===== Ejercicio 32 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 32 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const xMen = [
     { name: 'Wolverine', year: 1974 },
@@ -1244,20 +1136,14 @@ function findOldestXMen(xMen) {
         return current.year < oldest.year ? current : oldest;
     });
 }
-
 const oldest = findOldestXMen(xMen);
-
 console.log(`El X-Men más antiguo es ${oldest.name}, que apareció en ${oldest.year}.`);
 
-document.getElementById("men").innerHTML = 
-`<p><strong>${oldest.name}</strong> apareció en <strong>${oldest.year}</strong>.</p>`;
+document.getElementById("men").innerHTML = `<p><strong>${oldest.name}</strong> apareció en <strong>${oldest.year}</strong>.</p>`;
 
 
 
-console.log(
-  "%c===== Ejercicio 33 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 33 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
  const capitals = {
     Spain: 'Madrid',
@@ -1285,20 +1171,15 @@ function getCapital(country) {
         };
     }
 }
-
 const country = "Greece";
 const capital = getCapital(country);
-
 console.log(capital.text);
 
 document.getElementById("capital").innerHTML = capital.html;
 
 
 
-console.log(
-  "%c===== Ejercicio 34 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 34 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const movies4 = [
     { title: 'Inception', duration: 148 },
@@ -1320,20 +1201,14 @@ function averageMovieDuration(movies) {
     
     return total / movies.length;
 }
-
 const average2 = averageMovieDuration(movies4);
-
 console.log("El promedio de duración de las películas es:", average2, "minutos");
 
-document.getElementById("average2").innerHTML =
-`<strong>${average2}</strong> minutos.`;
+document.getElementById("average2").innerHTML =`<strong>${average2}</strong> minutos.`;
 
 
 
-console.log(
-  "%c===== Ejercicio 35 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 35 =====","color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const mutants = [
     { name: 'Wolverine', power: 'regeneration' },
@@ -1350,28 +1225,21 @@ const mutants = [
 
 function findMutantByPower(mutants, power) {
     const found = mutants.filter(mutant => mutant.power === power);
-
     let message;
     if (found.length > 0) {
         message = `Mutante(s) con el poder "${power}": ${found.map(m => `<b>${m.name}</b>`).join(', ')}`;
-
         console.log(`Mutante(s) con el poder "${power}": %c${found.map(m => m.name).join(', ')}`, "font-weight: bold");
     } else {
         message = `No se encontró ningún mutante con el poder "${power}".`;
         console.log(message);
     }
-
     document.getElementById("mutant").innerHTML = message;
 }
-
-findMutantByPower(mutants, "telepathy"); 
-
+findMutantByPower(mutants, "telepathy");
 
 
-console.log(
-  "%c===== Ejercicio 36 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+
+console.log("%c===== Ejercicio 36 =====","color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const actors = [
     { name: 'Leonardo DiCaprio', born: 1974 },
@@ -1387,21 +1255,15 @@ const actors = [
 ];
 
 function calculateActorsAges(actors) {
-const currentYear = new Date().getFullYear();
-
-return actors.map(actor => {
-    const age = currentYear - actor.born;
-    return { name: actor.name, age: age };
-});
+    const currentYear = new Date().getFullYear();
+    return actors.map(actor => {
+        const age = currentYear - actor.born;
+        return { name: actor.name, age: age };
+    });
 }
-
-// Ejemplo de uso
 const result5 = calculateActorsAges(actors);
-
-// imprimir en consola
 console.log(result5);
 
-// imprimir en pantalla
 document.getElementById("actors").innerHTML = `
   <ul class="lista-estilizada">
     ${result5
@@ -1412,36 +1274,16 @@ document.getElementById("actors").innerHTML = `
 
 
 
-console.log(
-  "%c===== Ejercicio 37 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 37 =====","color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const movies5 = [
-    {
-        title: "Bracula: Condemor II",
-        duration: 192,
-        categories: ["comedia", "aventura"],
-    },
-    {
-        title: "Spider-Man: No Way Home",
-        duration: 122,
-        categories: ["aventura", "acción"],
-    },
-    {
-        title: "The Voices",
-        duration: 223,
-        categories: ["comedia", "thriller"],
-    },
-    {
-        title: "Shrek",
-        duration: 111,
-        categories: ["comedia", "aventura", "animación"],
-    },
+    {title: "Bracula: Condemor II", duration: 192, categories: ["comedia", "aventura"],},
+    {title: "Spider-Man: No Way Home", duration: 122, categories: ["aventura", "acción"],},
+    {title: "The Voices", duration: 223, categories: ["comedia", "thriller"],},
+    {title: "Shrek", duration: 111, categories: ["comedia", "aventura", "animación"],},
 ];
 
 const categorias = [];
-
 for (const movie of movies5) {
     for (const category of movie.categories) {
         if (!categorias.includes(category)) {
@@ -1449,112 +1291,46 @@ for (const movie of movies5) {
         }
     }
 }
-
 console.log(categorias);
 
 document.getElementById("cate").textContent = categorias.join(", ");
 
 
 
-console.log(
-  "%c===== Ejercicio 38 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 38 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const users2 = [
-    {
-        name: "Alberto",
-        favoritesSounds: {
-        waves: { format: "mp3", volume: 50 },
-        rain: { format: "ogg", volume: 60 },
-        firecamp: { format: "mp3", volume: 80 },
-        },
-    },
-    {
-        name: "Antonio",
-        favoritesSounds: {
-        waves: { format: "mp3", volume: 30 },
-        shower: { format: "ogg", volume: 55 },
-        train: { format: "mp3", volume: 60 },
-        },
-    },
-    {
-        name: "Santiago",
-        favoritesSounds: {
-        shower: { format: "mp3", volume: 50 },
-        train: { format: "ogg", volume: 60 },
-        firecamp: { format: "mp3", volume: 80 },
-        },
-    },
-    {
-        name: "Laura",
-        favoritesSounds: {
-        waves: { format: "mp3", volume: 67 },
-        wind: { format: "ogg", volume: 35 },
-        firecamp: { format: "mp3", volume: 60 },
-        },
-    },
+    {name: "Alberto", favoritesSounds: {waves: { format: "mp3", volume: 50 }, rain: { format: "ogg", volume: 60 }, firecamp: { format: "mp3", volume: 80 },},},
+    {name: "Antonio", favoritesSounds: {waves: { format: "mp3", volume: 30 }, shower: { format: "ogg", volume: 55 }, train: { format: "mp3", volume: 60 },},},
+    {name: "Santiago", favoritesSounds: {shower: { format: "mp3", volume: 50 }, train: { format: "ogg", volume: 60 }, firecamp: { format: "mp3", volume: 80 },},},
+    {name: "Laura", favoritesSounds: {waves: { format: "mp3", volume: 67 }, wind: { format: "ogg", volume: 35 }, firecamp: { format: "mp3", volume: 60 },},},
 ];
 
 let totalVolume = 0;
 let count = 0;
-
 for (const user of users2) {
-    for (const sound in user.favoritesSounds) {
-        totalVolume += user.favoritesSounds[sound].volume;
-        count++;
+    for (const sound of Object.values(user.favoritesSounds)) {
+        totalVolume += sound.volume;
+        totalSounds++;
     }
 }
-
 const average3 = totalVolume / count;
-
 console.log("La media de volumen de todos los sonidos favoritos es:", average3);
 
-document.getElementById("sonidos").innerHTML = average3.toFixed(2);
+document.getElementById("sonidos").textContent = average3.toFixed(2);
 
 
 
-console.log(
-  "%c===== Ejercicio 39 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 39 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const users3 = [
-    {
-        name: "Alberto",
-        favoritesSounds: {
-        waves: { format: "mp3", volume: 50 },
-        rain: { format: "ogg", volume: 60 },
-        firecamp: { format: "mp3", volume: 80 },
-        },
-    },
-    {
-        name: "Antonio",
-        favoritesSounds: {
-        waves: { format: "mp3", volume: 30 },
-        shower: { format: "ogg", volume: 55 },
-        train: { format: "mp3", volume: 60 },
-        },
-    },
-    {
-        name: "Santiago",
-        favoritesSounds: {
-        shower: { format: "mp3", volume: 50 },
-        train: { format: "ogg", volume: 60 },
-        firecamp: { format: "mp3", volume: 80 },
-        },
-    },
-    {
-        name: "Laura",
-        favoritesSounds: {
-        waves: { format: "mp3", volume: 67 },
-        wind: { format: "ogg", volume: 35 },
-        firecamp: { format: "mp3", volume: 60 },
-        },
-    },
+    {name: "Alberto", favoritesSounds: {waves: { format: "mp3", volume: 50 }, rain: { format: "ogg", volume: 60 }, firecamp: { format: "mp3", volume: 80 },},},
+    {name: "Antonio", favoritesSounds: {waves: { format: "mp3", volume: 30 }, shower: { format: "ogg", volume: 55 }, train: { format: "mp3", volume: 60 },},},
+    {name: "Santiago", favoritesSounds: {shower: { format: "mp3", volume: 50 }, train: { format: "ogg", volume: 60 }, firecamp: { format: "mp3", volume: 80 },},},
+    {name: "Laura", favoritesSounds: {waves: { format: "mp3", volume: 67 }, wind: { format: "ogg", volume: 35 }, firecamp: { format: "mp3", volume: 60 },},},
 ];
-const soundCounts3 = {};
 
+const soundCounts3 = {};
 for (const user3 of users3) {
     for (const sound3 in user3.favoritesSounds) {
         if (soundCounts3[sound3]) {
@@ -1564,7 +1340,6 @@ for (const user3 of users3) {
         }
     }
 }
-
 console.log("Conteo de sonidos favoritos:", soundCounts3);
 
 let sonido = "<ul class='lista-estilizada'>";
@@ -1577,10 +1352,7 @@ document.getElementById("sonido").innerHTML = sonido;
 
 
 
-console.log(
-  "%c===== Ejercicio 40 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 40 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 function findArrayIndex(array, text) {
     for (let i = 0; i < array.length; i++) {
@@ -1630,10 +1402,7 @@ document.getElementById("wars").innerHTML = star;
 
 
 
-console.log(
-  "%c===== Ejercicio 41 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 41 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 function rollDice(caras) {
     return Math.floor(Math.random() * caras) + 1;
@@ -1653,10 +1422,7 @@ document.getElementById("dice").innerHTML = dice;
 
 
 
-console.log(
-  "%c===== Ejercicio 42 =====",
-  "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
-);
+console.log("%c===== Ejercicio 42 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const fantasticFour = [
     "La antorcha humana",
@@ -1666,10 +1432,10 @@ const fantasticFour = [
 ];
 
 function swap(array, index1, index2) {
-const temp = array[index1];
-array[index1] = array[index2];
-array[index2] = temp;
-return array;
+    const temp = array[index1];
+    array[index1] = array[index2];
+    array[index2] = temp;
+    return array;
 }
 
 console.log("Original:", fantasticFour);
@@ -1681,6 +1447,5 @@ fantastic += "<li>Original: " + fantasticFour.join(", ") + "</li>";
 fantastic += "<li>Swap 0 y 3: " + swap([...fantasticFour], 0, 3).join(", ") + "</li>";
 fantastic += "<li>Swap 1 y 2: " + swap([...fantasticFour], 1, 2).join(", ") + "</li>";
 fantastic += "</ul>";
-
 
 document.getElementById("fantastic").innerHTML = fantastic;
