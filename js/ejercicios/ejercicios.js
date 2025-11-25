@@ -5,6 +5,8 @@ let altura = 5;
 let longitud = 10;
 let suma = altura + longitud;
 
+console.log({ miSuperheroeFavorito, numeroFavorito, altura, longitud, suma }); // Imprimo por consola
+
 document.getElementById("resultado").innerHTML = // Muestro la información en pantalla 
  `<ul class="lista-estilizada">
     <li>Mi superhéroe favorito es: ${miSuperheroeFavorito}</li>
@@ -13,52 +15,32 @@ document.getElementById("resultado").innerHTML = // Muestro la información en p
     <li>Mi longitud es: ${longitud}</li>
     <li>La suma de altura y longitud es: ${suma}</li>
  </ul>`;
-console.log({ miSuperheroeFavorito, numeroFavorito, altura, longitud, suma }); // Imprimo por consola
 
 
 
 console.log("%c===== Ejercicio 2 =====", "color: white; background-color: #085f0c; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const ejercicio2 = {
-  jedi: {
-    nombre: "Luke Skywalker",
-    edadActual: 25,
-    frase() {
-      return `${this.nombre} tiene actualmente ${this.edadActual} años.`;
+const ejercicio2 = { // Establezco el array con la informacion
+    jedi: { nombre: "Luke Skywalker", edadActual: 25, frase() {return `${this.nombre} tiene actualmente ${this.edadActual} años.`;}},
+    personaje: { nombre: "Leia", apellido: "Organa", edad: 20, descripcion() {return `Soy ${this.nombre} ${this.apellido}, tengo ${this.edad} años y soy una princesa de Alderaan.`;}},
+    sables: (() => {const lista = [{ nombre: "Shoto de Yoda", precio: 1500 }, { nombre: "Sable de Darth Vader", precio: 2000 }];
+        const total = lista.reduce((acc, s) => acc + s.precio, 0);
+        return { lista, total };
+    })(),
+    naves: { 
+        precioBaseGlobal: 25000, nave1: { nombre: "Ala-X", precioBase: 50000 }, nave2: { nombre: "Halcón Milenario", precioBase: 70000 },
+        calcularPreciosFinales() { this.nave1.precioFinal = this.nave1.precioBase + this.precioBaseGlobal; this.nave2.precioFinal = this.nave2.precioBase + this.precioBaseGlobal;}
     }
-  },
-  personaje: {
-    nombre: "Leia",
-    apellido: "Organa",
-    edad: 20,
-    descripcion() {
-      return `Soy ${this.nombre} ${this.apellido}, tengo ${this.edad} años y soy una princesa de Alderaan.`;
-    }
-  },
-  sables: (() => {
-    const lista = [
-      { nombre: "Shoto de Yoda", precio: 1500 },
-      { nombre: "Sable de Darth Vader", precio: 2000 }
-    ];
-    const total = lista.reduce((acc, s) => acc + s.precio, 0);
-    return { lista, total }; // total **dentro** del objeto
-  })(),
-  naves: {
-    precioBaseGlobal: 25000,
-    nave1: { nombre: "Ala-X", precioBase: 50000 },
-    nave2: { nombre: "Halcón Milenario", precioBase: 70000 },
-    calcularPreciosFinales() {
-      this.nave1.precioFinal = this.nave1.precioBase + this.precioBaseGlobal;
-      this.nave2.precioFinal = this.nave2.precioBase + this.precioBaseGlobal;
-    }
-  }
 };
+ejercicio2.naves.calcularPreciosFinales(); //Calcular los precios con los datos del array
 
-// Calcular precios finales de las naves
-ejercicio2.naves.calcularPreciosFinales();
+console.log("Frase del Jedi:", ejercicio2.jedi.frase());                       // Imprimir por consola
+console.log("Frase de Leia:", ejercicio2.personaje.descripcion());
+console.log("Sables:", ejercicio2.sables.lista);
+console.log("Total sables:", ejercicio2.sables.total);
+console.log("Naves:", ejercicio2.naves);
 
-// Actualizar HTML
-document.getElementById("jedi").innerText = ejercicio2.jedi.frase();
+document.getElementById("jedi").innerText = ejercicio2.jedi.frase();                         // Mostrar en pantalla
 document.getElementById("personaje").innerText = ejercicio2.personaje.descripcion();
 document.getElementById("precio").innerText = `El precio total de ambos sables es ${ejercicio2.sables.total}`;
 document.getElementById("naves1").innerText =
@@ -66,73 +48,54 @@ document.getElementById("naves1").innerText =
   `el precio final del ${ejercicio2.naves.nave1.nombre} se quedaría en ${ejercicio2.naves.nave1.precioFinal} créditos ` +
   `y el del ${ejercicio2.naves.nave2.nombre} en ${ejercicio2.naves.nave2.precioFinal} créditos.`;
 
-// Consola
-console.log("Frase del Jedi:", ejercicio2.jedi.frase());
-console.log("Frase de Leia:", ejercicio2.personaje.descripcion());
-console.log("Sables:", ejercicio2.sables.lista);
-console.log("Total sables:", ejercicio2.sables.total); // total dentro del objeto
-console.log("Naves:", ejercicio2.naves);
-
 
 
 console.log("%c===== Ejercicio 3 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
-// 3.1 Multiplica 10 por 5
-console.log("10 x 5 = " + 10 * 5);
-document.getElementById("multi1").innerText = "10 x 5 = " + 10 * 5;
 
-// 3.2 Divide 10 por 2
-console.log("10 / 2 = " + 10 / 2);
-document.getElementById("div1").innerText = "10 / 2 = " + 10 / 2;
-
-// 3.3 Divide 15 por 9 y muestra el resto
-console.log("El resto de 15 / 9 es = " + 15 % 9);
-document.getElementById("res1").innerText = "El resto de 15 / 9 es = " + 15 % 9;
-
-// 3.4 Usa el operador de asignación que dé o = 15
-let p = 10;
+let p = 10;            // Defino variables para operar
 let j = 5;
 let suma1 = p + j;
-console.log("p + j = " + suma1);
-document.getElementById("suma1").innerText = "p + j = " + suma1;
-
-// 3.5 Usa el operador de asignación que dé i = 50
 let c = 10;
 let m = 5;
 let multi2 = c * m;
+
+console.log("10 x 5 = " + 10 * 5);             // Imprimo por consola
+console.log("10 / 2 = " + 10 / 2);
+console.log("El resto de 15 / 9 es = " + 15 % 9);
+console.log("p + j = " + suma1);
 console.log("c x m = " + multi2);
+
+document.getElementById("multi1").innerText = "10 x 5 = " + 10 * 5;         // Muestro en pantalla
+document.getElementById("div1").innerText = "10 / 2 = " + 10 / 2;
+document.getElementById("res1").innerText = "El resto de 15 / 9 es = " + 15 % 9;
+document.getElementById("suma1").innerText = "p + j = " + suma1;
 document.getElementById("multi2").innerText = "c x m = " + multi2;
 
 
 
 console.log("%c===== Ejercicio 4 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
-// Array inicial
+
 const aldeanos = ["Fibrilio", "Narciso", "Vacarena", "Tendo", "Nendo"];
 
-// 4.1 Saca a "Tendo" por consola
 console.log(aldeanos[3]);
 document.getElementById("ald1").innerText = aldeanos[3];
 
-// 4.2 Coloca en el último lugar "Cervasio"
 aldeanos.push("Cervasio");
 console.log(aldeanos);
 document.getElementById("ald2").innerText = aldeanos.join(", ");
 
-// 4.3 Cambia el primer elemento por "Bambina"
 aldeanos[0] = "Bambina";
 console.log(aldeanos);
 document.getElementById("ald3").innerText = aldeanos.join(", ");
 
-// 4.4 Dale la vuelta al array
 aldeanos.reverse();
 console.log(aldeanos);
 document.getElementById("ald4").innerText = aldeanos.join(", ");
 
-// 4.5 Cambia "Narciso" por "Canela" con splice
 aldeanos.splice(4, 1, "Canela");
 console.log(aldeanos);
 document.getElementById("ald5").innerText = aldeanos.join(", ");
 
-// 4.6 Imprime el último elemento sin atacar la posición
 console.log(aldeanos[aldeanos.length - 1]);
 const last = aldeanos[aldeanos.length - 1];
 document.getElementById("ald6").innerText = last;
@@ -140,6 +103,7 @@ document.getElementById("ald6").innerText = last;
 
 
 console.log("%c===== Ejercicio 5 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+
 const number1 = 10;
 const number2 = 20;
 const number3 = 2;
