@@ -1,4 +1,4 @@
-console.log("%c===== Ejercicio 1 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 1: Definición y operación de variables =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 let miSuperheroeFavorito = "Hulk";  //Declaro variables
 let numeroFavorito = 50;
 let altura = 5;
@@ -20,7 +20,7 @@ document.getElementById("resultado").innerHTML = // Muestro la información en p
 
 
 
-console.log("%c===== Ejercicio 2 =====", "color: white; background-color: #085f0c; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 2: Uso y operación de variables =====", "color: white; background-color: #085f0c; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const ejercicio2 = { // Establezco el array con la informacion
     jedi: { nombre: "Luke Skywalker", edadActual: 25, frase() {return `${this.nombre} tiene actualmente ${this.edadActual} años.`;}},
@@ -54,7 +54,7 @@ document.getElementById("naves1").innerText =
 
 
 
-console.log("%c===== Ejercicio 3 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 3: Operaciones aritméticas =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 let p = 10;            // Defino variables para operar
 let j = 5;
@@ -79,7 +79,7 @@ document.getElementById("multi2").innerText = "c x m = " + multi2;
 
 
 
-console.log("%c===== Ejercicio 4 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 4: Funciones sobre el array =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const aldeanos = ["Fibrilio", "Narciso", "Vacarena", "Tendo", "Nendo"]; // Defino array
 
@@ -117,7 +117,7 @@ document.getElementById("ald6").innerText = ultimo;
 
 
 
-console.log("%c===== Ejercicio 5 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 5: Comparación de variables =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const number1 = 10;   // Defino constantes
 const number2 = 20;
@@ -182,17 +182,15 @@ operatDiv.appendChild(lista);  // Muestro la lista en pantalla
 
 
 
-console.log("%c===== Ejercicio 6 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 6: Bucle For =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-console.log("EJERCICIO 6.1");
+console.log("EJERCICIO 6.1: Bucle for de 0 a 9");
 const ej1 = document.getElementById("ej1");   // Bucle for de 0 a 9
 for (let i = 0; i < 10; i++) {
     console.log(i);
     ej1.innerHTML += i + "<br>";
 }
-console.log("")
-
-console.log("EJERCICIO 6.2");
+console.log("EJERCICIO 6.2: Bucle for de 0 a 9, solo números pares");
 const ej2 = document.getElementById("ej2");   // Bucle for de 0 a 9, solo números pares
 for (let i = 0; i < 10; i++) {
     if (i % 2 === 0) {
@@ -200,9 +198,7 @@ for (let i = 0; i < 10; i++) {
         ej2.innerHTML += i + "<br>";
     }
 }
-console.log("")
-
-console.log("EJERCICIO 6.3");
+console.log("EJERCICIO 6.3: Bucle for de 0 a 10 para dormir");
 const ej3 = document.getElementById("ej3");   // Bucle para contar ovejas hasta 10
 for (let i = 1; i <= 10; i++) {
     if (i < 10) {
@@ -218,7 +214,7 @@ for (let i = 1; i <= 10; i++) {
 
 
 
-console.log("%c===== Ejercicio 7 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 7: Comparación mediante función con argumento =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const numberDiv = document.getElementById("number");  // El div para pantalla
 
@@ -227,8 +223,8 @@ if (numberDiv) {     // Creo la condicion para que determine cual es el mayor
     const numberTwo = 17;
 
     const mensaje = numberOne > numberTwo
-        ? "numberOne es mayor que numberTwo"
-        : "numberTwo es mayor que numberOne";
+        ? `numberOne(${numberOne}) es mayor que numberTwo(${numberTwo})`
+        : `numberTwo(${numberTwo}) es mayor que numberOne(${numberOne})`;
 
     console.log(mensaje);
     numberDiv.innerText = mensaje;
@@ -238,7 +234,7 @@ if (numberDiv) {     // Creo la condicion para que determine cual es el mayor
 
 
 
-console.log("%c===== Ejercicio 8 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 8: Buscar el Superhéroe con el nombre más largo =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const avengers = [  // Defino array
     "Hulk",
@@ -260,14 +256,14 @@ function findLongestWord(stringList) {    //Bucle que busca el elemento mas larg
 }
 
 const longestWord = findLongestWord(avengers);   // Creo la constante que muestra el resultado
-console.log(findLongestWord(avengers));   //Imprimo consola
+console.log(longestWord);  //Imprimo consola
 document.getElementById("word").textContent = longestWord;   // Muestro pantalla
 
 
 
 
 
-console.log("%c===== Ejercicio 9 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 9: Sumar elementos de un array =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const numberList = [1, 2, 3, 5, 45, 37, 58];       // Defino array  
 
@@ -298,7 +294,7 @@ sumDiv.innerHTML = `
 
 
 
-console.log("%c===== Ejercicio 10 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 10: Calcular promedio de elemnentos de un array =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const numbers = [12, 21, 38, 5, 45, 37, 6];    // Defino array
 
@@ -317,7 +313,7 @@ promedioDiv.textContent = `El promedio de la lista es ${promedio}`;  // Muestra 
 
 
 
-console.log("%c===== Ejercicio 11 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 11: Calcular promedio sumando numbers y longitudes de string =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const mixedElements = [   // Defino array
     6,
@@ -354,7 +350,7 @@ document.getElementById("mixed").textContent = "El promedio mezclado de la lista
 
 
 
-console.log("%c===== Ejercicio 12 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 12: Clasificación de valores únicos y repetidos =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const duplicates = [  // Defino el array
     'sushi',
@@ -401,7 +397,7 @@ removeDuplicates(duplicates);   // Ejecuto funcion
 
 
 console.log(
-  "%c===== Ejercicio 13 =====",
+  "%c===== Ejercicio 13: Buscador de nombres =====",
   "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
 );
 
@@ -440,7 +436,7 @@ nameFinder(names, 'Scott');
 
 
 console.log(
-  "%c===== Ejercicio 14 =====",
+  "%c===== Ejercicio 14: Contador de repeticiones =====",
   "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
 );
 
@@ -472,7 +468,6 @@ function repeatCounter(list) {    // Funcion de conteo sobre un parametro tempor
     return counter;               // Devuelve el objeto con los conteos
 }
 const countWords = repeatCounter(words);  // LLama a la funcion y guarda el resultado
-console.log("Conteo de palabras");    
 console.log(countWords);                  // Imprime lo que guardo
 
 const outputDiv = document.getElementById("counter");   // Crea el div para pantalla
@@ -490,7 +485,7 @@ outputDiv.innerHTML = `
 
 
 console.log(
-  "%c===== Ejercicio 15 =====",
+  "%c===== Ejercicio 15: Elementos que incluyen la palabra 'camiseta' =====",
   "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
 );
 
@@ -503,31 +498,36 @@ const products = [          // Defino array
   "AC/DC Camiseta",
 ];
 
-function showCamisetas(list) {
-  const camisetas = [];
-
-  for (let product of list) {
-    if (product.includes("Camiseta")) {
-      console.log(product); // 🔹 Muestra por consola
-      camisetas.push(product);
+function showCamisetas(list) {              // Le paso el parametro temporal a la funcion
+  const camisetas = [];                     // Inicializo el array para clasificar
+  
+  for (let product of list) {               // Recorro el original
+    if (product.includes("Camiseta")) {     // Compruebo si incluye la palabra
+      console.log(`• ${product}`);
+      camisetas.push(product);              // Se añade al array inicializado previamente
     }
   }
 
-  // 🔹 Muestra en el div con id="camis"
-  const camisDiv = document.getElementById("camis");
-  camisDiv.innerHTML = camisetas.join("<br>");
+  const camisDiv = document.getElementById("camis");  // Crea el div para pantalla
+  camisDiv.innerHTML = `
+    <ul class="lista-estilizada">
+      ${camisetas.map(camiseta => `<li>${camiseta}</li>`).join("")}
+    </ul>
+  `;
 }
 
-showCamisetas(products);
+showCamisetas(products);    // Ejecuta la funcion sobre el array
+
+
 
 
 
 console.log(
-  "%c===== Ejercicio 16 =====",
+  "%c===== Ejercicio 16: Destinos a los que viajar =====",
   "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
 );
 
-const placeToTravel = [
+const placeToTravel = [  // Defino array
   "Japon",
   "Venecia",
   "Murcia",
@@ -536,52 +536,56 @@ const placeToTravel = [
   "Madagascar",
 ];
 
-function showPlaces(list) {
-  const placeDiv = document.getElementById("place");
-  const ul = document.createElement("ul");
-  ul.className = "lista-estilizada";
+function showPlaces(list) {                           // Parametro temporal a la funcion
+  const placeDiv = document.getElementById("place");  // Creo el div de pantalla
+  const ul = document.createElement("ul");            // Creo lista
+  ul.className = "lista-estilizada";                  // Doy clase
 
-  for (let place of list) {
-    console.log(place); // 🔹 Muestra por consola
-    const li = document.createElement("li");
-    li.textContent = place;
-    ul.appendChild(li);
+  for (let place of list) {                           // Recorro el array let itemTemporal of Arraytemporal
+    console.log(`• ${place}`);                        // Imprimo los elementos
+    const li = document.createElement("li");          // Creo el li
+    li.textContent = place;                           // Coloco cada elemento en cada li
+    ul.appendChild(li);                               // Meto los li en la ul
   }
 
-  placeDiv.appendChild(ul); // 🔹 Inserta la lista en el div
+  placeDiv.appendChild(ul);                           // Inserto la ul en el div
 }
 
-showPlaces(placeToTravel);
+showPlaces(placeToTravel);                            // Ejecuto la funcion
+
+
 
 
 
 console.log(
-  "%c===== Ejercicio 17 =====",
+  "%c===== Ejercicio 17: Datos del alienígena =====",
   "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
 );
 
-const alien = {
+const alien = {                   // Defino objeto
     name: 'Xenomorph',
     species: 'Xenomorph XX121',
     origin: 'Unknown',
     weight: 180
 };
 
-let output = '<ul class="lista-estilizada">';
+let output = '<ul class="lista-estilizada">';  // Defino el elemento que albergara la lista
 
-for (let propiedad in alien) {
-    console.log(`La propiedad ${propiedad} tiene como valor: ${alien[propiedad]}`);
-    output += `<li>La propiedad ${propiedad} tiene como valor: ${alien[propiedad]}</li>`;
+for (let propiedad in alien) {   // Recorro con temporal en array
+    console.log(`• La propiedad ${propiedad} tiene como valor: ${alien[propiedad]}`);       // Imprimo consola cada li
+    output += `<li>La propiedad ${propiedad} tiene como valor: ${alien[propiedad]}</li>`;   // Añado en output cada li
 }
 
-output += '</ul>';
-document.getElementById("alienInfo").innerHTML = output;
+output += '</ul>';   // Cierras lista
+document.getElementById("alienInfo").innerHTML = output;  // Introduzco tu elemento en el div de pantalla
 
 
 
-console.log("%c===== Ejercicio 18 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const placesToTravel = [
+
+console.log("%c===== Ejercicio 18: Destinos por posición  =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+
+const placesToTravel = [               // Defino array
     { id: 5, name: "Japan" },
     { id: 11, name: "Venecia" },
     { id: 23, name: "Murcia" },
@@ -590,25 +594,27 @@ const placesToTravel = [
     { id: 59, name: "Madagascar" },
 ];
 
-for (let i = 0; i < placesToTravel.length; i++) {
-    if (placesToTravel[i].id === 11 || placesToTravel[i].id === 40) {
-        placesToTravel.splice(i, 1);
-        i--;
+for (let i = 0; i < placesToTravel.length; i++) {                      // Recorro el array
+    if (placesToTravel[i].id === 11 || placesToTravel[i].id === 40) {  // Comprueba si existen
+        placesToTravel.splice(i, 1);                                   // Elimina
+        i--;                                                           // Reduce la posicion de índice
     }
 }
-console.log(placesToTravel);
+console.log(placesToTravel);                                           // Imprime el array tratado
 
-let output2 = "";
-for (let i = 0; i < placesToTravel.length; i++) {
-    output2 += `ID: ${placesToTravel[i].id} - Nombre: ${placesToTravel[i].name}<br>`;
+let output2 = "";                                                      // Creo el elemento q albergara los elementos
+for (let i = 0; i < placesToTravel.length; i++) {                      // Recorro el array
+    output2 += `ID: ${placesToTravel[i].id} - Nombre: ${placesToTravel[i].name}<br>`; // Renderizo en el elemento
 }
-document.getElementById("places").innerHTML = output2;
+document.getElementById("places").innerHTML = output2;                 // Coloco el elemento en el div de pantalla
 
 
 
-console.log("%c===== Ejercicio 19 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const toys = [
+
+console.log("%c===== Ejercicio 19: Eliminar los juguetes que incluyan la palabra 'gato' =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+
+const toys = [        // Defino array
     {id: 5, name: 'Transformers'},
     {id: 11, name: 'LEGO'},
     {id: 23, name: 'Hot Wheels'},
@@ -618,26 +624,27 @@ const toys = [
     {id: 71, name: 'Sylvanian Families - Familia gato'}
 ];
 
-const filteredToys = toys.filter(toy => !toy.name.toLowerCase().includes("gato"));
-console.log(filteredToys);
+const filteredToys = toys.filter(toy => !toy.name.toLowerCase().includes("gato"));  // Creo un nuevo array con los que no lleven la palabra gato
+console.log(filteredToys);  // Imprime consola
 
-const ul = document.createElement("ul");
-ul.classList.add("lista-estilizada");
-for (const toy of filteredToys) {
-    const li = document.createElement("li");
-    li.textContent = toy.name;
-    ul.appendChild(li);
+const ul = document.createElement("ul");            // Creo lista
+ul.classList.add("lista-estilizada");               // Doy clase
+for (const toy of filteredToys) {                   // Recorro el array
+    const li = document.createElement("li");        // Creo li
+    li.textContent = toy.name;                      // Meto el nombre en el li
+    ul.appendChild(li);                             // Meto los li en la ul
 }
 
-const lista19 = document.getElementById("toys");
-lista19.appendChild(ul);
+const listaToys = document.getElementById("toys");  // Rescato el html
+listaToys.appendChild(ul);                          // Meto la lista
 
 
 
-console.log("%c===== Ejercicio 20 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const popularToys = [];
-const toyscount = [
+
+console.log("%c===== Ejercicio 20: Juguetes populares con más de 15 ventas =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+
+const toyscount = [         // Defino array
     {id: 101, name: 'Super Soaker', sellCount: 15},
     {id: 102, name: 'Tamagotchi', sellCount: 22},
     {id: 103, name: 'Polly Pocket', sellCount: 8},
@@ -649,30 +656,33 @@ const toyscount = [
     {id: 109, name: 'Magic 8-Ball', sellCount: 38},
     {id: 110, name: 'Troll Doll', sellCount: 20}
 ];
+const popularToys = [];   // Defino array vacio para los populares
 
-for (const toy of toyscount) {
-    if (toy.sellCount > 15) {
-        popularToys.push(toy);
+for (const toy of toyscount) {   // Recorro array
+    if (toy.sellCount > 15) {    // Compruebo los que tengan más de 15 ventas
+        popularToys.push(toy);   // Los meto en el array inicializado
     }
 }
-console.log(popularToys);
+console.log(popularToys);        // Imprimo consola
 
-const ul2 = document.createElement("ul");
-ul2.classList.add("lista-estilizada");
-for (const toy of popularToys) {
-    const li = document.createElement("li");
-    li.textContent = `${toy.name} - Ventas: ${toy.sellCount}`;
-    ul2.appendChild(li);
+const ultoys = document.createElement("ul");                     // Creo ul
+ultoys.classList.add("lista-estilizada");                        // Doy clase
+for (const toy of popularToys) {                                 // Recorro array
+    const li = document.createElement("li");                     // Creo li
+    li.textContent = `${toy.name} - Ventas: ${toy.sellCount}`;   // Renderizo la info en el li
+    ultoys.appendChild(li);                                      // Meto el li en la lista
 }
 
-const contenedor = document.getElementById("toyscount");
-contenedor.appendChild(ul2);
+const contenedor = document.getElementById("toyscount");         // Rescato el html
+contenedor.appendChild(ultoys);                                  // Meto la lista
 
 
 
-console.log("%c===== Ejercicio 21 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const users = [
+
+console.log("%c===== Ejercicio 21: Clasificación por edad =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+
+const users = [                               // Defino array
     { name: "Tony", years: 43 },
     { name: "Peter", years: 18 },
     { name: "Natasha", years: 14 },
@@ -680,22 +690,22 @@ const users = [
     { name: "Khamala", years: 16 },
 ];
 
-console.log("Usuarios menores de edad:");
+console.log("Usuarios menores de edad:");     // Recorro e imprimo segun condicion
 for (const user of users) {
     if (user.years < 18) {
-        console.log(user.name);
+        console.log(`• ${user.name}`);
     }
 }
 
-console.log("Usuarios mayores de edad:");
+console.log("Usuarios mayores de edad:");     // Recorro e imprimo segun condicion
 for (const user of users) {
     if (user.years >= 18) {
-        console.log(user.name);
+        console.log(`• ${user.name}`);
     }
 }
 
 let menores = "<p>Usuarios menores de edad:</p><ul class='lista-estilizada'>";
-for (const user of users) {
+for (const user of users) {                    // Recorro e muestro segun condicion
     if (user.years < 18) {
         menores += `<li>${user.name}</li>`;
     }
@@ -703,21 +713,23 @@ for (const user of users) {
 menores += "</ul>";
 
 let mayores = "<p>Usuarios mayores de edad:</p><ul class='lista-estilizada'>";
-for (const user of users) {
+for (const user of users) {                    // Recorro e imprimo segun condicion
     if (user.years >= 18) {
         mayores += `<li>${user.name}</li>`;
     }
 }
 mayores += "</ul>";
 
-document.getElementById("edades").innerHTML = mayores + "<br>" + menores;
+document.getElementById("edades").innerHTML = mayores + "<br>" + menores;  // Rescato el html
 
 
 
-console.log("%c===== Ejercicio 22 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const fruits = ["Strawberry", "Banana", "Orange", "Apple"];
-const foodSchedule = [
+
+console.log("%c===== Ejercicio 22: Alimentos veganos =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+
+const fruits = ["Strawberry", "Banana", "Orange", "Apple"];  // Array de sustitutos
+const foodSchedule = [                     // Defino array
     { name: "Heura", isVegan: true },
     { name: "Salmon", isVegan: false },
     { name: "Tofu", isVegan: true },
@@ -726,31 +738,31 @@ const foodSchedule = [
     { name: "Pasta", isVegan: true },
 ];
 
-let fruitIndex = 0;
-for (let i = 0; i < foodSchedule.length; i++) {
-    if (!foodSchedule[i].isVegan) {
-        foodSchedule[i].name = fruits[fruitIndex];
-        foodSchedule[i].isVegan = true;
-        fruitIndex++;
+let fruitIndex = 0;                                  // Inicializa array
+for (let i = 0; i < foodSchedule.length; i++) {      // Recorro array
+    if (!foodSchedule[i].isVegan) {                  // Comprueba q no sea vegan
+        foodSchedule[i].name = fruits[fruitIndex];   // Lo sistuyo por el primer elemento de fruits
+        foodSchedule[i].isVegan = true;              // Se confirma que ahora es vegan
+        fruitIndex++;                                // Paso al siguiente sustituto
     }
 }
-console.log(foodSchedule);
+console.log(foodSchedule);                           // Imprimo array tratado
 
-const container = document.getElementById("fruit");
-const ul3 = document.createElement("ul");
-ul3.classList.add("lista-estilizada");
-container.appendChild(ul3);
-for (let i = 0; i < foodSchedule.length; i++) {
-    const item = document.createElement("li");
-    item.textContent = foodSchedule[i].name;
-    ul3.appendChild(item);
+const container = document.getElementById("fruit");  // Rescato html
+const ulfruit = document.createElement("ul");        // Creo lista
+ulfruit.classList.add("lista-estilizada");           // Doy clase
+container.appendChild(ulfruit);                      // Meto la lista en el html
+for (let i = 0; i < foodSchedule.length; i++) {      // Recorro array
+    const item = document.createElement("li");       // Creo li
+    item.textContent = foodSchedule[i].name;         // Meto item
+    ulfruit.appendChild(item);                       // Relleno la ul con li
 }
 
 
 
-console.log("%c===== Ejercicio 23 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 23: Películas categorizadas por duración =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const movies = [
+const movies = [   // Defino array
     { name: "Titan A.E.", durationInMinutes: 130 },
     { name: "Nightmare before Christmas", durationInMinutes: 225 },
     { name: "Inception", durationInMinutes: 165 },
@@ -763,11 +775,11 @@ const movies = [
     { name: "Eternal Sunshine of the Spotless Mind", durationInMinutes: 108 },
 ];
 
-const smallMovies = [];
+const smallMovies = [];   // Inicializo los arrays de categoria
 const mediumMovies = [];
 const largeMovies = [];
-for (let movie of movies) {
-    if (movie.durationInMinutes < 100) {
+for (let movie of movies) {                         // Recorro array
+    if (movie.durationInMinutes < 100) {            // Clasifico por duracion
         smallMovies.push(movie);
     } else if (movie.durationInMinutes <= 200) {
         mediumMovies.push(movie);
@@ -776,36 +788,38 @@ for (let movie of movies) {
     }
 }
 
-const categories = [
+const categories = [   // Creo un array de las categorias
     { title: "Películas pequeñas", list: smallMovies },
     { title: "Películas medianas", list: mediumMovies },
     { title: "Películas grandes", list: largeMovies },
 ];
 
-const container2 = document.getElementById("container2");
-categories.forEach(category => {
-    const h4 = document.createElement("h4");
-    h4.textContent = category.title;
-    container2.appendChild(h4);
+console.log({ categories });
 
-    const ul = document.createElement("ul");
-    ul.classList.add("lista-estilizada");
-    container2.appendChild(ul);
+const pelis = document.getElementById("pelis");    // Rescato html
+categories.forEach(category => {                   // Para cada categoria creo
+    const h4 = document.createElement("h4");        // H4
+    h4.textContent = category.title;                // Inserto el titulo
+    pelis.appendChild(h4);                          // Meto h4 en div
 
-    category.list.forEach(movie => {
-        const li = document.createElement("li");
-        li.textContent = movie.name;
-        ul.appendChild(li);
+    const ul = document.createElement("ul");        // Creo ul
+    ul.classList.add("lista-estilizada");           // Doy clase
+    pelis.appendChild(ul);                          // Meto ul en div
+
+    category.list.forEach(movie => {                // Para cada elemento de la categoria
+        const li = document.createElement("li");     // Creo li
+        li.textContent = movie.name;                 // Meto el nombre
+        ul.appendChild(li);                          // Meto el li en la ul
     });
-
-    container2.appendChild;
 });
 
 
 
-console.log("%c===== Ejercicio 24 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const characters = [
+
+console.log("%c===== Ejercicio 24: Personajes humanos de Star Wars =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+
+const characters = [     // Defino array
     { name: 'Luke Skywalker', species: 'Human' },
     { name: 'Darth Vader', species: 'Human' },
     { name: 'Chewbacca', species: 'Wookiee' },
@@ -817,26 +831,28 @@ const characters = [
     { name: 'Han Solo', species: 'Human' }
 ];
 
-const humanCharacters = characters.filter(c => c.species === "Human");
-console.log("Personajes humanos:");
-console.log(humanCharacters);
+const humanCharacters = characters.filter(c => c.species === "Human"); // Filtro por especie
+console.log(humanCharacters);                                          // Imprimo consola
 
-const container3 = document.getElementById("pj-container");
-container3.appendChild(ul4);
+const humans = document.getElementById("humansPJ");                    // Rescato html
 
-const ul4 = document.createElement("ul");
-ul4.classList.add("lista-estilizada");
-humanCharacters.forEach(character => {
-    const li = document.createElement("li");
-    li.textContent = character.name;
-    ul4.appendChild(li);
+const ulhuman = document.createElement("ul");                          // Creo ul
+ulhuman.classList.add("lista-estilizada");                             // Doy clase
+humanCharacters.forEach(character => {                                 // Para cada elemento del filtrado
+    const li = document.createElement("li");                            // Creo li
+    li.textContent = character.name;                                    // Meto el nombre
+    ulhuman.appendChild(li);                                            // Meto el li en la ul
 });
 
+humans.appendChild(ulhuman);                                           // Meto la ul en el html
 
 
-console.log("%c===== Ejercicio 25 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const movies2 = [
+
+
+console.log("%c===== Ejercicio 25:  =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+
+const moviesZ = [
     { title: 'The Matrix', releaseYear: 1999 },
     { title: 'Star Wars: Episode IV - A New Hope', releaseYear: 1977 },
     { title: 'Inception', releaseYear: 2010 },
@@ -848,9 +864,9 @@ const movies2 = [
     { title: 'Fight Club', releaseYear: 1999 },
     { title: 'Forrest Gump', releaseYear: 1994 }
 ];
-const categories2 = [
-    { title: 'Películas antes de los 2000', items: movies2.filter(m => m.releaseYear < 2000) },
-    { title: 'Películas después de los 2000', items: movies2.filter(m => m.releaseYear >= 2000) }
+const categoriesZ = [
+    { title: 'Películas antes de los 2000', items: moviesZ.filter(m => m.releaseYear < 2000) },
+    { title: 'Películas después de los 2000', items: moviesZ.filter(m => m.releaseYear >= 2000) }
 ];
 
 const container4 = document.getElementById('movies-container2');
