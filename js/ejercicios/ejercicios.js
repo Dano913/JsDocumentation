@@ -356,7 +356,7 @@ document.getElementById("mixed").textContent = "El promedio mezclado de la lista
 
 console.log("%c===== Ejercicio 12 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const duplicates = [
+const duplicates = [  // Defino el array
     'sushi',
     'pizza',
     'burger',
@@ -371,7 +371,7 @@ const duplicates = [
 ];
 
 function removeDuplicates(list) {
-    const unique = [];                     // Defino los arrays
+    const unique = [];                     // Inicializo las 2 categorias
     const repeated = [];
 
     for (const item of list) {                   // Recorro el original
@@ -405,7 +405,7 @@ console.log(
   "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
 );
 
-const names = [
+const names = [  // Defino el array
     'Peter',
     'Steve',
     'Tony',
@@ -419,23 +419,23 @@ const names = [
     'Marc'
 ];
 
-function nameFinder(nameList, value) {
-const index = nameList.indexOf(value);
-const container = document.getElementById("name");
+function nameFinder(nameList, value) {                  // Paso 2 parámetros a la funcion, la lista de nombres y el nombre que queremos encontrar
+    const index = nameList.indexOf(value);              // Usa indexOf para obtener la posicion q corresponda con el nombre buscado
+    const container = document.getElementById("name");  // Crea el container para pantalla
 
-if (index !== -1) {
-        console.log(`Buscando: "${value}" → encontrado en la posición ${index}`);
-        container.innerHTML += `<p>Buscando: "${value}" → encontrado en la posición ${index}</p>`;
-        return { exists: true, position: index };
+    if (index !== -1) {  // Esto sifnica que lo encontró
+        console.log(`Buscando: "${value}" → encontrado en la posición ${index}`);                  // Imprime consola
+        container.innerHTML += `<p>Buscando: "${value}" → encontrado en la posición ${index}</p>`; // Muestra pantalla
     } else {
-        console.log(`Buscando: "${value}" → no se encontró en la lista`);
-        container.innerHTML += `<p>Buscando: "${value}" → no se encontró en la lista</p>`;
-        return { exists: false };
+        console.log(`Buscando: "${value}" → no se encontró en la lista`);                          // Imprime consola
+        container.innerHTML += `<p>Buscando: "${value}" → no se encontró en la lista</p>`;         // Muestra pantalla
     }
 }
 
-nameFinder(names, 'Tony');
+nameFinder(names, 'Tony'); // Ejecuto la funcion y le paso los valores Tony y Scott
 nameFinder(names, 'Scott');
+
+
 
 
 
@@ -444,7 +444,7 @@ console.log(
   "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
 );
 
-const words = [
+const words = [  // Defino array
     'code',
     'repeat',
     'eat',
@@ -458,34 +458,34 @@ const words = [
     'code'
 ];
 
-function repeatCounter(list) {
-const counter = {};
+function repeatCounter(list) {    // Funcion de conteo sobre un parametro temporal
+    const counter = {};           // Inicializa array de conteo
 
-for (let word of list) {
-    if (counter[word]) {
-        counter[word]++;
-    } else {
-        counter[word] = 1;
+    for (let word of list) {      // For que recorre el array
+        if (counter[word]) {      // Comprueba si la palabra ya existia en el array
+            counter[word]++;      // Le suma unidad al contador
+        } else {
+            counter[word] = 1;    // En caso contrario le pone un 1
+        }
     }
+
+    return counter;               // Devuelve el objeto con los conteos
 }
+const countWords = repeatCounter(words);  // LLama a la funcion y guarda el resultado
+console.log("Conteo de palabras");    
+console.log(countWords);                  // Imprime lo que guardo
 
-return counter;
-
-}
-
-console.log(repeatCounter(words));
-
-const repeatResult = repeatCounter(words);
-
-const outputDiv = document.getElementById("counter");
-
-outputDiv.innerHTML = `
+const outputDiv = document.getElementById("counter");   // Crea el div para pantalla
+                                                        // Renderiza el resultado en una lista dentro del div
+outputDiv.innerHTML = `                                 
 <ul class="lista-estilizada">
-    ${Object.entries(repeatResult)
-    .map(([word, count]) => `<li>${word}: ${count}</li>`)
-    .join("")}
+    ${Object.entries(countWords)                          // Convierte el objeto repeatResult en un array de pares [palabra, contador] con Object.entries
+    .map(([word, count]) => `<li>${word}: ${count}</li>`)   // Usa .map() para crear un <li> por cada palabra y su conteo.
+    .join("")}                                              
 </ul>
-`;
+`; // Une todos los <li> en una sola cadena con .join("") y lo inserta en innerHTML
+
+
 
 
 
@@ -494,7 +494,7 @@ console.log(
   "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
 );
 
-const products = [
+const products = [          // Defino array
   "Camiseta de Metallica",
   "Pantalón vaquero",
   "Gorra de beisbol",
