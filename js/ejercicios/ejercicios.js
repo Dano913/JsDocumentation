@@ -1003,9 +1003,9 @@ albumRock.innerHTML = `<p><strong>${totalDuration.toFixed(2)}</strong> minutos</
 
 
 
-console.log("%c===== Ejercicio 29 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 29: Películas clasificadas por décadas =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const starWarsMovies = [
+const starWarsMovies = [   // Defino array
     { title: 'A New Hope', releaseYear: 1977 },
     { title: 'The Empire Strikes Back', releaseYear: 1980 },
     { title: 'Return of the Jedi', releaseYear: 1983 },
