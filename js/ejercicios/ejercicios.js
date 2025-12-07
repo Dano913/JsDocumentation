@@ -899,7 +899,7 @@ categoriesZ.forEach(category => {                                   // Por cada 
 
 
 
-console.log("%c===== Ejercicio 26 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 26: Canciones de rock de 5 minutos =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const songs = [    // Defino array
     { title: 'Bohemian Rhapsody', genre: 'Rock', duration: 5.55 },
@@ -915,25 +915,35 @@ const songs = [    // Defino array
     { title: 'Crazy Love', genre: 'Pop', duration: 3.52 },
 ];
 
-const rockPlaylist = songs.filter(song => song.genre === "Rock" && song.duration > 5.00);  // Filtro por género y duracion
-console.log(rockPlaylist);
+const rockPlaylist = [];                                            // Inicializo array de filtrado
+
+for (let i = 0; i < songs.length; i++) {                            // Recorro array
+    const song = songs[i];                                          // Variable temporal
+ 
+    if (song.genre === "Rock" && song.duration > 5.00) {            // Comprueba la condicion
+        rockPlaylist.push(song);                                    // Mete la cancion que lo cumple
+    }
+}
+console.log(rockPlaylist);                                          // Imprimo consola
+
 const rockGen = document.getElementById("rock");                    // Rescato html
 const ulrock = document.createElement("ul");                        // Creo ul
 ulrock.classList.add("lista-estilizada");                           // Doy clase
-rockPlaylist.forEach(song => {                                      // Por cada cancion del filtrado
+for (let i = 0; i < rockPlaylist.length; i++) {                     // Recorro array
+    const song = rockPlaylist[i];                                   // Variable temporal
     const li = document.createElement("li");                          // Creo li
     li.textContent = `${song.title} - Duration: ${song.duration}`;    // Renderizo titulo y duracion
     ulrock.appendChild(li);                                           // Meto li en la ul
-});
+};
 rockGen.appendChild(ulrock);                                        // Meto la ul en el html
 
 
 
 
 
-console.log("%c===== Ejercicio 27 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 27: Dibujos animados antiguos =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const cartoons = [
+const cartoons = [   // Defino array
     { name: 'Bugs Bunny', debut: 1938 },
     { name: 'SpongeBob SquarePants', debut: 1999 },
     { name: 'Tom and Jerry', debut: 1940 },
@@ -946,22 +956,25 @@ const cartoons = [
     { name: "Dexter's Laboratory", debut: 1996 }
 ];
 
-let oldestCartoon = cartoons[0];
-for (const cartoon of cartoons) {
-    if (cartoon.debut < oldestCartoon.debut) {
-        oldestCartoon = cartoon;
+let oldestCartoon = cartoons[0];                 // Defino el primero como el más antiguo hasta nueva orden
+for (let i = 0; i < cartoons.length; i++) {      // Recorro array
+    const cartoon = cartoons[i];                 // Variable temporal
+    if (cartoon.debut < oldestCartoon.debut) {   // Comparo el debut de cada uno con el que yo considero más antiguo de momento
+        oldestCartoon = cartoon;                 // Si alguna se cumple actualizo
     }
 }
-console.log("La serie de dibujos animados más antigua es:", oldestCartoon.name);
+console.log("La serie de dibujos animados más antigua es:", oldestCartoon.name);  // Imprimo consola
+ 
+const contenedor3 = document.getElementById("cartoon");                           // Rescato html
+contenedor3.innerHTML = `<p>${oldestCartoon.name} (${oldestCartoon.debut})</p>`;  // Renderizo
 
-const contenedor3 = document.getElementById("cartoon");
-contenedor3.innerHTML = `<p>${oldestCartoon.name} (${oldestCartoon.debut})</p>`;
 
 
 
-console.log("%c===== Ejercicio 28 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const albums = [
+console.log("%c===== Ejercicio 28: Álbumes de rock =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+
+const albums = [   // Defino array
     { title: 'Led Zeppelin IV', genre: 'Rock', duration: 42.19 },
     { title: 'The Dark Side of the Moon', genre: 'Rock', duration: 42.49 },
     { title: 'Back in Black', genre: 'Rock', duration: 42.11 },
@@ -974,16 +987,19 @@ const albums = [
     { title: 'The Joshua Tree', genre: 'Rock', duration: 50.11 }
 ];
 
-let totalDuration = 0;
-for (let i = 0; i < albums.length; i++) {
-    if (albums[i].genre === 'Rock') {
-        totalDuration += albums[i].duration;
+let totalDuration = 0;                        // Inicializo la variable
+for (let i = 0; i < albums.length; i++) {     // Recorro array
+    const album = albums[i];                  // Variable temporal
+    if (album.genre === 'Rock') {             // Compruebo que el genero sea rock
+        totalDuration += album.duration;      // Sumo la duracion a la variable inicializada
     }
 }
-console.log("Duración total de álbumes de Rock:", totalDuration.toFixed(2), "minutos");
+console.log("Duración total de álbumes de Rock:", totalDuration.toFixed(2), "minutos"); // Imprimo consola
 
-const albumDiv = document.getElementById("album");
-albumDiv.innerHTML = `<p><strong>${totalDuration.toFixed(2)}</strong> minutos</p>`;
+const albumRock = document.getElementById("album");                                     // Rescato html
+albumRock.innerHTML = `<p><strong>${totalDuration.toFixed(2)}</strong> minutos</p>`;    // Renderizo
+
+
 
 
 
