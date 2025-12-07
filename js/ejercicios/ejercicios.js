@@ -852,7 +852,7 @@ humans.appendChild(ulhuman);                                           // Meto l
 
 console.log("%c===== Ejercicio 25:  =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const moviesZ = [
+const moviesZ = [  // Defino array
     { title: 'The Matrix', releaseYear: 1999 },
     { title: 'Star Wars: Episode IV - A New Hope', releaseYear: 1977 },
     { title: 'Inception', releaseYear: 2010 },
@@ -864,42 +864,44 @@ const moviesZ = [
     { title: 'Fight Club', releaseYear: 1999 },
     { title: 'Forrest Gump', releaseYear: 1994 }
 ];
-const categoriesZ = [
-    { title: 'Películas antes de los 2000', items: moviesZ.filter(m => m.releaseYear < 2000) },
+const categoriesZ = [   // Creo un objeto
+    { title: 'Películas antes de los 2000', items: moviesZ.filter(m => m.releaseYear < 2000) },   // Filtro por categorias 
     { title: 'Películas después de los 2000', items: moviesZ.filter(m => m.releaseYear >= 2000) }
 ];
 
-const container4 = document.getElementById('movies-container2');
-if (container4) {
-    categories2.forEach(category => {
-        const h4 = document.createElement('h4');
-        h4.textContent = category.title;
-        container4.appendChild(h4);
+const movies2000 = document.getElementById('movies2000');  // Rescato html
+if (movies2000) {                                          // Compruebo que existe
+    categoriesZ.forEach(category => {                      // Para cada categoria
+        const h4 = document.createElement('h4');             // Creo h4
+        h4.textContent = category.title;                     // Meto titulo
+        movies2000.appendChild(h4);                          // Meto el titulo en html
+                                         
+        const ul = document.createElement('ul');             // Creo ul
+        ul.classList.add('lista-estilizada');                // Doy clase
+        movies2000.appendChild(ul);                          // Meto la ul en el html
 
-        const ul = document.createElement('ul');
-        ul.classList.add('lista-estilizada');
-        container4.appendChild(ul);
-
-        category.items.forEach(movie => {
-            const li = document.createElement('li');
-            li.textContent = `${movie.title} (${movie.releaseYear})`;
-            ul.appendChild(li);
+        category.items.forEach(movie => {                               // En la categoria por cada pelicula
+            const li = document.createElement('li');                      // Creo li
+            li.textContent = `${movie.title} (${movie.releaseYear})`;     // Renderizo titulo con fecha
+            ul.appendChild(li);                                           // Meto el li en la ul
         });
     });
 }
 
-categories2.forEach(category => {
-    console.log(`\n📂 ${category.title}`);
-    category.items.forEach(movie => {
-        console.log(` - ${movie.title} (${movie.releaseYear})`);
+categoriesZ.forEach(category => {                                   // Por cada categoria
+    console.log(`\n📂 ${category.title}`);                           // Imprimo titulo categoria
+    category.items.forEach(movie => {                                // En la categoria por cada pelicula
+        console.log(` - ${movie.title} (${movie.releaseYear})`);       // Renderizo titulo y fecha
     });
 });
 
 
 
+
+
 console.log("%c===== Ejercicio 26 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const songs = [
+const songs = [    // Defino array
     { title: 'Bohemian Rhapsody', genre: 'Rock', duration: 5.55 },
     { title: 'Stairway to Heaven', genre: 'Rock', duration: 7.58 },
     { title: 'Billie Jean', genre: 'Pop', duration: 4.54 },
@@ -913,16 +915,19 @@ const songs = [
     { title: 'Crazy Love', genre: 'Pop', duration: 3.52 },
 ];
 
-const rockPlaylist = songs.filter(song => song.genre === "Rock" && song.duration > 5.00);
-const contenedor6 = document.getElementById("rock");
-const ul6 = document.createElement("ul");
-ul6.classList.add("lista-estilizada");
-rockPlaylist.forEach(song => {
-    const li = document.createElement("li");
-    li.textContent = `${song.title} - Duration: ${song.duration}`;
-    ul6.appendChild(li);
+const rockPlaylist = songs.filter(song => song.genre === "Rock" && song.duration > 5.00);  // Filtro por género y duracion
+console.log(rockPlaylist);
+const rockGen = document.getElementById("rock");                    // Rescato html
+const ulrock = document.createElement("ul");                        // Creo ul
+ulrock.classList.add("lista-estilizada");                           // Doy clase
+rockPlaylist.forEach(song => {                                      // Por cada cancion del filtrado
+    const li = document.createElement("li");                          // Creo li
+    li.textContent = `${song.title} - Duration: ${song.duration}`;    // Renderizo titulo y duracion
+    ulrock.appendChild(li);                                           // Meto li en la ul
 });
-contenedor6.appendChild(ul6);
+rockGen.appendChild(ulrock);                                        // Meto la ul en el html
+
+
 
 
 
