@@ -1003,7 +1003,7 @@ albumRock.innerHTML = `<p><strong>${totalDuration.toFixed(2)}</strong> minutos</
 
 
 
-console.log("%c===== Ejercicio 29: Películas clasificadas por décadas =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 29: Películas de Star Wars clasificadas por década =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const starWarsMovies = [   // Defino array
     { title: 'A New Hope', releaseYear: 1977 },
@@ -1019,43 +1019,44 @@ const starWarsMovies = [   // Defino array
     { title: 'Solo', releaseYear: 2018 }
 ];
 
-const moviesByDecade = {};
-for (let i = 0; i < starWarsMovies.length; i++) {
-    const movie = starWarsMovies[i];
-    const decade = Math.floor(movie.releaseYear / 10) * 10;
+const moviesByDecade = {};                                  // Inicializo
+for (let i = 0; i < starWarsMovies.length; i++) {           // Recorro
+    const movie = starWarsMovies[i];                        // Legibilidad
+    const decade = Math.floor(movie.releaseYear / 10) * 10; // Atribuir decada
 
-    if (!moviesByDecade[decade]) {
-        moviesByDecade[decade] = [];
+    if (!moviesByDecade[decade]) {                          // Si no hay nada
+        moviesByDecade[decade] = [];                        // Inicializo un array para esa decada
     }
 
-    moviesByDecade[decade].push(movie.title);
+    moviesByDecade[decade].push(movie.title);               // Meto el titulo de la pelicula
 }
-console.log(moviesByDecade);
+console.log(moviesByDecade);                                // Imprimo
 
-const starwarsDiv = document.getElementById('starwars');            
-for (const decade in moviesByDecade) {
-    const decadeTitle = document.createElement('h4');
-    decadeTitle.style.marginTop = "20px";
-    decadeTitle.textContent = `${decade}s`;
-    starwarsDiv.appendChild(decadeTitle);
+const starwars = document.getElementById('starwars');       // Rescato html
+for (const decade in moviesByDecade) {                      // Recorro array
+    const decadeTitle = document.createElement('h4');       // Creo h4
+    decadeTitle.style.marginTop = "20px";                   // Estilo
+    decadeTitle.textContent = `${decade}s`;                 // Renderizo
+    starwars.appendChild(decadeTitle);                      // Meto el h4 en el html
 
-    const movieList = document.createElement('ul');
-    movieList.className = 'lista-estilizada';
-    moviesByDecade[decade].forEach(title => {
-        const li = document.createElement('li');
-        li.textContent = title;
-        movieList.appendChild(li);
+    const movieList = document.createElement('ul');         // Creo lista
+    movieList.className = 'lista-estilizada';               // Doy clase
+    moviesByDecade[decade].forEach(title => {               // Para cada titulo de la decada
+        const li = document.createElement('li');              // Creo
+        li.textContent = title;                               // Meto el titulo
+        movieList.appendChild(li);                            // Meto el li en la ul
     });
 
-    starwarsDiv.appendChild(movieList);
+    starwars.appendChild(movieList);                        // Meto la ul en el html
 }
 
 
 
-console.log("%c===== Ejercicio 30 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const tracksDiv = document.getElementById('tracks');
-const tracks = [
+
+console.log("%c===== Ejercicio 30: Canciones clasificadas por género =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+
+const tracks = [   // Defino array
     { title: 'Enter Sandman', genre: 'Metal' },
     { title: 'Back in Black', genre: 'Rock' },
     { title: 'Bohemian Rhapsody', genre: 'Rock' },
@@ -1068,41 +1069,44 @@ const tracks = [
     { title: 'Stairway to Heaven', genre: 'Rock' }
 ];
 
-const tracksByGenre = {};
-for (let i = 0; i < tracks.length; i++) {
-    const track = tracks[i];
-    const genre = track.genre;
+const tracksByGenre = {};                      // Inicializo objeto de arrays
+for (let i = 0; i < tracks.length; i++) {      // Recorro array
+    const track = tracks[i];                   // Variable temporal
+    const genre = track.genre;                 // Variable temporal
 
-    if (!tracksByGenre[genre]) {
-        tracksByGenre[genre] = [];
-    }
+    if (!tracksByGenre[genre]) {               // Si no existe el genero
+        tracksByGenre[genre] = [];             // Lo inicializo
+    } 
 
-    tracksByGenre[genre].push(track.title);
+    tracksByGenre[genre].push(track.title);    // Meto el titulo en ese género
 }
-console.log(tracksByGenre);
+console.log(tracksByGenre);                    // Imprimo consola
 
-for (const genre in tracksByGenre) {
-    const genreTitle = document.createElement('h4');
-    genreTitle.style.marginTop = "20px";
-    genreTitle.textContent = genre;
-    tracksDiv.appendChild(genreTitle);
+const tracks90 = document.getElementById('tracks');   // Rescato el html
+for (const genre in tracksByGenre) {                  // Recorro array
+    const genreTitle = document.createElement('h4');  // Creo h4
+    genreTitle.style.marginTop = "20px";              // Estilo 
+    genreTitle.textContent = genre;                   // Meto el genero en el h4
+    tracks90.appendChild(genreTitle);                 // Meto el titulo en el html
 
-    const trackList = document.createElement('ul');
-    trackList.className = 'lista-estilizada';
-    tracksByGenre[genre].forEach(title => {
-        const li = document.createElement('li');
-        li.textContent = title;
-        trackList.appendChild(li);
+    const trackList = document.createElement('ul');   // Creo ul
+    trackList.className = 'lista-estilizada';         // Doy clase
+    tracksByGenre[genre].forEach(title => {           // Cada pelicula del genero
+        const li = document.createElement('li');        // Creo li
+        li.textContent = title;                         // Meto el titulo en el li
+        trackList.appendChild(li);                      // Meto el li en la ul
     });
 
-    tracksDiv.appendChild(trackList);
+    tracks90.appendChild(trackList);                  // Meto la lista en el html
 }
 
 
 
-console.log("%c===== Ejercicio 31 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const artists = [
+
+console.log("%c===== Ejercicio 31: Influencias de los artistas más famosos del siglo XX =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+
+const artists = [    // Defino array
     { name: 'Kurt Cobain', influences: ['The Beatles', 'Pixies', 'Lead Belly'] },
     { name: 'David Bowie', influences: ['Little Richard', 'Chuck Berry', 'The Velvet Underground'] },
     { name: 'Eddie Vedder', influences: ['The Who', 'Neil Young', 'Jim Morrison'] },
@@ -1110,30 +1114,32 @@ const artists = [
     { name: 'John Lennon', influences: ['Elvis Presley', 'Chuck Berry', 'Buddy Holly'] }
 ];
 
-const legends = document.getElementById('legends');
-for (const { name, influences } of artists) {
+const legends = document.getElementById('legends');  // Rescato html
+for (const { name, influences } of artists) {        // Recorro array
 
-  const artistTitle = document.createElement('h4');
-  artistTitle.textContent = name;
-  legends.appendChild(artistTitle);
+  const artistTitle = document.createElement('h4');    // Creo h4
+  artistTitle.textContent = name;                      // Meto nombre artista
+  legends.appendChild(artistTitle);                    // Meto h4 en el html
 
-  const ul = document.createElement('ul');
-  ul.className = 'lista-estilizada';
+  const ul = document.createElement('ul');             // Creo lista
+  ul.className = 'lista-estilizada';                   // Doy clase
 
-  for (const influence of influences) {
-    console.log(`${name} -> ${influence}`);
-    const li = document.createElement('li');
-    li.textContent = `${name} -> ${influence}`;
-    ul.appendChild(li);
+  console.log(`${name}`);                              // Imprimo el nombre del artista
+  for (const influence of influences) {                // Recorro su array de influencias y por cada una
+    console.log(` • ${influence}`);                      // Imprimo
+    
+    const li = document.createElement('li');             // Creo li
+    li.textContent = `${influence}`;                     // Meto la influencia en el li
+    ul.appendChild(li);                                  // Meto el li en la ul
   }
-  legends.appendChild(ul);
+  legends.appendChild(ul);                             // Meto la ul en el html
 }
 
 
 
-console.log("%c===== Ejercicio 32 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 32: Búsqueda del X-Men más antiguo =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const xMen = [
+const xMen = [    // Defino array
     { name: 'Wolverine', year: 1974 },
     { name: 'Cyclops', year: 1963 },
     { name: 'Storm', year: 1975 },
@@ -1146,21 +1152,23 @@ const xMen = [
     { name: 'Mystique', year: 1978 }
 ];
 
-function findOldestXMen(xMen) {
-    return xMen.reduce((oldest, current) => {
-        return current.year < oldest.year ? current : oldest;
+function findOldestXMen(xMen) {                                // Funcion de buscar con array como parámetro
+    return xMen.reduce((oldest, current) => {                  // Recorre el array con parámetros
+        return current.year < oldest.year ? current : oldest;  // Si el item actual es mas viejo que el mas antiguo, lo coloca, de lo contrario pone el mas viejo
     });
 }
-const oldest = findOldestXMen(xMen);
-console.log(`El X-Men más antiguo es ${oldest.name}, que apareció en ${oldest.year}.`);
+const oldest = findOldestXMen(xMen);  // Defino una variable para el resultado
+console.log(`El X-Men más antiguo es ${oldest.name}, que apareció en ${oldest.year}.`);  // Puedo sacar las propiedades del resultado porque es uno de los elementos del array y lo renderizo
 
-document.getElementById("men").innerHTML = `<p><strong>${oldest.name}</strong> apareció en <strong>${oldest.year}</strong>.</p>`;
+document.getElementById("men").innerHTML = `<p><strong>${oldest.name}</strong> apareció en <strong>${oldest.year}</strong>.</p>`;  // Coloco el resultado en el html
 
 
 
-console.log("%c===== Ejercicio 33 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
- const capitals = {
+
+console.log("%c===== Ejercicio 33: Capital de cada país =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+
+ const capitals = {     // Defino array
     Spain: 'Madrid',
     France: 'Paris',
     Italy: 'Rome',
@@ -1173,30 +1181,32 @@ console.log("%c===== Ejercicio 33 =====", "color: white; background-color: #085f
     Ireland: 'Dublin'
 };
 
-function getCapital(country) {
-    if (capitals[country]) {
+function getCapital(country) {    // Funcion con parámetro pais
+    if (capitals[country]) {      // Si el array de paises existe
         return {
-            text: `La capital de ${country} es ${capitals[country]}.`,
-            html: `La capital de ${country} es <strong>${capitals[country]}</strong>.`
+            text: `La capital de ${country} es ${capitals[country]}.`,                 // Renderizo el resultado
+            html: `<span style="white-space: nowrap; display: block; width: 100%;">La capital de ${country} es <strong>${capitals[country]}</strong>.</span>` // Muestro resultado en pantalla
         };
-    } else {
+    } else {       // En caos de no tener el pais en el array
         return {
             text: `No tengo información sobre la capital de ${country}.`,
             html: `No tengo información sobre la capital de ${country}.`
         };
     }
 }
-const country = "Greece";
-const capital = getCapital(country);
-console.log(capital.text);
+const country = "Greece";               // Pais que le paso al Parametro
+const capital = getCapital(country);    // Variable temporal con el resultado
+console.log(capital.text);              // Imprimo consola
+ 
+document.getElementById("capital").innerHTML = capital.html; // Muestro en pantalla
 
-document.getElementById("capital").innerHTML = capital.html;
 
 
 
-console.log("%c===== Ejercicio 34 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const movies4 = [
+console.log("%c===== Ejercicio 34: Promedio de duración de todas las películas =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+
+const moviesProm = [   // Defino array
     { title: 'Inception', duration: 148 },
     { title: 'The Dark Knight', duration: 152 },
     { title: 'Interstellar', duration: 169 },
@@ -1209,23 +1219,24 @@ const movies4 = [
     { title: 'Insomnia', duration: 118 }
 ];
 
-function averageMovieDuration(movies) {
-    if (movies.length === 0) return 0;
-
-    const total = movies.reduce((sum, movie) => sum + movie.duration, 0);
-    
-    return total / movies.length;
+function averageMovieDuration(moviesProm) {       // Funcion con  parámetro temporal
+    if (moviesProm.length === 0) return 0;        // Si el array está vacio no calcula nada
+    const total = moviesProm.reduce((sum, movie) => sum + movie.duration, 0); // Recorre con 2 parámetros
+    return total / moviesProm.length;  // Calcula el promedio
 }
-const average2 = averageMovieDuration(movies4);
-console.log("El promedio de duración de las películas es:", average2, "minutos");
+const averageMovie = averageMovieDuration(moviesProm);  // Guarda el resultado en una variable
+console.log("El promedio de duración de las películas es:", averageMovie, "minutos"); // Imprime consola
 
-document.getElementById("average2").innerHTML =`<strong>${average2}</strong> minutos.`;
+const averageElement = document.getElementById("averageMovie");
+averageElement.innerHTML = `<strong>${averageMovie}</strong> minutos.`;
+averageElement.style.display = "block";
 
 
 
-console.log("%c===== Ejercicio 35 =====","color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const mutants = [
+console.log("%c===== Ejercicio 35: Buscando que mutante tiene Telepatía =====","color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+
+const mutants = [   // Defino array
     { name: 'Wolverine', power: 'regeneration' },
     { name: 'Magneto', power: 'magnetism' },
     { name: 'Professor X', power: 'telepathy' },
@@ -1238,25 +1249,30 @@ const mutants = [
     { name: 'Nightcrawler', power: 'teleportation' }
 ];
 
-function findMutantByPower(mutants, power) {
-    const found = mutants.filter(mutant => mutant.power === power);
+function findMutantByPower(mutants, power) {   // Funcion sobre array y con parametro
+    const found = mutants.filter(mutant => mutant.power === power);  // Guarda el filtrado en una variable
+    const messageElement = document.getElementById("mutant"); // Rescato html
     let message;
-    if (found.length > 0) {
+
+    if (found.length > 0) {  // Si encuentra algo renderiza el poder y mapea los que lo tengan
         message = `Mutante(s) con el poder "${power}": ${found.map(m => `<b>${m.name}</b>`).join(', ')}`;
         console.log(`Mutante(s) con el poder "${power}": %c${found.map(m => m.name).join(', ')}`, "font-weight: bold");
     } else {
         message = `No se encontró ningún mutante con el poder "${power}".`;
         console.log(message);
     }
-    document.getElementById("mutant").innerHTML = message;
+    messageElement.innerHTML = message;     // Coloco message en el html
+    messageElement.style.display = "block";
 }
-findMutantByPower(mutants, "telepathy");
+findMutantByPower(mutants, "telepathy"); // Ejecuta la funcion sobre el array y le pasa el parametro
 
 
 
-console.log("%c===== Ejercicio 36 =====","color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const actors = [
+
+console.log("%c===== Ejercicio 36: Edad actual de los actores =====","color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+
+const actors = [   // Defino array
     { name: 'Leonardo DiCaprio', born: 1974 },
     { name: 'Tom Hanks', born: 1956 },
     { name: 'Meryl Streep', born: 1949 },
@@ -1269,19 +1285,19 @@ const actors = [
     { name: 'Cate Blanchett', born: 1969 }
 ];
 
-function calculateActorsAges(actors) {
-    const currentYear = new Date().getFullYear();
-    return actors.map(actor => {
-        const age = currentYear - actor.born;
-        return { name: actor.name, age: age };
+function calculateActorsAges(actors) {               // Funcion con array como parámetro
+    const currentYear = new Date().getFullYear();    // Guarda el año actual en variable
+    return actors.map(actor => {                     // Mapea los actores
+        const age = currentYear - actor.born;        // Guarda en variable su edad calculando
+        return { name: actor.name, age: age };       // Devuelve un objeto
     });
 }
-const result5 = calculateActorsAges(actors);
-console.log(result5);
-
-document.getElementById("actors").innerHTML = `
+const actorAge = calculateActorsAges(actors);        // Guarda en una variable el array tratado
+console.log(actorAge);                               // Imprime
+                                                     // Muestra en pantalla
+document.getElementById("actors").innerHTML = `       
   <ul class="lista-estilizada">
-    ${result5
+    ${actorAge
       .map(actor => `<li>${actor.name} tiene ${actor.age} años</li>`)
       .join('')}
   </ul>
@@ -1289,26 +1305,32 @@ document.getElementById("actors").innerHTML = `
 
 
 
-console.log("%c===== Ejercicio 37 =====","color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const movies5 = [
+
+console.log("%c===== Ejercicio 37:  =====","color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+
+const moviesCat = [    // Defino array
     {title: "Bracula: Condemor II", duration: 192, categories: ["comedia", "aventura"],},
     {title: "Spider-Man: No Way Home", duration: 122, categories: ["aventura", "acción"],},
     {title: "The Voices", duration: 223, categories: ["comedia", "thriller"],},
     {title: "Shrek", duration: 111, categories: ["comedia", "aventura", "animación"],},
 ];
 
-const categorias = [];
-for (const movie of movies5) {
-    for (const category of movie.categories) {
-        if (!categorias.includes(category)) {
-        categorias.push(category);
+const categorias = [];                           // Inicializo el array de claisificacion
+for (const movie of moviesCat) {                 // Recorro array pelis
+    for (const category of movie.categories) {   // Recorro array categorias
+        if (!categorias.includes(category)) {    // Se comprueba que no exista la categoria
+        categorias.push(category);               // Se inserta en el inicializado
         }
     }
 }
-console.log(categorias);
+console.log(categorias);                         // Imprimo
 
-document.getElementById("cate").textContent = categorias.join(", ");
+document.getElementById("cate").innerHTML = `
+  <ul class="lista-estilizada">
+    ${categorias.map(categoria => `<li>${categoria}</li>`).join('')}
+  </ul>
+`;  // Muestro pantalla
 
 
 
