@@ -1,39 +1,49 @@
 // ruleta.js
 const paginasEjercicios = [
   './pages/ejercicios.html',
-  './pages/ejerciciosDOM.html',
-  './pages/ejerciciosasincronia.html'
 ];
 
 const boton = document.getElementById('girarRuleta');
 const contenedor = document.getElementById('ejercicioSeleccionado');
 
-// Ocultar aside derecho solo cuando se carga la ruleta
-function ocultarAsideDerecho() {
+// Eliminar aside derecho solo en esta página
+function eliminarAsideDerecho() {
   const asideDerecho = document.getElementById('aside');
+  if (asideDerecho) {
+    asideDerecho.remove();
+    console.log('Aside derecho eliminado');
+  }
+}
+
+// Ajustar anchos según estado de sidebar
+function ajustarAnchosSegunSidebar() {
+  const sidebar = document.querySelector('.sidebar');
   const mainContent = document.querySelector('.content');
   const mainContainer = document.querySelector('.container');
   const mainWrapper = document.querySelector('.page-wrapper');
 
-  if (asideDerecho) {
-    asideDerecho.style.width = '5%';
-    asideDerecho.style.border = '3px solid blue';
-  }
-  if (mainContent) {
-    mainContent.style.width = '100%'; 
-    mainContent.style.border = '3px solid blue';
-  }
+  if (!sidebar || !mainContent || !mainContainer || !mainWrapper) return;
 
-  if (mainContainer) {
-    mainContainer.style.setProperty('width', '2000px', 'important');
-    mainContainer.style.border = '3px solid red';
+  const isSidebarDesplegada = sidebar.classList.contains('active');
+
+  if (isSidebarDesplegada) {
+    // Sidebar desplegada → dejamos espacio
+    mainContent.style.width = '100%';
+    mainContainer.style.setProperty('width', '95%', 'important');
+    mainContainer.style.setProperty('max-width', '95%', 'important');
+    mainWrapper.style.width = '85%';
+  } else {
+    // Sidebar plegada → ocupar todo el espacio
+    mainContent.style.width = '95%';
+    mainContainer.style.setProperty('width', '100%', 'important');
+    mainContainer.style.setProperty('max-width', '100%', 'important');
+    mainWrapper.style.width = '100%';
   }
-  mainWrapper.style.width = '100%';
-  mainWrapper.style.border = '3px solid green';
 }
 
-// Llamamos la función al cargar ruleta
-ocultarAsideDerecho();
+// Llamamos al cargar la página
+eliminarAsideDerecho();
+ajustarAnchosSegunSidebar();
 
 // Función para extraer los ejercicios de un HTML
 async function obtenerEjercicios(url) {
@@ -43,8 +53,9 @@ async function obtenerEjercicios(url) {
   const tempDiv = document.createElement('div');
   tempDiv.innerHTML = text;
 
-  // Seleccionamos solo los div con class="ex"
-  const divsEx = Array.from(tempDiv.querySelectorAll('div.ex'));
+  const divsEx = Array.from(tempDiv.querySelectorAll('div.ex')).filter(div => {
+    return div.querySelector('div.solucion');
+  });
 
   // Eliminamos h3 y div.solucion dentro de cada div
   divsEx.forEach(div => {
@@ -68,7 +79,6 @@ async function mostrarEjercicio() {
   }
 
   const ejercicioAleatorio = ejercicios[Math.floor(Math.random() * ejercicios.length)];
-
   contenedor.innerHTML = `<div class="ex">${ejercicioAleatorio}</div>`;
   Prism.highlightAll();
 }
@@ -76,9 +86,8 @@ async function mostrarEjercicio() {
 // Evento del botón
 boton.addEventListener('click', mostrarEjercicio);
 
+// Observador de la sidebar para ajustar anchos y mostrar estado en consola
 const sidebar = document.querySelector('.sidebar');
-const pageWrapper = document.querySelector('.page-wrapper');
-
 let lastState = null;
 
 if (sidebar) {
@@ -89,6 +98,7 @@ if (sidebar) {
     if (currentState !== lastState) {
       console.log(`Sidebar ${currentState}`);
       lastState = currentState;
+      ajustarAnchosSegunSidebar();
     }
   });
 
@@ -101,7 +111,4 @@ if (sidebar) {
   lastState = sidebar.classList.contains('active') ? 'desplegada' : 'plegada';
   console.log(`Sidebar ${lastState} (inicial)`);
 }
-
-
-
 

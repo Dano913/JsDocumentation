@@ -1,7 +1,16 @@
 <section class="content">
   <h1>Ruleta de Ejercicios</h1>
-  <button id="girarRuleta">Elegir ejercicio</button>
+  <button id="girarRuleta"><i class="fas fa-rotate-right"></i></button>
   <div id="ejercicioSeleccionado"></div>
+
+  <div id="editorContainer">
+    <iframe 
+        src="/components/editor/editor.html" 
+        width="100%" 
+        height="100%" 
+        style="border-radius:10px; border: 1px solid gray; background: #00000015;">
+    </iframe>
+  </div>
 </section>
 
 <script type="module" src="./js/ejercicios/ruleta.js"></script>
