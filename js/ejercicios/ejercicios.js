@@ -1334,6 +1334,8 @@ document.getElementById("cate").innerHTML = `
 
 
 
+
+
 console.log("%c===== Ejercicio 38: Media del volumen de los sonidos favoritos =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const userSound = [   // Defino array
@@ -1360,57 +1362,44 @@ document.getElementById("sonidos").textContent = averageSound.toFixed(2); // Pan
 
 
 
-console.log("%c===== Ejercicio 39 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const users3 = [
+
+console.log("%c===== Ejercicio 39: Sonidos favoritos =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+
+const usersSoundFav = [   // Defino array
     {name: "Alberto", favoritesSounds: {waves: { format: "mp3", volume: 50 }, rain: { format: "ogg", volume: 60 }, firecamp: { format: "mp3", volume: 80 },},},
     {name: "Antonio", favoritesSounds: {waves: { format: "mp3", volume: 30 }, shower: { format: "ogg", volume: 55 }, train: { format: "mp3", volume: 60 },},},
     {name: "Santiago", favoritesSounds: {shower: { format: "mp3", volume: 50 }, train: { format: "ogg", volume: 60 }, firecamp: { format: "mp3", volume: 80 },},},
     {name: "Laura", favoritesSounds: {waves: { format: "mp3", volume: 67 }, wind: { format: "ogg", volume: 35 }, firecamp: { format: "mp3", volume: 60 },},},
 ];
 
-const soundCounts3 = {};
-for (const user3 of users3) {
-    for (const sound3 in user3.favoritesSounds) {
-        if (soundCounts3[sound3]) {
-            soundCounts3[sound3]++;
+const soundFav = {};                                       // Inicializo array de favoritos
+for (const userSoundFav of usersSoundFav) {                // Recorro usuarios y por cada uno
+    for (const sound in userSoundFav.favoritesSounds) {       // Recorro sonidos y por cada uno entro en favoriteSounds
+        if (soundFav[sound]) {                             // Si el sonido favorito ya existe se le añade 1 al conteo
+            soundFav[sound]++;
         } else {
-            soundCounts3[sound3] = 1;
+            soundFav[sound] = 1;                           // Si no se le coloca 1 en el contador
         }
     }
 }
-console.log("Conteo de sonidos favoritos:", soundCounts3);
+console.log("Conteo de sonidos favoritos:", soundFav);     // Imprimo consola
 
-let sonido = "<ul class='lista-estilizada'>";
-for (const sound3 in soundCounts3) {
-    sonido += `<li>${sound3}: <b>${soundCounts3[sound3]}</b></li>`;
+let sonido = "<ul class='lista-estilizada'>";                  // Doy clase y creo la lista sonido
+for (const sound in soundFav) {                                // Por cada elemento del array coloco li yañado a la ul
+    sonido += `<li>${sound}: <b>${soundFav[sound]}</b></li>`;
 }
-sonido += "</ul>";
+sonido += "</ul>";                                             // Cierro
 
-document.getElementById("sonido").innerHTML = sonido;
+document.getElementById("sonido").innerHTML = sonido;          // Coloco ul en el html
 
 
 
-console.log("%c===== Ejercicio 40 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-function findArrayIndex(array, text) {
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] === text) {
-            return i;
-        }
-    }
-    return -1;
-}
 
-function removeItem(array, text) {
-    const index = findArrayIndex(array, text);
-    if (index !== -1) {
-        array.splice(index, 1);
-    }
-    return array;
-}
+console.log("%c===== Ejercicio 40: Funciones sobre el array de Star Wars =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const mainCharacters = [
+const mainCharacters = [  // Defino array
 "Luke",
 "Leia",
 "Han Solo",
@@ -1420,71 +1409,93 @@ const mainCharacters = [
 "Obi-Wan",
 ];
 
-console.log("Índice de 'Leia':", findArrayIndex(mainCharacters, "Leia"));
+function findArrayIndex(array, text) {             // Funcion de búsqueda con parámetros
+    for (let i = 0; i < array.length; i++) {       // Recorro
+        if (array[i] === text) {                   // Compruebo si el indice del array es igual al texto
+            return i;                              // Lo retorno
+        }
+    }
+    return -1;                                     // Retorna no encontrado
+
+}
+
+function removeItem(array, text) {                 // Funcion de eliminación con parámetros
+    const index = findArrayIndex(array, text);     // Guardo en variable el elemento encontrado
+    if (index !== -1) {                            // Compruebo q se encontró algo
+        array.splice(index, 1);                    // Hace splice sobre el índice encontrado y solo borra 1
+    }
+    return array;                                  // Retorna el array tratado
+}
+
+console.log("Índice de 'Leia':", findArrayIndex(mainCharacters, "Leia"));   // Imprimir consola
 console.log("Índice de 'Rey':", findArrayIndex(mainCharacters, "Rey"));
-console.log("Índice de 'Yoda':", findArrayIndex(mainCharacters, "Yoda"));
+console.log("Índice de 'Obi-Wan':", findArrayIndex(mainCharacters, "Obi-Wan"));
 
 console.log("Eliminar 'Han Solo':", removeItem([...mainCharacters], "Han Solo"));
 console.log("Eliminar 'Rey':", removeItem([...mainCharacters], "Rey"));
-console.log("Eliminar 'Yoda':", removeItem([...mainCharacters], "Yoda"));
+console.log("Eliminar 'Obi-Wan':", removeItem([...mainCharacters], "Obi-Wan"));
 
-let star = '<ul class="lista-estilizada">';
+let star = '<ul class="lista-estilizada">';    // Mostrar pantalla
 star += "<li>Índice de 'Leia': " + findArrayIndex(mainCharacters, "Leia") + "</li>";
 star += "<li>Índice de 'Rey': " + findArrayIndex(mainCharacters, "Rey") + "</li>";
-star += "<li>Índice de 'Yoda' (no existe): " + findArrayIndex(mainCharacters, "Yoda") + "</li>";
+star += "<li>Índice de 'Obi-Wan': " + findArrayIndex(mainCharacters, "Obi-Wan") + "</li>";
 star += "<li>Eliminar 'Han Solo': " + removeItem([...mainCharacters], "Han Solo").join(", ") + "</li>";
 star += "<li>Eliminar 'Rey': " + removeItem([...mainCharacters], "Rey").join(", ") + "</li>";
-star += "<li>Eliminar 'Yoda' (no existe): " + removeItem([...mainCharacters], "Yoda").join(", ") + "</li>";
+star += "<li>Eliminar 'Obi-Wan': " + removeItem([...mainCharacters], "Obi-Wan").join(", ") + "</li>";
 star += "</ul>";
 
-document.getElementById("wars").innerHTML = star;
+document.getElementById("wars").innerHTML = star;  // Colocar la renderización en el html
 
 
 
-console.log("%c===== Ejercicio 41 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-function rollDice(caras) {
-    return Math.floor(Math.random() * caras) + 1;
+
+console.log("%c===== Ejercicio 41: Tirada de dados =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+
+function rollDice(caras) {                                            // Funcion con parámetro caras
+    return Math.floor(Math.random() * caras) + 1;                     // Devuelve un número aleatorio entre 0 y 1, lo multiplica por el parámetro y le suma 1, porque como redondea el decima hacia abajo, debe recuperar esa probabilidad perdida.
 }
 
-console.log("Tirada de dado de 6 caras:", rollDice(6));
-console.log("Tirada de dado de 20 caras:", rollDice(20));
+console.log("Tirada de dado de 6 caras:", rollDice(6));              // Imprimo consola
+console.log("Tirada de dado de 20 caras:", rollDice(20)); 
 console.log("Tirada de dado de 10 caras:", rollDice(10));
 
 let dice = '<ul class="lista-estilizada">';
-dice += "<li>Dado de 6 caras: <b>" + rollDice(6) + "</b></li>";
+dice += "<li>Dado de 6 caras: <b>" + rollDice(6) + "</b></li>";     // Muestro pantalla
 dice += "<li>Dado de 20 caras: <b>" + rollDice(20) + "</b></li>";
 dice += "<li>Dado de 10 caras: <b>" + rollDice(10) + "</b></li>";
 dice += "</ul>";
 
-document.getElementById("dice").innerHTML = dice;
+document.getElementById("dice").innerHTML = dice;                   // Meto el renderizado en el html
 
 
 
-console.log("%c===== Ejercicio 42 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const fantasticFour = [
+
+console.log("%c===== Ejercicio 42: Intercambiar posición de elementos =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+
+const fantasticFour = [                      // Defino array
     "La antorcha humana",
     "Mr. Fantástico",
     "La mujer invisible",
     "La cosa",
 ];
 
-function swap(array, index1, index2) {
-    const temp = array[index1];
-    array[index1] = array[index2];
-    array[index2] = temp;
-    return array;
+function swap(array, index1, index2) {       // Funcion con 3 parámetros
+    const temp = array[index1];              // Variable temporal para el elemento de primera posicion seleccionada
+    array[index1] = array[index2];           // Ese elemento se coloca en la segunda posicion seleccionada
+    array[index2] = temp;                    // El elemento de la segunda posición seleccionada ahora se coloca en la primera posicion por adoptar el valor de la variable temporal
+    return array;                            // Devuelve el array actualizado
 }
 
-console.log("Original:", fantasticFour);
-console.log("Swap 0 y 3:", swap([...fantasticFour], 0, 3));
+console.log("Original:", fantasticFour);                     // Imprimo original
+console.log("Swap 0 y 3:", swap([...fantasticFour], 0, 3));  // Imprimo con parámetros para posiciones
 console.log("Swap 1 y 2:", swap([...fantasticFour], 1, 2));
 
 let fantastic = '<ul class="lista-estilizada">';
-fantastic += "<li>Original: " + fantasticFour.join(", ") + "</li>";
+fantastic += "<li>Original: " + fantasticFour.join(", ") + "</li>";   // Renderizo
 fantastic += "<li>Swap 0 y 3: " + swap([...fantasticFour], 0, 3).join(", ") + "</li>";
 fantastic += "<li>Swap 1 y 2: " + swap([...fantasticFour], 1, 2).join(", ") + "</li>";
 fantastic += "</ul>";
 
-document.getElementById("fantastic").innerHTML = fantastic;
+document.getElementById("fantastic").innerHTML = fantastic;  // Incluyo el renderizado en el html
