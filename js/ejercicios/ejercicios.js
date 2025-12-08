@@ -1307,7 +1307,7 @@ document.getElementById("actors").innerHTML = `
 
 
 
-console.log("%c===== Ejercicio 37:  =====","color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 37: Categorías de películas =====","color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const moviesCat = [    // Defino array
     {title: "Bracula: Condemor II", duration: 192, categories: ["comedia", "aventura"],},
@@ -1334,27 +1334,29 @@ document.getElementById("cate").innerHTML = `
 
 
 
-console.log("%c===== Ejercicio 38 =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 38: Media del volumen de los sonidos favoritos =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const users2 = [
+const userSound = [   // Defino array
     {name: "Alberto", favoritesSounds: {waves: { format: "mp3", volume: 50 }, rain: { format: "ogg", volume: 60 }, firecamp: { format: "mp3", volume: 80 },},},
     {name: "Antonio", favoritesSounds: {waves: { format: "mp3", volume: 30 }, shower: { format: "ogg", volume: 55 }, train: { format: "mp3", volume: 60 },},},
     {name: "Santiago", favoritesSounds: {shower: { format: "mp3", volume: 50 }, train: { format: "ogg", volume: 60 }, firecamp: { format: "mp3", volume: 80 },},},
     {name: "Laura", favoritesSounds: {waves: { format: "mp3", volume: 67 }, wind: { format: "ogg", volume: 35 }, firecamp: { format: "mp3", volume: 60 },},},
 ];
 
-let totalVolume = 0;
-let count = 0;
-for (const user of users2) {
-    for (const sound of Object.values(user.favoritesSounds)) {
-        totalVolume += sound.volume;
-        totalSounds++;
+let totalVolume = 0;                                        // Inicializo volumen
+let totalLength= 0;                                         // Inicializo longitud
+for (const user of userSound) {                             // Recorro y para cada user
+    const values = Object.values(user.favoritesSounds);     // Variable temporal para longitud
+    totalLength += values.length;                           // Acumulo
+                                         
+    for (const sound of values) {                           // Recorro objeto y para cada sonido
+        totalVolume += sound.volume;                        // Acumulo
     }
 }
-const average3 = totalVolume / count;
-console.log("La media de volumen de todos los sonidos favoritos es:", average3);
+const averageSound = totalVolume / totalLength;                 // Promedio
+console.log("La media de volumen de todos los sonidos favoritos es:", averageSound); // Consola
 
-document.getElementById("sonidos").textContent = average3.toFixed(2);
+document.getElementById("sonidos").textContent = averageSound.toFixed(2); // Pantalla
 
 
 
