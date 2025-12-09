@@ -1,0 +1,325 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: #1a1a1a;
+    color: #fff;
+    overflow: hidden;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+    gap: 2px;
+    background: #333;
+}
+
+.header {
+    grid-column: 1 / -1;
+    background: #2d2d2d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #555;
+    padding: 10px;
+    height: 50px;
+}
+
+.header h1 {
+    color: #4fc3f7;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.btns{
+    display: flex;
+    width: 50%;
+    gap: 20px;
+    align-items: center;
+}
+
+.execution-time{
+    width: 60%;
+    height:20%;
+}
+
+.btn {
+    background: #4fc3f7;
+    color: #000;
+    border: none;
+    padding: 8px 16px;
+    height: 35px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background: #29b6f6;
+    transform: translateY(-1px);
+}
+
+.btn.clear {
+    background: #ff5722;
+    color: #fff;
+}
+
+.btn.clear:hover {
+    background: #f44336;
+}
+
+.console-wrapper {
+    display: flex; 
+    gap: 2px;
+    height: 89.5vh;        
+    width: 100vw;
+}
+
+.editor-panel {
+    background: #1e1e1e;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.panel-header {
+    background: #2d2d2d;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #4fc3f7;
+    border-bottom: 1px solid #555;
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+}
+
+.code-editor {
+    flex: 1;
+    background: #1e1e1e;
+    color: #e6e6e6;
+    border: none;
+    outline: none;
+    resize: none;
+    padding: 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    tab-size: 2;
+    overflow: auto;
+}
+
+.code-editor:focus {
+    background: #252525;
+}
+
+.output-panel {
+    background: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    width:50%;
+    height:100%;
+}
+
+.output {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.log-entry {
+    margin-bottom: 5px;
+    padding: 5px 0;
+    border-bottom: 1px solid #333;
+}
+
+.log-info {
+    color: #4fc3f7;
+}
+
+.log-error {
+    color: #ff5722;
+    background: rgba(255, 87, 34, 0.1);
+    padding: 8px;
+    border-radius: 4px;
+    border-left: 3px solid #ff5722;
+}
+
+.log-warn {
+    color: #ffc107;
+    background: rgba(255, 193, 7, 0.1);
+    padding: 8px;
+    border-radius: 4px;
+    border-left: 3px solid #ffc107;
+}
+
+.log-success {
+    color: #4caf50;
+}
+
+.status-bar {
+    grid-column: 1 / -1;
+    background: #2d2d2d;
+    padding: 8px 20px;
+    font-size: 12px;
+    color: #888;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #555;
+}
+
+.auto-run {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 40%;
+}
+
+.auto-run input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #555;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2d2d2d;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #111111;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.custom-select {
+    position: relative;
+    width: 400px;
+    font-size: 1rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.custom-select .selected {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    padding: 8px 12px;
+    border: 2px solid #444;
+    border-radius: 6px;
+    position: relative;
+}
+
+/* Flecha gris */
+.custom-select .selected::after {
+    content: '';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #AAAAAA;
+    transform: translateY(-50%);
+    transition: transform 0.3s;
+}
+
+/* Opciones ocultas */
+.custom-select .options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #1e1e1e;
+    border: 2px solid #444;
+    border-radius: 6px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+/* Mostrar opciones */
+.custom-select.open .options {
+    display: block;
+}
+
+/* Flecha gira al abrir */
+.custom-select.open .selected::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* Optgroup label */
+.custom-select .optgroup-label {
+    padding: 6px 12px;
+    font-weight: bold;
+    color: #FFD43B;
+    background-color: #2a2a2a;
+}
+
+/* Cada opción */
+.custom-select .options div[data-value] {
+    padding: 6px 12px;
+    color: #f5f5f5;
+}
+
+.custom-select .options div[data-value]:hover {
+    background-color: #333;
+}
+
+/* === Estilos extraídos del botón Clear (editor) === */
+#clearEditorBtn {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    font-weight: bold;
+    color: #4fc3f7;
+    background: var(--text-bg);
+    cursor: pointer;
+    height: 10px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    left: 300px;
+}
+
+/* === Estilos extraídos del botón Copy (editor) === */
+#copyEditorBtn {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    font-weight: bold;
+    color: #4fc3f7;
+    background: var(--text-bg);
+    border: none;
+    cursor: pointer;
+}
