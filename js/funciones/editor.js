@@ -1,13 +1,10 @@
-// -------------------------
-//  CUSTOM SELECT SNIPPETS
-// -------------------------
-const customSelect = document.querySelector('.custom-select');
+const customSelect = document.querySelector('.custom-select');              // Rescato html
 const selected = customSelect.querySelector('.selected');
 const optionsContainer = customSelect.querySelector('.options');
 const optionsList = optionsContainer.querySelectorAll('div[data-value]');
 
-selected.addEventListener('click', () => {
-    customSelect.classList.toggle('open');
+selected.addEventListener('click', () => {                                  // Escucha el evento de click
+    customSelect.classList.toggle('open');                                  //
 });
 
 optionsList.forEach(option => {

@@ -71,24 +71,25 @@ export function copyExButton() {                                                
           if (!script) return;                                                       // Si no hay script termina
 
           const limpiarScript = contenido => contenido                               // Funcion que limpia el contenido de script
-            .replace(/if\s*\([^)]*container[^)]*\)\s*\{(?:[^{}]|\{[^{}]*\})*\}/gs, '')
-            .replace(/if\s*\([^)]*container[^)]*\)\s*\{[\s\S]*?\n\}/g, '')
-            .replace(/^\s*.*document\.createElement.*$/gm, '')
-            .replace(/const\s+\w+\s*=\s*document\.getElementById\(.*?\);?/g, '')
-            .replace(/^\s*.*innerText\s*=.*?;\s*$/gm, '')
-            .replace(/^\s*.*appendChild.*$/gm, '')
-            .replace(/^\s*.*classList\.add.*$/gm, '')
-            .replace(/^\s*.*textContent.*$/gm, '')
-            .replace(/^\s*.*style\..*$/gm, '')
-            .replace(/^\s*.*innerHTML.*$/gm, '')
-            .replace(/^\s*.*container.*$/gm, '')
-            .replace(/^\s*.*contenedor.*$/gm, '')
-            .replace(/document\.getElementById\(.*?\);?/g, '')
-            .replace(/\w+\.forEach\s*\([^)]*\)\s*=>\s*\{\s*(?:[\r\n\s]*)\s*\}/g, '')
-            .replace(/{\s*}/g, '')
-            .replace(/\n{2,}/g, '\n')
-            .replace(/^\s*\n/gm, '')
-            .trim();
+            .replace(/if\s*\([^)]*container[^)]*\)\s*\{(?:[^{}]|\{[^{}]*\})*\}/gs, '') // Elimina bloques if relacionados con "container"
+            .replace(/if\s*\([^)]*container[^)]*\)\s*\{[\s\S]*?\n\}/g, '')             // Variante para eliminar if con "container"
+            .replace(/^\s*.*document\.createElement.*$/gm, '')                         // Elimina líneas con document.createElement
+            .replace(/const\s+\w+\s*=\s*document\.getElementById\(.*?\);?/g, '')       // Elimina const x = document.getElementById(...)
+            .replace(/^\s*.*innerText\s*=.*?;\s*$/gm, '')                              // Elimina asignaciones a innerText
+            .replace(/^\s*.*appendChild.*$/gm, '')                                     // Elimina líneas con appendChild
+            .replace(/^\s*.*classList\.add.*$/gm, '')                                  // Elimina líneas con classList.add
+            .replace(/^\s*.*textContent.*$/gm, '')                                     // Elimina líneas que modifican textContent
+            .replace(/^\s*.*style\..*$/gm, '')                                         // Elimina modificaciones de estilos inline
+            .replace(/^\s*.*innerHTML.*$/gm, '')                                       // Elimina líneas donde se usa innerHTML
+            .replace(/^\s*.*container.*$/gm, '')                                       // Elimina líneas que contengan "container"
+            .replace(/^\s*.*contenedor.*$/gm, '')                                      // Elimina líneas que contengan "contenedor"
+            .replace(/document\.getElementById\(.*?\);?/g, '')                         // Elimina llamadas a getElementById
+            .replace(/\w+\.forEach\s*\([^)]*\)\s*=>\s*\{\s*(?:[\r\n\s]*)\s*\}/g, '')   // Elimina forEach con cuerpo vacío
+            .replace(/{\s*}/g, '')                                                     // Elimina bloques "{}" vacíos
+            .replace(/\n{2,}/g, '\n')                                                  // Reduce saltos de línea múltiples a uno solo
+            .replace(/^\s*\n/gm, '')                                                   // Elimina líneas en blanco con espacios
+            .trim();                                                                   // Quita espacios al inicio y final
+
 
           const textoACopiar = script.src                                          // Guarda el texto a copiar accediendo al atributo src del script
               ? fetch(script.src).then(res => res.text()).then(limpiarScript)      // Si existe hace una peticion fetch para descargar contenido, conviertela respuesta en texto y lo pasa a la funcion para que lo limpie
