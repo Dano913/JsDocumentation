@@ -30,60 +30,56 @@ export function createAside() {
     link.href = `#${header.id}`;                           // Relaciona el atributo href del link con el id del header
     link.textContent = header.textContent;                 // Equipara el contenido del header con el del link
 
-    li.appendChild(link);
-    ul.appendChild(li);
-    links.push(link);
-
-    // Click en li simula click en el link
-    li.addEventListener('click', () => link.click());
+    li.appendChild(link);                                  // Meto link en el li
+    ul.appendChild(li);                                    // Meto li en la ul
+    links.push(link);                                      // Meto el link en su array
+    li.addEventListener('click', () => link.click());      // Escucha un click en el li y ejecuta un click en el link
   });
 
-  // Añadir clase active al link clicado
-  links.forEach(link => {
-    link.addEventListener('click', e => {
-      e.stopPropagation();
-      links.forEach(l => l.classList.remove('active'));
-      link.classList.add('active');
+  links.forEach(link => {                                  // Para cada link de links
+    link.addEventListener('click', e => {                  // Escuchar evento click
+      e.stopPropagation();                                 // Evita propagacion a elementos padres
+      links.forEach(l => l.classList.remove('active'));    // Quita la clase active
+      link.classList.add('active');                        // Solo le añade active al elemento clickado    
     });
   });
 
-  // IntersectionObserver para resaltar sección activa
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const id = entry.target.id;
-      const link = aside.querySelector(`a[href="#${id}"]`);
-      if (entry.isIntersecting) {
-        links.forEach(l => l.classList.remove('active'));
-        if (link) link.classList.add('active');
+  const observer = new IntersectionObserver((entries) => {   // Forma fácil eficiente y precisa de saber q contenido entra en pantalla
+    entries.forEach(entry => {                               // Por cada uno
+      const id = entry.target.id;                            // Guarda su id
+      const link = aside.querySelector(`a[href="#${id}"]`);  // Busco el link asociado a ese elemento por su href
+      if (entry.isIntersecting) {                            // Si esta entrando
+        links.forEach(l => l.classList.remove('active'));    // Quitar la clase active de todos los links
+        if (link) link.classList.add('active');              // Ponerselo al target q entro
       }
     });
   }, {
     root: null,
-    rootMargin: '0px 0px -70% 0px',
+    rootMargin: '0px 0px -70% 0px',     // Reduce el area de observador
     threshold: 0
   });
 
-  headers.forEach(header => {
-    if (isVisible(header)) observer.observe(header);
+  headers.forEach(header => {                           // Para cada header
+    if (isVisible(header)) observer.observe(header);    // Si es visible lo observa
   });
 }
 
-export function responsiveAside(container, aside) {
-  const ancho = window.innerWidth;
-  let maxWidth = 80;
+export function responsiveAside(container, aside) {                            // Funcion con 2 parametros
+  const ancho = window.innerWidth;                                             // Ancho de pixeles del viewport
+  let maxWidth = 80;                                                           // Ancho maximo
 
-  if (ancho > 800 && ancho < 1800) {
-    const pasos = Math.floor((1800 - ancho) / 100);
-    maxWidth = 80 - pasos * 0.5;
-    if (aside) { aside.style.display = 'block'; aside.style.opacity = '1'; }
-  } else if (ancho <= 800) {
-    maxWidth = 100;
-    if (aside) { aside.style.opacity = '0'; aside.style.display = 'none'; }
+  if (ancho > 800 && ancho < 1800) {                                           // Si esta entre esos anchos
+    const pasos = Math.floor((1800 - ancho) / 100);                            // Calcula cuantos pasos de 100px faltan para llegar a 1800
+    maxWidth = 80 - pasos * 0.5;                                               // Por cada 100 pasos menos el contenido se hace 0.5% mas ancho
+    if (aside) { aside.style.display = 'block'; aside.style.opacity = '1'; }   // Aseguro que aside muestre ese estilo
+  } else if (ancho <= 800) {                                                   // Si el ancho es menor de  800
+    maxWidth = 100;                                                            // ancho maximo 100
+    if (aside) { aside.style.opacity = '0'; aside.style.display = 'none'; }    // Aseguro
   }
-  if (maxWidth < 54) maxWidth = 54;
-  container.style.maxWidth = maxWidth + '%';
+  if (maxWidth < 54) maxWidth = 54;                                            // Si el ancho maximo es menos de 54, ponlo en 54
+  container.style.maxWidth = maxWidth + '%';                                   // Aplico el ancho al contenedor
 }
 
-export function setupResizeListener(container, aside) {
-  window.addEventListener('resize', () => responsiveAside(container, aside));
+export function setupResizeListener(container, aside) {                        // Funcion con parametros que se ejecuta cuando la ventana cambia de tamaño
+  window.addEventListener('resize', () => responsiveAside(container, aside));  // Si cambia el tamaño de la ventana ejecuto la funcion anterior
 }
