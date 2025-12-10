@@ -1,42 +1,34 @@
-// aside.js
-
 export function createAside() {
-  const content = document.querySelector('main.content');
-  const aside = document.getElementById('aside');
-  if (!aside) return;
+  const content = document.querySelector('main.content');  // Rescato html
+  const aside = document.getElementById('aside');          // Rescato html
+  if (!aside) return;                                      // Si no existe termina
 
-  // Limpiar contenido previo
-  aside.innerHTML = '';
+  aside.innerHTML = '';                                    // Borro el contenido
 
-  // Crear título
-  const title = document.createElement('h3');
-  title.textContent = 'On this page';
-  title.style.color = 'var(--text2-color)';
-  aside.appendChild(title);
+  const title = document.createElement('h3');              // Creo h3
+  title.textContent = 'On this page';                      // Pongo el titulo
+  title.style.color = 'var(--text2-color)';                // Le doy estilo
+  aside.appendChild(title);                                // Meto el titulo en el aside
+  const ul = document.createElement('ul');                 // Creo ul
+  aside.appendChild(ul);                                   // Meto la ul en el aside
 
-  // Crear lista
-  const ul = document.createElement('ul');
-  aside.appendChild(ul);
+  const links = [];                                        // Inicializa el array de links
 
-  const links = [];
-
-  // Función para saber si un elemento es visible (no está oculto)
-  function isVisible(element) {
+  function isVisible(element) {                            // Comprueba si el objeto es visible con estas condiciones
     return !!(element.offsetWidth || element.offsetHeight || element.getClientRects().length);
   }
 
-  // Seleccionar todos los h2 y agregar solo los visibles
-  const headers = content.querySelectorAll('h2');
-  headers.forEach(header => {
-    if (!isVisible(header)) return; // ignorar elementos ocultos
+  const headers = content.querySelectorAll('h2');          // Rescato h2
+  headers.forEach(header => {                              // Para cada uno
+    if (!isVisible(header)) return;                        // ignorar elementos ocultos
 
-    // Asegurarse de que tenga id
+                                                           // Asigna un id al h2
     if (!header.id) header.id = header.textContent.toLowerCase().replace(/\s+/g, '-');
 
-    const li = document.createElement('li');
-    const link = document.createElement('a');
-    link.href = `#${header.id}`;
-    link.textContent = header.textContent;
+    const li = document.createElement('li');               // Creo li
+    const link = document.createElement('a');              // Creo a
+    link.href = `#${header.id}`;                           // Relaciona el atributo href del link con el id del header
+    link.textContent = header.textContent;                 // Equipara el contenido del header con el del link
 
     li.appendChild(link);
     ul.appendChild(li);
