@@ -1,5 +1,5 @@
 const hidden = document.getElementById('ej1-hidden');
-const resultado = document.getElementById('resultado');
+const pokemon = document.getElementById('pokemon');
 
 // 1.1 Mostrar botón .showme
 const boton = hidden.querySelector('.showme');
@@ -19,8 +19,8 @@ const personajes = Array.from(hidden.querySelectorAll('[data-function="testMe"]'
 // 1.6 El 3er personaje
 const tercerPersonaje = personajes[2];
 
-// Mostrar resultados en #resultado
-resultado.innerHTML = `
+console.log(boton);
+pokemon.innerHTML = `
     <p><strong>Botón:</strong> ${boton.outerHTML}</p>
     <p><strong>H1:</strong> ${h1.outerHTML}</p>
     <p><strong>Párrafos:</strong><br>${parrafos.map(p => p.outerHTML).join('<br>')}</p>

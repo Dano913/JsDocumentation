@@ -21,6 +21,24 @@ export function executeScripts(container) {                                     
   });
 }
 
+export function extraerEjercicio(codigoCompleto, numero) {
+  const inicio = `console.log("%c===== Ejercicio ${numero}:`;
+
+  // Posición donde empieza el ejercicio
+  const idxInicio = codigoCompleto.indexOf(inicio);
+  if (idxInicio === -1) return "";
+
+  const resto = codigoCompleto.slice(idxInicio);
+
+  // 3 líneas vacías marcan el final
+  const finRegex = /\n\s*\n\s*\n/;
+  const match = resto.search(finRegex);
+
+  const bloque = match !== -1 ? resto.slice(0, match) : resto;
+
+  return bloque.trim();
+}
+
 export function copyExButton() {                                                     // Funcion para el boton de copiar script
   const h2Elements = document.querySelectorAll('.ex h2');                            // Selecciona los h2 que estan en un contenedor con clase ex
 
@@ -63,14 +81,15 @@ export function copyExButton() {                                                
           button.style.width = '40px';                                               // El ancho vuelve a la normalidad
       });
 
-      button.addEventListener('click', () => {                                       // Escucha el click
-          const container = h2.closest('.ex');                                       // Guarda en variable el contenedor mas cercano al h2 seleccionado
-          if (!container) return;                                                    // Si no hay container termina
-
-          const script = container.querySelector('script');                          // Guarda en variable el primer script que encuentra en el contenedor ex
-          if (!script) return;                                                       // Si no hay script termina
+      button.addEventListener('click', async () => {
+        const tituloEjercicio = h2.textContent.trim();
+        const codigoCompleto = await fetch('/js/ejercicios/ejercicios.js').then(r => r.text());
+        const bloqueEjercicio = extraerEjercicio(codigoCompleto, tituloEjercicio.match(/\d+/)[0]);
+                                                   // Si no hay script termina
 
           const limpiarScript = contenido => contenido                               // Funcion que limpia el contenido de script
+            .replace(/"%c===== Ejercicio \d+: (.*?) ====="/g, '"$1"')
+            .replace(/console\.log\(\s*"(.*?)".*?\);/, 'console.log("$1");')
             .replace(/if\s*\([^)]*container[^)]*\)\s*\{(?:[^{}]|\{[^{}]*\})*\}/gs, '') // Elimina bloques if relacionados con "container"
             .replace(/if\s*\([^)]*container[^)]*\)\s*\{[\s\S]*?\n\}/g, '')             // Variante para eliminar if con "container"
             .replace(/^\s*.*document\.createElement.*$/gm, '')                         // Elimina líneas con document.createElement
@@ -80,7 +99,7 @@ export function copyExButton() {                                                
             .replace(/^\s*.*classList\.add.*$/gm, '')                                  // Elimina líneas con classList.add
             .replace(/^\s*.*textContent.*$/gm, '')                                     // Elimina líneas que modifican textContent
             .replace(/^\s*.*style\..*$/gm, '')                                         // Elimina modificaciones de estilos inline
-            .replace(/^\s*.*innerHTML.*$/gm, '')                                       // Elimina líneas donde se usa innerHTML
+            .replace(/^\s*\w+\.innerHTML\s*=\s*`[\s\S]*?`;/gm, '')                     // Elimina líneas donde se usa innerHTML
             .replace(/^\s*.*container.*$/gm, '')                                       // Elimina líneas que contengan "container"
             .replace(/^\s*.*contenedor.*$/gm, '')                                      // Elimina líneas que contengan "contenedor"
             .replace(/document\.getElementById\(.*?\);?/g, '')                         // Elimina llamadas a getElementById
@@ -91,21 +110,15 @@ export function copyExButton() {                                                
             .trim();                                                                   // Quita espacios al inicio y final
 
 
-          const textoACopiar = script.src                                          // Guarda el texto a copiar accediendo al atributo src del script
-              ? fetch(script.src).then(res => res.text()).then(limpiarScript)      // Si existe hace una peticion fetch para descargar contenido, conviertela respuesta en texto y lo pasa a la funcion para que lo limpie
-              : limpiarScript(script.textContent);                                 // Sino se limpia el contenido directamente porque ya esta en la pagina 
-
-          Promise.resolve(textoACopiar).then(t => {              // Debido a que textocopiar puede ser string si el script es inline y promesa si el script externo y necesitamos hacer fetch, promise.resolver hara que se trate como una promesa si o si
-              navigator.clipboard.writeText(t).then(() => {      // API del navegador para acceder al portapapeles y copia el contenido
-                  text.textContent = 'Código Copiado';           // Se inserta el texto
-                  button.classList.add('copiado');               // Se le atribuye la clase copiado al boton
-
-                  setTimeout(() => {                             // Despues de 2000 milisegundas
-                      text.textContent = 'Copia el código!';     // Muestra el texto original
-                      button.classList.remove('copiado');        // Le quita la clase copiado
-                  }, 2000);
-              });
-          });
+          const textoACopiar = limpiarScript(bloqueEjercicio);
+        navigator.clipboard.writeText(textoACopiar).then(() => {
+            text.textContent = 'Código Copiado';
+            button.classList.add('copiado');
+            setTimeout(() => {
+                text.textContent = 'Copia el código!';
+                button.classList.remove('copiado');
+            }, 2000);
+        });
       });
 
       h2.appendChild(button);                                    // Meto el boton en el h2
