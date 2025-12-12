@@ -3,53 +3,53 @@ console.log(
   "color: white; background-color: #085f0c; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
 );
 
-const game = {
+const game = {                            // Creo objeto
     title: 'The Last of Us 2',
     gender: ['action', 'zombie', 'survival'],
     year: 2020
 };
 
-const { title, gender, year } = game;
+const { title, gender, year } = game;     // Object destructuring 
 
-console.log(title);
+console.log(title);                       // Imprimo
 console.log(gender);
 console.log(year);
 
-const fruits = ['Banana', 'Strawberry', 'Orange'];
-const [fruit1, fruit2, fruit3] = fruits;
+const fruits = ['Banana', 'Strawberry', 'Orange'];  // Creo array
+const [fruit1, fruit2, fruit3] = fruits;            // Array destructuring
 
-console.log(fruit1);
+console.log(fruit1);         // Imprimo
 console.log(fruit2);
 console.log(fruit3);
 
-const animalFunction = () => {
-    return {
+const animalFunction = () => {           // Se declara una función arrow
+    return {                             // La función devuelve un objeto
         name: 'Bengal Tiger',
         race: 'Tiger'
     };
 };
 
-const { name: animalName, race: animalRace } = animalFunction();
-
-console.log(animalName);
+const { name: animalName, race: animalRace } = animalFunction(); 
+// Se llama a animalFunction y se desestructura renombrando propiedades
+console.log(animalName);     // Imprimo
 console.log(animalRace);
 
-const car = {
+const car = {                 // Creo objeto
     name: 'Mazda 6',
     itv: [2015, 2011, 2020]
 };
 
-const { name: nameCar, itv: itvCar } = car;
+const { name: nameCar, itv: itvCar } = car;   // Object destructuring
 
-console.log(nameCar);
+console.log(nameCar);                         // Imprimo
 
-const [primero, segundo, tercero] = itvCar;
+const [primero, segundo, tercero] = itvCar;   // Array destructuring
 
-console.log(primero);
+console.log(primero);                         // Imprimo
 console.log(segundo);
 console.log(tercero);
-
-const destructurin = `
+                                    // Creo el renderizado
+const destructurin = `              
 --- Game ---
 Title: ${game.title}
 Gender: ${game.gender.join(', ')}
@@ -69,11 +69,9 @@ Name: ${car.name}
 ITV years: ${car.itv.join(', ')}
 `;
 
-// Mostramos en el div con saltos de línea
-const objDes = document.getElementById('objDes');
-objDes.style.whiteSpace = 'pre-line';
-objDes.textContent = destructurin;
-
+const objDes = document.getElementById('objDes');  // Rescato html
+objDes.style.whiteSpace = 'pre-line';                 
+objDes.textContent = destructurin;                 // Inserto el renderizado
 
 
 
@@ -81,30 +79,34 @@ objDes.textContent = destructurin;
 
 console.log("%c===== Ejercicio 2: Spread Operators =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
-const pointsList = [32, 54, 21, 64, 75, 43];
-const copiaPoints = [...pointsList];
+const pointsList = [32, 54, 21, 64, 75, 43];                                      // Creo array
+const copiaPoints = [...pointsList];                                              // Creo copia con spread operators
 
-console.log(pointsList);
+console.log(pointsList);                                                          // Imprimo
 console.log(copiaPoints);
 
-const toy = {name: 'Bus laiyiar', date: '20-30-1995', color: 'multicolor'};
-const copiaToy = {...toy};
+const toy = {name: 'Bus laiyiar', date: '20-30-1995', color: 'multicolor'};       // Creo objeto
+const copiaToy = {...toy};                                                        // Creo copia con spread operators
 console.log(copiaToy);
-
-const pointsLis2 = [54,87,99,65,32];
-const pointLists = [...pointsList, ...pointsLis2];
+ 
+const pointsLis2 = [54,87,99,65,32];                                              // Creo array
+const pointLists = [...pointsList, ...pointsLis2];                                // Fusiona las copias en un nuevo array
 console.log(pointLists);
 
-const toyUpdate = {lights: 'rgb', power: ['Volar like a dragon', 'MoonWalk']}
-const toys = {...toy, ...toyUpdate};
+const toyUpdate = {lights: 'rgb', power: ['Volar like a dragon', 'MoonWalk']}     // Creo objeto
+const toys = {...toy, ...toyUpdate};                                              // Fusiona copias en un nuevo objeto
 console.log(toys);
 
-const colors = ['rojo', 'azul', 'amarillo', 'verde', 'naranja'];
-const newColors = colors.filter(f => f !== 'azul');
+const colors = ['rojo', 'azul', 'amarillo', 'verde', 'naranja'];                  // Creo array
+const newColors = colors.filter(f => f !== 'azul');                               // Nuevo array filtrado
 console.log(newColors);
 
 function mostrarObjeto(obj) {
-  return Object.entries(obj).map(([key, value]) => `${key}: ${Array.isArray(value) ? value.join(', ') : value}`).join('\n');
+  return Object.entries(obj)
+    .map(([key, value]) => 
+      `${key}: ${Array.isArray(value) ? value.join(', ') : value}`
+    )
+    .join('\n');
 }
 
 const operators = `
@@ -319,6 +321,7 @@ const mediaRPG = rpgGames.reduce((acc, game) => acc + game.score, 0) / rpgGames.
 console.log(mediaRPG);
 
 document.getElementById('reduceDestruct').textContent = `Media RPG: ${mediaRPG.toFixed(2)}`;
+
 
 
 
