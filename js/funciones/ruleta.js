@@ -54,8 +54,7 @@ async function obtenerEjercicios(url) {                   // Función para extra
   divsEx.forEach(div => {                                 
     const h3 = div.querySelector('h3');                   // De cada div seleccionado
     if (h3) h3.remove();                                  // Guarda los h3 y los elimina
-    const solucion = div.querySelector('div.solucion');   // Guarda el div solucion y lo elimina
-    if (solucion) solucion.remove();
+    div.querySelectorAll('div.solucion').forEach(s => s.remove());
   });
 
   return divsEx.map(div => div.innerHTML);                // Devuelve los divs con map
