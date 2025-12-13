@@ -65,6 +65,17 @@ export function setupMenuToggle(menuBtn, sidebar, pageWrapper, container) {
     applyLayout(sidebar, pageWrapper, container);
   });
 
+  container.addEventListener('click', () => {
+    const width = window.innerWidth;
+    const isMobile = width <= 800;
+    const isActive = sidebar.classList.contains('active');
+    
+    if (isMobile && isActive) {
+      sidebar.classList.remove('active');
+      applyLayout(sidebar, pageWrapper, container);
+    }
+  });
+
   // Escucha resize
   window.addEventListener('resize', () => {
     applyLayout(sidebar, pageWrapper, container);
