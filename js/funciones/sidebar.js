@@ -32,7 +32,7 @@ function applyLayout(sidebar, pageWrapper, container) {
     
     if(isActive) { 
       container.style.width = '100%'; 
-      container.style.marginLeft = '7%';  
+      container.style.marginLeft = '9%';  
     } else {
       container.style.marginLeft = '2%';  
       container.style.width = '96%'; 
