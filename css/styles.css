@@ -119,13 +119,14 @@ body > aside:first-of-type {
   top: 4rem;
   left: 0;
   width: 240px;
-  height: 90vh;
+  height: 100vh;
   padding: 0.1rem 0.5rem 0.5rem 1rem;
   color: #fff;
   transform: translateX(-100%);
   transition: transform 1s ease;
   z-index: 1000;
   overflow: hidden;
+  background: var(--bg2-color);
 
   &.active {
     transform: translateX(0);
@@ -658,61 +659,3 @@ section {
   height: 1000px;
 }
 
-@media (max-width: 1500px) {
-  body > div:nth-of-type(2) > div {
-    width:74%;
-    margin-left: 6%;
-  }
-}
-
-@media (max-width: 1300px) {
-  body > div:nth-of-type(2) > div {
-    width:74%;
-    margin-left: 7%;
-  }
-}
-
-/* Mobile First - Dispositivos pequeños */
-@media (max-width: 800px) {
-  /* Navbar ajustes */
-  nav > div {
-    padding: 0.25rem 0.5rem;
-  }
-  
-  nav > div a {
-    margin-left: 20px;
-    font-size: 1.1rem;
-  }
-  
-  nav > div button {
-    font-size: 1.4rem;
-    height: 35px;
-    width: 35px;
-  }
-  
-  /* Sidebar ajustes */
-  body > aside:first-of-type {
-    width: 240px;
-    padding: 0.1rem 0.3rem 0.5rem 0.8rem;
-  }
-  
-  body > aside:first-of-type h3 {
-    font-size: 1.3rem;
-  }
-  
-  /* Contenido principal ajustes */
-  body > div:nth-of-type(2) > div {
-    width: 99%;
-    margin-left: 10%;
-  }
-  
-  /* Section ajustes */
-  section div {
-    padding: 0.8rem 1.5rem;
-    font-size: 1.1rem;
-  }
-  
-  section h1 {
-    font-size: clamp(1.4rem, 2vw + 0.6rem, 2rem);
-  }
-}

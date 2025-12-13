@@ -19,15 +19,55 @@ export function setupSidebarLinks(sidebar, main) {        // Funcion para coloca
   });
 }
 
-export function setupMenuToggle(menuBtn, sidebar, pageWrapper) { // Boton de plegar y desplegar sidebar
-  menuBtn.addEventListener('click', () => {                      // Se escucha el evento de click
-    sidebar.classList.toggle('active');                          // Si no tiene la clase active se la pone y viceversa 
+function applyLayout(sidebar, pageWrapper, container) {
+  const width = window.innerWidth;
+  const isActive = sidebar.classList.contains('active');
+  const isMobile = width <= 800;
 
-    if (sidebar.classList.contains('active')) {     // Si la sidebar esta abierta
-      pageWrapper.style.marginLeft = '250px';       // Mueve el contenido
+  if (isMobile) {
+    pageWrapper.style.marginLeft = '0';  
+    pageWrapper.style.width = '100%';  
+    
+    container.style.transition = 'margin-left 0.3s ease, width 0.3s ease';
+    
+    if(isActive) { 
+      container.style.width = '100%'; 
+      container.style.marginLeft = '7%';  
     } else {
-      pageWrapper.style.marginLeft = '0';           // Sino lo deja quieto
+      container.style.marginLeft = '2%';  
+      container.style.width = '96%'; 
     }
+    sidebar.style.transform = ''; 
+    return;
+  }
+
+  if (isActive) {
+    pageWrapper.style.marginLeft = '250px';
+    pageWrapper.style.width = 'calc(100% - 270px)';
+    container.style.marginLeft = '2%';
+    container.style.width = '80%';
+  } else {
+    pageWrapper.style.marginLeft = '0';
+    pageWrapper.style.width = '100%';
+    container.style.marginLeft = '0';
+    container.style.width = '100%';
+  }
+
+  sidebar.style.transform = '';
+  document.body.style.overflow = '';
+}
+
+export function setupMenuToggle(menuBtn, sidebar, pageWrapper, container) {
+  applyLayout(sidebar, pageWrapper, container);
+
+  menuBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+    applyLayout(sidebar, pageWrapper, container);
+  });
+
+  // Escucha resize
+  window.addEventListener('resize', () => {
+    applyLayout(sidebar, pageWrapper, container);
   });
 }
 

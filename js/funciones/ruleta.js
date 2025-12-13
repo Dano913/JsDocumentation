@@ -1,6 +1,8 @@
 // ruleta.js
 const paginasEjercicios = [                                                   // Guardo en una constante las paginas a las que estoy llamando
   './pages/ejercicios.html',
+  './pages/ejerciciosDOM.html',
+  './pages/ejerciciosasincronia.html',
 ];
 
 const boton = document.getElementById('girarRuleta');                         // Rescato el boton html
