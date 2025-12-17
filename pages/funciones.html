@@ -1,6 +1,6 @@
 <section class="section" id="funciones">
     <h1>Funciones</h1>
-    <div class="intro-text">
+    <article class="text">
         <p>Las funciones son una parte fundamental de JavaScript y de cualquier otro lenguaje de programación.</p>
         <p>Son un conjunto de instrucciones que se pueden ejecutar repetidamente en diferentes partes de un programa.</p>
         <p>Las funciones tienen varias ventajas:</p>
@@ -9,8 +9,8 @@
             <li>Ayudan a reutilizar código evitando tener que escribir el mismo código varias veces.</li>
             <li>Facilitan el depurado y el mantenimiento de un programa, ya que permite localizar y corregir errores en una sola parte del código en lugar de tener que buscarlos en todo el programa.</li>
         </ul>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Sintaxis</h2>
         <p>La sintaxis de una función en JavaScript es la siguiente:</p>
         <p>Los parámetros son variables que se pasan a la función y que se pueden utilizar dentro de ella.</p>
@@ -20,8 +20,8 @@
                 // código a ejecutar
             } 
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Declaración y llamada</h2>
         <p>Para llamar a una función, se utiliza su nombre seguido de paréntesis y, en algunos casos, de argumentos entre ellos.</p>
         <p>Los argumentos son valores que se pasan a la función y que se asignan a los parámetros de la función.</p>
@@ -33,8 +33,8 @@
 
             let resultado = suma(3, 4); // 7
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Declaración de funciones</h2>
         <p>Para declarar una función tenemos que usar la palabra reservada function <span class="codespan"><span class="token operator">+</span></span> el nombre de la misma <span class="codespan"><span class="token operator">+</span></span> unos paréntesis, que es donde nos llegarán nuestros parámetros <span class="codespan"><span class="token punctuation">()</span></span> y finalmente las llaves <span class="codespan"><span class="token punctuation">{}</span></span> en las cuales realizaremos nuestras operaciones.</p>
         <pre><code class="language-javascript">
@@ -70,8 +70,8 @@
             console.log(pokemonAttackParams
             ("Onix")); // ¡Onix Ataque arena!
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Retorno en las funciones</h2>
         <p>Hasta ahora nuestras funciones simplemente manipulaban datos y los mostraban por consola.</p>
         <p>¿Qué sucede si queremos manipular o transformar un dato y devolver un valor nuevo? Tenemos que retornar el elemento manipulado o transformado y lo hacemos a través del return.</p>
@@ -85,8 +85,8 @@
 
             console.log(result); // 25
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>¿Y si no quiero retornar nada pero quiero retornar para salir de la función?</h2>
         <p>Es posible utilizar return sin ningún valor.</p>
         <p>Eso hace que la función salga o termine inmediatamente.</p>
@@ -100,8 +100,8 @@
                 console.log("Mostrándote la película");
             }
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Alternativa a parámetros indeterminados</h2>
         <p>A veces tiene sentido asignar valores predeterminados, no en la declaración de función ,sino en un estadio posterior.</p>
         <p>Podemos verificar si un parámetro es pasado durante la ejecución de la función comparándolo con undefined.</p>
@@ -136,8 +136,8 @@
             showCount(null) // unknown
             showCount() // unknown
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Nombrado de Funciones</h2>
         <p>Las funciones son acciones.</p>
         <p>Entonces su nombre suele ser un verbo.</p>
@@ -149,8 +149,8 @@
             createForm()       // crea un formulario (y usualmente lo devuelve)
             checkPermission() // revisa permisos, y devuelve true/false
         </code></pre>
-    </div> 
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Arrow functions</h2>
         <p>Es una manera de generar funciones más compacta y además nos ayudará a entender mejor los problemas del scope.</p>
         <p>Al ver la sintaxis, ya no hace falta escribir la palabra function, lo sustituimos por la flecha <span class="codespan"><span class="token operator">=></span></span> .</p>
@@ -185,8 +185,8 @@
                 return "hola mundo"
             }
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Argumentos en las arrow functions</h2>
         <p>Como ya sabéis, en las funciones pueden entrar parámetros que indiquen los valores con los que vamos a trabajar en el caso de las arrow functions.</p>
         <p>Si solo tenemos un parámetro no hace falta indicar los paréntesis.</p>
@@ -201,8 +201,8 @@
 
             const multiplicacion = multi(2, 2);
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Recursividad</h2>
         <p>La recursividad es un concepto en programación en el que una función se llama a sí misma para resolver un problema.</p>
         <p>Veamos un ejemplo para comprenderlo mejor:</p>
@@ -229,5 +229,5 @@
         <p>Esto se repite hasta que n llega a <span class="codespan"><span class="token number">0</span></span>, momento en el que la recursión se detiene.</p>
         <p>La recursividad es una técnica muy potente en programación, utilizada para resolver problemas que pueden dividirse en subproblemas más pequeños y similares.</p>
         <p>En este caso, la función se llama a sí misma con un valor más pequeño en cada iteración, lo que finalmente conduce a la solución del problema.</p>
-    </div>  
+    </article>  
 </section>

@@ -1,12 +1,12 @@
 <section class="section" id="vite">
     <h1>VITE</h1>
-    <div class="intro-text">
+    <article class="text">
         <p>Cualquier aplicación web “tradicional” esta compuesta por HTML, CSS y JavaScript. Estos 3 elementos combinados darán forma, estilo y funcionalidad a nuestra aplicación web.</p>
         <p>Llegados a este punto deberíamos de encontrar la forma más adecuada de tener un entorno de desarrollo lo más parecido posible a lo que vamos a tener en el módulo de React, haciendo uso además de librerías o bibliotecas externas que nos compilen al formato anteriormente mencionado.</p>
         <p>Para ello haremos uso de los llamados “bundlers”, que son los encargados de recopilar en un mismo lugar las librerías, nuestros archivos HTML, CSS y JavaScript propios, compilarlo y devolverlo en un formato unificado al navegador.</p>
         <p>El bundler en cuestión que vamos a utilizar se llama Rollup, y lo haremos a través de Vite.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>¿Qué es Vite?</h2>
         <p>Vite es un conjunto de herramientas para el front-end en el que utilizaremos por debajo un bundler llamado Rollup y toda la configuración que Vite nos aporta para tener un entorno de desarrollo rápido en el que disfrutaremos de varias características:</p>
         <ul class="lista-estilizada">
@@ -16,8 +16,8 @@
             <li>Optimización de CSS.</li>
         </ul>
         <p>En el siguiente bloque generaremos nuestro propio HTML, CSS y JavaScript tal y como hemos hecho en anteriores ocasiones, y a través de este bundler generaremos una versión de nuestra aplicación web más optimizada combinando nuestro código con librerías externas.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Probando Rollup & Vite</h2>
         <p>Vamos a crear nuestro primer proyecto con Vite. Para ello vamos a acceder a la página web oficial de Vite dentro de la sección de Guía, la cual nos indicará paso a paso cómo podemos arrancar un proyecto desde nuestro entorno de desarrollo.</p>
         <p>Dentro de esta guía comprobaremos los diferentes templates que nos ofrece Vite, los cuales nos permitirán trabajar con diferentes configuraciones de lenguaje y tecnologías con las que trabajar en nuestro proyecto.</p>
@@ -45,8 +45,8 @@
             npm run dev     //Arrancamos el servidor 
         </code></pre>
         <p>Completados estos pasos, la terminal nos devolverá un mensaje con la dirección del puerto local donde está corriendo nuestro proyecto en su versión de desarrollo, por lo cual, si accedemos al puerto <span class="codespan">http://127.0.0.1:5173/</span> (en nuestro caso es este, pero dependiendo de la configuración de cada máquina puede variar), podremos ver el proyecto corriendo en nuestro navegador:</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Estructura de ficheros</h2>
         <p>Una vez creado el proyecto y arrancado el servidor con la información por defecto que nos proporciona el template de Vite tendremos en el navegador una vista de nuestro proyecto en su versión de desarrollo:</p>
         <p>En esta pantalla podremos ver un enlace a la documentación de Vite, a la documentación oficial de MDN acerca de JavaScript y un contador interactivo que nos cuenta los clicks que realizamos sobre él.</p>
@@ -95,8 +95,8 @@
             <li>También esta importando la función setUpCounter, a la cual le esta pasando el botón counter para modificar su innerHTML, inyectando toda la funcionalidad del counter.js en main.js. Como veis todo está bastante bien compartimentando y dividido según su funcionalidad.</li>
         </ul>
         <p>Como podemos comprobar si hacemos cualquier cambio en nuestros archivos, al guardar alguno de estos cambios tardará milésimas de segundos en reflejárnoslos en el navegador. Esto es lo que hemos mencionado en la introducción como Hot Reloading. Con esta funcionalidad podremos desarrollar a “tiempo real” viendo cualquier cambio que hagamos en “caliente”.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Creando un Bundle</h2>
         <p>Pero, ¿dónde está la parte en la que Rollup recopila todos mis archivos y genera una versión optimizada de todo?</p>
         <p>Para ello tendremos que ejecutar el último script reflejado en package.json denominado build, y que ejecutaremos mediante el siguiente comando:</p>
@@ -180,8 +180,8 @@
         <p>Nosotros siempre trabajaremos sobre la versión estándar de desarrollo, pero a la hora de publicar la página o desplegarla en algún servicio de despliegue lo que utilizaremos será esta versión que nos genera Vite. Bajo ningún concepto tendremos que tocar los archivos que nos ha generado el build en la carpeta dist.</p>
         <p>Si queremos ver una previsualización de esta versión procesada generada a través del build podemos ejecutar el script preview que nos proporciona Vite, mediante el cual podremos ver las diferencias de rendimiento directamente en el navegador en un puerto diferente.</p>
         <p>De esta forma estaremos viendo en el navegador la versión optimizada por Rollup y Vite de nuestra aplicación web.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Imports & Exports</h2>
         <p>Ahora que ya sabemos utilizar Vite para crear nuestros proyectos con el lenguaje que queramos, vamos a ver un concepto muy importante en proyectos con varios archivos que es import y export.</p>
         <p>Hasta ahora hemos trabajado solamente con un fichero de JavaScript y hemos volcado su funcionalidad en un fichero HTML, pero como hemos visto en el proyecto del template de Vite podemos tener varios que aniden scripts según su funcionalidad (por ejemplo).</p>
@@ -285,8 +285,8 @@
         <p>Como podeis comprobar, gracias a la palabra reservada as le estamos asignando un alias a nuestra constante importada, renombrando de una manera más “suave” dicha constante y pudiendo utilizar su alias en nuestro fichero.</p>
         <p>Importante, estamos renombrando como personObject a person en el archivo main.js, pero no estamos sustituyendo su nombre original. Aunque no tenga mucho sentido, podemos ponerle un apodo diferente en cualquier fichero donde importemos esta constante.</p>
         <p>Además de esto, tenemos que tener en cuenta que si renombramos una constante a través del import no podremos usar su nombre original en ese fichero, porque estamos importandonos, en el caso del ejemplo, person COMO personObject.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Deploy</h2>
         <p>Como último paso vamos a desplegar nuestra aplicación web en un dominio y así poder visitarla desde cualquier dispositivo a través de cualquier navegador.</p>
         <p>Lo primero que tenemos que tener es un repositorio de GitHub con nuestro proyecto subido.</p>
@@ -303,5 +303,5 @@
         <p>Y por último el directorio donde se encontrará la build, que de igual forma vimos que genera una carpeta llamada dist, por lo que tampoco necesitamos modificar el valor de este campo.</p>
         <p>Ya podemos clicar en Deploy Site y veremos el proceso del despliegue, el cual nos informará si hay algún error o inconveniente durante el proceso.</p>
         <p>Si todo ha ido correctamente, Netflify nos habrá generado una URL con el proyecto desplegado que podremos compartir con quién queramos y visitar nuestro proyecto desde cualquier dispositivo.</p>
-    </div>
+    </article>
 </section>

@@ -1,9 +1,9 @@
 <section class="section" id="ejercicios">
     <h1>Ejercicios DOM</h1>
-    <div class="intro-text ex">
+    <article class="ex">
         <p>Estos ejercicios son obligatorios y forman parte del Proyecto 2: JavaScript Katas. Tenéis que ir organizar tanto este bloque como el anterior de ejercicios y los siguientes para entregarlos en la siguiente unidad formativa.</p>
-    </div>
-    <div class="intro-text3 ex">
+    </article>
+    <article class="ex">
         <h2>Ejercicio 1</h2>
         <p>1.1 En base al siguiente javascript, crea variables en base a las propiedades del objeto usando object destructuring e imprimelas por consola. Cuidado, no hace falta hacer destructuring del array, solo del objeto.</p>
         <pre><code class="language-javascript">
@@ -24,8 +24,8 @@
             const car = {name: 'Mazda 6', itv: [2015, 2011, 2020] }
         </code></pre>
         <div id="objDes" class="solucion"></div>
-    </div>
-    <div class="intro-text3 ex">
+    </article>
+    <article class="ex">
         <h2>Ejercicio 2</h2>
         <p>2.1 Dado el siguiente array, crea una copia usando spread operators.</p>
         <pre><code class="language-javascript">
@@ -50,8 +50,8 @@
             const colors = ['rojo', 'azul', 'amarillo', 'verde', 'naranja'];
         </code></pre>
         <div id="spreadOps" class="solucion"></div>
-    </div>
-    <div class="intro-text3 ex">
+    </article>
+    <article class="ex">
         <h2>Ejercicio 3</h2>
         <p>3.1 Dado el siguiente array, devuelve un array con sus nombres utilizando .map().</p>
         <pre><code class="language-javascript">
@@ -81,8 +81,8 @@
             ];
         </code></pre>
         <div id="objDesMap" class="solucion"></div>
-    </div>
-    <div class="intro-text3 ex">
+    </article>
+    <article class="ex">
         <h2>Ejercicio 4</h2>
         <p>4.1 Dado el siguiente array, utiliza .filter() para generar un nuevo array con los valores que sean mayor que 18</p>
         <pre><code class="language-javascript">
@@ -112,8 +112,8 @@
         </code></pre>
         <p>4.5 utiliza .filter() para generar un nuevo array con los streamers que incluyan el caracter 'Legends' en su propiedad .gameMorePlayed. Recomendamos usar la funcion .includes() para la comprobación.Además, pon el valor de la propiedad .gameMorePlayed a MAYUSCULAS cuando .age sea mayor que 35.</p>
         <div id="objFilt" class="solucion"></div>
-    </div>
-    <div class="intro-text3 ex">
+    </article>
+    <article class="ex">
         <h2>Ejercicio 5</h2>
         <pre><code class="language-html">
             &lt;!doctype html&gt;
@@ -142,8 +142,8 @@
             <input type="text" data-function="toFilterStreamers"/>
         </div>
         <div id="inputFilter" class="solucion"></div>
-    </div>
-    <div class="intro-text3 ex">
+    </article>
+    <article class="ex">
         <h2>Ejercicio 6</h2>
         <p>6.1 Dado el siguiente array, haz una suma de todos las notas de los examenes de los alumnos usando la función .reduce().</p>
         <pre><code class="language-javascript">
@@ -163,8 +163,8 @@
         <p>6.2 Dado el mismo array, haz una suma de todos las notas de los examenes de los alumnos que esten aprobados usando la función .reduce().</p>
         <p>6.3 Dado el mismo array, haz la media de las notas de todos los examenes .reduce().</p>
         <div id="reduce" class="solucion"></div>
-    </div>
-    <div class="intro-text3 ex">
+    </article>
+    <article class="ex">
         <h2>Ejercicio 7</h2>
         <p>7.1 Dado el siguiente javascript filtra los videojuegos por gender = 'RPG' usando .filter() y usa .reduce() para conseguir la media de sus .score. La función .find() también podría ayudarte para el contrar el genero 'RPG' en el array .gender.</p>
         <pre><code class="language-javascript">
@@ -178,8 +178,8 @@
             ]
         </code></pre>
         <div id="reduceDestruct" class="solucion"></div>
-    </div>
-    <div class="intro-text3 ex">
+    </article>
+    <article class="ex">
         <h2>Ejercicio 8</h2>
         <p>Accederemos a los datos de una API pública de Game Of Thrones, queremos un select con todos los nombres de los personajes para que cuando un usuario seleccione un nombre salga su imagen en el medio de la página, algo así:</p>
         <p>Os aportamos el HTML sobre el que haremos el ejercicio:</p>
@@ -210,8 +210,8 @@
                 <img class="character-image">
             </div>
         </div>
-    </div>
-    <div class="intro-text3 ex">
+    </article>
+    <article class="ex">
         <h2>Ejercicio 9</h2>
         <p>Ahora realizaremos una petición a la PokeAPI, queremos mostrar al entrar en la página la imagen de un Pokemon, la magia estará en que cada vez que recargues la página, será un nuevo Pokemon dentro de la primera generación de Pokemon, es decir, del 1 al 151.</p>
         <p>Los Pokemon no solo tienen una imagen, si no que tendrán muchas, hay que hallar la manera de encontrar la que más os guste.</p>
@@ -238,7 +238,7 @@
             <p class="pokemon-name"></p>
             <button id="new-pokemon">Nuevo Pokémon</button>
         </div>
-    </div>
+    </article>
 </section>
 <script type="module" src="./js/ejerciciosSincronia/ejerciciosSincronia.js"></script>
 <script src="./js/main.js"></script>

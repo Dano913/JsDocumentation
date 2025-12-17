@@ -1,51 +1,52 @@
 <section class="section" id="dom">
     <h1>Navegadores & Storage</h1>
-    <div class="intro-text">
+    <article class="text">
         <p>En muchas ocasiones nos vendría bien guardar ciertos datos de una manera semi-permanente, o por lo menos más duradera que el guardado de variables en nuestro código directamente, ya que este código se vuelve a ejecutar de 0 en cada renderización de la página.</p>
         <p>Para cubrir esa necesidad de guardar ciertos datos entre sesiones tendremos dos herramientas: localStorage & sessionStorage</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>localStorage</h2>
         <p>Este almacenamiento es persistente y retiene los datos incluso después de cerrar el navegador. Es útil para guardar información que se desea mantener a largo plazo, como preferencias de usuario o datos de configuración.</p>
         <p>Estos datos persistirán únicamente en ese buscador, por lo tanto si cambiamos de dispositivo, o cuenta del buscador, esos datos se perderán.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>¿Para qué utilizamos localStorage?</h2>
         <ul class="lista-estilizada">
             <li>Preferencia de tema en páginas: Podríamos guardar las preferencias de un usuario como por ejemplo el tema en el que quiere ver nuestra página, siendo que si elige dark theme esta selección se guarde en el localStorage para que la próxima vez que entre siga teniendo su preferencia para nuestra página sin generarle fricción obligándole a que seleccione esa vez cada vez que entre en la página.</li>
             <li>Sesión de usuario activa: Cuando un usuario hace login en una aplicación, según que esté utilizando el servidor, se podría generar una especie de "token" o "llave", que indica que el usuario ha hecho login y sigue teniendo acceso, para no perder esta especie de llave la podríamos guardar en el localStorage y usarla el resto de veces que entre a la página para no obligarle a volver a hacerse login cada vez que entre de nuevo.</li>
             <li>Carrito de la compra: podríamos preservar los productos seleccionados por el usuario para que la próxima vez que entre a la aplicación aunque no haya finalizado la compra vea los productos que seleccionó anteriormente.</li>
         </ul>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>sessionStorage</h2>
         <p>A diferencia de localStorage, los datos almacenados en sessionStorage son de sesión y se borran cuando se cierra la ventana del navegador. Es útil para almacenar temporalmente datos que no son necesarios una vez que se cierra la sesión del usuario.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>¿Por qué usamos sessionStorage?</h2>
         <p>Con la explicación anterior parece que es mucho peor o menos útil que localStorage y en principio lo usaremos menos, pero da la sensación que sería lo mismo que no guardar ningún tipo de dato, puesto que el propio código funciona aparentemente igual, se pierden los datos al salir.</p>
         <p>Sin embargo esto no es exactamente así, ya que al guardar algunos datos en sessionStorage NO se perderían los datos al recargar la página, de manera contraria al funcionamiento de nuestro código que si vuelve a renderizarse desde 0.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>¿Para qué podría servir sessionStorage?</h2>
         <p>Al igual que localStorage, el uso se centra en facilitarle al usuario cliente el uso de nuestra página, por lo tanto, aunque tiene muchos posibles usos según nuestras preferencias, podríamos usarlo para guardar los datos de un formulario muy largo para que así si el usuario recarga sin querer la página u ocurre algo que la recargue, siga teniendo el formulario relleno y no tenga que volver a empezar de 0.</p>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Capacidad de almacenamiento</h2>
         <p>La capacidad de almacenamiento de localStorage y sessionStorage por norma general será la misma, sin embargo esta capacidad variará según el buscador.</p>
         <p>Lo más común es una capacidad de entre 5 a 10 MB.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>¿Cómo podemos usar localStorage?</h2>
         <p>Para utilizar localStorage tendremos un concepto que se repite en muchas ocasiones cuando estamos tratando datos, un CRUD.</p>
         <p>Para recordar, crud son las siglas: Create, Read, Update y Delete.</p>
         <p>Es decir, podremos guardar "crear" datos en localStorage, podremos leer esos datos guardados, podremos actualizar esos mismos datos que previamente habíamos creado y podremos por último limpiar o borrar esos mismos datos.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Guardar o crear datos en el localStorage</h2>
         <p>Para guardar un dato en localStorage deberemos utilizar el método setItem(), al cual le pasaremos una clave y un valor, además destacar que únicamente podremos guardar tipos de datos simples en el, así que deberemos convertir un objeto o un array en string antes de guardar esos datos.</p>
         <p>Recordad que todas las pruebas las haremos apoyándonos en un HTML, no hará falta que os pongamos el código HTML ya que no tiene nada, lo podéis crear desde 0 con HTML y JS.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>setItem()</h2>
         <p>El método setItem necesitará recibir dos parámetros, el primero siempre será la clave, es decir, cómo se llamará nuestro nuevo dato guardado, y el segundo parámetro será el valor, siendo que si este es un objeto o un array lo serializaremos previamente con JSON.stringify, para poder subirlo al localStorage.</p>
         <pre><code class="language-javascript">
@@ -58,8 +59,8 @@
             localStorage.setItem("objeto", JSON.stringify(objeto)); 
         </code></pre>
         <p>Para poder comprobar si esto ha funcionado podremos inspeccionar la página, ir al apartado application y abrir el localStorage, por ejemplo, ahora estamos viendo cómo los datos publicados son los que previamente hemos subido con setItem.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Actualizar datos en el localStorage</h2>
         <p>Para actualizar los datos en el localStorage no tendremos ningún método, reutilizaremos el método setItem, de tal manera que si ya está creado ese dato no lo creará si no que lo actualizará, por ejemplo:</p>
         <pre><code class="language-javascript">
@@ -81,8 +82,8 @@
             document.body.appendChild(button);
         </code></pre>
         <p>Cuando hagamos click en el botón que hemos creado podremos ver cómo la clave theme cambia al valor light.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Leer datos en el localStorage</h2>
         <p>Para leer datos del localStorage utilizaremos el método getItem(), el cual recibirá un único parámetro (la clave del dato que queramos) y nos dará su valor, si el valor era un objeto pero lo tuvimos que pasar a string entonces ahora utilizaríamos JSON.parse(objeto) para que volviese a ser un objeto.</p>
         <p>Ahora, borraremos todo el código que hemos realizado previamente y lo sustituiremos por el código que os ponemos a continuación.</p>
@@ -96,25 +97,25 @@
         <p>Gracias al código anterior podemos ver cómo estamos utilizando el dato que tenemos guardado en el localStorage en un h1 por ejemplo, no parece muy útil pero la utilidad se la daremos con lo que queramos hacer, el método será getItem() como hemos podido ver.</p>
         <p>Si no tuviéramos la clave "theme" guardada en el localStorage, esa función nos daría el valor null, por lo tanto si ponemos un || u "or" después con otro string podremos poner un valor por defecto a esa variable si no hubiese valor en la variable theme del localStorage</p>
         <p>Si abriésemos nuestra página desde otra cuenta de google, desde una ventana de incógnito u otro dispositivo, veríamos cómo el h1 ha cambiado porque no tenemos nada guardado en el localStorage.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Eliminar o borrar datos del localStorage</h2>
         <p>En algunas ocasiones nos convendrá eliminar ciertos datos del localStorage, y para ello podremos utilizar dos diferentes métodos.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>removeItem()</h2>
         <p>Lo utilizaremos cuando queramos eliminar cualquier dato del localStorage, se utilizará como el getItem("clave") enviándole la clave del elemento sobre el que quieras realizar dicha acción.</p>
         <p>Este eliminará el dato indicado por su clave:</p>
         <pre><code class="language-javascript">
             localStorage.removeItem("theme");
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>clear()</h2>
         <p>El método clear no recibe parámetros y simplemente limpiará el localStorage por completo, eliminando consigo todos los elementos que tuviera este almacenados:</p>
         <p>Este eliminará el dato indicado por su clave:</p>
         <pre><code class="language-javascript">
             localStorage.clear();
         </code></pre>
-    </div>
+    </article>
 </section>

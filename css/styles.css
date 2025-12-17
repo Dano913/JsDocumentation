@@ -579,8 +579,19 @@ section {
     }
   }
 
-  .intro-text{
-    max-width: 95%;
+  .ex {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 3rem;
+    padding: 1rem 3rem 2rem 3rem;
+    border-radius: 10px;
+    background-color: var(--bg2-color);
+    width: 95%;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: justify;
+    transition: min-height 0.8s ease;
   }
 
   .text {
@@ -599,29 +610,6 @@ section {
 
     p {
       text-align: justify;
-    }
-  }
-
-  .intro-text3 {
-    font-size: 1.2rem;
-    color: var(--text-color);
-    margin-bottom: 3rem;
-    padding: 2rem 3rem;
-    border-radius: 10px;
-    background-color: var(--bg2-color);
-    width: 95%;
-    gap: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: justify;
-    transition: min-height 0.8s ease;
-
-    .ej1 {
-      padding: 1rem 3rem;
-
-      h2 {
-        width: 100%;
-      }
     }
   }
 }

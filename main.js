@@ -1,4 +1,4 @@
-import { loadPage } from './js/funciones/body.js';
+import { loadPage, createFloatingNav } from './js/funciones/body.js';
 import { responsiveAside, setupResizeListener } from './js/funciones/aside.js';
 import { setupSidebarLinks, setupMenuToggle } from './js/funciones/sidebar.js';
 import { setupThemeToggle, setupExternalEditorButton } from './js/funciones/navbar.js';
@@ -25,6 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {                 // Se aseg
       setupSidebarLinks(sidebar, main);                               // Los enlaces cargan paginas
       setupThemeToggle(themeToggle, body);                            // Alterna tema claro oscuro
       setupExternalEditorButton();                                    // Abre editor en ventana externa
+      loadPage('/pages/introduccion.html', main).then(() => {
+        createFloatingNav(main);
+      });
     })
     .catch(err => console.error("Error cargando sidebar:", err));     // Manejo error
 });

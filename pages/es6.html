@@ -1,18 +1,18 @@
 <section class="section" id="es6">
     <h1>ES6+</h1>
-    <div class="intro-text2">
+    <article class="text">
         <h2>¿Qué es ES6+?</h2>
         <p>ES6+, también conocido como ECMAScript 2015+ o JavaScript ES6+, se refiere a las versiones de ECMAScript que comenzaron con la versión 6 (ES6) lanzada en 2015 y las actualizaciones posteriores (ES7, ES8, etc.).</p>
         <p>ECMAScript es el estándar sobre el cual se basa JavaScript, y ES6 fue una de las actualizaciones más significativas que introdujo muchas características nuevas que mejoraron la sintaxis y funcionalidad del lenguaje.</p>
         <p>En este módulo veremos diferentes características nuevas que nos facilitarán el día a día con nuestro código.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Destructuring</h2>
         <p>El destructuring es una característica de ES6 que permite extraer valores de arrays u objetos y asignarlos a variables de una manera más concisa y legible.</p>
         <p>Esta técnica simplifica la manipulación de estructuras complejas de datos.</p>
         <p>Vamos a desglosarlos con diferentes ejemplos para ver todo lo que abarca su utilidad.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Destructuring de arrays</h2>
         <p>La desestructuración de arrays permite extraer elementos individuales de un array y asignarlos a variables en una sola línea.</p>
         <pre><code class="language-javascript">
@@ -30,8 +30,8 @@
             console.log(third);  // Output: 'cherry'
         </code></pre>
         <p>En este ejemplo, hemos extraído los valores apple, banana y cherry del array fruits y los hemos asignado a las variables first, second y third.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Destructuring de objetos</h2>
         <p>La desestructuración de objetos permite extraer propiedades de un objeto y asignarlas a variables.</p>
         <pre><code class="language-javascript">
@@ -53,8 +53,8 @@
             console.log(profession); // Output: 'Developer'
         </code></pre>
         <p>Aquí, hemos extraído las propiedades name, age y profession del objeto person y las hemos asignado a variables con los mismos nombres.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Valores por Defecto</h2>
         <p>Puedes proporcionar valores por defecto en caso de que la propiedad no exista en el objeto o el array.</p>
         <pre><code class="language-javascript">
@@ -69,8 +69,8 @@
             console.log(age);  // Output: 25 (valor por defecto)
         </code></pre>
         <p>En este caso, como age no está definido en el objeto person, se usa el valor por defecto 25.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Destructurin Anidado</h2>
         <p>Puedes usar desestructuración anidada para extraer valores de estructuras de datos más complejas.</p>
         <pre><code class="language-javascript">
@@ -93,8 +93,8 @@
             console.log(country); // Output: 'Fantasy'
         </code></pre>
         <p>En este ejemplo, hemos extraído name, city y country de un objeto anidado.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Intercambio de Variables</h2>
         <p>La desestructuración también puede ser usada para intercambiar valores entre dos variables de manera concisa.</p>
         <pre><code class="language-javascript">
@@ -107,13 +107,13 @@
             console.log(a); // Output: 2
             console.log(b); // Output: 1
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Spread Operator</h2>
         <p>El spread operator permite expandir elementos de un array o propiedades de un objeto en lugares donde se esperan múltiples elementos.</p>
         <p>Esto es útil para combinar arrays, copiar arrays, y pasar elementos de un array como argumentos a funciones.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Ejemplos con Arrays</h2>
         <p>Combinar arrays:</p>
         <pre><code class="language-javascript">
@@ -140,8 +140,8 @@
 
             console.log(greetJedi(...jedi)); // Output: Greetings Luke, Yoda, and Obi-Wan
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Ejemplos con Objetos</h2>
         <p>Combinar objetos:</p>
         <pre><code class="language-javascript">
@@ -165,13 +165,13 @@
 
             console.log(updatedIronMan); // Output: { name: 'Tony Stark', suit: 'Mark L' }
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Rest Parameter</h2>
         <p>El rest parameter permite agrupar el número indefinido de argumentos en un array.</p>
         <p>Se usa principalmente en la definición de funciones para capturar todos los argumentos restantes.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Ejemplo con Funciones</h2>
         <p>Función con parámetros rest:</p>
         <pre><code class="language-javascript">
@@ -193,8 +193,8 @@
             // Leader: Professor X
             // Members: Cyclops, Wolverine, Storm
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Uso en Objetos</h2>
         <p>Extraer Propiedades Rest en Objetos:</p>
         <pre><code class="language-javascript">
@@ -204,8 +204,8 @@
             console.log(alias); // Output: 'Wolverine'
             console.log(rest); // Output: { name: 'Logan', team: 'X-Men' }
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Casos de Uso Combinados</h2>
         <p>Uso Combinado en Funciones y Arrays:</p>
         <pre><code class="language-javascript">
@@ -232,17 +232,17 @@
             console.log(rest); // Output: { name: 'Harry', house: 'Gryffindor' }
         </code></pre>
         <p>El spread operator facilita la combinación y copia de arrays y objetos, mientras que el rest parameter permite manejar argumentos variables en funciones y extraer propiedades restantes de objetos.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Modules</h2>
         <p>Los módulos en ES6+ permiten dividir el código en archivos reutilizables y organizados. Esta característica mejora la mantenibilidad y la claridad del código, permitiendo exportar e importar funcionalidades entre diferentes archivos.</p>
         <p>ES6 introduce dos palabras clave principales para trabajar con módulos: export e import.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Exportación</h2>
         <p>Existen dos tipos principales de exportaciones en ES6: exportaciones nombradas (named exports) y exportaciones por defecto (default exports).</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Exportaciones Nombradas</h2>
         <p>Las exportaciones nombradas permiten exportar múltiples valores desde un módulo. Cada valor exportado debe ser importado con el mismo nombre.</p>
         <pre><code class="language-javascript">
@@ -254,8 +254,8 @@
                 console.log(`${hero} saves the day!`);
             }
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Exportaciones por Defecto</h2>
         <p>Las exportaciones por defecto permiten exportar un solo valor o una función desde un módulo. Este valor puede ser importado con cualquier nombre.</p>
         <pre><code class="language-javascript">
@@ -263,12 +263,12 @@
             const superpower = 'Web-Slinging';
             export default superpower;
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Importación</h2>
         <p>Las importaciones permiten traer funciones, variables, u objetos de otros módulos al contexto actual.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Importaciones Nombradas</h2>
         <p>Las importaciones nombradas requieren el nombre exacto de lo que se está importando desde el módulo.</p>
         <pre><code class="language-javascript">
@@ -279,8 +279,8 @@
             console.log(villain); // Output: 'Green Goblin'
             saveTheDay(); // Output: 'Spider-Man saves the day!'
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Importaciones por Defecto</h2>
         <p>Las importaciones por defecto pueden ser nombradas como desees al importarlas.</p>
         <pre><code class="language-javascript">
@@ -289,8 +289,8 @@
 
             console.log(superpower); // Output: 'Web-Slinging'
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Reexportaciones</h2>
         <p>Un módulo puede reexportar cosas que ha importado de otros módulos, facilitando la creación de puntos de entrada unificados.</p>
         <pre><code class="language-javascript">
@@ -306,8 +306,8 @@
             saveTheDay(); // Output: 'Spider-Man saves the day!'
             console.log(superpower); // Output: 'Web-Slinging'
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Ejemplo Completo</h2>
         <p>Vamos a construir un ejemplo completo que utiliza módulos para gestionar un equipo de superhéroes y sus habilidades.</p>
         <pre><code class="language-javascript">
@@ -338,14 +338,14 @@
             console.log(`Villains: ${villains.join(', ')}`);
             // Output: Villains: Joker, Lex Luthor, Reverse-Flash
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Métodos de arrays ES6+</h2>
         <p>ES6+ introdujo varias mejoras en los métodos de arrays, haciendo que el manejo de colecciones de datos sea más fácil y más eficiente.</p>
         <p>Estos métodos ayudan a realizar operaciones comunes de manera más concisa y legible.</p>
         <p>Veamos qué utilidades podemos darles a cada uno de estos nuevos métodos:</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>map()</h2>
         <p>El método map crea un nuevo array con los resultados de aplicar una función a cada uno de los elementos del array original.</p>
         <p>Veamos varios ejemplos:</p>
@@ -367,8 +367,8 @@
             const pricesInDollars = pricesInEuros.map(price => price * 1.2);
             console.log(pricesInDollars); // Output: [12, 24, 36]
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>filter()</h2>
         <p>El método filter crea un nuevo array con todos los elementos que cumplan una condición definida en una función.</p>
         <p>Veamos varios ejemplos:</p>
@@ -390,8 +390,8 @@
             const adults = ages.filter(age => age >= 18);
             console.log(adults); // Output: [18, 22, 30]
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>reduce()</h2>
         <p>El método reduce aplica una función a un acumulador y a cada elemento del array (de izquierda a derecha) para reducirlo a un único valor.</p>
         <p>Veamos varios ejemplos:</p>
@@ -419,8 +419,8 @@
             //   '25': [{ name: 'Bob', age: 25 }]
             // }
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>find()</h2>
         <p>El método find devuelve el primer elemento del array que cumpla con una condición especificada en una función.</p>
         <p>Si ningún elemento cumple con la condición, devuelve undefined.</p>
@@ -447,8 +447,8 @@
             const personNamedBob = people.find(person => person.name === 'Bob');
             console.log(personNamedBob); // Output: { name: 'Bob', age: 25 }
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>every()</h2>
         <p>El método every comprueba si todos los elementos del array cumplen con una condición especificada en una función.</p>
         <p>Devuelve true si todos los elementos cumplen con la condición, de lo contrario, devuelve false.</p>
@@ -475,8 +475,8 @@
             const allHaveAge = people.every(person => person.age !== undefined);
             console.log(allHaveAge); // Output: true
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>some()</h2>
         <p>El método some comprueba si al menos un elemento del array cumple con una condición especificada en una función.</p>
         <p>Devuelve true si al menos un elemento cumple con la condición, de lo contrario, devuelve false.</p>
@@ -493,8 +493,8 @@
             const someLongNames = names.some(name => name.length > 5);
             console.log(someLongNames); // Output: true
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>includes()</h2>
         <p>El método includes determina si un array incluye un determinado elemento, devolviendo true o false según corresponda.</p>
         <p>Este método ya lo hemos visto anteriormente, pero nos servirá combinado con los que estamos aprendiendo ahora mismo.</p>
@@ -513,5 +513,5 @@
             const includesAlice = people.includes(alice);
             console.log(includesAlice); // Output: true
         </code></pre>
-    </div>
+    </article>
 </section>

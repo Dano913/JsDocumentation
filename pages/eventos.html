@@ -1,13 +1,13 @@
 <section class="section" id="dom">
     <h1>Eventos</h1>
-    <div class="intro-text">
+    <article class="text">
         <p>Hasta ahora todo el código JavaScript que hemos generado se ejecutaba “directamente” al cargar la página, pero con esto no conseguimos ofrecer al usuario demasiada interacción.</p>
         <p>Para cubrir nuestras necesidades de interacción podemos hacer uso de eventos, que una vez detectados lancen la funcionalidad deseada. Los eventos en JavaScript son "señales" que le indican a tu código que algo ha ocurrido en la aplicación web.</p>
         <p>Imagina que estás escuchando música con auriculares y alguien te toca el hombro para decirte algo. Ese toque en el hombro es como un evento: te notifica que algo está sucediendo.</p>
         <p>En el mundo de la programación web, los eventos pueden ser "señales" como hacer click en un botón, mover el mouse sobre una imagen, presionar una tecla en el teclado o incluso cargar una página. Cuando estos eventos ocurren en tu página web, puedes escribir código JavaScript para responder a ellos, como cambiar el texto en un elemento de la página, mostrar un mensaje o realizar cualquier acción que desees.</p>
         <p>En resumen, los eventos en JavaScript son como las señales o disparadores que informan a tu código sobre lo que está sucediendo en la página web, permitiéndote crear interacciones dinámicas y responder a las acciones de los usuarios.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Eventos en DOM</h2>
         <p>Existe una forma de gestionar eventos Javascript sin necesidad de hacerlo desde nuestros ficheros .html.</p>
         <p>No obstante, se trata de una "trampa", puesto que seguimos haciéndolo desde HTML, sólo que ese HTML se crea desde JavaScript, y nos permite llevarlo a los ficheros .js.</p>
@@ -33,8 +33,8 @@
                 button.setAttribute("onclick", "doTask()");
             &lt;/script&gt; 
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Escuchadores de eventos</h2>
         <p>Otra manera de tratar los eventos es vincular un eventListener (escuchador de eventos).</p>
         <p>De esta manera preparamos la lógica necesaria para que cuando se dispare un evento concreto, se gestione dentro de la función que nosotros hemos preparado para ello.</p>
@@ -51,8 +51,8 @@
                     .addEventListener("click", handleClick);
             &lt;/script&gt;
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Ejemplos con addEventListener</h2>
         <p>Vamos a probar con algunos ejemplos de cómo usar addEventListener en JavaScript para realizar ciertas funciones prácticas.</p>
         <p>1️⃣ Detectar la tecla presionada en un input de tipo text.</p>
@@ -99,8 +99,8 @@
             document.addEventListener("keydown", closeModal)
         </code></pre>
         <p>En resumen, los eventos son una herramienta esencial para hacer que las aplicaciones web sean interactivas al permitir que respondan a las acciones del usuario de una manera controlada y personalizada.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Eventos de ventana</h2>
         <p>Los eventos de ventana (window events) en JavaScript se refieren a las interacciones y acciones que ocurren en la propia ventana del navegador.</p>
         <p>Los eventos de ventana se desencadenan cuando ocurren ciertas acciones o situaciones dentro de propio "entorno visual".</p>
@@ -121,5 +121,5 @@
                 // Código a ejecutar antes de que la ventana se cierre o cambie de página
             })
         </code></pre>
-    </div>
+    </article>
 </section>

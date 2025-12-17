@@ -182,6 +182,7 @@ export function loadPage(url, main) {          // Funcion de cargar pagina con p
           left: 0,
           behavior: "instant"
         });
+        window.currentPage = url;
         normalizeCodeBlocks(main);             // Ajusta indentacion de bloques
         executeScripts(main);                  // Ejecuta los scripts q no sean modulos
         createAside();                         // Crea aside
@@ -213,3 +214,121 @@ export function loadPage(url, main) {          // Funcion de cargar pagina con p
       });
   });
 }
+
+export function createFloatingNav(main) {
+  // Contenedor flotante sobre el contenido
+  const navDiv = document.createElement('div');
+  navDiv.style.position = 'fixed';
+  navDiv.style.bottom = '30px';
+  navDiv.style.left = '50%';
+  
+  navDiv.style.transform = 'translateX(-50%)';
+  navDiv.style.display = 'flex';
+  navDiv.style.alignItems = 'center';
+  navDiv.style.gap = '20px';
+  navDiv.style.zIndex = '1000';
+  navDiv.style.background = 'var(--bg2-color)';
+  navDiv.style.border = '2px solid var(--text-color)';
+  navDiv.style.borderRadius = '10px';
+  navDiv.style.padding = '2px 10px';
+
+  // Botón anterior
+  const prevBtn = document.createElement('button');
+  prevBtn.textContent = '⬅';
+  prevBtn.style.fontSize = '24px';
+  prevBtn.style.cursor = 'pointer';
+  prevBtn.style.border = 'none';
+  prevBtn.style.background = 'transparent';
+  prevBtn.style.color = 'var(--text-color)';
+
+  // Número de página
+  const pageNumber = document.createElement('span');
+  pageNumber.style.fontWeight = 'bold';
+  pageNumber.style.fontSize = '16px';
+
+  // Botón siguiente
+  const nextBtn = document.createElement('button');
+  nextBtn.textContent = '➡';
+  nextBtn.style.fontSize = '24px';
+  nextBtn.style.cursor = 'pointer';
+  nextBtn.style.border = 'none';
+  nextBtn.style.background = 'transparent';
+  nextBtn.style.color = 'var(--text-color)';
+
+  navDiv.appendChild(prevBtn);
+  navDiv.appendChild(pageNumber);
+  navDiv.appendChild(nextBtn);
+
+  // Añadir al contenedor de main (pero fuera de innerHTML)
+  main.parentElement.appendChild(navDiv);
+
+  // Array de páginas
+  const pages = [
+    './pages/introduccion.html',
+    './pages/datos.html',
+    './pages/objetos.html',
+    './pages/arrays.html',
+    './pages/condicionales.html',
+    './pages/bucles.html',
+    './pages/funciones.html',
+    './pages/ejercicios.html',
+    './pages/dom.html',
+    './pages/eventos.html',
+    './pages/date.html',
+    './pages/crud.html',
+    './pages/ejerciciosDOM.html',
+    './pages/rockPage.html',
+    './pages/vite.html',
+    './pages/practicaGuiada.html',
+    './pages/es6.html',
+    './pages/asincronia.html',
+    './pages/ejerciciosasincronia.html',
+    './pages/jscomponents.html',
+    './pages/navystorage.html',
+    './pages/ruleta.html'
+  ];
+
+  let currentIndex = 0;
+
+  function updatePageNumber() {
+    pageNumber.textContent = `${currentIndex + 1} / ${pages.length}`;
+  }
+
+  function goToPage(index) {
+    if (index < 0) index = 0;
+    if (index >= pages.length) index = pages.length - 1;
+    currentIndex = index;
+    loadPage(pages[currentIndex], main).then(() => {
+      updatePageNumber(); // solo actualiza número
+    });
+  }
+
+  prevBtn.addEventListener('click', () => goToPage(currentIndex - 1));
+  nextBtn.addEventListener('click', () => goToPage(currentIndex + 1));
+
+  function syncWithCurrentPage() {
+    const index = pages.findIndex(
+      p => p === window.currentPage
+    );
+
+    if (index !== -1 && index !== currentIndex) {
+      currentIndex = index;
+      updatePageNumber();
+    }
+  }
+
+  const observer = new MutationObserver(() => {
+    syncWithCurrentPage();
+  });
+
+  observer.observe(main, {
+    childList: true,
+    subtree: true
+  });
+
+  updatePageNumber();
+}
+
+
+
+
