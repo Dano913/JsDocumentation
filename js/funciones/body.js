@@ -177,6 +177,11 @@ export function loadPage(url, main) {          // Funcion de cargar pagina con p
       .then(res => res.text())                 // Convierte la respuesta en otro html
       .then(html => {                          
         main.innerHTML = html;                 // Inserta el contenido html en el main
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "instant"
+        });
         normalizeCodeBlocks(main);             // Ajusta indentacion de bloques
         executeScripts(main);                  // Ejecuta los scripts q no sean modulos
         createAside();                         // Crea aside

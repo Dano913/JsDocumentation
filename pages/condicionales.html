@@ -1,10 +1,10 @@
 <section class="section" id="condicionales">
     <h1>Condicionales</h1>
-    <div class="intro-text">
+    <article class="text">
         <p>Los condicionales son una parte fundamental de cualquier lenguaje de programación y permiten ejecutar un bloque de código sólo si se cumple una determinada condición.</p>
         <p>En JavaScript, existen diferentes tipos de condicionales, cada uno con su propia sintaxis y usos específicos.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Condicional if</h2>
         <p>El condicional if es el más básico y se utiliza para ejecutar un bloque de código si se cumple una determinada condición.</p>
         <p>Un ejemplo realista sería por ejemplo comprobar si la contraseña elegida por un usuario para registrarse contiene un número. Hay mil maneras de hacerlo, pero realmente con condiciones podemos conseguir casi cualquier cosa.</p>
@@ -13,10 +13,10 @@
                 // código a ejecutar si se cumple la condición
             }
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Ejemplo condicional if</h2>
-        <p>En este caso, la condición age >= 18 se cumple, por lo que se ejecuta el código dentro del bloque if y se imprime "Eres mayor de edad" en la consola.</p>
+        <p>En este caso, la condición <span class="codespan"><span class="token variable">age</span> <span class="token punctuation">>=</span> <span class="token number">18</span></span> se cumple, por lo que se ejecuta el código dentro del bloque if y se imprime "Eres mayor de edad" en la consola.</p>
         <pre><code class="language-javascript">
             let age = 18;
 
@@ -24,8 +24,8 @@
                 console.log("Eres mayor de edad");
             }
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Condicional if...else</h2>
         <p>El condicional if...else es una extensión del condicional if y se utiliza para ejecutar un bloque de código si se cumple una determinada condición y otro bloque de código si no se cumple.</p>
         <pre><code class="language-javascript">
@@ -35,10 +35,10 @@
                 // código a ejecutar si NO se cumple la condición
             } 
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Ejemplo if... else</h2>
-        <p>En este caso, la condición age >= 18 no se cumple, por lo que se ejecuta el código dentro del bloque else y se imprime "Eres menor de edad" en la consola.</p>
+        <p>En este caso, la condición <span class="codespan"><span class="token variable">age</span> <span class="token punctuation">>=</span> <span class="token number">18</span></span> no se cumple, por lo que se ejecuta el código dentro del bloque else y se imprime "Eres menor de edad" en la consola.</p>
         <pre><code class="language-javascript">
             let age = 17;
 
@@ -50,8 +50,8 @@
                 console.log("Eres menor de edad");
             }
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Condicional if...else if...else</h2>
         <p>El condicional if...else if...else es otra extensión del condicional if y se utiliza para evaluar varias condiciones de manera secuencial.</p>
         <pre><code class="language-javascript">
@@ -63,10 +63,10 @@
                 // código a ejecutar si NINGUNA de las anteriores condiciones se cumple
             }
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Ejemplo if... else if... else</h2>
-        <p>En este caso, la condición age > 18 no se cumple, al no cumplirse pasamos a la siguiente condición, que es si age es 18, como si cumple con esa condición se ejecutará todo el código que haya dentro del bloque y nunca pasará por el else, puesto que se ha cumplido alguna de las condiciones anteriores.</p>
+        <p>En este caso, la condición <span class="codespan"><span class="token variable">age</span> <span class="token punctuation">>=</span> <span class="token number">18</span></span> no se cumple, al no cumplirse pasamos a la siguiente condición, que es si age es 18, como si cumple con esa condición se ejecutará todo el código que haya dentro del bloque y nunca pasará por el else, puesto que se ha cumplido alguna de las condiciones anteriores.</p>
         <pre><code class="language-javascript">
             let age = 18;
 
@@ -81,8 +81,8 @@
                 console.log("Eres menor de edad");
             }
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Condicionales Switch</h2>
         <p>El condicional switch anida múltiples instrucciones de tipo if…else, este tipo de forma de expresión nos resultará útil al tener un número elevado de condiciones y aportan una mayor limpieza al código.</p>
         <pre><code class="language-javascript">
@@ -109,5 +109,5 @@
                 break;
             }
         </code></pre>
-    </div>
+    </article>
 </section>

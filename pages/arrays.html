@@ -1,13 +1,13 @@
 <section class="section" id="arrays">
     <h1>Arrays</h1>
-    <div class="intro-text">
-        <p>Un array o matriz, no es un tipo de dato como tal en JavaScript, sin embargo, nosotros lo interpretaremos como tal de momento, puesto que será un elemento que utilizaremos de manera muy asidua. Un array SIEMPRE se escribe de la misma manera.</p>
-        <p>Será una lista de elementos, irá envuelta con los corchetes [] y los elementos irán separados por comas.</p>
+    <article class="text">
+        <p>Un array o matriz, no es un tipo de dato como tal en JavaScript, sin embargo, nosotros lo interpretaremos como tal de momento, puesto que será un elemento que utilizaremos de manera muy asidua. Un array siempre se escribe de la misma manera.</p>
+        <p>Será una lista de elementos, irá envuelta con los corchetes <span class="codespan"><span class="token punctuation">[]</span></span> y los elementos irán separados por comas.</p>
         <p>Un array puede tener cualquier tipo de dato en su interior, otros arrays, objetos, números, strings, booleans...</p>
         <p>Además, no tienen por qué ser todos los elementos que tengamos en una lista del mismo tipo, pero será lo más común. Es como si tenemos una lista de la compra y entre toda esa lista de repente nos encontramos un elemento que no debería ir en la lista, por ejemplo no sería lógico que una lista de la compra aparezca la palabra "Europa".</p>
         <p>Lo más normal es que los arrays tengan sentido lógico.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Ejemplos de arrays</h2>
         <p>Este array tiene diferentes tipos de datos en su interior y tiene una longitud de 7 elementos, aunque algún elemento tenga dentro otros tipos de datos complejos eso es "otra capa de la cebolla" y ahora mismo no nos importa, ya aprenderemos a "bucear" correctamente entre arrays y objetos más adelante.</p>
         <pre><code class="language-javascript">
@@ -45,20 +45,20 @@
 
             const listas = [["esto", "es", "una", "lista", "hija", "de", "otra"], [], []] // longitud = 3
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Un array es iterable</h2>
-        <p>Como vimos con los strings (cadenas de texto), que un dato sea iterable significa que sus elementos internos se clasifican por posiciones, de la 0 hasta el último elemento de 1 en 1, y por lo tanto con esa cualidad podemos utilizar bucles para "iterar" o "recorrer" el propio dato, y por lo tanto, podremos usar montones de métodos creados para hacer esto de manera más rápida o sencilla.</p>
-    </div>
-    <div class="intro-text">
+        <p>Como vimos con los strings (cadenas de texto), que un dato sea iterable significa que sus elementos internos se clasifican por posiciones, de la <span class="codespan"><span class="token number">0</span></span> hasta el último elemento de 1 en 1, y por lo tanto con esa cualidad podemos utilizar bucles para "iterar" o "recorrer" el propio dato, y por lo tanto, podremos usar montones de métodos creados para hacer esto de manera más rápida o sencilla.</p>
+    </article>
+    <article class="text">
         <h2>Posiciones en un array</h2>
-        <p>Los tipos de datos que haya dentro de CADA posición de nuestro array, dan completamente igual, cada elemento estará separado por comas, y cada elemento corresponderá a una posición.</p>
+        <p>Los tipos de datos que haya dentro de cada posición de nuestro array, dan completamente igual, cada elemento estará separado por comas, y cada elemento corresponderá a una posición.</p>
         <pre><code class="language-javascript">
             const strings = ["hola", "mundo", "!"];
             //posiciones ->    0        1      2
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Accediendo a una posición de un array</h2>
         <p>Acceder a una posición de un array se realiza mediante el uso de corchetes a continuación del nombre de la variable array y utilizando los números de cada posición.</p>
         <p>Sin embargo, también es posible acceder a las posiciones mediante expresiones matemáticas, lógicas o de comparación.</p>
@@ -84,11 +84,11 @@
             <li>Cualquier otra sentencia que devuelva un número: array[funcionQueDevuelveUnNumero()]</li>
         </ul>
         <p>Lo importante es que el resultado final sea una posición válida (número) para nuestro array.</p>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Usar el índice de un bucle para acceder a CADA posición del array</h2>
         <p>Aquí se observa un bucle que recorre un array desde la posición 0 hasta la última.</p>
-        <p>El valor del índice del bucle ("i") se utiliza para acceder a cada uno de los elementos del array. La variable "i" actúa como la posición del array dentro de los corchetes.</p>
+        <p>El valor del índice del bucle <span class="codespan"><span class="token variable">i</span></span> se utiliza para acceder a cada uno de los elementos del array. La variable "i" actúa como la posición del array dentro de los corchetes.</p>
         <p>No os preocupéis, lo veremos más adelante.</p>
         <pre><code class="language-javascript">
             const array = ["elemento1", "elemento2", "elemento3"];
@@ -100,8 +100,8 @@
 
             }
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Métodos de arrays</h2>
         <p>Al igual que los Strings, los arrays poseen una gran cantidad de métodos que nos simplifican el trabajo (aunque no realizan tareas mágicas, ya que todo lo que hacen se puede lograr manualmente).</p>
         <pre><code class="language-javascript">
@@ -157,5 +157,5 @@
         </code></pre>
         <p>No es necesario memorizar todos los métodos de los arrays, ni sus funciones específicas o cómo utilizarlos.</p>
         <p>Sin embargo, algunos de ellos son bastante útiles en el desarrollo actual y los usaremos con frecuencia en ejercicios posteriores.</p>
-    </div>
+    </article>
 </section>

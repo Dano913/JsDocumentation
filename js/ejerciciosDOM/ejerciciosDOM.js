@@ -255,6 +255,8 @@ const albums = [                  // Creo array
 const rockPage = document.getElementById('rockPage');  // Rescato html
 
 const ulRock = document.createElement('ul');           // Creo ul
+ulRock.className = 'lista-estilizada';
+
 albums.forEach(album => {                              // Recorro array y por cada elemento
   const li = document.createElement('li');             // Creo li
   li.textContent = album;                              // Meto el contenido del elemento en el li

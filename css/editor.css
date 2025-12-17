@@ -107,7 +107,7 @@ body {
     border-bottom: 1px solid #555;
     display: flex;
     justify-content: space-between;
-    height: 40px;
+    min-height: 40px;
 }
 
 .code-editor {

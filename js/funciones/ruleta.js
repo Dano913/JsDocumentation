@@ -8,39 +8,7 @@ const paginasEjercicios = [                                                   //
 const boton = document.getElementById('girarRuleta');                         // Rescato el boton html
 const contenedor = document.getElementById('ejercicioSeleccionado');          // Rescato el div html
 
-// Eliminar aside derecho solo en esta página
-function eliminarAsideDerecho() {                                             // Funcion de eliminar aside porque no la necesito en la ruleta
-  const asideDerecho = document.getElementById('aside');                      // Rescato el html
-  if (asideDerecho) {                                                         // Compruebo que existe
-    asideDerecho.remove();                                                    // Lo elimino
-  }
-}
 
-function ajustarAnchosSegunSidebar() {                                        // Función de ajustar los anchos segun el despliegue de la sidebar
-  const sidebar = document.querySelector('.sidebar');                         // Rescato html
-  const mainContent = document.querySelector('.content');
-  const mainContainer = document.querySelector('.container');
-  const mainWrapper = document.querySelector('.page-wrapper');
-
-  if (!sidebar || !mainContent || !mainContainer || !mainWrapper) return;     // Comprueba si cualquiera de los elementos no existe para cortar la ejecución
-
-  const isSidebarDesplegada = sidebar.classList.contains('active');           // Guarda en variable el hecho de que existe la clase active
-
-  if (isSidebarDesplegada) {                                                  // Estilos para sidebar desplegada
-    // Sidebar desplegada → dejamos espacio
-    mainContent.style.width = '100%';
-    mainContainer.style.setProperty('width', '95%', 'important');
-    mainContainer.style.setProperty('max-width', '95%', 'important');
-    mainWrapper.style.width = '85%';
-  } else {                                                                    // Estilos para sidebar plegada
-    mainContent.style.width = '95%';
-    mainContainer.style.setProperty('width', '100%', 'important');
-    mainContainer.style.setProperty('max-width', '100%', 'important');
-    mainWrapper.style.width = '100%';
-  }
-}
-eliminarAsideDerecho();           // Llamamos a las funciones cuando la pagina se carga
-ajustarAnchosSegunSidebar();
 
 async function obtenerEjercicios(url) {                   // Función para extraer los ejercicios de un HTML
   const res = await fetch(url);                           // Obtiene el html
@@ -74,6 +42,15 @@ async function mostrarEjercicio() {                                             
   const ejercicioAleatorio = ejercicios[Math.floor(Math.random() * ejercicios.length)];     // Hago lo mismo para seleccionar un ejercicio al azar
   contenedor.innerHTML = `<div class="ex">${ejercicioAleatorio}</div>`;                     // Inserto en el html
   Prism.highlightAll();                                                                     // Meto colores a los codigos de javascript
+
+  const h1 = document.querySelector('h1'); // O selecciona el h1 correcto si hay más
+  if (h1) {
+    let tipo = '';
+    if (pagina.includes('DOM')) tipo = ' - DOM';
+    else if (pagina.includes('asincronia')) tipo = ' - Asincronía';
+    else tipo = ' - Base';
+    h1.textContent = `Ejercicio${tipo}`;
+  }
 }
 boton.addEventListener('click', mostrarEjercicio);                                           // Llamo al evento del boton al clickar
 

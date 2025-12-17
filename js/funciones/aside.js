@@ -68,18 +68,28 @@ export function responsiveAside(container, aside) {                            /
   const ancho = window.innerWidth;                                             // Ancho de pixeles del viewport
   let maxWidth = 80;                                                           // Ancho maximo
 
-  if (ancho > 800 && ancho < 1800) {                                           // Si esta entre esos anchos
-    const pasos = Math.floor((1800 - ancho) / 100);                            // Calcula cuantos pasos de 100px faltan para llegar a 1800
-    maxWidth = 80 - pasos * 0.5;                                               // Por cada 100 pasos menos el contenido se hace 0.5% mas ancho
+  if (ancho > 800) {                                                           // Si el ancho es mayor de 800
+    if (ancho < 1800) {                                                        // Si esta entre esos anchos
+      const pasos = Math.floor((1800 - ancho) / 100);                          // Calcula cuantos pasos de 100px faltan para llegar a 1800
+      maxWidth = 80 - pasos * 0.5;                                             // Por cada 100 pasos menos el contenido se hace 0.5% mas ancho
+    }
+
     if (aside) { aside.style.display = 'block'; aside.style.opacity = '1'; }   // Aseguro que aside muestre ese estilo
-  } else if (ancho <= 800) {                                                   // Si el ancho es menor de  800
+
+  } else if (ancho <= 800) {                                                   // Si el ancho es menor de 800
     maxWidth = 100;                                                            // ancho maximo 100
     if (aside) { aside.style.opacity = '0'; aside.style.display = 'none'; }    // Aseguro
   }
+
   if (maxWidth < 54) maxWidth = 54;                                            // Si el ancho maximo es menos de 54, ponlo en 54
   container.style.maxWidth = maxWidth + '%';                                   // Aplico el ancho al contenedor
 }
 
-export function setupResizeListener(container, aside) {                        // Funcion con parametros que se ejecuta cuando la ventana cambia de tamaño
-  window.addEventListener('resize', () => responsiveAside(container, aside));  // Si cambia el tamaño de la ventana ejecuto la funcion anterior
+
+
+export function setupResizeListener(container, aside) {
+  const onResize = () => responsiveAside(container, aside);
+
+  window.addEventListener('resize', onResize);
+  onResize(); // 👈 fuerza el estado correcto al inicio
 }

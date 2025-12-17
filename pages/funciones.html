@@ -25,7 +25,7 @@
         <h2>Declaración y llamada</h2>
         <p>Para llamar a una función, se utiliza su nombre seguido de paréntesis y, en algunos casos, de argumentos entre ellos.</p>
         <p>Los argumentos son valores que se pasan a la función y que se asignan a los parámetros de la función.</p>
-        <p>Aquí tienes un ejemplo de una función que en la declaración espera recibir dos parámetros de entrada y en la llamada envía dos números, el 3 y el 4, los recibimos, los usamos y sumamos ambos números para devolver la respuesta de la suma:</p>
+        <p>Aquí tienes un ejemplo de una función que en la declaración espera recibir dos parámetros de entrada y en la llamada envía dos números, el <span class="codespan"><span class="token number">3</span></span> y el <span class="codespan"><span class="token number">4</span></span>, los recibimos, los usamos y sumamos ambos números para devolver la respuesta de la suma:</p>
         <pre><code class="language-javascript">
             function suma(a, b) {
                 return a + b;
@@ -36,13 +36,13 @@
     </div>
     <div class="intro-text">
         <h2>Declaración de funciones</h2>
-        <p>Para declarar una función tenemos que usar la palabra reservada function + el nombre de la misma + unos paréntesis, que es donde nos llegarán nuestros parámetros ( ) y finalmente las llaves { } en las cuales realizaremos nuestras operaciones.</p>
+        <p>Para declarar una función tenemos que usar la palabra reservada function <span class="codespan"><span class="token operator">+</span></span> el nombre de la misma <span class="codespan"><span class="token operator">+</span></span> unos paréntesis, que es donde nos llegarán nuestros parámetros <span class="codespan"><span class="token punctuation">()</span></span> y finalmente las llaves <span class="codespan"><span class="token punctuation">{}</span></span> en las cuales realizaremos nuestras operaciones.</p>
         <pre><code class="language-javascript">
             function pokemonAttack() {
                 console.log("¡Pikachu impact Trueno!");
             }
         </code></pre>
-        <p>La palabra clave function va primero, luego va el nombre de función, luego una lista de parámetros entre paréntesis ( ) y finalmente el código de la función, también llamado “el cuerpo de la función” , entre llaves.</p>
+        <p>La palabra clave function va primero, luego va el nombre de función, luego una lista de parámetros entre paréntesis <span class="codespan"><span class="token punctuation">()</span></span> y finalmente el código de la función, también llamado “el cuerpo de la función” , entre llaves.</p>
         <p>Si os fijáis en esta función por parámetro entran dos elementos o parámetros que son name y attack, de este modo nuestra función sacará por consola los parámetros introducidos.</p>
         <pre><code class="language-javascript">
             function pokemonAttackParams(name, attack) {
@@ -116,7 +116,7 @@
 
             showPokemon();
         </code></pre>
-        <p>O podemos usar el operador ||</p>
+        <p>O podemos usar el operador <span class="codespan"><span class="token operator">||</span></span></p>
         <pre><code class="language-javascript">
             function showPokemon(name) {
                 // si name es undefined o false, la estable a "Magikarp"
@@ -125,7 +125,7 @@
 
             showPokemon();
         </code></pre>
-        <p>Navegadores e interpretes de JavaScript modernos soportan el operador nullish coalescing , que es representado con ??</p>
+        <p>Navegadores e interpretes de JavaScript modernos soportan el operador nullish coalescing , que es representado con <span class="codespan"><span class="token operator">??</span></span></p>
         <pre><code class="language-javascript">
             function showCount (count) {
                 // si count es undefined o null, muestra "unknown"
@@ -153,7 +153,7 @@
     <div class="intro-text">
         <h2>Arrow functions</h2>
         <p>Es una manera de generar funciones más compacta y además nos ayudará a entender mejor los problemas del scope.</p>
-        <p>Al ver la sintaxis, ya no hace falta escribir la palabra function, lo sustituimos por la flecha => .</p>
+        <p>Al ver la sintaxis, ya no hace falta escribir la palabra function, lo sustituimos por la flecha <span class="codespan"><span class="token operator">=></span></span> .</p>
         <pre><code  class="language-javascript">
             const getName = () => {
                 console.log("Devolviendo nombre");
@@ -224,9 +224,9 @@
             const factorial = calcularFactorial(numero);
             console.log(`El factorial de ${numero} es ${factorial}`);
         </code></pre>
-        <p>En este ejemplo, la función calcularFactorial toma un número n como argumento.</p>
-        <p>Tiene un caso base que verifica si n es igual a 0, en cuyo caso devuelve 1, ya que el factorial de 0 es 1. Si n no es igual a 0, se llama a la función nuevamente con un valor más pequeño (n - 1) y se multiplica el resultado por n.</p>
-        <p>Esto se repite hasta que n llega a 0, momento en el que la recursión se detiene.</p>
+        <p>En este ejemplo, la función <span class="codespan"><span class="token function">calcularFactorial</span></span> toma un número <span class="codespan"><span class="token objeto">n</span></span> como argumento.</p>
+        <p>Tiene un caso base que verifica si <span class="codespan"><span class="token objeto">n</span></span> es igual a <span class="codespan"><span class="token number">0</span></span>, en cuyo caso devuelve <span class="codespan"><span class="token number">1</span></span>, ya que el factorial de <span class="codespan"><span class="token number">0</span></span> es <span class="codespan"><span class="token number">1</span></span>. Si n no es igual a <span class="codespan"><span class="token number">0</span></span>, se llama a la función nuevamente con un valor más pequeño (<span class="codespan"><span class="token objeto">n</span></span> - <span class="codespan"><span class="token number">1</span></span>) y se multiplica el resultado por <span class="codespan"><span class="token objeto">n</span></span>.</p>
+        <p>Esto se repite hasta que n llega a <span class="codespan"><span class="token number">0</span></span>, momento en el que la recursión se detiene.</p>
         <p>La recursividad es una técnica muy potente en programación, utilizada para resolver problemas que pueden dividirse en subproblemas más pequeños y similares.</p>
         <p>En este caso, la función se llama a sí misma con un valor más pequeño en cada iteración, lo que finalmente conduce a la solución del problema.</p>
     </div>  

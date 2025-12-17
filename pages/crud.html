@@ -1,16 +1,16 @@
 <section class="section" id="dom">
     <h1>CRUD</h1>
-    <div class="intro-text">
+    <article class="text">
         <h2>Crear, modificar, recuperar y eliminar mediante DOM</h2>
         <p>Vamos a ver un ejemplo de práctica de DOM usando lógica de JavaScript.</p>
         <p>En esta práctica haremos un pequeño ToDoList (lista de tareas pendientes).</p>
         <p>En esta aplicación tendremos una serie de tareas y las iremos pintando ordenadas en el HTML (queremos que primero salgan las tareas pendientes y al final las completadas) mediante JavaScript, a continuación jugaremos un poco con CSS para diferenciar las completadas de las no completadas y mediante javascript haremos una funcionalidad para cambiar esa propiedad y repintar el resultado de nuevo en el DOM.</p>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Paso 1 - Creación de archivos</h2>
         <p>En este caso va a ser una práctica muy sencilla y vamos a crear un HTML, un JS y un CSS.</p>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Paso 2 - Crear la estructura inicial del HTML y enlazar el CSS y el JS</h2>
         <p>En este caso lo único que vamos a crear en el HTML es un ul con la clase list, que usaremos como contenedor para introducir todas las tareas y un div con un input y un botón para añadir nuevas tareas.</p>
         <pre><code class="language-javascript">
@@ -32,8 +32,8 @@
                 &lt;/body&gt;
             &lt;/html&gt;
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Paso 3 - Estilos</h2>
         <p>Como veis, vamos a dar unos estilos un poco generales y a declarar 3 variables de colores, en este caso no es un proyecto muy grande y extenso y por lo tanto no nos hará falta mucho más, ya que lo importante estará en nuestro js, además estamos modificando la barra de scroll.</p>
         <p>El término “rtc” simula el nombre de una compañía o marca, por ejemplo, puede que en la NASA las variables del color se llamen —nasa-color-primary.</p>
@@ -129,8 +129,8 @@
                 cursor: pointer;
             }
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Paso 4 - Crear los datos en JavaScript</h2>
         <p>Tenemos que tener los datos en un inicio y podemos elegir la estructura que decidamos, pero en este caso hemos optado por esta estructura bastante simple, cada tarea tiene dos propiedades: la descripción de la tarea y el dato booleano que nos dice si está completada o no.</p>
         <pre><code class="language-javascript">
@@ -173,8 +173,8 @@
                 }
             ];
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Paso 5 - Pintar las tareas en el HTML</h2>
         <p>Creamos una función para pintar tareas:</p>
         <pre><code class="language-javascript">
@@ -209,8 +209,8 @@
                 }
             }
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Paso 6 - Ordenar las tareas</h2>
         <p>Creamos una función para pintar tareas:</p>
         <pre><code class="language-javascript">
@@ -245,8 +245,8 @@
                 }
             }
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Paso 7 - Completar una tarea</h2>
         <p>Para completar una tarea en la función pintar tendremos una línea de código que nos controlará cuando el usuario haga click en una tarea y nos traerá a esta función, la cual vemos explicada a continuación.</p>
         <p>Con esta función completamos el primer ciclo de comportamiento de una tarea cuando el usuario las completa.</p>
@@ -259,8 +259,8 @@
                 orderTasks(tasks);
             }
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Paso 8 - Añadir una nueva tarea</h2>
         <p>Para añadir una nueva tarea, vamos a recoger el botón de añadir tarea, para controlar cuando hacen click en el botón y llamar a la función addTask, la cual veremos creada a continuación</p>
         <pre><code class="language-javascript">
@@ -268,8 +268,8 @@
 
             button.addEventListener("click", addTask);
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Paso 9 - Función addTask</h2>
         <pre><code class="language-javascript">
             // función añadir tarea, la cual se ejecuta cuando el usuario hace click en el botón
@@ -289,8 +289,8 @@
                 printTasks(tasks);
             }
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Revisión de nuestro JS</h2>
         <p>Es importante ver como ordenamos estos bloques de código que hemos creado, así que os dejamos por aquí todo el código JS completo para que podáis revisarlo:</p>
         <pre><code class="language-javascript">
@@ -418,5 +418,5 @@
             // ejecutar la función ordenar tareas pasándole las tareas iniciales para un primer pintado de las mismas al abrir la aplicación
             orderTasks(tasks);
         </code></pre>
-    </div>
+    </article>
 </section>

@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {                 // Se aseg
       const themeToggle = document.getElementById('theme-toggle');
                                                                       // Otorga funcionalidades
       loadPage('/pages/introduccion.html', main);                     // Carga la primera pagina
-      setupMenuToggle(menuBtn, sidebar, pageWrapper, container);      // Abrir y cerrar sidebar
+      setupMenuToggle(menuBtn, sidebar, pageWrapper, container, aside);      // Abrir y cerrar sidebar
       responsiveAside(container, aside);                              // Ajusta el aside lateral
       setupResizeListener(container, aside);                          // Escucha cambios y ajusta aside
       setupSidebarLinks(sidebar, main);                               // Los enlaces cargan paginas

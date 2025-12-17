@@ -1,0 +1,84 @@
+<section id="albums"></section>        
+
+<script>
+  const albums = [     // Defino array
+    { name: "De Mysteriis Dom Sathanas", img: "img/de-mysteriis.jpg" },
+    { name: "Reign in Blood", img: "img/reign-in-blood.jpg" },
+    { name: "Ride the Lightning", img: "img/ride-the-lightning.jpg" },
+    { name: "Painkiller", img: "img/painkiller.jpg" },
+    { name: "Iron Fist", img: "img/iron-fist.jpg" },
+  ];
+
+  const section = document.getElementById('albums');  // Rescato html
+
+  const h1 = document.createElement('h1');            // Creo h1
+  h1.textContent = 'Classic Metal Albums';            // Meto texto
+  section.appendChild(h1);                            // Meto h1 en el html
+
+  const ul = document.createElement('ul');            // Creo ul
+  ul.classList.add('albumList');                      // Añado clase
+
+  albums.forEach(album => {                           // Recorro el array y por cada elemento
+    const li = document.createElement('li');             // Creo li
+    li.classList.add('albumCard');                       // Añado clase
+
+    const img = document.createElement('img');           // Creo imagen
+    img.src = album.img;                                 // Le añado las propiedades 
+    img.alt = album.name;
+
+    const title = document.createElement('h3');          // Creo h3
+    title.textContent = album.name;                      // Meto dentro el nombre del album
+
+    li.appendChild(img);                                 // Meto la imagen en el li
+    li.appendChild(title);                               // Meto el h3 en el li
+    ul.appendChild(li);                                  // Meto el li en la ul
+  });
+
+  section.appendChild(ul);                            // Meto la ul en el html
+</script>
+                                  
+<style>                 /*ESTILOS*/
+  #albums {
+    margin: 60px auto;
+    padding: 20px;
+    font-family: system-ui, sans-serif;
+  }
+
+  #albums h1 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .albumList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .albumCard {
+    background: #111;
+    border-radius: 8px;
+    width: 200px;
+    overflow: hidden;
+    color: white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .albumCard img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .albumCard h3 {
+    padding: 15px;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .albumCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 5px 10px 10px rgba(0,0,0,0.4);
+  }
+</style>

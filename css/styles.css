@@ -18,6 +18,7 @@
   --text-color: #aaafd1;
   --text2-color: #aad1b1;
   --link-color: #4ea6ff;
+  --border-color: #dadd1400;
 }
 
 * {
@@ -33,6 +34,7 @@ body {
   line-height: 1.6;
 }
 
+
   /********************************************/
  /*************** NAVBAR *********************/
 /********************************************/
@@ -41,9 +43,11 @@ nav {
   background: linear-gradient(150deg, var(--bg2-color) 0%, var(--bg2-color) 100%);
   position: fixed;
   top: 0;
-  padding: 0.5rem 0;
   width: 100%;
   z-index: 1100;
+  height: 50px;
+  display: flex;
+  align-items: center;
 
   > div {
     display: flex;
@@ -51,61 +55,59 @@ nav {
     align-items: center;
     margin: 0 auto;
     padding: 0 1rem;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 
-    button {
-      color: var(--text-color);
-      background: none;
-      border: none;
+    > div:first-child{
       display: flex;
-      place-content: center;
-      cursor: pointer;
-      font-size: 1.7rem;
-      height: 40px;
-      width: 40px;
 
-      &:nth-of-type(2) {
+      button {
         color: var(--text-color);
-        background-color: var(--bg2-color);
+        background: none;
         border: none;
+        display: flex;
+        place-content: center;
         cursor: pointer;
-        position: fixed;
-        right: 1rem;
-        font-size: 20px;
-        height: 30px;
-        width: 30px;
-        border-radius: 10px;
+        font-size: 1.7rem;
+        height: 40px;
+        width: 40px;
       }
 
-      &:nth-of-type(3) {
-        cursor: pointer;
+      a {
         color: var(--text-color);
-        background-color: var(--bg2-color);
-        position: fixed;
-        right: 3rem;
-        font-size: 20px;
-        height: 30px;
-        width: 30px;
-        border-radius: 10px;
-        border: none;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        text-decoration: none;
+        margin-left: 40px;
+        padding: 0 1px;
+        font-size: 1.3rem;
+        gap: 20px;
       }
     }
 
-    a {
-      color: var(--text-color);
+    > div:nth-of-type(2) {
       display: flex;
-      align-items: center;
-      font-weight: bold;
-      text-decoration: none;
-      margin-left: 40px;
-      padding: 0 1px;
-      font-size: 1.3rem;
+      height: 100%;
       gap: 20px;
-    }
 
-    ul {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
+      button {
+        color: var(--text-color);
+        background-color: var(--bg2-color);
+        border: none;
+        cursor: pointer;
+        height: 25px;
+        width: 25px;
+      }
+
+      i {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 25px;
+        height: 100%;
+      }
     }
   }
 }
@@ -116,16 +118,17 @@ nav {
 
 body > aside:first-of-type {
   position: fixed;
-  top: 3.5rem;
+  top: 3rem;
   left: 0;
   width: 240px;
-  height: 100vh;
+  height: 95vh;
   padding: 0.1rem 0.5rem 0.5rem 1rem;
   color: #fff;
   transform: translateX(-100%);
   transition: transform 1s ease;
   z-index: 1000;
   overflow: hidden;
+  border: 1px solid var(--border-color);
   background: var(--bg2-color);
 
   &.active {
@@ -142,9 +145,7 @@ body > aside:first-of-type {
   ul {
     list-style: none;
     margin: 1rem 0rem 1rem 0rem;
-    height: 82vh;
-    /* SCROLL en la lista sin mover el título */
-    max-height: calc(90vh - 3rem); /* ajusta según altura del título y padding */
+    max-height: 83vh;
     overflow-y: auto;
     overflow-x: hidden;
 
@@ -204,9 +205,6 @@ body > aside:first-of-type {
   }
 }
 
-body > aside:first-of-type.active ~ div:nth-of-type(2) .container {
-  transform: translateX(-50px);
-}
 
   /********************************************/
  /*************** WRAPPER ********************/
@@ -216,20 +214,17 @@ body > div:nth-of-type(2) {
   display: flex;
   flex-direction: column;
   align-items: start;
-  width: 100%;
-  margin-left: 0;
   transition: margin-left 0.8s ease, width 0.8s ease;
+  margin-top: 3.5rem;
+  border: 1px solid var(--border-color);
 
   > div {
     position: relative; /* permite moverlo con transform sin que se “tire” */
-    margin-top: 70px;
     transition: transform 0.3s ease;
-    width: 75%;
-    margin-left: 4%;
+    border: 1px solid var(--border-color);
 
     main {
       background-color: var(--bg2-color);
-      box-shadow: 0 4px 6px rgba(#181822);
       justify-content: center;
       display: flex;
     }
@@ -241,12 +236,13 @@ body > div:nth-of-type(2) {
 /********************************************/
 
 body > div:nth-of-type(2) > aside {
-  width: 19%;
+  width: 20%;
   position: fixed;
-  top: 3.5rem;
-  right: 1rem;
-  height: 90vh;
+  top: 3rem;
+  right: 0.2rem;
+  height: 95vh;
   padding: 0.5rem 0.5rem 0.5rem 1rem;
+  border: 1px solid var(--border-color);
 
   h3 {
     margin: 0.5rem 0 0 0;
@@ -261,8 +257,7 @@ body > div:nth-of-type(2) > aside {
     gap: 1px;
     margin-top: 1rem;
     padding-right: 2rem;
-    height: 90%;
-    max-height: 80vh;
+    max-height: 83vh;
     overflow-y: auto;
 
     li {
@@ -319,7 +314,7 @@ section {
   flex-direction: column;
   align-items: center;
   transition: min-height 0.8s ease;
-  width: 100%;
+  max-width: 100%;
 
   h1 {
     color: var(--text2-color);
@@ -327,7 +322,7 @@ section {
     margin-bottom: 1rem;
   }
 
-  div {
+  article {
     font-size: 1.2rem;
     color: var(--text-color);
     margin-bottom: 3rem;
@@ -339,7 +334,7 @@ section {
       6px 6px 14px rgba(5, 6, 20, 0.103),
       -6px 6px 14px rgba(5, 6, 20, 0.089),
       0 -4px 10px rgba(5, 6, 20, 0.068);
-    width: 95%;
+    width: 99%;
     gap: 20px;
     display: flex;
     flex-direction: column;
@@ -394,7 +389,7 @@ section {
         display: inline-block;               
         background-color: #1b1b1b8e !important;
         height: auto;
-        padding:0;
+        padding:0px 5px;
         margin-bottom: -8px;
         margin-right: 2px;
         color: #31c7ae !important;
@@ -407,10 +402,6 @@ section {
         white-space: pre-wrap !important; 
         word-wrap: break-word !important;  
         overflow-x: visible !important;
-      }
-
-      .codespan > span:first-child {
-        margin-right: 10px;
       }
     }
 
@@ -592,7 +583,7 @@ section {
     max-width: 95%;
   }
 
-  .intro-text2 {
+  .text {
     font-size: 1.2rem;
     color: var(--text-color);
     margin-bottom: 3rem;
@@ -642,8 +633,8 @@ section {
   width: 40px;
   height: 40px;
   position: absolute;
-  right: 200px;
-  top: 20px;
+  right: 30px;
+  top: 10px;
   background-color: var(--bg2-color);
   border-radius: 10px;
   border: 2px solid var(--text-color);
@@ -655,7 +646,6 @@ section {
   }
 }
 
-#editorContainer {
-  height: 1000px;
-}
+#editorContainer{height: 700px;}
+
 

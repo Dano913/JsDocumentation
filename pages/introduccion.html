@@ -78,10 +78,10 @@
         <h2>¿Qué nombre le asignamos a nuestras variables?</h2>
         <p>A la hora de asignar un nombre a nuestras variables seguiremos dos normas:</p>
         <ul class="lista-estilizada">
-            <li>El nombre de la variable solo debe contener letras, dígitos y los símbolos $ y _ (guión bajo).</li>
+            <li>El nombre de la variable solo debe contener letras, dígitos y los símbolos <code class="language-javascript2 token operator">$</code> y <code class="language-javascript2 token operator">_</code> (guión bajo).</li>
             <li>El primer carácter no debe ser un dígito.</li>
         </ul>
-        <p>Consejo: el nombre de las variables debería ser un nombre descriptivo del valor que puede contener, si vamos a guardar usuarios el nombre apropiado sería users.</p>
+        <p><strong>Consejo: </strong>El nombre de las variables debería ser un nombre descriptivo del valor que puede contener, si vamos a guardar usuarios el nombre apropiado sería users.</p>
     </div>
     <div class="intro-text">
         <h2>Nombres no válidos o reservados</h2>
@@ -184,8 +184,8 @@
         <h2>Scope</h2>
         <p>El término scope se refiere al contexto o entorno en el que se declaran las variables y determina su accesibilidad. En otras palabras, define dónde puedes usar una variable específica dentro de tu código.</p>
         <ul class="lista-estilizada">
-            <li>Scope global: Las variables declaradas fuera de cualquier función tienen alcance global. Son accesibles desde cualquier lugar del código. Sin embargo, se recomienda usar el scope global con moderación para evitar conflictos de nombres y problemas de organización del código.</li>
-            <li>Scope local: Las variables declaradas dentro de un bloque tienen alcance local. Solo son accesibles desde dentro de ese bloque y no son visibles desde fuera. Esto ayuda a mantener el código organizado y evita que las variables se sobrescriban accidentalmente.</li>
+            <li><strong>Scope global: </strong>Las variables declaradas fuera de cualquier función tienen alcance global. Son accesibles desde cualquier lugar del código. Sin embargo, se recomienda usar el scope global con moderación para evitar conflictos de nombres y problemas de organización del código.</li>
+            <li><strong>Scope local: </strong>Las variables declaradas dentro de un bloque tienen alcance local. Solo son accesibles desde dentro de ese bloque y no son visibles desde fuera. Esto ayuda a mantener el código organizado y evita que las variables se sobrescriban accidentalmente.</li>
         </ul>
         <pre><code class="language-javascript">
             // Ejemplo 1
@@ -254,7 +254,7 @@
     <div class="intro-text">
         <h2>Shadowing</h2>
         <p>Si una variable con el mismo nombre se declara dentro de la función, le hace sombra [shadowing] a la externa.</p>
-        <p>Por ejemplo, en el siguiente código, la función usa el pokemonExt local.</p>
+        <p>Por ejemplo, en el siguiente código, la función usa el <code class="language-javascript2 codespan">pokemonExt</code> local.</p>
         <p>El exterior se ignora, es decir, prevalece la local.</p>
         <pre><code class="language-javascript">
             let pokemonExt = 'Charmander';
@@ -277,13 +277,13 @@
         <h2>Tipos de datos</h2>
         <p>Aunque JavaScript no es un lenguaje fuertemente tipado, esto no quiere decir que no existan tipos de datos. Vamos a ver los tipos que existen en JavaScript:</p>
         <ul class="lista-estilizada">
-            <li>String: Nos permite almacenar cadenas de texto</li>
-            <li>Number: Nos permite almacenar valores numéricos(tanto enteros como con decimales).</li>
-            <li>Boolean: Nos permite almacenar valores de verdadero o falso(true ó false).</li>
-            <li>Null: Nos permite almacenar un valor nulo o vacío.</li>
-            <li>Undefined: Nos permite almacenar una variable que ha sido declarada pero no inicializada.</li>
-            <li>Object: Nos permite almacenar colecciones de datos y entidades más complejas</li>
-            <li>Array: Nos permite almacenar listas de valores</li>
+            <li><strong>String:</strong> Nos permite almacenar cadenas de texto</li>
+            <li><strong>Number:</strong> Nos permite almacenar valores numéricos(tanto enteros como con decimales).</li>
+            <li><strong>Boolean:</strong> Nos permite almacenar valores de verdadero o falso(true ó false).</li>
+            <li><strong>Null:</strong> Nos permite almacenar un valor nulo o vacío.</li>
+            <li><strong>Undefined:</strong> Nos permite almacenar una variable que ha sido declarada pero no inicializada.</li>
+            <li><strong>Object:</strong> Nos permite almacenar colecciones de datos y entidades más complejas</li>
+            <li><strong>Array:</strong> Nos permite almacenar listas de valores</li>
         </ul>
     </div>
     <div class="intro-text">

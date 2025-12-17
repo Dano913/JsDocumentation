@@ -1,10 +1,10 @@
 <section class="section" id="bucles">
     <h1>Bucles</h1>
-    <div class="intro-text">
+    <article class="text">
         <p>Los bucles son una herramienta muy útil en JavaScript y en cualquier otro lenguaje de programación.</p>
         <p>Sirven para ejecutar una acción o conjunto de acciones varias veces, según una condición o una serie de condiciones.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Bucle while</h2>
         <p>El bucle while es un tipo de bucle muy común en JavaScript. Se utiliza para ejecutar un bloque de código mientras se cumpla una determinada condición.</p>
         <p>La sintaxis de un bucle while es la siguiente:</p>
@@ -23,34 +23,34 @@
                 console.log(i);
             } 
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Concepto de un bucle</h2>
         <p>Teniendo como referencia el ejemplo anterior del while, explicaremos de manera más visual lo que es un bucle y como este funciona.</p>
         <p>No todos nuestros bucles serán iguales, algunos irán restando, otros sumando, podemos hacer que vayan multiplicando o lo que se nos ocurra, es algo muy modificable.</p>
         <p>Sin embargo casi todos funcionarán de la misma manera, tendrán un inicio, una iteración (modificación de ese inicio) y una condición que en algún momento deje de cumplirse.</p>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Inicio de un bucle</h2>
-        <p>Aquí podemos ver de manera un poco más visual cómo se inicia nuestro bucle, en este punto sólo nos interesa ver la variable inicial creada, en este caso nuestra variable se llama "i" y comienza con el valor numérico "0".</p>
-    </div>
-    <div class="intro-text">
+        <p>Aquí podemos ver de manera un poco más visual cómo se inicia nuestro bucle, en este punto sólo nos interesa ver la variable inicial creada, en este caso nuestra variable se llama <span class="codespan"><span class="token variable">i</span></span> y comienza con el valor numérico "0".</p>
+    </article>
+    <article class="text">
         <h2>Iteración sobre la variable inicial</h2>
-        <p>Lo importante es cómo al final de la acción o acciones que realice siempre modificará la variable inicial, en este caso le está sumando 1 a lo que valía, es decir, ahora la variable "i" tiene el valor "1" y así sucesivamente después de cada vuelta que de nuestro bucle.</p>
-    </div>
-    <div class="intro-text">
+        <p>Lo importante es cómo al final de la acción o acciones que realice siempre modificará la variable inicial, en este caso le está sumando 1 a lo que valía, es decir, ahora la variable <span class="codespan"><span class="token variable">i</span></span> tiene el valor "1" y así sucesivamente después de cada vuelta que de nuestro bucle.</p>
+    </article>
+    <article class="text">
         <h2>¿Se sigue cumpliendo la condición?</h2>
-        <p>La condición puede ser la que queramos, en este caso es si la "i" sigue siendo menor de 10 o no, como en este caso la "i" vale 11 ya, NO se cumple la condición y por lo tanto NO continúa la ejecución del bucle, las veces que se compruebe y SI cumpla la condición, seguirá con la ejecución del bucle.</p>
-    </div>
-    <div class="intro-text">
+        <p>La condición puede ser la que queramos, en este caso es si la <span class="codespan"><span class="token variable">i</span></span> sigue siendo menor de 10 o no, como en este caso la <span class="codespan"><span class="token variable">i</span></span> vale 11 ya, no se cumple la condición y por lo tanto no continúa la ejecución del bucle, las veces que se compruebe y SI cumpla la condición, seguirá con la ejecución del bucle.</p>
+    </article>
+    <article class="text">
         <h2>Final de concepto</h2>
-        <p>Todos estos pasos se realizan de manera "interna" por el bucle en CADA UNA de las vueltas que este mismo realice, obviamente podemos elegir nosotros:</p>
+        <p>Todos estos pasos se realizan de manera "interna" por el bucle en cada una de las vueltas que este mismo realice, obviamente podemos elegir nosotros:</p>
         <p>El valor inicial de nuestra variable.</p>
         <p>La manera de iterar esa variable en cada vuelta del bucle, sumar 1, restar 3, multiplicar, etc... (lo más normal es sumar de 1 en 1).</p>
         <p>La condición que se debe cumplir en cada vuelta del bucle para continuar.</p>
         <p>Por lo tanto al ser tan libre, todos los ejemplos que pongamos se quedarán cortos, hay que utilizar esto una y otra vez. Os invitamos a jugar con esto libremente.</p>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Bucle Do While</h2>
         <p>El bucle do while será muy similar al bucle while visto anteriormente, pero este hará algo antes de comprobar, de ahí su nombre, aquí os dejamos un ejemplo y de nuevo comprobad en vuestro propio código cómo se comporta:</p>
         <pre><code class="language-javascript">
@@ -61,25 +61,25 @@
             console.log(i);
             } while (i <= 10);
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Bucle for</h2>
         <p>Es el bucle más básico y funcional.</p>
         <p>Se inicia con la palabra reservada for y a continuación la condición de iteración.</p>
-        <p>Es decir, entre paréntesis lleva la inicialización let index = 0, la condición de ruptura index < 5 y el incremento index ++.</p>
+        <p>Es decir, entre paréntesis lleva la inicialización <span class="codespan"><span class="token keyword">let</span> <span class="token object">index</span> <span class="token operator">=</span> <span class="token number">0</span></span>, la condición de ruptura <span class="codespan"><span class="token keyword">index</span> <span class="token operator"><</span> <span class="token number">5</span></span> y el incremento index <span class="codespan"><span class="token operator">++</span>.</p>
         <p>Como podemos ver es muy parecido al bucle while y por supuesto la explicación de concepto se mantiene. Simplemente se escribe de otra manera más customizable, en este caso con la siguiente sintaxis:</p>
         <pre><code class="language-javascript">
             for (let index = 0; index < 5; index++) {
                 // código que se repite 5 veces en total
             }
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Bucle for para recorrer tipos de datos iterables, como los arrays</h2>
         <p>Comúnmente utilizamos bucles para acceder a cada posición de un dato iterable, como vimos anteriormente a los elementos de un array podemos acceder mediante su posición en el array poniendo los [posicion] por lo tanto...</p>
         <p>¿Por qué no accedemos a estos elementos con la ayuda de un bucle para pasar por todos ahorrándonos código?</p>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Acceder a los elementos del array SIN bucles de uno en uno</h2>
         <p>Como podemos ver, esta tarea sería muy tediosa, y que deciros si tuviéramos 1000 elementos dentro del array…</p>
         <pre><code class="language-javascript">
@@ -92,10 +92,10 @@
             console.log(frutas[3]); // naranja
             console.log(frutas[4]); // mandarina
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Acceder a los elementos del array con el bucle for de uno en uno</h2>
-        <p>Como podemos ver en nuestro bucle for nos aprovechamos de esa variable "i" que hemos creado y vamos de 0 hasta el final del array y la utilizamos entre corchetes al lado del array para ir accediendo a cada elemento en cada vuelta del bucle:</p>
+        <p>Como podemos ver en nuestro bucle for nos aprovechamos de esa variable <span class="codespan"><span class="token variable">i</span></span> que hemos creado y vamos de 0 hasta el final del array y la utilizamos entre corchetes al lado del array para ir accediendo a cada elemento en cada vuelta del bucle:</p>
         <pre><code class="language-javascript">
             let frutas = ["pomelo", "pera", "manzana", "naranja", "mandarina"];
 
@@ -107,8 +107,8 @@
                 console.log(frutas[i]); // pomelo // pera // manzana // naranja // mandarina
             }
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Bucles anidados</h2>
         <p>Podemos anidar tantos bucles como queramos, utilizar bloques condicionales dentro y utilizar cualquiera de las anteriores herramientas vistas para crear una solución a un problema, por ejemplo: tenemos un array de frutas y queremos contar cuantas letras tiene cada una, (hay soluciones más fáciles para este "problema") pero en este caso utilizamos dos bucles, uno para ir cogiendo cada elemento del array y otro para ir contando cada letra del string:</p>
         <pre><code class="language-javascript">
@@ -125,8 +125,8 @@
 
             console.log(frutasLength); // [6, 4, 7, 7, 9]
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Entendiendo a fondo el ejemplo anterior</h2>
         <p>Como podemos ver en el ejemplo anterior estamos utilizando dos bucles anidados para resolver el problema:</p>
         <ul class="lista-estilizada">
@@ -135,17 +135,17 @@
             <li>Recorremos cada string para poder acceder a cada una de las letras de una en una.</li>
             <li>Introducimos una nueva longitud de fruta en el array en la última posición disponible.</li>
         </ul>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Derivaciones del bucle for</h2>
         <p>El bucle for es el predecesor de los distintos bucles que veremos a continuación, estos bucles servirán para lo mismo, solo que la sintaxis varía, pero básicamente son lo mismo.</p>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Bucle for... of</h2>
         <p>El bucle for...of se comportará como un bucle for, pero tiene un par de limitaciones en cuanto a hacer bucles muy personalizados o cambiar el valor del índice, puesto que no se puede.</p>
         <p>Es un tipo de bucle creado exclusivamente para recorrer strings o arrays al completo de manera más abreviada que el bucle for normal.</p>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Comparación con el bucle for</h2>
         <p>Recorrer un array con un bucle for se vería como algo así:</p>
         <pre><code class="language-javascript">
@@ -165,8 +165,8 @@
 
             }
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Con el bucle for...of, nos resultará más cómodo</h2>
         <p>Como podemos ver a continuación, para recorrer un array o string, será mucho más asequible, y por dentro hará los mismos pasos pero nos los está ocultando para que no sea tan "difícil" recorrer un array con un bucle for.</p>
         <pre><code class="language-javascript">
@@ -183,14 +183,14 @@
                 console.log(element);
             }
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Bucle for in</h2>
         <p>En bucle for in está enfocado a "recorrer" objetos.</p>
         <p>Un objeto como tal no se puede recorrer a no ser que tenga ciertas propiedades que lo conviertan en array.</p>
         <p>Pero el bucle for in nos da un "life hack" para poder simular recorrer un objeto en JavaScript.</p>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Bucle for para recorrer un objeto</h2>
         <pre><code class="language-javascript">
             const user = {
@@ -217,8 +217,8 @@
 
             }
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Ahora con el bucle for in</h2>
         <p>El bucle for in llega para salvarnos un poco los platos en este caso, veamos como quedaría:</p>
         <pre><code class="language-javascript">
@@ -231,8 +231,8 @@
                 console.log(user[key]);
             }
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Bucle for each</h2>
         <p>El bucle for each llega en ES6 para dar una nueva sintaxis usando callbacks y arrow functions, pero será muy similar al bucle forof.</p>
         <p>Sólo tendremos que acostumbrarnos a la sintaxis, aunque este sólo nos servirá para recorrer arrays, puesto que es un método de array:</p>
@@ -244,5 +244,5 @@
             })
         </code></pre>
         <p>Este bucle puede que al principio os cueste un poco, y aunque no es 100% necesario está bien que sepamos utilizarlo, para ello, os aportaremos un video en el que se verá mejor este concepto.</p>
-    </div>
+    </article>
 </section>

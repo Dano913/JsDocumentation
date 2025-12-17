@@ -1,4 +1,4 @@
-<section class="section" id="dom">
+<section class="section" id="vite">
     <h1>VITE</h1>
     <div class="intro-text">
         <p>Cualquier aplicación web “tradicional” esta compuesta por HTML, CSS y JavaScript. Estos 3 elementos combinados darán forma, estilo y funcionalidad a nuestra aplicación web.</p>
@@ -119,62 +119,62 @@
         <p>Si inspeccionamos dichos archivos podremos comprobar que lo que más llama la atención es el nuevo fichero index.1917c8b0.js que nos ha generado, con una versión optimizada, con namings mínimos y con la combinación más optima de nuestro fichero main y el fichero counter en un solo fichero.</p>
         <pre><code class="language-javascript">
             const c = function () {
-  const o = document.createElement(&quot;link&quot;).relList;
-  if (o && o.supports && o.supports(&quot;modulepreload&quot;)) return;
-  for (const e of document.querySelectorAll(&#39;link[rel=&quot;modulepreload&quot;]&#39;)) n(e);
-  new MutationObserver((e) =&gt; {
-    for (const t of e)
-      if (t.type === &quot;childList&quot;)
-        for (const i of t.addedNodes)
-          i.tagName === &quot;LINK&quot; &amp;&amp; i.rel === &quot;modulepreload&quot; &amp;&amp; n(i);
-  }).observe(document, { childList: !0, subtree: !0 });
-  function r(e) {
-    const t = {};
-    return (
-      e.integrity &amp;&amp; (t.integrity = e.integrity),
-      e.referrerpolicy &amp;&amp; (t.referrerPolicy = e.referrerpolicy),
-      e.crossorigin === &quot;use-credentials&quot;
-        ? (t.credentials = &quot;include&quot;)
-        : e.crossorigin === &quot;anonymous&quot;
-        ? (t.credentials = &quot;omit&quot;)
-        : (t.credentials = &quot;same-origin&quot;),
-      t
-    );
-  }
-  function n(e) {
-    if (e.ep) return;
-    e.ep = !0;
-    const t = r(e);
-    fetch(e.href, t);
-  }
-};
-c();
-const l = &quot;/assets/javascript.8dac5379.svg&quot;;
-function a(s) {
-  let o = 0;
-  const r = (n) =&gt; {
-    (o = n), (s.innerHTML = `count is ${o}`);
-  };
-  s.addEventListener(&quot;click&quot;, () =&gt; r(++o)), r(0);
-}
-document.querySelector(&quot;#app&quot;).innerHTML = `
-  &lt;div&gt;
-    &lt;a href=&quot;https://vitejs.dev&quot; target=&quot;_blank&quot;&gt;
-      &lt;img src=&quot;/vite.svg&quot; class=&quot;logo&quot; alt=&quot;Vite logo&quot; /&gt;
-    &lt;/a&gt;
-    &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript&quot; target=&quot;_blank&quot;&gt;
-      &lt;img src=&quot;${l}&quot; class=&quot;logo vanilla&quot; alt=&quot;JavaScript logo&quot; /&gt;
-    &lt;/a&gt;
-    &lt;h1&gt;Hello!&lt;/h1&gt;
-    &lt;div class=&quot;card&quot;&gt;
-      &lt;button id=&quot;counter&quot; type=&quot;button&quot;&gt;&lt;/button&gt;
-    &lt;/div&gt;
-    &lt;p class=&quot;read-the-docs&quot;&gt;
-      Click on the Vite logo to learn more
-    &lt;/p&gt;
-  &lt;/div&gt;
-`;
-a(document.querySelector(&quot;#counter&quot;));
+            const o = document.createElement(&quot;link&quot;).relList;
+            if (o && o.supports && o.supports(&quot;modulepreload&quot;)) return;
+            for (const e of document.querySelectorAll(&#39;link[rel=&quot;modulepreload&quot;]&#39;)) n(e);
+            new MutationObserver((e) =&gt; {
+                for (const t of e)
+                if (t.type === &quot;childList&quot;)
+                    for (const i of t.addedNodes)
+                    i.tagName === &quot;LINK&quot; &amp;&amp; i.rel === &quot;modulepreload&quot; &amp;&amp; n(i);
+            }).observe(document, { childList: !0, subtree: !0 });
+            function r(e) {
+                const t = {};
+                return (
+                e.integrity &amp;&amp; (t.integrity = e.integrity),
+                e.referrerpolicy &amp;&amp; (t.referrerPolicy = e.referrerpolicy),
+                e.crossorigin === &quot;use-credentials&quot;
+                    ? (t.credentials = &quot;include&quot;)
+                    : e.crossorigin === &quot;anonymous&quot;
+                    ? (t.credentials = &quot;omit&quot;)
+                    : (t.credentials = &quot;same-origin&quot;),
+                t
+                );
+            }
+            function n(e) {
+                if (e.ep) return;
+                e.ep = !0;
+                const t = r(e);
+                fetch(e.href, t);
+            }
+            };
+            c();
+            const l = &quot;/assets/javascript.8dac5379.svg&quot;;
+            function a(s) {
+            let o = 0;
+            const r = (n) =&gt; {
+                (o = n), (s.innerHTML = `count is ${o}`);
+            };
+            s.addEventListener(&quot;click&quot;, () =&gt; r(++o)), r(0);
+            }
+            document.querySelector(&quot;#app&quot;).innerHTML = `
+            &lt;div&gt;
+                &lt;a href=&quot;https://vitejs.dev&quot; target=&quot;_blank&quot;&gt;
+                &lt;img src=&quot;/vite.svg&quot; class=&quot;logo&quot; alt=&quot;Vite logo&quot; /&gt;
+                &lt;/a&gt;
+                &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript&quot; target=&quot;_blank&quot;&gt;
+                &lt;img src=&quot;${l}&quot; class=&quot;logo vanilla&quot; alt=&quot;JavaScript logo&quot; /&gt;
+                &lt;/a&gt;
+                &lt;h1&gt;Hello!&lt;/h1&gt;
+                &lt;div class=&quot;card&quot;&gt;
+                &lt;button id=&quot;counter&quot; type=&quot;button&quot;&gt;&lt;/button&gt;
+                &lt;/div&gt;
+                &lt;p class=&quot;read-the-docs&quot;&gt;
+                Click on the Vite logo to learn more
+                &lt;/p&gt;
+            &lt;/div&gt;
+            `;
+            a(document.querySelector(&quot;#counter&quot;));
         </code></pre>
         <p>Lo que ha hecho Vite es optimizar lo máximo posible todo lo que hemos implementado en diferentes ficheros para crear una versión más ligera, más optima y más simple para el navegador.</p>
         <p>Nosotros siempre trabajaremos sobre la versión estándar de desarrollo, pero a la hora de publicar la página o desplegarla en algún servicio de despliegue lo que utilizaremos será esta versión que nos genera Vite. Bajo ningún concepto tendremos que tocar los archivos que nos ha generado el build en la carpeta dist.</p>

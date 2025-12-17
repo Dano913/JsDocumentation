@@ -1,13 +1,13 @@
 <section class="section" id="dom">
     <h1>DOM</h1>
-    <div class="intro-text">
+    <article class="text">
         <p>DOM (Document Object Model) es la representación del documento como un grupo de nodos y objetos estructurados que tienen propiedades y métodos.</p>
         <p>En resumen, es la representación de la aplicación web en la memoria del navegador, a la que podemos acceder a través de JavaScript.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Enlazar JavaScript y HTML</h2>
         <p>Para poder leer, modificar, eliminar o crear elementos del DOM tendremos que enlazar nuestro fichero HTML con el fichero JavaScript.</p>
-        <p>Para ello lo utilizaremos la etiqueta script dentro de la etiqueta head.</p>
+        <p>Para ello lo utilizaremos la etiqueta <span class="codespan"><span class="token object">script</span></span> dentro de la etiqueta <span class="codespan"><span class="token object">head</span></span>.</p>
         <p>Incluiremos el atributo defer para indicarle al navegador que el script debe ser cargado en segundo plano mientras el documento HTML se analiza y se muestra al usuario. Luego se ejecutará después de que el análisis del HTML haya finalizado evitando problemas de falta de información del fichero.</p>
         <pre><code class="language-javascript">
             &lt;!DOCTYPE html&gt;
@@ -39,8 +39,8 @@
                 &lt;/body&gt;
             &lt;/html&gt;
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Métodos de acceso a elementos del DOM</h2>
         <p>Desde nuestro script podemos acceder al árbol del DOM generado en nuestro fichero HTML y recuperar los elementos existentes mediante selectores.</p>
         <p>Os animamos a que inspeccionéis estas lineas en consola para ver como habéis recuperado un elemento de HTML en JS.</p>
@@ -64,8 +64,8 @@
             document.querySelectorAll("div.note");
             document.querySelectorAll("div.note, div.alert");
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Métodos de acceso a elementos hijos y padre</h2>
         <p>A través de los selectores de padre o hijos podemos acceder a un elemento si es que este no es obtenible de una forma más directa.</p>
         <pre><code class="language-javascript">
@@ -76,8 +76,8 @@
             // Obtener el nodo padre
             let padre = elem.parentNode;
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Creando nuevos elementos</h2>
         <p>A través de JavaScript también podemos crear nuevos elementos y posteriormente agregarlos de manera dinámica.</p>
         <p>Además de ello podemos asignarlos a otros elementos o etiquetas ya existentes.</p>
@@ -103,8 +103,8 @@
             // Ahora mismo sólo existen en memoria, pero no serán visibles hasta
             //que no los añadamos a un elemento del DOM
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Añadir nuevos elementos al DOM</h2>
         <p>Una vez hemos creado nuevos nodos en nuestro fichero podemos agregarlos al árbol del DOM tomando como referencia tanto nuevos elementos como elementos previamente recuperados del documento.</p>
         <pre><code class="language-javascript">
@@ -140,8 +140,8 @@
             // beforeend - El nuevo HTML se inserta dentro del elemento, después del último hijo
             // afterend - El nuevo HTML es insertado justo después del elemento, a la misma altura (hermano)
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Manipular clases</h2>
         <p>Además de trabajar sobre elementos del DOM también podemos atacar a sus atributos de clase.</p>
         <p>Podemos recuperar, añadir, modificar, eliminar y comprobar los atributos de clase de los elementos de nuestro documento de manera dinámica mediante una serie de métodos que nos ayudarán a tener estilos dinámicos en nuestra aplicación.</p>
@@ -165,15 +165,15 @@
             // Devuelve true si el elemento contiene esa clase
             cabecera.classList.contains("foo")
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>DOM Templates</h2>
         <p>Con DOM Templates podemos implementar o modificar elementos a través de strings, permitiéndonos crear estructuras HTML de manera dinámica y manipular el contenido de la página web de manera más flexible y sencilla.</p>
         <p>Para ello utilizaremos las backticks o comillas francesas.</p>
         <pre><code class="language-javascript">
             let title = `&lt;h1&gt;Hello&lt;/h1&gt;`
         </code></pre>
-        <p>Algo más complejo o elaborado sería el siguiente caso, en el cual exprimimos el uso de la interpolación mediante el dólar y las llaves dentro de las backticks (`).</p>
+        <p>Algo más complejo o elaborado sería el siguiente caso, en el cual exprimimos el uso de la interpolación mediante el dólar y las llaves dentro de las backticks <span class="codespan"><span class="token string">`</span></span>.</p>
         <p>Es una forma más directa y sencilla que, según la situación, nos puede agilizar el desarrollo de ciertos elementos de nuestra aplicación.</p>
         <p>Ahora ya sabéis una nueva forma de concatenar.</p>
         <pre><code class="language-javascript">
@@ -196,5 +196,5 @@
 
             contentApp.innerHTML = html;
         </code></pre>
-    </div>
+    </article>
 </section>

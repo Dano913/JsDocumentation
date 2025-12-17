@@ -1,12 +1,12 @@
 <section class="section" id="es6">
     <h1>Promesas, fetch y asincronía</h1>
-    <div class="intro-text2">
+    <article class="text">
         <p>La asincronía en JavaScript se refiere a la capacidad de ejecutar tareas que pueden tomar tiempo sin bloquear la ejecución del resto del código.</p>
         <p>En un entorno síncrono, las tareas se ejecutan secuencialmente, una después de la otra.</p>
         <p>Si una tarea toma mucho tiempo (como una llamada a una API o la lectura de un archivo), todo el programa se detendría hasta que esa tarea termine.</p>
         <p>La asincronía permite que otras tareas se ejecuten mientras se espera que la tarea larga termine.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Promesas</h2>
         <p>Las promesas son una forma de manejar la asincronía en JavaScript. Una promesa es un objeto que representa la eventual finalización o el fracaso de una operación asíncrona. Las promesas proporcionan una forma más sencilla y clara de trabajar con operaciones asíncronas en comparación con el uso de callbacks.</p>
         <p>Una promesa tiene tres posibles estados:</p>
@@ -46,8 +46,8 @@
         <p>Por ejemplo, el método Promise.all toma una matriz de promesas y espera a que todas se cumplan o una de ellas falle.</p>
         <p>El método Promise.race espera a que la primera promesa de una matriz se cumpla o falle.</p>
         <p>Y el método Promise.resolve crea una promesa cumplida con un valor específico y Promise.reject crea una promesa rechazada con un error específico.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Try & Catch</h2>
         <p>El bloque try...catch es una estructura de control de flujo que se utiliza para manejar los errores en JavaScript. Se utiliza para envolver una porción de código que puede generar un error y proporcionar una forma de manejar ese error.</p>
         <p>El bloque try contiene el código que se quiere ejecutar y el bloque catch contiene el código que se ejecuta cuando se produce un error. La sintaxis básica de un bloque try...catch es la siguiente:</p>
@@ -78,8 +78,8 @@
                 // código que siempre se ejecuta
             }
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Fetch</h2>
         <p>fetch es una función de JavaScript que se utiliza para realizar solicitudes HTTP.</p>
         <p>Es una forma moderna y más sencilla de realizar solicitudes HTTP en comparación con la función XMLHttpRequest tradicional.</p>
@@ -127,8 +127,8 @@
                 // manejar cualquier error
             });
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>RESTful verbs Fetch</h2>
         <p>Petición GET: Este tipo de petición (hay otros tipos de peticiones como PUT, POST, DELETE…) se utiliza fundamentalmente para obtener datos de la fuente especificada (habitualmente un servicio web).</p>
         <p>No obstante, si tuviésemos que enviar información delicada, por ejemplo para hacer un login, usaríamos POST en lugar de GET.</p>
@@ -180,8 +180,8 @@
                 console.log(res);
             });
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Fetch - Pokeapi</h2>
         <p>Aquí hay un ejemplo de cómo se puede utilizar fetch para realizar una solicitud HTTP GET a la PokeAPI para obtener información sobre un Pokémon específico:</p>
         <pre><code class="language-javascript">
@@ -203,8 +203,8 @@
         <p>En este ejemplo, primero hacemos una solicitud HTTP GET a la URL de la PokeAPI para el Pokémon específico.</p>
         <p>Luego, utilizamos el método json del objeto Response para procesar el cuerpo de la respuesta y obtener los datos en formato JSON.</p>
         <p>Finalmente, utilizamos el método then para acceder a los datos y el método catch para manejar cualquier error que pueda ocurrir durante la solicitud.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Manejando una promesa</h2>
         <p>Una Promise (promesa en castellano) es un objeto que representa la terminación o el fallo de una operación asíncrona. Surgen en ES6 para mejorar el proceso de callbacks.</p>
         <p>Por lo general en nuestro proyectos NO vamos a crear promesas, vamos a consumirlas (then/catch), pero veamos la base de las promesas:</p>
@@ -261,8 +261,8 @@
 
                 // No existe el array -> es un string - salta error
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Repasamos</h2>
         <p>Lo más habitual es que consumamos promesas ya creadas, pero vamos a repasar cómo se crearía una promesa.</p>
         <pre><code class="language-javascript">
@@ -307,8 +307,8 @@
             <li>La segunda función se ejecutará en caso de error y nos permitirá manejarlo.</li>
         </ul>
         <p>Es decir, podemos controlar también el fallo de una promesa concreta, dependiendo de la necesidad usaremos el control específico o el catch.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Rechazo de promesas</h2>
         <p>En el ejemplo anterior hemos visto qué ocurre cuando nuestro código cumple una promesa a raíz de una petición de forma asíncrona, pero no cuando esta promesa es rechazada.</p>
         <p>Si se diera el caso de que la URL utilizada no exista o haya algún tipo de problema al realizar la petición o cualquier otra funcionalidad de nuestro código, la ejecución rompería dando un error no-controlado. Para poder tener el control cuando una promesa es rechazada haremos uso del método catch.</p>
@@ -324,8 +324,8 @@
                 })
         </code></pre>
         <p>Mediante el método catch tenemos una “red de seguridad” a la hora de encontrarnos con un rechazo en una promesa, por lo que nuestro código no romperá, si no que ejecutará lo que le indiquemos dentro de nuestro catch atrapando esa incidencia. Es una especie de “else” para la ejecución promesas.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Finally</h2>
         <p>Mediante el método finally haremos que la función termine tanto si se cumple la promesa como si se rechaza, creando una ruptura en el código una vez hayamos terminado un bloque de ejecución cerrado.</p>
         <p>Vamos a ver como utilizar todo lo que hemos visto con arrow functions:</p>
@@ -336,8 +336,8 @@
                 .finally(() => console.log("Fetch terminado"))
         </code></pre>
         <p>De esta manera estaremos cerrando la ejecución de nuestro fetch con un finally en el caso de que se cumpla como si no, y recogiendo nuestro error en el caso de que la promesa no se cumpla.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Async & Await</h2>
         <p>async y await son palabras clave de JavaScript que se utilizan para trabajar con promesas de forma más sencilla y clara.</p>
         <p>La palabra clave async se utiliza para declarar una función asíncrona. Una función asíncrona es una función que puede contener código asíncrono y devuelve una promesa. La palabra clave async se coloca antes de la declaración de la función:</p>
@@ -358,8 +358,8 @@
         <p>En este ejemplo, primero utilizamos fetch para realizar una solicitud HTTP y obtener una promesa.</p>
         <p>Luego, utilizamos await para esperar a que se cumpla la promesa y obtener el objeto Response.</p>
         <p>Finalmente, utilizamos await de nuevo para esperar a que se cumpla la promesa del método json y obtener los datos en formato JSON.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Uso de async / await</h2>
         <p>Cuando se declara una función async convierte al elemento en una promesa, la cual se resolverá mediante el retorno. En estas funciones podemos hacer uso de la expresión await para pausar la ejecución a esperas de la resolución de una promesa, la cual se reanudará una vez cumplida pudiendo manejar la asincronía y resolución de promesas.</p>
         <pre><code class="language-javascript">
@@ -387,8 +387,8 @@
                 [...]
             }
         </code></pre>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Petición con async/await</h2>
         <p>Se puede utilizar async y await para realizar una solicitud HTTP a la PokeAPI y obtener información sobre un Pokémon específico de forma más sencilla y clara.</p>
         <p>Aquí hay un ejemplo de cómo se puede hacer esto:</p>
@@ -416,8 +416,8 @@
             obtenerPokemon('pikachu'); // imprime información sobre el Pokémon Pikachu
         </code></pre>
         <p>En este ejemplo, hemos creado una función asíncrona obtenerPokemon que toma un nombre de Pokémon como argumento y realiza una solicitud HTTP GET a la URL de la PokeAPI para ese Pokémon. Luego, utilizamos await para esperar a que se cumpla la promesa de la solicitud y obtener el objeto Response, y utilizamos await de nuevo para esperar a que se cumpla la promesa del método json y obtener los datos en formato JSON.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Pintando en el DOM</h2>
         <p>Para mostrar la información sobre un Pokémon en el DOM (Document Object Model), primero necesitarías obtener esa información utilizando fetch o async/await. Una vez que tienes los datos, puedes utilizar JavaScript para crear elementos del DOM y agregarlos a la página para mostrar la información.</p>
         <p>Aquí hay un ejemplo de cómo se puede hacer esto utilizando async/await y arrow functions:</p>
@@ -444,11 +444,11 @@
             mostrarPokemon('pikachu'); // muestra información sobre el Pokémon Pikachu en la página
         </code></pre>
         <p>En este ejemplo, primero utilizamos fetch y async/await para obtener la información sobre el Pokémon específico de la PokeAPI. Luego, creamos elementos del DOM como h1 y img y establecemos sus atributos y contenido utilizando las propiedades de los datos obtenidos de la PokeAPI. Finalmente, agregamos estos elementos al DOM utilizando el método appendChild del objeto document.body.</p>
-    </div>
-    <div class="intro-text2">
+    </article>
+    <article class="text">
         <h2>Public API's</h2>
         <p>Os dejamos una recopilación de API's públicas que podéis utilizar para probar vuestros proyectos.</p>
         <p>Hay que tener en cuenta que algunas requieren de una API Key o conexiones adicionales, por lo que es conveniente leer la documentación de cada una. Os recomendamos probar con las más simples al principio para practicar.</p>
         <p>https://publicapis.dev/</p>
-    </div>
+    </article>
 </section>

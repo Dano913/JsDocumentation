@@ -1,10 +1,10 @@
 <section class="section" id="dom">
     <h1>Date</h1>
-    <div class="intro-text">
+    <article class="text">
         <p>El objeto Date en JavaScript nos permite trabajar con fechas y horas.</p>
         <p>Es una herramienta fundamental para el desarrollo web, ya que nos permite obtener, formatear y manipular fechas para diversas aplicaciones.</p>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Uso básico</h2>
         <p>Para crear un nuevo objeto Date, podemos utilizar la siguiente sintaxis:</p>
         <pre><code class="language-javascript">
@@ -14,8 +14,8 @@
         <pre><code class="language-javascript">
             const fechaEspecifica = new Date(año, mes, dia, horas, minutos, segundos, milisegundos); 
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Ejemplos de código</h2>
         <p>Obtener la fecha actual:</p>
         <pre><code class="language-javascript">
@@ -64,15 +64,15 @@
             const fechaFormateada = fechaActual.toLocaleDateString('es-ES');
             console.log(fechaFormateada); // Muestra la fecha formateada según la configuración regional
         </code></pre>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Recomendaciones</h2>
         <ul class="lista-estilizada">
-            <li>Al trabajar con fechas, es importante tener en cuenta la zona horaria del usuario. Para obtener la fecha y hora en la zona horaria del usuario, podemos utilizar el método toDateString().</li>
+            <li><p>Al trabajar con fechas, es importante tener en cuenta la zona horaria del usuario. Para obtener la fecha y hora en la zona horaria del usuario, podemos utilizar el método <span class="codespan"><span class="token function">toDateString</span><span class="token punctuation">()</span></span>.</p></li>
             <li>Es importante validar las entradas de usuario antes de crear objetos Date para evitar errores.</li>
         </ul>
-    </div>
-    <div class="intro-text">
+    </article>
+    <article class="text">
         <h2>Temporal</h2>
         <p>Próximamente se implementará la API Temporal que permitirá manejar fechas de una forma más amena y directa, os dejamos con un ejemplo. Entended que aún no está en la versión estable, por lo que poco a poco la irán implementando:</p>
         <pre><code class="language-javascript">
@@ -93,5 +93,5 @@
             const fechaHoraMX = ahora.toZonedDateTimeISO(zona);
             console.log(`Fecha y Hora en ${zona}: ${fechaHoraMX.toString()}`);
         </code></pre>
-    </div>
+    </article>
 </section>
