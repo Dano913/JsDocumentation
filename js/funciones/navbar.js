@@ -32,6 +32,8 @@ export function setupThemeToggle(themeToggle, body) {               // Funcion d
     themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';      // Cambia el icono a sol
   }
 
+  const code = document.querySelector('.languaje-javascript'); 
+
   themeToggle.addEventListener("click", () => {                     // Escucha el evento click en el boton de themetoggle
     body.classList.toggle("dark-theme");                            // Activa o desactiva el darktheme
     if (body.classList.contains("dark-theme")) {                    
@@ -40,6 +42,7 @@ export function setupThemeToggle(themeToggle, body) {               // Funcion d
     } else {
       themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';   // Coloca la luna
       localStorage.setItem("theme", "light");                       // Guarda el tema
+      if (code) code.style.background = '#111';
     }
   });
 }

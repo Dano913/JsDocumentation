@@ -3,12 +3,13 @@
 /********************************************/
 
 :root {
-  --bg1-color: #ffffff;
-  --bg2-color: #eeefff;
+  --bg1-color: #6c6797;
+  --bg2-color: #b4b8e6;
   --bg3-color: #54538b;
   --text-color: #222222;
   --text2-color: #10460f;
   --link-color: #0077cc;
+  --code-block: #3b394e;
 }
 
 .dark-theme {
@@ -19,6 +20,7 @@
   --text2-color: #aad1b1;
   --link-color: #4ea6ff;
   --border-color: #dadd1400;
+  --code-block: #24243f;
 }
 
 * {
@@ -158,7 +160,7 @@ body > aside:first-of-type {
         background-color: var(--bg1-color);
 
         a {
-          color: var(--text2-color);
+          color: var(--text-color);
         }
       }
 
@@ -353,7 +355,7 @@ section {
         display: flex;
         align-items: center;
         height: 40px;
-        border: 1px solid #888;
+        border: 1px solid var(--text-color);;
         border-radius: 8px;
         background-color: var(--bg2-color);
         color: var(--text-color);
@@ -387,7 +389,7 @@ section {
 
       .codespan {
         display: inline-block;               
-        background-color: #1b1b1b8e !important;
+        background-color: var(--code-block) !important;
         height: auto;
         padding:0px 5px;
         margin-bottom: -8px;
@@ -433,7 +435,6 @@ section {
       }
 
       code {
-        background-color: #f0f0f0;
         font-family: monospace;
         padding: 2px 4px;
         border-radius: 3px;
@@ -466,7 +467,7 @@ section {
 
     .language-javascript {
       display: block;
-      background-color: #00000015 !important;
+      background-color: var(--code-block) !important;
       color: #31c7ae !important;
       padding: 0rem 2rem 2rem 2rem;
       border-radius: 10px;
@@ -485,7 +486,7 @@ section {
     .language-javascript2 {
       display: inline-flex;      
       justify-content: center;         
-      background-color: #1b1b1b8e !important;
+      background-color: var(--code-block) !important;
       height: 30px;
       margin-bottom: -8px;
       margin-right: 2px;
@@ -504,7 +505,7 @@ section {
 
     .language-html {
       display: block;
-      background-color: #00000015 !important;
+      background-color: var(--code-block) !important;
       color: #f08e0d !important;  
       padding: 0rem 2rem 2rem 2rem;
       border-radius: 10px;

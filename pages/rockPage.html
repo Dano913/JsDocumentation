@@ -1,7 +1,14 @@
 <section id="albums"></section>        
 
-<script data-page-script>
-  const albums = [     // Defino array
+<script data-page-script defer>
+function renderAlbums() { const section = document.getElementById('albums'); // Obtiene la sección donde se insertarán los álbumes
+
+  if (!section) return;                    // Sale si la sección no existe para evitar errores
+
+  if (section.dataset.rendered) return;   // Evita que el contenido se genere más de una vez
+  section.dataset.rendered = 'true';      // Marca la sección como ya renderizada
+
+  const albums = [                        // Array con la información de los álbumes
     { name: "De Mysteriis Dom Sathanas", img: "img/de-mysteriis.jpg" },
     { name: "Reign in Blood", img: "img/reign-in-blood.jpg" },
     { name: "Ride the Lightning", img: "img/ride-the-lightning.jpg" },
@@ -9,32 +16,31 @@
     { name: "Iron Fist", img: "img/iron-fist.jpg" },
   ];
 
-  const section = document.getElementById('albums');  // Rescato html
+  const h1 = document.createElement('h1'); // Crea el título principal de la sección
+  h1.textContent = 'Classic Metal Albums'; // Asigna el texto al título
 
-  const h1 = document.createElement('h1');            // Creo h1
-  h1.textContent = 'Classic Metal Albums';            // Meto texto
-  section.appendChild(h1);                            // Meto h1 en el html
+  const ul = document.createElement('ul'); // Crea la lista contenedora de álbumes
+  ul.className = 'albumList';              // Añade la clase para estilos
 
-  const ul = document.createElement('ul');            // Creo ul
-  ul.classList.add('albumList');                      // Añado clase
+  albums.forEach(album => {                   // Recorre el array y genera una tarjeta por álbum
+    const li = document.createElement('li');  // Crea el contenedor del álbum
+    li.className = 'albumCard';               // Añade la clase de tarjeta
 
-  albums.forEach(album => {                           // Recorro el array y por cada elemento
-    const li = document.createElement('li');             // Creo li
-    li.classList.add('albumCard');                       // Añado clase
+    const img = document.createElement('img'); // Crea la imagen del álbum
+    img.src = album.img;                       // Asigna la ruta de la imagen
+    img.alt = album.name;                      // Texto alternativo para accesibilidad
 
-    const img = document.createElement('img');           // Creo imagen
-    img.src = album.img;                                 // Le añado las propiedades 
-    img.alt = album.name;
+    const h3 = document.createElement('h3'); // Crea el título del álbum
+    h3.textContent = album.name; // Inserta el nombre del álbum
 
-    const title = document.createElement('h3');          // Creo h3
-    title.textContent = album.name;                      // Meto dentro el nombre del album
-
-    li.appendChild(img);                                 // Meto la imagen en el li
-    li.appendChild(title);                               // Meto el h3 en el li
-    ul.appendChild(li);                                  // Meto el li en la ul
+    li.append(img, h3);          // Inserta imagen y título en la tarjeta
+    ul.appendChild(li);          // Inserta la tarjeta en la lista
   });
 
-  section.appendChild(ul);                            // Meto la ul en el html
+  section.append(h1, ul);        // Inserta el título y la lista en la sección
+}
+
+renderAlbums();                  // Ejecuta la función directamente
 </script>
                                   
 <style>                 /*ESTILOS*/

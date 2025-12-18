@@ -134,13 +134,13 @@ export function copyCodeButton() {                                              
       copyBtn.style.position = "absolute";                 // Estilos
       copyBtn.style.top = "5px";
       copyBtn.style.right = "5px";
-      copyBtn.style.background = "var(--bg2-color)";
+      copyBtn.style.background = "var(--code-block)";
       copyBtn.style.border = "none";
       copyBtn.style.padding = "4px 10px";
       copyBtn.style.borderRadius = "4px";
       copyBtn.style.cursor = "pointer";
       copyBtn.style.zIndex = "10";
-      copyBtn.style.color = "var(--text-color)";
+      copyBtn.style.color = "#b4b8e6";
 
       const pre = codeBlock.parentElement;                 // Selecciona el pre que es padre de code
       pre.style.position = "relative";                     // Le pone relative
