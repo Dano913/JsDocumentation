@@ -213,7 +213,7 @@ export function loadPage(url, main) {          // Funcion de cargar pagina con p
 
 export function createFloatingNav(main) { // Función que crea un div flotante para pasar de página
   const navDiv = document.createElement('div'); // Crea el div
-  navDiv.style.position = 'fixed'; // Da estilos
+  navDiv.style.position = 'fixed';
   navDiv.style.bottom = '30px';
   navDiv.style.left = '50%';
   navDiv.style.transform = 'translateX(-50%)';
@@ -226,7 +226,7 @@ export function createFloatingNav(main) { // Función que crea un div flotante p
   navDiv.style.borderRadius = '10px';
   navDiv.style.padding = '2px 10px';
 
-  const prevBtn = document.createElement('button'); // Crea boton
+  const prevBtn = document.createElement('button');
   prevBtn.textContent = '⬅';
   prevBtn.style.fontSize = '24px';
   prevBtn.style.cursor = 'pointer';
@@ -234,11 +234,11 @@ export function createFloatingNav(main) { // Función que crea un div flotante p
   prevBtn.style.background = 'transparent';
   prevBtn.style.color = 'var(--text-color)';
 
-  const pageNumber = document.createElement('span'); // Crea div para indicar numero de pagina
+  const pageNumber = document.createElement('span');
   pageNumber.style.fontWeight = 'bold';
   pageNumber.style.fontSize = '16px';
 
-  const nextBtn = document.createElement('button'); // Crea boton
+  const nextBtn = document.createElement('button');
   nextBtn.textContent = '➡';
   nextBtn.style.fontSize = '24px';
   nextBtn.style.cursor = 'pointer';
@@ -246,20 +246,20 @@ export function createFloatingNav(main) { // Función que crea un div flotante p
   nextBtn.style.background = 'transparent';
   nextBtn.style.color = 'var(--text-color)';
 
-  navDiv.append(prevBtn, pageNumber, nextBtn); // Mete los elementos en el div padre
-  main.parentElement.appendChild(navDiv); // Mete el padre en el main
+  navDiv.append(prevBtn, pageNumber, nextBtn);
+  main.parentElement.appendChild(navDiv);
 
-  const pages = [ // Define pages que manejará
-    '/pages/introduccion.html','/pages/datos.html','/pages/objetos.html','/pages/arrays.html','/pages/condicionales.html','/pages/bucles.html','/pages/funciones.html','/pages/ejercicios.html','/pages/dom.html','/pages/eventos.html','/pages/date.html','/pages/crud.html','/pages/ejerciciosDOM.html','/pages/rockPage.html','/pages/vite.html','/pages/practicaGuiada.html','/pages/es6.html','/pages/asincronia.html','/pages/ejerciciosasincronia.html','/pages/jscomponents.html','/pages/navystorage.html','/pages/ruleta.html'
+  const pages = [
+    '/pages/introduccion.html','/pages/datos.html','/pages/objetos.html','/pages/arrays.html','/pages/condicionales.html','/pages/bucles.html','/pages/funciones.html','/pages/ejercicios.html','/pages/dom.html','/pages/eventos.html','/pages/date.html','/pages/crud.html','/pages/ejerciciosdom.html','/pages/rockpage.html','/pages/practicaguiada.html','/pages/es6.html','/pages/asincronia.html','/pages/ejerciciosasincronia.html','/pages/jscomponents.html','/pages/navystorage.html','/pages/ruleta.html'
   ];
 
-  let currentIndex = 0; // Inicia la posición actual de página
+  let currentIndex = 0;
 
-  function updatePageNumber() { // Actualiza el número del div flotante
+  function updatePageNumber() {
     pageNumber.textContent = `${currentIndex + 1} / ${pages.length}`;
   }
 
-  function goToPage(index) { // Cambia la página según el argumento
+  function goToPage(index) {
     if (index < 0) index = 0;
     if (index >= pages.length) index = pages.length - 1;
     currentIndex = index;
@@ -269,26 +269,28 @@ export function createFloatingNav(main) { // Función que crea un div flotante p
   prevBtn.addEventListener('click', () => goToPage(currentIndex - 1));
   nextBtn.addEventListener('click', () => goToPage(currentIndex + 1));
 
-  function normalize(path) { // Normaliza paths para incluir .html
-    return path.endsWith('.html') ? path : `${path}.html`;
+  function normalize(path) {
+    let p = path.toLowerCase();
+    if (!p.endsWith('.html')) p += '.html';
+    return p;
   }
 
-  function syncWithCurrentPage() { // Sincroniza el flotante con la página actual
+  function syncWithCurrentPage() {
     const normalized = normalize(window.currentPage);
-    const index = pages.findIndex(p => p === normalized);
+    const index = pages.findIndex(p => p.toLowerCase() === normalized);
     if (index !== -1 && index !== currentIndex) {
       currentIndex = index;
       updatePageNumber();
     }
   }
 
-  const observer = new MutationObserver(syncWithCurrentPage); // Observa cambios en main
+  const observer = new MutationObserver(syncWithCurrentPage);
   observer.observe(main, { childList: true, subtree: true });
 
-  // Llamada inicial para sincronizar si se carga directamente una página
   syncWithCurrentPage();
   updatePageNumber();
 }
+
 
 
 
