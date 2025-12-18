@@ -250,7 +250,28 @@ export function createFloatingNav(main) { // Función que crea un div flotante p
   main.parentElement.appendChild(navDiv);
 
   const pages = [
-    '/pages/introduccion.html','/pages/datos.html','/pages/objetos.html','/pages/arrays.html','/pages/condicionales.html','/pages/bucles.html','/pages/funciones.html','/pages/ejercicios.html','/pages/dom.html','/pages/eventos.html','/pages/date.html','/pages/crud.html','/pages/ejerciciosdom.html','/pages/rockpage.html','/pages/practicaguiada.html','/pages/es6.html','/pages/asincronia.html','/pages/ejerciciosasincronia.html','/pages/jscomponents.html','/pages/navystorage.html','/pages/ruleta.html'
+    '/pages/introduccion.html',
+    '/pages/datos.html',
+    '/pages/objetos.html',
+    '/pages/arrays.html',
+    '/pages/condicionales.html',
+    '/pages/bucles.html',
+    '/pages/funciones.html',
+    '/pages/ejercicios.html',
+    '/pages/dom.html',
+    '/pages/eventos.html',
+    '/pages/date.html',
+    '/pages/crud.html',
+    '/pages/ejerciciosdom.html',
+    '/pages/rockpage.html',
+    '/pages/vite.html',
+    '/pages/practicaguiada.html',
+    '/pages/es6.html',
+    '/pages/asincronia.html',
+    '/pages/ejerciciosasincronia.html',
+    '/pages/jscomponents.html',
+    '/pages/navystorage.html',
+    '/pages/ruleta.html'
   ];
 
   let currentIndex = 0;
