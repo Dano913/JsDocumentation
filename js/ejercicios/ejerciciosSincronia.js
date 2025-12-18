@@ -352,7 +352,8 @@ const select = container.querySelector('#character-list');
 const img = container.querySelector('.character-image');                         
 const apiURL = 'https://thronesapi.com/api/v2/Characters';  // API                      
  
-let personajeSeleccionado = "";                             // Variable para almacenar el personaje seleccionado actualmente                
+let personajeSeleccionado = "";                             // Variable para almacenar el personaje seleccionado actualmente             
+select.style.marginBottom = '20px';   
 
 fetch(apiURL)                                               // Peticion
   .then(response => response.json())                        // Transformo a JSON

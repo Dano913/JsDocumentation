@@ -43,16 +43,16 @@ async function mostrarEjercicio() {                                             
   contenedor.innerHTML = `<div class="ex">${ejercicioAleatorio}</div>`;                     // Inserto en el html
   Prism.highlightAll();                                                                     // Meto colores a los codigos de javascript
 
-  const h1 = document.querySelector('h1'); // O selecciona el h1 correcto si hay más
-  if (h1) {
-    let tipo = '';
-    if (pagina.includes('DOM')) tipo = ' - DOM';
-    else if (pagina.includes('asincronia')) tipo = ' - Asincronía';
-    else tipo = ' - Base';
-    h1.textContent = `Ejercicio${tipo}`;
+  const h1 = document.querySelector('h1');                           // Rescata el html
+  if (h1) {                                                          // Comprueba q exista
+    let tipo = '';                                                   // Inicializa variable
+    if (pagina.includes('DOM')) tipo = ' - DOM';                     // Si la pagina incluye la palabra DOM, le pone tipo dom al ejercicio
+    else if (pagina.includes('asincronia')) tipo = ' - Asincronía';  // Lo mismo con sincronia
+    else tipo = ' - Base';                                           // y ejercicio base
+    h1.textContent = `Ejercicio${tipo}`;                             // Mete el tipo dinamicamente en el h1
   }
 }
-boton.addEventListener('click', mostrarEjercicio);                                           // Llamo al evento del boton al clickar
+boton.addEventListener('click', mostrarEjercicio);                   // Llamo al evento del boton al clickar
 
 const sidebar = document.querySelector('.sidebar');               // Rescato html
 let lastState = null;                                             // Guardo el ultimo estado conocido de la sidebar

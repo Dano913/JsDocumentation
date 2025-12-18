@@ -39,7 +39,7 @@
         <p>1.5 Usa querySelector para mostrar por consola todos los elementos con el atributo <span class="codespan"><span class="token attr-name">data-function</span>=<span class="token string">&quot;testMe&quot;</span></span>.</p>
         <p>1.6 Usa querySelector para mostrar por consola el 3 personaje con el atributo <span class="codespan"><span class="token attr-name">data-function</span>=<span class="token string">&quot;testMe&quot;</span></span>.</p>
         <div id="ej1-hidden" style="display: none;">
-            <button class="showme">Pillame!</button>
+            <button class="showme butEvent">Pillame!</button>
             <h1 id="pillado">Aquí estoy 8)</h1>
             <p>Soy el power ranger Amarillo</p>
             <p>Soy el power ranger Rojo</p>
@@ -177,10 +177,9 @@
         <p>1.2 Añade un evento 'focus' que ejecute un console.log con el valor del input.</p>
         <p>1.3 Añade un evento 'input' que ejecute un console.log con el valor del input.</p>
         <div id="ej4-visible">
-            <button id="btnToClick">Click aquí</button>
-            <input class="click" type="text" placeholder="Input click"/>
-            <input class="focus" type="text" placeholder="Input focus"/>
-            <input class="value" type="text" placeholder="Input value"/>
+            <button id="btnToClick" class="butEvent">Click aquí</button>
+            <input class="focus input" type="text" placeholder="Input focus"/>
+            <input class="value input" type="text" placeholder="Input value"/>
         </div>
     </article>
     <article class="ex">
@@ -196,7 +195,8 @@
             ];
         </code></pre>
         <div id="rockPage" class="solucion"></div>
+        <p>Pasa la página para ver el resultado</p>
     </article>
 </section>
-<script type="module" src="./js/ejerciciosDOM/ejerciciosDOM.js"></script>
+<script type="module" src="./js/ejercicios/ejerciciosDOM.js"></script>
 <script src="./js/main.js"></script>

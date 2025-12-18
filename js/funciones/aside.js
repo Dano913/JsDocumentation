@@ -85,11 +85,9 @@ export function responsiveAside(container, aside) {                            /
   container.style.maxWidth = maxWidth + '%';                                   // Aplico el ancho al contenedor
 }
 
+export function setupResizeListener(container, aside) {       //  Funcion que adapta el tamaño de los elementos al tamaño de la ventana
+  const onResize = () => responsiveAside(container, aside);   // Crea funcion abreviada que llama responsiveAside q cambia los estilos y layout segun ancho de ventana
 
-
-export function setupResizeListener(container, aside) {
-  const onResize = () => responsiveAside(container, aside);
-
-  window.addEventListener('resize', onResize);
-  onResize(); // 👈 fuerza el estado correcto al inicio
+  window.addEventListener('resize', onResize);                // Evento que escucha los cambios de tamaño de ventana y dispara onresize
+  onResize();                                                 // Se llama a onresize antes de que se ejecute nada
 }

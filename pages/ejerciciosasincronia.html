@@ -138,8 +138,8 @@
                 {name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
             ];
         </code></pre>
-        <div id="ej1-hidden" style="display: block;">
-            <input type="text" data-function="toFilterStreamers"/>
+        <div style="display: block;">
+            <input type="text" class="input" data-function="toFilterStreamers" placeholder="Encuentra tu streamer"/>
         </div>
         <div id="inputFilter" class="solucion"></div>
     </article>
@@ -205,7 +205,7 @@
         <p>Esta sería la URL final (la que deberéis utilizar para vuestra petición):</p>
         <p>https://thronesapi.com/api/v2/Characters</p>
         <div id="apiThrones" style="display: block;">
-            <select id="character-list"></select>
+            <select id="character-list" class="butEvent"></select>
             <div>
                 <img class="character-image">
             </div>
@@ -236,9 +236,9 @@
         <div id="pokeAPI" style="display: block;">
             <img class="random-image">
             <p class="pokemon-name"></p>
-            <button id="new-pokemon">Nuevo Pokémon</button>
+            <button id="new-pokemon" class="butEvent">Nuevo Pokémon</button>
         </div>
     </article>
 </section>
-<script type="module" src="./js/ejerciciosSincronia/ejerciciosSincronia.js"></script>
+<script type="module" src="./js/ejercicios/ejerciciosSincronia.js"></script>
 <script src="./js/main.js"></script>

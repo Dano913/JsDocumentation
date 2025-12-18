@@ -313,6 +313,8 @@ promedioDiv.textContent = `El promedio de la lista es ${promedio}`;  // Muestra 
 
 
 
+
+
 console.log("%c===== Ejercicio 11: Calcular promedio sumando numbers y longitudes de string =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const mixedElements = [   // Defino array

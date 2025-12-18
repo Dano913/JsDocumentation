@@ -1,4 +1,4 @@
-console.log("%c===== Ejercicio 1: Definición y operación de variables =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 1: Seleccion y tratamiento de elementos DOM =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 const hidden = document.getElementById('ej1-hidden');    // Rescato htmls
 const pokemon = document.getElementById('pokemon');
 const boton = hidden.querySelector('.showme');          
@@ -21,13 +21,13 @@ pokemon.innerHTML = `
     <p><strong>Párrafos:</strong><br>${parrafos.map(p => p.outerHTML).join('<br>')}</p>
     <p><strong>Pokemons:</strong><br>${pokemons.map(p => p.outerHTML).join('<br>')}</p>
     <p><strong>3er personaje:</strong> ${tercerPersonaje.outerHTML}</p>
-`;
+`;                                                   // Mapea y hace join de los parrafos para que se muestren juntos con un salto de linea
 
 
 
 
 
-console.log("%c===== Ejercicio 2: Definición y operación de variables =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 2: Insercion dinámica de elementos en DOM =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const hidden2 = document.getElementById('ej2-hidden');     // Rescato html
 const resultado2 = document.getElementById('resultado2');
@@ -112,7 +112,7 @@ resultado2.innerHTML = hidden2.innerHTML;     // Muestro pantalla
 
 
 
-console.log("%c===== Ejercicio 3: Definición y operación de variables =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+console.log("%c===== Ejercicio 3: Creación y manipulación dinámica de elementos HTML =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const hidden3 = document.getElementById('ej3-hidden');   // Rescato html
 const resultado3 = document.getElementById('resultado3');
@@ -186,6 +186,7 @@ countries2.forEach(country2 => {                      // Recorro y por cada vuel
     btnDelete.textContent = "Eliminar este div";        // Meto contenido
     btnDelete.style.display = "block";
     btnDelete.style.marginTop = "5px";
+    btnDelete.classList.add("butEvent");                // Doy clase
 
     btnDelete.addEventListener("click", () => {         // Escucho el evento de click
         divCountry.remove();                            // Elimina el div
@@ -199,6 +200,7 @@ countries2.forEach(country2 => {                      // Recorro y por cada vuel
 // 1.5 Crear botón para eliminar último div de countries2
 const btnEliminarUltimo = document.createElement('button');  // Rescato el html
 btnEliminarUltimo.textContent = "Eliminar último div";       // Meto el texto
+btnEliminarUltimo.classList.add("butEvent");                 // Doy clase
 btnEliminarUltimo.style.margin = "10px 0";
 clone.appendChild(btnEliminarUltimo);                        // Meto el boton en el clone 
 
@@ -217,32 +219,75 @@ console.log(clone);                                           // Imprimo el clon
 
 
 
-console.log("%c===== Ejercicio 3: Definición y operación de variables =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
-
-// 1.1 Evento click
 const btn = document.getElementById("btnToClick");                 // Rescato boton html
- 
-btn.addEventListener("click", (event) => {                         // Escucho el evento click
-    console.log("Evento CLICK:", event);                           // Imprimo
+const visible4 = document.getElementById("ej4-visible")
+const inputValue = document.querySelector(".value"); 
+const inputFocus = document.querySelector(".focus");
+
+visible4.style.display = 'flex';            // Estilos
+visible4.style.width = '100%';
+visible4.style.justifyContent = 'center';
+visible4.style.flexDirection = 'column';
+visible4.style.padding = '0 50px';
+visible4.style.gap = '15px'; 
+
+let titlePrinted = false;                   // Bandera global para imprimir el título solo una vez
+
+// Evento click
+btn.addEventListener("click", (event) => {  // Evento de click en el boton
+    if (!titlePrinted) {
+        console.log(
+            "%c===== Ejercicio 4: Manejo de eventos =====",
+            "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
+        );
+        titlePrinted = true;
+    }
+    console.log("Evento CLICK:", event);   // Imprime el mensaje
 });
 
-const inputFocus = document.querySelector(".focus");               // Rescato html
-
-inputFocus.addEventListener("focus", (event) => {                  // Escucho el evento de focus
-    console.log("Valor del input en FOCUS:", event.target.value);  // Imprimo
+// Evento focus
+inputFocus.addEventListener("focus", (event) => {    // Evento de foucs en inputFocus
+    if (!titlePrinted) {
+        console.log(
+            "%c===== Ejercicio 4: Manejo de eventos =====",
+            "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
+        );
+        titlePrinted = true;
+    }
+    console.log("Me estan haciendo focus!");  // Muestra el valor del input focus
 });
 
-const inputValue = document.querySelector(".value");               // Rescato input html
 
-inputValue.addEventListener("input", (event) => {                  // Escucho el evento de escribir
-    console.log("Escribiendo:", event.target.value);               // Imprimo
+inputFocus.addEventListener("keydown", (event) => {  // Evento de escritura en inputFocus
+    if (event.key === "Enter") {
+        if (!titlePrinted) {
+            console.log(
+                "%c===== Ejercicio 4: Manejo de eventos =====",
+                "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
+            );
+            titlePrinted = true;
+        }
+        console.log("Valor al presionar Enter (Focus):", event.target.value); // Muestra el valor del input focus
+    }
+});
+
+inputValue.addEventListener("input", (event) => {   // Evento de escritura en inputValue
+    if (!titlePrinted) {                            // Para solo imprirlo una vez para todos los eventos
+        console.log(
+            "%c===== Ejercicio 4: Manejo de eventos =====",
+            "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;"
+        );
+        titlePrinted = true;
+    }
+    console.log("Valor actual del input (Value):", event.target.value);  // Muestra el valor del input value
 });
 
 
 
 
 
-console.log("%c===== Ejercicio 3: Definición y operación de variables =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
+
+console.log("%c===== Ejercicio 5: Creacion dinámica de lista con aspecto de web =====", "color: white; background-color: #085f0cff; font-weight: bold; padding: 2px 6px; border-radius: 3px;");
 
 const albums = [                  // Creo array
   "De Mysteriis Dom Sathanas",
@@ -262,5 +307,7 @@ albums.forEach(album => {                              // Recorro array y por ca
   li.textContent = album;                              // Meto el contenido del elemento en el li
   ulRock.appendChild(li);                              // Meto li en la ul
 });
+
+console.log(ulRock);
 
 rockPage.appendChild(ulRock);                          // Meto la lista en el html

@@ -21,38 +21,36 @@ export function executeScripts(container) {                                     
   });
 }
 
-export function extraerEjercicio(codigoCompleto, numero) {
-  const inicio = `console.log("%c===== Ejercicio ${numero}:`;
+export function extraerEjercicio(codigoCompleto, numero) {        // Funcion para detectar el bloque de ejercicio que quiero copiar
+  const inicio = `console.log("%c===== Ejercicio ${numero}:`;     // Define inicio
 
-  // Posición donde empieza el ejercicio
-  const idxInicio = codigoCompleto.indexOf(inicio);
-  if (idxInicio === -1) return "";
+  const idxInicio = codigoCompleto.indexOf(inicio);               // Busca el inicio dentro del string
+  if (idxInicio === -1) return "";                                // Si no hay inicio no devuelve nada
 
-  const resto = codigoCompleto.slice(idxInicio);
+  const resto = codigoCompleto.slice(idxInicio);                  // Corta el texto desde el inicio
 
-  // 3 líneas vacías marcan el final
-  const finRegex = /\n\s*\n\s*\n/;
-  const match = resto.search(finRegex);
+  const finRegex = /\n\s*\n\s*\n/;                                // Detecta el fin que son 3 lineas vacias
+  const match = resto.search(finRegex);                           // Busca y guarda el patron finRegex dentro de Resto
 
-  const bloque = match !== -1 ? resto.slice(0, match) : resto;
+  const bloque = match !== -1 ? resto.slice(0, match) : resto;    // Si encuentra ese patron q es el final, corta, sino devuelve hasta el final del texto
 
-  return bloque.trim();
+  return bloque.trim();                                           // Quita espacios y saltos de línea al inicio y final
 }
 
-export function copyExButton() {                                                     // Funcion para el boton de copiar script
-  const h2Elements = document.querySelectorAll('.ex h2');                            // Selecciona los h2 que estan en un contenedor con clase ex
+export function copyExButton() {                                               // Funcion para el boton de copiar script
+  const h2Elements = document.querySelectorAll('.ex h2');                      // Selecciona los h2 que estan en un contenedor con clase ex
 
-  h2Elements.forEach(h2 => {                                                         // Para cada uno
-      if (h2.dataset.hasButton) return;                                              // Verifica si ya se añadio un boton para no duplicarlo
-      h2.dataset.hasButton = true;                                                   // Marca el h2 como q tiene boton
+  h2Elements.forEach(h2 => {                                                   // Para cada uno
+      if (h2.dataset.hasButton) return;                                        // Verifica si ya se añadio un boton para no duplicarlo
+      h2.dataset.hasButton = true;                                             // Marca el h2 como q tiene boton
 
-      const button = document.createElement('button');                               // Crea el button
-      button.classList.add('btn-copiar-ejercicio');                                  // Da clase
-      button.style.width = '40px';                                                   // Estilo
-      button.style.transition = 'width 0.4s ease, background-color 0.3s ease';       // Estilo
+      const button = document.createElement('button');                         // Crea el button
+      button.classList.add('btn-copiar-ejercicio');                            // Da clase
+      button.style.width = '40px';                                             // Estilo
+      button.style.transition = 'width 0.4s ease, background-color 0.3s ease'; // Estilo
 
-      const icon = document.createElement('span');                                   // Crea un span
-      icon.classList.add('icon-copy');                                               // Da clase
+      const icon = document.createElement('span');                             // Crea un span
+      icon.classList.add('icon-copy');                                         // Da clase
       icon.innerHTML = `
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
@@ -63,64 +61,62 @@ export function copyExButton() {                                                
           <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
           <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
         </svg>
-      `;                                                                             // Inserta un svg para representar el icono
-      button.appendChild(icon);                                                      // Meto el icon el button
+      `;                                                                       // Inserta un svg para representar el icono
+      button.appendChild(icon);                                             // Meto el icon el button
 
-      const text = document.createElement('span');                                   // Creo span
-      text.classList.add('text-hover');                                              // Da clase
-      text.textContent = 'Copia el código!';                                         // Inserto texto
-      text.style.marginLeft = '8px';                                                 // Estilo
-      button.appendChild(text);                                                      // Meto el texto en el boton
+      const text = document.createElement('span');                          // Creo span
+      text.classList.add('text-hover');                                     // Da clase
+      text.textContent = 'Copia el código!';                                // Inserto texto
+      text.style.marginLeft = '8px';                                        // Estilo
+      button.appendChild(text);                                             // Meto el texto en el boton
 
-      button.addEventListener('mouseenter', () => {                                  // Al pasar el raton por encima
-          const fullWidth = icon.offsetWidth + 8 + text.offsetWidth + 24;            // Suma el ancho del texto y del icono en una variable
-          button.style.width = fullWidth + 'px';                                     // Aplico la variable al estilo del boton
+      button.addEventListener('mouseenter', () => {                         // Al pasar el raton por encima
+          const fullWidth = icon.offsetWidth + 8 + text.offsetWidth + 24;   // Suma el ancho del texto y del icono en una variable
+          button.style.width = fullWidth + 'px';                            // Aplico la variable al estilo del boton
       });
 
-      button.addEventListener('mouseleave', () => {                                  // Detecta la salida del raton de su campo
-          button.style.width = '40px';                                               // El ancho vuelve a la normalidad
+      button.addEventListener('mouseleave', () => {                         // Detecta la salida del raton de su campo
+          button.style.width = '40px';                                      // El ancho vuelve a la normalidad
       });
 
-      button.addEventListener('click', async () => {
-        const tituloEjercicio = h2.textContent.trim();
-        const codigoCompleto = await fetch('/js/ejercicios/ejercicios.js').then(r => r.text());
-        const bloqueEjercicio = extraerEjercicio(codigoCompleto, tituloEjercicio.match(/\d+/)[0]);
-                                                   // Si no hay script termina
+      button.addEventListener('click', async () => {                                                // Escucha el click y ejecuta una funcion asíncrona
+        const tituloEjercicio = h2.textContent.trim();                                              // Quita espacios al principio y final del contenido de h2 para definir cual es el titulo del ejercicio
+        const codigoCompleto = await fetch('/js/ejercicios/ejercicios.js').then(r => r.text());     // Se pide el archivo ejercicio.js pero no se bloquea lap agina mientras lo obtiene porque es async. Text convierte el archivo en string
+        const bloqueEjercicio = extraerEjercicio(codigoCompleto, tituloEjercicio.match(/\d+/)[0]);  // Detecta el bloque del ejercicio con tituloEjercicio en la variable codigoCompleto
 
-          const limpiarScript = contenido => contenido                               // Funcion que limpia el contenido de script
-            .replace(/"%c===== Ejercicio \d+: (.*?) ====="/g, '"$1"')
-            .replace(/console\.log\(\s*"(.*?)".*?\);/, 'console.log("$1");')
-            .replace(/if\s*\([^)]*container[^)]*\)\s*\{(?:[^{}]|\{[^{}]*\})*\}/gs, '') // Elimina bloques if relacionados con "container"
-            .replace(/if\s*\([^)]*container[^)]*\)\s*\{[\s\S]*?\n\}/g, '')             // Variante para eliminar if con "container"
-            .replace(/^\s*.*document\.createElement.*$/gm, '')                         // Elimina líneas con document.createElement
-            .replace(/const\s+\w+\s*=\s*document\.getElementById\(.*?\);?/g, '')       // Elimina const x = document.getElementById(...)
-            .replace(/^\s*.*innerText\s*=.*?;\s*$/gm, '')                              // Elimina asignaciones a innerText
-            .replace(/^\s*.*appendChild.*$/gm, '')                                     // Elimina líneas con appendChild
-            .replace(/^\s*.*classList\.add.*$/gm, '')                                  // Elimina líneas con classList.add
-            .replace(/^\s*.*textContent.*$/gm, '')                                     // Elimina líneas que modifican textContent
-            .replace(/^\s*.*style\..*$/gm, '')                                         // Elimina modificaciones de estilos inline
-            .replace(/^\s*\w+\.innerHTML\s*=\s*`[\s\S]*?`;/gm, '')                     // Elimina líneas donde se usa innerHTML
-            .replace(/^\s*.*container.*$/gm, '')                                       // Elimina líneas que contengan "container"
-            .replace(/^\s*.*contenedor.*$/gm, '')                                      // Elimina líneas que contengan "contenedor"
-            .replace(/document\.getElementById\(.*?\);?/g, '')                         // Elimina llamadas a getElementById
-            .replace(/\w+\.forEach\s*\([^)]*\)\s*=>\s*\{\s*(?:[\r\n\s]*)\s*\}/g, '')   // Elimina forEach con cuerpo vacío
-            .replace(/{\s*}/g, '')                                                     // Elimina bloques "{}" vacíos
-            .replace(/\n{2,}/g, '\n')                                                  // Reduce saltos de línea múltiples a uno solo
-            .replace(/^\s*\n/gm, '')                                                   // Elimina líneas en blanco con espacios
-            .trim();                                                                   // Quita espacios al inicio y final
+        const limpiarScript = contenido => contenido                            // Funcion que limpia el contenido de script
+          .replace(/"%c===== Ejercicio \d+: (.*?) ====="/g, '"$1"')                  // Busca el bloque y lo sustituye por el titulo limpio
+          .replace(/console\.log\(\s*"(.*?)".*?\);/, 'console.log("$1");')           // Detecta un console.log con texto y parametros, y lo sustituye por otro con el texto capturado
+          .replace(/if\s*\([^)]*container[^)]*\)\s*\{(?:[^{}]|\{[^{}]*\})*\}/gs, '') // Elimina bloques if relacionados con "container"
+          .replace(/if\s*\([^)]*container[^)]*\)\s*\{[\s\S]*?\n\}/g, '')             // Variante para eliminar if con "container"
+          .replace(/^\s*.*document\.createElement.*$/gm, '')                         // Elimina líneas con document.createElement
+          .replace(/const\s+\w+\s*=\s*document\.getElementById\(.*?\);?/g, '')       // Elimina const x = document.getElementById(...)
+          .replace(/^\s*.*innerText\s*=.*?;\s*$/gm, '')                              // Elimina asignaciones a innerText
+          .replace(/^\s*.*appendChild.*$/gm, '')                                     // Elimina líneas con appendChild
+          .replace(/^\s*.*classList\.add.*$/gm, '')                                  // Elimina líneas con classList.add
+          .replace(/^\s*.*textContent.*$/gm, '')                                     // Elimina líneas que modifican textContent
+          .replace(/^\s*.*style\..*$/gm, '')                                         // Elimina modificaciones de estilos inline
+          .replace(/^\s*\w+\.innerHTML\s*=\s*`[\s\S]*?`;/gm, '')                     // Elimina líneas donde se usa innerHTML
+          .replace(/^\s*.*container.*$/gm, '')                                       // Elimina líneas que contengan "container"
+          .replace(/^\s*.*contenedor.*$/gm, '')                                      // Elimina líneas que contengan "contenedor"
+          .replace(/document\.getElementById\(.*?\);?/g, '')                         // Elimina llamadas a getElementById
+          .replace(/\w+\.forEach\s*\([^)]*\)\s*=>\s*\{\s*(?:[\r\n\s]*)\s*\}/g, '')   // Elimina forEach con cuerpo vacío
+          .replace(/{\s*}/g, '')                                                     // Elimina bloques "{}" vacíos
+          .replace(/\n{2,}/g, '\n')                                                  // Reduce saltos de línea múltiples a uno solo
+          .replace(/^\s*\n/gm, '')                                                   // Elimina líneas en blanco con espacios
+          .trim();                                                                   // Quita espacios al inicio y final
 
 
-          const textoACopiar = limpiarScript(bloqueEjercicio);
-        navigator.clipboard.writeText(textoACopiar).then(() => {
-            text.textContent = 'Código Copiado';
-            button.classList.add('copiado');
-            setTimeout(() => {
-                text.textContent = 'Copia el código!';
-                button.classList.remove('copiado');
+        const textoACopiar = limpiarScript(bloqueEjercicio);      // Guarda el resultado de eejcutar la funcion sobre el bloque del ejercicio
+        navigator.clipboard.writeText(textoACopiar).then(() => {  // Copia a portapapeles y devuelve una promesa con then
+            text.textContent = 'Código Copiado';                  // Una vez completada la copia se cambia el contenido del boton
+            button.classList.add('copiado');                      // Se le cambia la clase
+            setTimeout(() => {                                    // Pasaddo un cierto tiempo
+                text.textContent = 'Copia el código!';            // Vuelve el texto
+                button.classList.remove('copiado');               // Vuelve la clase
             }, 2000);
         });
       });
-
       h2.appendChild(button);                                    // Meto el boton en el h2
   });
 }
@@ -177,12 +173,12 @@ export function loadPage(url, main) {          // Funcion de cargar pagina con p
       .then(res => res.text())                 // Convierte la respuesta en otro html
       .then(html => {                          
         main.innerHTML = html;                 // Inserta el contenido html en el main
-        window.scrollTo({
+        window.scrollTo({                      // Cada vez que se carga una pagina se resetea el scroll
           top: 0,
           left: 0,
           behavior: "instant"
         });
-        window.currentPage = url;
+        window.currentPage = url;              // Guarda la pagina actual para otras funciones
         normalizeCodeBlocks(main);             // Ajusta indentacion de bloques
         executeScripts(main);                  // Ejecuta los scripts q no sean modulos
         createAside();                         // Crea aside
@@ -215,10 +211,9 @@ export function loadPage(url, main) {          // Funcion de cargar pagina con p
   });
 }
 
-export function createFloatingNav(main) {
-  // Contenedor flotante sobre el contenido
-  const navDiv = document.createElement('div');
-  navDiv.style.position = 'fixed';
+export function createFloatingNav(main) {               // Funcion que crea un div flotante para pasar de pagina
+  const navDiv = document.createElement('div');         // Crea el div
+  navDiv.style.position = 'fixed';                      // Da estilos
   navDiv.style.bottom = '30px';
   navDiv.style.left = '50%';
   
@@ -232,8 +227,7 @@ export function createFloatingNav(main) {
   navDiv.style.borderRadius = '10px';
   navDiv.style.padding = '2px 10px';
 
-  // Botón anterior
-  const prevBtn = document.createElement('button');
+  const prevBtn = document.createElement('button');     // Crea boton
   prevBtn.textContent = '⬅';
   prevBtn.style.fontSize = '24px';
   prevBtn.style.cursor = 'pointer';
@@ -241,13 +235,11 @@ export function createFloatingNav(main) {
   prevBtn.style.background = 'transparent';
   prevBtn.style.color = 'var(--text-color)';
 
-  // Número de página
-  const pageNumber = document.createElement('span');
+  const pageNumber = document.createElement('span');    // Crea div para indicar numero de pagina
   pageNumber.style.fontWeight = 'bold';
   pageNumber.style.fontSize = '16px';
 
-  // Botón siguiente
-  const nextBtn = document.createElement('button');
+  const nextBtn = document.createElement('button');     // Crea boton
   nextBtn.textContent = '➡';
   nextBtn.style.fontSize = '24px';
   nextBtn.style.cursor = 'pointer';
@@ -255,15 +247,13 @@ export function createFloatingNav(main) {
   nextBtn.style.background = 'transparent';
   nextBtn.style.color = 'var(--text-color)';
 
-  navDiv.appendChild(prevBtn);
+  navDiv.appendChild(prevBtn);               // Mete los elementos creados en el div padre
   navDiv.appendChild(pageNumber);
   navDiv.appendChild(nextBtn);
 
-  // Añadir al contenedor de main (pero fuera de innerHTML)
-  main.parentElement.appendChild(navDiv);
+  main.parentElement.appendChild(navDiv);    // Mete el padre en el main
 
-  // Array de páginas
-  const pages = [
+  const pages = [                     // Define pages que manejara
     './pages/introduccion.html',
     './pages/datos.html',
     './pages/objetos.html',
@@ -288,45 +278,45 @@ export function createFloatingNav(main) {
     './pages/ruleta.html'
   ];
 
-  let currentIndex = 0;
+  let currentIndex = 0;                                                 // Inicia la posicion actual de pagina
 
-  function updatePageNumber() {
-    pageNumber.textContent = `${currentIndex + 1} / ${pages.length}`;
+  function updatePageNumber() {                                         // Funcion que actualiza el numero del div flotante
+    pageNumber.textContent = `${currentIndex + 1} / ${pages.length}`;   // El contenido de pageNumber se base en el indice actual y la longitud del array
   }
 
-  function goToPage(index) {
-    if (index < 0) index = 0;
-    if (index >= pages.length) index = pages.length - 1;
-    currentIndex = index;
-    loadPage(pages[currentIndex], main).then(() => {
-      updatePageNumber(); // solo actualiza número
+  function goToPage(index) {                                            // Funcion que cambia la pagina segun el argumento
+    if (index < 0) index = 0;                                           // Lo limita a 0 como mínimo
+    if (index >= pages.length) index = pages.length - 1;                // Tampoco puede pasar de la longitud del array
+    currentIndex = index;                                               // El indice actual se igua al parámetro
+    loadPage(pages[currentIndex], main).then(() => {                    // Llama a loadpage segun el indice actual de pages y carga el contenido de name
+      updatePageNumber();                                               // Una vez esta cargado se actualiza la informacion del div flotante            
     });
   }
 
-  prevBtn.addEventListener('click', () => goToPage(currentIndex - 1));
-  nextBtn.addEventListener('click', () => goToPage(currentIndex + 1));
+  prevBtn.addEventListener('click', () => goToPage(currentIndex - 1));  // Escucha el click y resta uno al indice actual
+  nextBtn.addEventListener('click', () => goToPage(currentIndex + 1));  // Escucha el click y suma uno al indice actual
 
-  function syncWithCurrentPage() {
-    const index = pages.findIndex(
-      p => p === window.currentPage
+  function syncWithCurrentPage() {                   // Funcion q sincroniza el indice interno del flotante con la pagina que realmente esta cargada por si cambio mediante los links
+    const index = pages.findIndex(                      // Busca en el array la pagina que coincide con window.currentpage
+      p => p === window.currentPage                    
     );
 
-    if (index !== -1 && index !== currentIndex) {
-      currentIndex = index;
-      updatePageNumber();
+    if (index !== -1 && index !== currentIndex) {       // Comprueba si la pagina existe y si es diferente de la pagina actual
+      currentIndex = index;                             // Actualiza
+      updatePageNumber();                               // Actualiza le contenido del div flotante
     }
   }
 
-  const observer = new MutationObserver(() => {
-    syncWithCurrentPage();
+  const observer = new MutationObserver(() => {         // Mutation observa cambios en el DOM
+    syncWithCurrentPage();                              // Se llama a la funcion para sincronizar indices
   });
 
-  observer.observe(main, {
-    childList: true,
-    subtree: true
+  observer.observe(main, {     // Configura observer para pasarle main
+    childList: true,           // Observa cambios en los hijos
+    subtree: true              // Y en los hijos de los hijos
   });
 
-  updatePageNumber();
+  updatePageNumber();          // Se actualiza div flotante
 }
 
 
