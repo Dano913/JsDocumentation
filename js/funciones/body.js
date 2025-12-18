@@ -296,10 +296,20 @@ export function createFloatingNav(main) {               // Funcion que crea un d
   prevBtn.addEventListener('click', () => goToPage(currentIndex - 1));  // Escucha el click y resta uno al indice actual
   nextBtn.addEventListener('click', () => goToPage(currentIndex + 1));  // Escucha el click y suma uno al indice actual
 
+  console.log('FloatingNav cargado');
+console.log('Pages:', pages);
+console.log('Current page:', window.currentPage);
+
+
+
   function syncWithCurrentPage() {                   // Funcion q sincroniza el indice interno del flotante con la pagina que realmente esta cargada por si cambio mediante los links
+
+    console.log('Sync ejecutado');
+  console.log('window.currentPage:', window.currentPage);
     const index = pages.findIndex(                      // Busca en el array la pagina que coincide con window.currentpage
       p => p === window.currentPage                    
     );
+    console.log('Index encontrado:', index);
 
     if (index !== -1 && index !== currentIndex) {       // Comprueba si la pagina existe y si es diferente de la pagina actual
       currentIndex = index;                             // Actualiza
