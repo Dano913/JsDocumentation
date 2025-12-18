@@ -276,6 +276,7 @@ export function createFloatingNav(main) { // Función que crea un div flotante p
   }
 
   function syncWithCurrentPage() {
+    if (!window.currentPage) return;
     const normalized = normalize(window.currentPage);
     const index = pages.findIndex(p => p.toLowerCase() === normalized);
     if (index !== -1 && index !== currentIndex) {
