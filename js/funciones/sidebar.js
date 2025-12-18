@@ -1,23 +1,82 @@
 import { loadPage } from './body.js';
 
-export function setupSidebarLinks(sidebar, main) {        // Funcion para colocar los links con parametros
-  const sidebarLinks = sidebar.querySelectorAll('a');     // Los guardar en un variable
-  sidebarLinks.forEach(link => {                          // Recorro los links
-    link.addEventListener('click', e => {                       // Añado evento de click a cada uno
-      e.preventDefault();                                       // Evita comportamiento natural
-      sidebarLinks.forEach(l => l.classList.remove('active'));  // Elimina la clase active de todos
-      link.classList.add('active');                             // Se añade la clase active solo al clickado
+// Definición de la función normalize (la pieza que faltaba)
+function normalize(path) {
+  if (!path) return "";
+  let p = path.toLowerCase();
+  
+  // 1. Agregar . al inicio si no existe (ejercicios -> ./ejercicios)
+  if (!p.startsWith('.')) p = '.' + p;
+
+  // 2. Asegurarse de que termine en .html (./ejercicios -> ./ejercicios.html)
+  if (!p.endsWith('.html')) p += '.html';
+
+  // 3. Limpieza para protocolo local (file:)
+  if (location.protocol === 'file:') {
+    p = p.replace(/^\/+/, ''); 
+  }
+
+  return p;
+}
+
+export function setupSidebarLinks(sidebar, main) {
+  const sidebarLinks = sidebar.querySelectorAll('a');
+
+  // Función para resaltar el link activo según la página actual
+  function highlightCurrentLink() {
+    const currentPage = window.currentPage; 
+    if (!currentPage) return;
+
+    // Normalizamos la página actual una sola vez para comparar peras con peras
+    const normalizedCurrent = normalize(currentPage);
+    console.log('--- Comparando con:', normalizedCurrent);
+
+    sidebarLinks.forEach(link => {
+      link.classList.remove('active');
       
-      const href = link.getAttribute('href');            // Obtiene el valor de href del link clickado
-      if (href.startsWith('#')) {                        // Comprueba si empieza con #(ID dentro de la pagina)
-        const target = document.querySelector(href);     // Guarda en variable
-        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Busca el que coincida con el valor de href que guardo
+      const href = link.getAttribute('href');
+      
+      // Si es un ancla (#), no la normalizamos
+      if (href && href.startsWith('#')) return; 
+
+      const normalizedHref = normalize(href);
+
+      // Ahora la comparación es exacta: "./ejercicios.html" === "./ejercicios.html"
+      if (normalizedHref === normalizedCurrent) { 
+        link.classList.add('active');
+        console.log('✅ Link activado:', normalizedHref);
+      }
+    });
+  }
+
+  // Listener de click para navegación SPA
+  sidebarLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      const href = link.getAttribute('href');
+
+      if (href.startsWith('#')) {
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        e.preventDefault();
       } else {
-        loadPage(href, main);    // Sino es que es una pagina por eso la carga SPA
+        // Al cargar la página, también pasamos el href
+        loadPage(href, main); 
+        e.preventDefault();
       }
     });
   });
+
+  // El Observador detecta si cambia el contenido de <main> y refresca el Sidebar
+  const observer = new MutationObserver(() => {
+    highlightCurrentLink(); 
+  });
+
+  observer.observe(main, { childList: true, subtree: true });
+
+  // Ejecución inicial al cargar el script
+  highlightCurrentLink();
 }
+
 
 function applyLayout(sidebar, pageWrapper, container, aside) {
   const width = window.innerWidth;                                // Ancho actual del viewport

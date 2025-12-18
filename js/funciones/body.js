@@ -290,21 +290,41 @@ export function createFloatingNav(main) { // Función que crea un div flotante p
   prevBtn.addEventListener('click', () => goToPage(currentIndex - 1));
   nextBtn.addEventListener('click', () => goToPage(currentIndex + 1));
 
+  const isLocal = location.protocol === 'file:';
+
   function normalize(path) {
-    let p = path.toLowerCase();
-    if (!p.endsWith('.html')) p += '.html';
-    return p;
+  let p = path.toLowerCase();
+  
+  // Agregar . al inicio si no existe
+  if (!p.startsWith('.')) p = '.' + p;
+
+  // Asegurarse de que termine en .html
+  if (!p.endsWith('.html')) p += '.html';
+
+  if (location.protocol === 'file:') {
+    p = p.replace(/^\/+/, ''); // elimina slash inicial en local
   }
 
-  function syncWithCurrentPage() {
-    if (!window.currentPage) return;
-    const normalized = normalize(window.currentPage);
-    const index = pages.findIndex(p => p.toLowerCase() === normalized);
-    if (index !== -1 && index !== currentIndex) {
-      currentIndex = index;
-      updatePageNumber();
-    }
+  return p;
+}
+
+function syncWithCurrentPage() {
+  if (!window.currentPage) return;
+
+  const normalized = normalize(window.currentPage);
+  const index = pages.findIndex(p => {
+    // Normalizamos también las rutas del array para compararlas bien
+    let pageNormalized = p.toLowerCase();
+    if (!pageNormalized.startsWith('.')) pageNormalized = '.' + pageNormalized;
+    return pageNormalized === normalized;
+  });
+
+  if (index !== -1 && index !== currentIndex) {
+    currentIndex = index;
+    updatePageNumber();
   }
+}
+
 
   const observer = new MutationObserver(syncWithCurrentPage);
   observer.observe(main, { childList: true, subtree: true });
