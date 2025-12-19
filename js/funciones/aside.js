@@ -1,3 +1,11 @@
+/*================================
+==  CREACION DE ASIDE DERECHO  ====  AJUSTE RESPONSIVE DEL ASIDE DERECHO  ====  ESCUCHA DE CAMBIOS EN VENTANA PARA AVISAR A RESPONSIVEASIDE  ==
+================================*/
+
+/*================================
+==  CREACION DE ASIDE DERECHO  ==
+================================*/
+
 export function createAside() {
   const content = document.querySelector('main.content');  // Rescato html
   const aside = document.getElementById('aside');          // Rescato html
@@ -64,6 +72,10 @@ export function createAside() {
   });
 }
 
+/*=========================================
+==  AJUSTE RESPONSIVE DEL ASIDE DERECHO  ==
+=========================================*/
+
 export function responsiveAside(container, aside) {                            // Funcion con 2 parametros
   const ancho = window.innerWidth;                                             // Ancho de pixeles del viewport
   let maxWidth = 80;                                                           // Ancho maximo
@@ -84,6 +96,10 @@ export function responsiveAside(container, aside) {                            /
   if (maxWidth < 54) maxWidth = 54;                                            // Si el ancho maximo es menos de 54, ponlo en 54
   container.style.maxWidth = maxWidth + '%';                                   // Aplico el ancho al contenedor
 }
+
+/*=================================================================
+==  ESCUCHA DE CAMBIOS EN VENTANA PARA AVISAR A RESPONSIVEASIDE  ==
+=================================================================*/
 
 export function setupResizeListener(container, aside) {       //  Funcion que adapta el tamaño de los elementos al tamaño de la ventana
   const onResize = () => responsiveAside(container, aside);   // Crea funcion abreviada que llama responsiveAside q cambia los estilos y layout segun ancho de ventana

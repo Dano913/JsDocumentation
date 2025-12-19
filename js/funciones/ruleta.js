@@ -1,4 +1,10 @@
-// ruleta.js
+/*===========================================================================================================================
+==  ARRAY DE PAGINAS DE EJERCICIOS Y HTML  ====  DETECCION DE LOS EJERCICIOS  ====  RENDERIZADO DE UN EJERCICIO ALEATORIO  ==
+===========================================================================================================================*/
+
+/*===========================================
+==  ARRAY DE PAGINAS DE EJERCICIOS Y HTML  ==
+===========================================*/
 const paginasEjercicios = [                                                   // Guardo en una constante las paginas a las que estoy llamando
   './pages/ejercicios.html',
   './pages/ejerciciosDOM.html',
@@ -8,7 +14,9 @@ const paginasEjercicios = [                                                   //
 const boton = document.getElementById('girarRuleta');                         // Rescato el boton html
 const contenedor = document.getElementById('ejercicioSeleccionado');          // Rescato el div html
 
-
+/*=================================
+==  DETECCION DE LOS EJERCICIOS  ==
+=================================*/
 
 async function obtenerEjercicios(url) {                   // Función para extraer los ejercicios de un HTML
   const res = await fetch(url);                           // Obtiene el html
@@ -29,6 +37,10 @@ async function obtenerEjercicios(url) {                   // Función para extra
 
   return divsEx.map(div => div.innerHTML);                // Devuelve los divs con map
 }
+
+/*===========================================
+==  RENDERIZADO DE UN EJERCICIO ALEATORIO  ==
+===========================================*/
 
 async function mostrarEjercicio() {                                                         // Función para mostrar un ejercicio aleatorio
   const pagina = paginasEjercicios[Math.floor(Math.random() * paginasEjercicios.length)];   // Saca un numero decimal entre 0 y 1, multiplica por el numero de paginas y redondea hacia abajo. En este caso siempre selecciona la misma porque solo hay una 
@@ -53,24 +65,4 @@ async function mostrarEjercicio() {                                             
   }
 }
 boton.addEventListener('click', mostrarEjercicio);                   // Llamo al evento del boton al clickar
-
-const sidebar = document.querySelector('.sidebar');               // Rescato html
-let lastState = null;                                             // Guardo el ultimo estado conocido de la sidebar
-
-if (sidebar) {                                                    // Compruebo q exista
-  const observer = new MutationObserver(() => {                   // Observo cambios en el dom
-    const isActive = sidebar.classList.contains('active');        // Guardo variable cuando la clase es activa
-    const currentState = isActive ? 'desplegada' : 'plegada';     // Indico desplegada
-
-    if (currentState !== lastState) {      // Si el estado actual no es el ultimo
-      lastState = currentState;            // Iguala el ultimo estado al actual 
-      ajustarAnchosSegunSidebar();         // Ejecuta la funcion de ajustar anchos
-    }
-  });
-
-  observer.observe(sidebar, {       // Le dice al mutationObserver que elemento hay que observar
-    attributes: true,               // Que tipo de cambio detectar
-    attributeFilter: ['class']      // Que atributo concreto vigilar
-  });
-}
 

@@ -1,7 +1,19 @@
+/*==================================================================================================================================================
+==  HTMLS  ====  ESCUCHA DE CLICKS EN EDITOR ====  ADICION DE SNIPPETS A EDITOR  ====  LOGICA DEL EDITOR  ====  EJECUCION DEL CODIGO INTRODUCIDO  ==
+==================================================================================================================================================*/
+
+/*===========
+==  HTMLS  ==
+===========*/
+
 const customSelect = document.querySelector('.custom-select');              // Rescato html
 const selected = customSelect.querySelector('.selected');
 const optionsContainer = customSelect.querySelector('.options');
 const optionsList = optionsContainer.querySelectorAll('div[data-value]');
+
+/*================================
+==  ESCUCHA DE CLICKS EN EDITOR ==
+================================*/
 
 selected.addEventListener('click', () => {           // Escucha el evento de click
     customSelect.classList.toggle('open');           //  Abre o cierra el menu desplegable
@@ -22,7 +34,10 @@ document.addEventListener('click', (e) => {     // Escucha click
     }
 });
 
-// Añadir snippets al editor
+/*==================================
+==  ADICION DE SNIPPETS A EDITOR  ==
+==================================*/
+
 function insertSnippet(type) {        // Funcion que insetar snippet segun eleccion
     if (!window.CodeEditor || !window.CodeEditor.cmEditor) return; // Si el editor no existe, termina
 
@@ -64,6 +79,10 @@ function insertSnippet(type) {        // Funcion que insetar snippet segun elecc
         cm.focus();                                                        // Hace foco en el editor después de insertar
     }
 }
+
+/*=======================
+==  LOGICA DEL EDITOR  ==
+=======================*/
 
 window.CodeEditor = {                                 // Objeto global que agrupa toda la lógica del editor
     init: function () {                               // Función que inicializa el editor y todos sus elementos
@@ -223,6 +242,10 @@ window.CodeEditor = {                                 // Objeto global que agrup
         }
     }
 };
+
+/*======================================
+==  EJECUCION DEL CODIGO INTRODUCIDO  ==
+======================================*/
 
 document.addEventListener('DOMContentLoaded', () => {           // Espera a que todo el HTML se haya cargado antes de ejecutar el código
     if (window.CodeEditor) {                                    // Comprueba si el objeto global CodeEditor existe

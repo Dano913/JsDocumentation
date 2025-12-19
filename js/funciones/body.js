@@ -1,6 +1,14 @@
 import { createAside } from './aside.js';
 import { runJsEditor } from './navbar.js';
 
+/*=======================================================================================================================================================================================================================================
+==  IDENTACION DE BLOQUES CODE  ====  EJECUCION DE EJERCICIOS  ====  DETECCION DEL BLOQUE DE EJERCICIO  ====  COPIA A PORTAPELES DEL EJERCICIO  ====  COPIA A PORTAPAPELES DE BLOQUE CODE  ====  CARGAR PAGINAS CON SUS FUNCIONES  ====  RENDERIZADO DE DIV PAGINACION  ==
+======================================================================================================================================================================================================================================*/
+
+/*================================
+==  IDENTACION DE BLOQUES CODE  ==
+================================*/
+
 export function normalizeCodeBlocks(container = document) {               // Funcion con 2 parametros
   container.querySelectorAll('pre code').forEach(block => {               // Selecciona los html e itera sobre cada bloque encontrado
     let lines = block.textContent.split('\n');                            // Obtiene el texto del bloque y hace un array de lineas segun los saltos \n
@@ -13,6 +21,10 @@ export function normalizeCodeBlocks(container = document) {               // Fun
   });
 }
 
+/*==============================
+==  EJECUCION DE EJERCICIOS  ==
+==============================*/
+
 export function executeScripts(container) {                                          // Funcion de ejecutar scripts con parametro
   container.querySelectorAll('script:not([type="module"])').forEach(oldScript => {   // Selecciona los elementos script que no tengan type module
     const newScript = document.createElement("script");                              // Para cada uno, crea otro script porque los scripts directamente con innerHTML no se ejecutan automaticamente
@@ -20,6 +32,10 @@ export function executeScripts(container) {                                     
     document.body.appendChild(newScript);                                            // Mete el nuevo en el body
   });
 }
+
+/*=======================================
+==  DETECCION DEL BLOQUE DE EJERCICIO  ==
+=======================================*/
 
 export function extraerEjercicio(codigoCompleto, numero) {        // Funcion para detectar el bloque de ejercicio que quiero copiar
   const inicio = `console.log("%c===== Ejercicio ${numero}:`;     // Define inicio
@@ -36,6 +52,10 @@ export function extraerEjercicio(codigoCompleto, numero) {        // Funcion par
 
   return bloque.trim();                                           // Quita espacios y saltos de línea al inicio y final
 }
+
+/*======================================
+==  COPIA A PORTAPELES DEL EJERCICIO  ==
+======================================*/
 
 export function copyExButton() {                                               // Funcion para el boton de copiar script
   const h2Elements = document.querySelectorAll('.ex h2');                      // Selecciona los h2 que estan en un contenedor con clase ex
@@ -121,6 +141,10 @@ export function copyExButton() {                                               /
   });
 }
 
+/*=========================================
+==  COPIA A PORTAPAPELES DE BLOQUE CODE  ==
+=========================================*/
+
 export function copyCodeButton() {                                               // Funcion de copiar codigo a cada bloque de que tenga codigo
   const codeBlocks = document.querySelectorAll("pre code.language-javascript");  // Selecciona los divs con la clase correspondiente
 
@@ -167,6 +191,10 @@ export function copyCodeButton() {                                              
   });
 }
 
+/*======================================
+==  CARGAR PAGINAS CON SUS FUNCIONES  ==
+======================================*/
+
 export function loadPage(url, main) {          // Funcion de cargar pagina con parametros
   return new Promise((resolve, reject) => {    // Devuelve una promesa que puede llamar al resolver si todo sale correctamente o al reject si hay un error
     fetch(url)                                 // Solicita el contenido html
@@ -211,9 +239,13 @@ export function loadPage(url, main) {          // Funcion de cargar pagina con p
   });
 }
 
-export function createFloatingNav(main) { // Función que crea un div flotante para pasar de página
-  const navDiv = document.createElement('div'); // Crea el div
-  navDiv.style.position = 'fixed';
+/*===================================
+==  RENDERIZADO DE DIV PAGINACION  ==
+===================================*/
+
+export function createFloatingNav(main) {             // Función que crea un div flotante para pasar de página
+  const navDiv = document.createElement('div');       // Crea el div
+  navDiv.style.position = 'fixed';                    // Estilos
   navDiv.style.bottom = '30px';
   navDiv.style.left = '50%';
   navDiv.style.transform = 'translateX(-50%)';
@@ -226,30 +258,30 @@ export function createFloatingNav(main) { // Función que crea un div flotante p
   navDiv.style.borderRadius = '10px';
   navDiv.style.padding = '2px 10px';
 
-  const prevBtn = document.createElement('button');
-  prevBtn.textContent = '⬅';
+  const prevBtn = document.createElement('button');   // Crea el div
+  prevBtn.textContent = '⬅';                         // Estilos
   prevBtn.style.fontSize = '24px';
   prevBtn.style.cursor = 'pointer';
   prevBtn.style.border = 'none';
   prevBtn.style.background = 'transparent';
   prevBtn.style.color = 'var(--text-color)';
 
-  const pageNumber = document.createElement('span');
-  pageNumber.style.fontWeight = 'bold';
+  const pageNumber = document.createElement('span');  // Crea el div
+  pageNumber.style.fontWeight = 'bold';               // Estilos
   pageNumber.style.fontSize = '16px';
 
-  const nextBtn = document.createElement('button');
-  nextBtn.textContent = '➡';
+  const nextBtn = document.createElement('button');   // Crea el div
+  nextBtn.textContent = '➡';                         // Estilos
   nextBtn.style.fontSize = '24px';
   nextBtn.style.cursor = 'pointer';
   nextBtn.style.border = 'none';
   nextBtn.style.background = 'transparent';
   nextBtn.style.color = 'var(--text-color)';
 
-  navDiv.append(prevBtn, pageNumber, nextBtn);
-  main.parentElement.appendChild(navDiv);
+  navDiv.append(prevBtn, pageNumber, nextBtn);        // Meto los elementos creados en el primero
+  main.parentElement.appendChild(navDiv);             // Meto el div en el html
 
-  const pages = [
+  const pages = [                          // Defino array
     '/pages/introduccion.html',
     '/pages/datos.html',
     '/pages/objetos.html',
@@ -274,63 +306,53 @@ export function createFloatingNav(main) { // Función que crea un div flotante p
     '/pages/ruleta.html'
   ];
 
-  let currentIndex = 0;
+  let currentIndex = 0;              // Inicializo el Índice actual de la página
 
-  function updatePageNumber() {
-    pageNumber.textContent = `${currentIndex + 1} / ${pages.length}`;
+  function updatePageNumber() {      // Funcion q actualiza el número de página visible
+    pageNumber.textContent = `${currentIndex + 1} / ${pages.length}`;   
   }
 
-  function goToPage(index) {
-    if (index < 0) index = 0;
-    if (index >= pages.length) index = pages.length - 1;
-    currentIndex = index;
-    loadPage(pages[currentIndex], main).then(() => updatePageNumber());
+  function goToPage(index) {                                        //Funcion que actualiza la pagina correspondiente
+    if (index < 0) index = 0;                                           // Limita el índice mínimo a 0
+    if (index >= pages.length) index = pages.length - 1;                // Limita el índice máximo al total de páginas
+    currentIndex = index;                                               // Actualiza el índice actual
+    loadPage(pages[currentIndex], main).then(() => updatePageNumber()); // Carga la página y actualiza el número
   }
 
-  prevBtn.addEventListener('click', () => goToPage(currentIndex - 1));
-  nextBtn.addEventListener('click', () => goToPage(currentIndex + 1));
+prevBtn.addEventListener('click', () => goToPage(currentIndex - 1)); // Botón anterior: va a la página anterior
+nextBtn.addEventListener('click', () => goToPage(currentIndex + 1)); // Botón siguiente: va a la página siguiente
 
-  const isLocal = location.protocol === 'file:';
-
-  function normalize(path) {
-  let p = path.toLowerCase();
-  
-  // Agregar . al inicio si no existe
-  if (!p.startsWith('.')) p = '.' + p;
-
-  // Asegurarse de que termine en .html
-  if (!p.endsWith('.html')) p += '.html';
-
+function normalize(path) {              // Funcion que acomoda la ruta de la pagina
+  let p = path.toLowerCase();                // Convierto la ruta a minúsculas
+  if (!p.startsWith('.')) p = '.' + p;       // Agrego un punto al inicio si no existe
+  if (!p.endsWith('.html')) p += '.html';    // Aseguro que termine con .html
   if (location.protocol === 'file:') {
-    p = p.replace(/^\/+/, ''); // elimina slash inicial en local
+    p = p.replace(/^\/+/, '');               // Elimino los slashes iniciales si se abre desde file://
   }
-
-  return p;
+  return p;                                  // Devuelvo la ruta normalizada
 }
 
-function syncWithCurrentPage() {
-  if (!window.currentPage) return;
+function syncWithCurrentPage() {      // Funcion que sincroniza la pagina actual con el indice para mostrar el contador en la pantalla
+  if (!window.currentPage) return;                    // Si no hay página actual definida, salir
 
-  const normalized = normalize(window.currentPage);
+  const normalized = normalize(window.currentPage);   // Normaliza la página actual
   const index = pages.findIndex(p => {
-    // Normalizamos también las rutas del array para compararlas bien
-    let pageNormalized = p.toLowerCase();
-    if (!pageNormalized.startsWith('.')) pageNormalized = '.' + pageNormalized;
-    return pageNormalized === normalized;
+    let pageNormalized = p.toLowerCase();             // Convierte la ruta del array a minúsculas
+    if (!pageNormalized.startsWith('.')) pageNormalized = '.' + pageNormalized; // Asegura punto inicial
+    return pageNormalized === normalized;             // Compara rutas normalizadas
   });
 
-  if (index !== -1 && index !== currentIndex) {
-    currentIndex = index;
-    updatePageNumber();
+  if (index !== -1 && index !== currentIndex) {       // Si se encontró la página y es distinta a la actual
+    currentIndex = index;                             // Actualiza el índice actual
+    updatePageNumber();                               // Actualiza el número de página visible
   }
 }
 
+const observer = new MutationObserver(syncWithCurrentPage); // Observador de cambios en el DOM para sincronizar página
+observer.observe(main, { childList: true, subtree: true }); // Observo cambios en los hijos y subnodos del contenedor principal
 
-  const observer = new MutationObserver(syncWithCurrentPage);
-  observer.observe(main, { childList: true, subtree: true });
-
-  syncWithCurrentPage();
-  updatePageNumber();
+syncWithCurrentPage(); // Sincronizo inicialmente con la página actual
+updatePageNumber();    // Muestro el número de página al cargar
 }
 
 

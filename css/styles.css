@@ -415,17 +415,15 @@ section {
     }
 
     .solucion{
-      margin: 0px 2px 1px 2px;
-      padding: 0.5rem 1rem 1rem 1rem;
+      margin: 2px;
+      padding: 0.5rem 1rem 0.7rem;
       width:fit-content;
-      border: 1px solid var(--bg3-color);
+      border: 1px solid var(--text2-color);
       border-radius: 5px;
     }
 
     .lista-estilizada {
-      padding-left: 3vw;
-      margin-top: 1px;
-      margin-bottom: 10px;
+      padding-left: 20px;
       list-style-type: disc;
       font-size: 1.2rem;
 

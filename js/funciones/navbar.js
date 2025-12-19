@@ -1,3 +1,12 @@
+
+/*===========================================================================================================
+==  EJECUCION EL EDITOR  ====  CONFIGURACION DEL TEMA  ====  CONFIGURACION DE VENTANA EXTERNA PARA EDITOR  ==
+===========================================================================================================*/
+
+/*=========================
+==  EJECUCION EL EDITOR  ==
+=========================*/
+
 export function runJsEditor() {                                 // Abre el editor de js
   const editor = document.getElementById("editor");             // Rescato html de ruleta.html
   const preview = document.getElementById("preview");           // Rescato html de ruleta.html
@@ -24,6 +33,10 @@ export function runJsEditor() {                                 // Abre el edito
   editor.addEventListener("input", render);   // Reejecuta cuando actualizo el codigo
 }
 
+/*============================
+==  CONFIGURACION DEL TEMA  ==
+============================*/
+
 export function setupThemeToggle(themeToggle, body) {               // Funcion del themetoggle
   if (!themeToggle) return;                                         // Si no existe termina 
 
@@ -47,7 +60,11 @@ export function setupThemeToggle(themeToggle, body) {               // Funcion d
   });
 }
 
-export function setupExternalEditorButton() {                          // COnfigura el boton del editor
+/*==================================================
+==  CONFIGURACION DE VENTANA EXTERNA PARA EDITOR  ==
+==================================================*/
+
+export function setupExternalEditorButton() {                          // Configura el boton del editor
   const externalBtn = document.getElementById("external-window-btn");  // Rescato el html
   if (!externalBtn) {                                                  // Si no existe termina
     console.error("⚠️ No se encontró el botón external-window-btn");

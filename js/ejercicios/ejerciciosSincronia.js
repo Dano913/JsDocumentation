@@ -347,13 +347,13 @@ document.getElementById('reduceDestruct').textContent = `Media RPG: ${mediaRPG.t
 
 
 
-const container = document.getElementById('apiThrones');    // Rescato htmls                     
-const select = container.querySelector('#character-list');                       
-const img = container.querySelector('.character-image');                         
+const containerGot = document.getElementById('apiThrones');    // Rescato htmls                     
+const selectGot = containerGot.querySelector('#character-list');                       
+const imgGot = containerGot.querySelector('.character-image');                         
 const apiURL = 'https://thronesapi.com/api/v2/Characters';  // API                      
  
 let personajeSeleccionado = "";                             // Variable para almacenar el personaje seleccionado actualmente             
-select.style.marginBottom = '20px';   
+selectGot.style.marginBottom = '20px';   
 
 fetch(apiURL)                                               // Peticion
   .then(response => response.json())                        // Transformo a JSON
@@ -363,17 +363,20 @@ fetch(apiURL)                                               // Peticion
       option.value = character.imageUrl;                    // Guardo su imagen como valor del option
       option.textContent = character.fullName;              // Muestro el nombre en el option
       option.dataset.name = character.fullName;             // Guardo el nombre como un data atribute
-      select.appendChild(option);                           // Añado la opcion al select
+      selectGot.appendChild(option);                        // Añado la opcion al select
     });
 
     if (characters.length > 0) {                            // Si se devuelve 1 personaje
-      select.selectedIndex = 0;                             // Selecciono para el la primera opcion del select
-      img.src = characters[0].imageUrl;                     // Muestrola imagen del primer personaje por defecto
+      selectGot.selectedIndex = 0;                          // Selecciono para el la primera opcion del select
+      imgGot.src = characters[0].imageUrl;                  // Muestrola imagen del primer personaje por defecto
       personajeSeleccionado = characters[0].fullName;       // Guardo el nombre del primer personaje como seleccionado
     }
 
     const actualizarPersonaje = (selectedOption) => {       // Funcion para actualizarnombre e imagen seleccionados
-      img.src = selectedOption.value;                       // Cambio la imagen al seleccionado
+      imgGot.src = selectedOption.value;                    // Cambio la imagen al seleccionado
+      imgGot.style.height = '80%';                          // Estilos
+      imgGot.style.display = 'block';   
+      imgGot.style.margin = '0 auto'; 
       personajeSeleccionado = selectedOption.dataset.name;  // Actualizo nombre 
 
       console.log(
@@ -383,10 +386,10 @@ fetch(apiURL)                                               // Peticion
       );
     };
 
-    actualizarPersonaje(select.selectedOptions[0]);         // LLamo a la funcion para mostrar el personaje por defecto
+    actualizarPersonaje(selectGot.selectedOptions[0]);         // LLamo a la funcion para mostrar el personaje por defecto
 
-    select.addEventListener('change', (event) => {          // Esucho evento change del select cuando se elige opcion
-      actualizarPersonaje(event.target.selectedOptions[0]); // Actualizo
+    selectGot.addEventListener('change', (event) => {          // Esucho evento change del select cuando se elige opcion
+      actualizarPersonaje(event.target.selectedOptions[0]);    // Actualizo
     });
   })
   .catch(error => console.error('Error al cargar los personajes:', error)); // Capturo error
@@ -396,10 +399,10 @@ fetch(apiURL)                                               // Peticion
 
 
 
-const container9 = document.getElementById('pokeAPI');    // Rescato htmls
-const img9 = container9.querySelector('.random-image');
-const nameEl = container9.querySelector('.pokemon-name');
-const button9 = container9.querySelector('#new-pokemon');
+const containerPoke = document.getElementById('pokeAPI');    // Rescato htmls
+const imgPoke = containerPoke.querySelector('.random-image');
+const pokename = containerPoke.querySelector('.pokemon-name');
+const buttonPoke = containerPoke.querySelector('#new-pokemon');
 
 let pokemonSeleccionado = "";                                  // Variable para almacenar el pokemon seleccionado actualmente     
 
@@ -410,12 +413,16 @@ function loadRandomPokemon() {                                 // Funcion para c
   fetch(url)                                                   // Llamo a la API
     .then(response => response.json())                         // Transformo a JSON
     .then(pokemon => {                                         // Recibo datos del pokemon
-      img9.src = pokemon.sprites.other['official-artwork'].front_default; // Actualizola imagen del pokemon
-      img9.alt = pokemon.name;                                 // Asigno atributo alt con elnombre
-      img9.style.width = '90%';                     
-      nameEl.textContent = pokemon.name;                       // Actualizo el html
+      imgPoke.src = pokemon.sprites.other['official-artwork'].front_default; // Actualizola imagen del pokemon
+      imgPoke.alt = pokemon.name;                                 // Asigno atributo alt con elnombre
+      imgPoke.style.height = '70%';                               // Estilos
+      imgPoke.style.display = 'block';   
+      imgPoke.style.margin = '0 auto'; 
 
-      pokemonSeleccionado = pokemon.name;                      // Guardo el nombre en la variable vacia
+      let pokemonSeleccionado = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1); // Pongo primera mayuscula
+      pokename.textContent = pokemonSeleccionado;                       // Meto la variable con la primera mayuscula en el html
+      pokename.style.display = 'block';                                 // Estilos
+      pokename.style.textAlign = 'center';
 
       console.log(
         "%c===== Ejercicio 9: API con boton aleatorio =====",
@@ -430,7 +437,7 @@ function loadRandomPokemon() {                                 // Funcion para c
 
 loadRandomPokemon();                                           // LLamo a la funcion para mostrar pokemon inicial
 
-button9.addEventListener('click', loadRandomPokemon);          // Asigno evento click al boton con la funcion para que actualice
+buttonPoke.addEventListener('click', loadRandomPokemon);          // Asigno evento click al boton con la funcion para que actualice
 
 
 
