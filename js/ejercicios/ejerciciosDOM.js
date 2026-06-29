@@ -206,7 +206,7 @@ clone.appendChild(btnEliminarUltimo);                        // Meto el boton en
 
 btnEliminarUltimo.addEventListener('click', () => {          // Escucho evento click
     // Solo eliminamos los divs que contienen h4 e img
-    const divs = Array.from(clone.querySelectorAll('div'))              // Rescato el array de divs de clone
+    const divs = Array.from(clone.querySelectorAll('div'))              // Rescato el nodeList anterior y lo casteo a array porque tengo mas funciones
         .filter(d => d.querySelector('h4') && d.querySelector('img'));  // Filtro los que tengan h4 e img
     if (divs.length > 0) {                      // Comprueba si hay al menos un div
         divs[divs.length - 1].remove();         // Coge el ultimo div del array y lo elimina
